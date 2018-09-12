@@ -1,13 +1,11 @@
 <template>
-    <header class="bg-grey-light">
-        <div class="container">
-            <div class="flex py-6 h-24">
-                <div class="TheHeader__logoHolder flex flex-no-shrink bg-white p-6 -mt-4 shadow-lg">
-                    <Logo/>
-                </div>
-                <div class="TheHeader__navigationHolder flex flex-grow items-center justify-end">
-                    <TheNavigation/>
-                </div>
+    <header class="mainHeader">
+        <div class="inner">
+            <div class="logoHolder flex-no-shrink">
+                <Logo/>
+            </div>
+            <div class="navigationHolder flex flex-grow items-center justify-end">
+                <TheNavigation/>
             </div>
         </div>
     </header>
@@ -26,8 +24,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.TheHeader__logoHolder {
-    width: 127px;
-    height: 188px;
+.logoHolder {
+    width: 378px;
+    height: 44px;
+    background-color: #000;
+}
+.inner {
+    padding: 38px 50px;
+    display: flex;
+    align-items: center;
+}
+.navigationHolder {
+    margin-right: 239px;
+    margin-top: 8px;
 }
 </style>

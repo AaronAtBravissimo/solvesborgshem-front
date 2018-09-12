@@ -27,8 +27,8 @@ module.exports = {
     ** Headers of the page
     */
     head: {
-        title: 'Startmall',
-        titleTemplate: '%s - Startmall',
+        title: 'Sölvesborgshem',
+        titleTemplate: '%s',
         meta: [
             { charset: 'utf-8' },
             {
@@ -42,12 +42,13 @@ module.exports = {
             },
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+        link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Merriweather:300,400' }],
     },
 
     /*
     ** Customize the progress-bar color
     */
-    loading: { color: '#FFFFFF' },
+    loading: { color: '#3aa2d2' },
 
     /*
     ** Global CSS
@@ -73,9 +74,9 @@ module.exports = {
             },
         ],
         [
-            '@nuxtjs/google-tag-manager', 
-            { 
-                id: 'GTM-xxx' 
+            '@nuxtjs/google-tag-manager',
+            {
+                id: 'GTM-xxx'
             }
         ],
     ],
