@@ -2,10 +2,8 @@
     <header class="aboveHeader">
         <div class="inner">
             <div class="left">
-
             </div>
             <div class="right">
-
             </div>
         </div>
     </header>
@@ -14,6 +12,7 @@
 <script>
 
 export default {
+
 };
 </script>
 

@@ -4,7 +4,16 @@
             v-if="page.acf.topSection"
             :top-section="page.acf.topSection"
         />
-        <div class="container">
+        <div
+            v-if="page.acf.modules"
+            class="modules"
+        >
+            <div
+                v-if="page.acf.modules[0].acf_fc_layout === 'shortcuts'"
+                class="shortcuts"
+            >
+                Genväg
+            </div>
         </div>
     </div>
 </template>
