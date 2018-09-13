@@ -31,5 +31,6 @@ export default {
 }
 .wrapper {
     background-color: #f4f8fa;
+    padding: 0 50px;
 }
 </style>

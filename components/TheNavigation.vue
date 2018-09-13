@@ -18,6 +18,7 @@
 </template>
 
 <script>
+
 export default {
     computed: {
         menu() {
@@ -28,6 +29,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.mainNavigation {
+    margin-right: 45px;
+}
 .item {
     margin-right: 39px;
     &:last-child {

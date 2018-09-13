@@ -6,6 +6,20 @@
             </div>
             <div class="navigationHolder flex flex-grow items-center justify-end">
                 <TheNavigation/>
+                <a
+                    class="button"
+                    href="#"
+                >
+                    <div class="flex">
+                        <div class="button__inner">
+                            <img
+                                src="../assets/images/icon-user.svg"
+                                class="button__icon"
+                            >
+                            <div class="button__label">Mina sidor</div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </header>
@@ -27,15 +41,12 @@ export default {
 .logoHolder {
     width: 378px;
     height: 44px;
-    background-color: #000;
+    position: relative;
+    top: -4px;
 }
 .inner {
-    padding: 38px 50px;
+    padding: 40px 0 46px; // NOTE: Paddingen nedåt bör plockas bort sedan...
     display: flex;
     align-items: center;
-}
-.navigationHolder {
-    margin-right: 239px;
-    margin-top: 8px;
 }
 </style>

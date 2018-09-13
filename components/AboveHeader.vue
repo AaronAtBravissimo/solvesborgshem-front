@@ -22,6 +22,8 @@ export default {
     background-color: #000;
     min-height: 69px;
     display: flex;
+    margin-left: -50px;
+    width: calc(100% + 100px);
 }
 .inner {
     display: flex;
