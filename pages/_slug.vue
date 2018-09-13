@@ -1,17 +1,24 @@
 <template>
-    <div class="page py-6">
+    <div class="page">
+        <TopSection
+            v-if="page.acf.topSection"
+            :top-section="page.acf.topSection"
+        />
         <div class="container">
-            <h1 class="text-center">{{ page.title.rendered }}</h1>
         </div>
     </div>
 </template>
 
 <script>
 import { getMeta } from '../utils/helpers';
+import TopSection from '../components/TopSection.vue';
 
 export default {
     head() {
         return getMeta(this.page.yoast);
+    },
+    components: {
+        TopSection,
     },
     computed: {
         page() {
