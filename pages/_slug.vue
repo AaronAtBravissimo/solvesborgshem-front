@@ -4,23 +4,17 @@
             v-if="page.acf.topSection"
             :top-section="page.acf.topSection"
         />
-        <div
+        <Modules
             v-if="page.acf.modules"
-            class="modules"
-        >
-            <div
-                v-if="page.acf.modules[0].acf_fc_layout === 'shortcuts'"
-                class="shortcuts"
-            >
-                Genväg
-            </div>
-        </div>
+            :modules="page.acf.modules"
+        />
     </div>
 </template>
 
 <script>
 import { getMeta } from '../utils/helpers';
 import TopSection from '../components/TopSection.vue';
+import Modules from '../components/Modules.vue';
 
 export default {
     head() {
@@ -28,6 +22,11 @@ export default {
     },
     components: {
         TopSection,
+        Modules,
+    },
+    data() {
+        return {
+        };
     },
     computed: {
         page() {
