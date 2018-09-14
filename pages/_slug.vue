@@ -1,39 +1,35 @@
 <template>
     <div class="page">
         <TopSection
-            v-if="page.acf.topSection"
-            :top-section="page.acf.topSection"
+            v-if="page.topSection"
+            :top-section="page.topSection"
         />
         <Modules
-            v-if="page.acf.modules"
-            :modules="page.acf.modules"
+            v-if="page.modules"
+            :modules="page.modules"
         />
     </div>
 </template>
 
 <script>
-import { getMeta } from '../utils/helpers';
+import axios from 'axios';
 import TopSection from '../components/TopSection.vue';
 import Modules from '../components/Modules.vue';
+import { apiUrl } from '../utils/config';
+import { getMeta } from '../utils/helpers';
 
 export default {
     head() {
         return getMeta(this.page.yoast);
     },
+    async asyncData({ route }) {
+        const { path } = route;
+        const { data } = await axios.get(`${apiUrl}/api/page?path=${path}`);
+        return { page: data };
+    },
     components: {
         TopSection,
         Modules,
-    },
-    data() {
-        return {
-        };
-    },
-    computed: {
-        page() {
-            const { slug } = this.$route.params;
-            const { pages } = this.$store.getters;
-            return pages.find(page => page.slug === slug);
-        },
     },
 };
 </script>

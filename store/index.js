@@ -6,43 +6,21 @@ import { apiUrl } from '../utils/config';
 const createStore = () => new Vuex.Store({
     state: {
         menu: {},
-        pages: [],
-        shortcuts: [],
         options: [],
     },
     getters: {
         menu: state => state.menu,
-        pages: state => state.pages,
-        shortcuts: state => state.shortcuts,
         options: state => state.options,
     },
     mutations: {
         setMenu(state, { menu }) {
             state.menu = menu;
         },
-        setPages(state, { pages }) {
-            state.pages = pages;
-        },
-        setShortcuts(state, { shortcuts }) {
-            state.shortcuts = shortcuts;
-        },
         setOptions(state, { options }) {
             state.options = options;
         },
     },
     actions: {
-        async loadPages({ commit }) {
-            const res = await axios.get(
-                `${apiUrl}/wp/v2/pages?timestamp=${new Date().getTime()}`,
-            );
-            commit('setPages', { pages: res.data });
-        },
-        async loadShortcuts({ commit }) {
-            const res = await axios.get(
-                `${apiUrl}/wp/v2/shortcut?timestamp=${new Date().getTime()}`,
-            );
-            commit('setShortcuts', { shortcuts: res.data });
-        },
         async loadMenu({ commit }) {
             const res = await axios.get(
                 `${apiUrl}/menus/v1/menus/primary?timestamp=${new Date().getTime()}`,
@@ -57,8 +35,6 @@ const createStore = () => new Vuex.Store({
         },
         async nuxtServerInit({ dispatch }) {
             return Promise.all([
-                dispatch('loadPages'),
-                dispatch('loadShortcuts'),
                 dispatch('loadMenu'),
                 dispatch('loadOptions'),
             ]);

@@ -7,10 +7,10 @@
             <Shortcut
                 v-for="(shortcut, index) in shortcuts"
                 :key="index"
-                :image="shortcut.acf.image"
-                :heading="shortcut.acf.heading"
-                :content="shortcut.acf.content"
-                :link="shortcut.acf.link"
+                :image="shortcut.image"
+                :heading="shortcut.heading"
+                :content="shortcut.content"
+                :link="shortcut.link"
             />
         </div>
     </section>
@@ -28,17 +28,9 @@ export default {
             type: String,
             default: null,
         },
-        shortcutIds: {
+        shortcuts: {
             type: Array,
             default: null,
-        },
-    },
-    computed: {
-        shortcuts() {
-            const allShortcuts = this.$store.getters.shortcuts;
-            return this.shortcutIds
-                .map(id => allShortcuts.find(shortcut => shortcut.id === id))
-                .filter(Boolean);
         },
     },
 };
