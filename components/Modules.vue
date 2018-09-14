@@ -12,6 +12,7 @@
                 v-if="module.acf_fc_layout === 'shortcuts'"
                 :key="index"
                 :heading="module.heading"
+                :shortcut-ids="module.shortcuts"
             />
         </template>
     </section>
