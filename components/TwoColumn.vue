@@ -5,7 +5,7 @@
                 <div
                     v-for="(column, index) in columns"
                     :key="index"
-                    class="column"
+                    class="column content"
                     v-html="column.content"
                 >
                 </div>
@@ -26,7 +26,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gutter: 25px;
+$gutter: 31.5px;
+
+.twoColumn {
+    padding-bottom: 62px;
+}
 
 .columns {
     margin-left: -$gutter;

@@ -31,28 +31,24 @@ export default {
 
 <style lang="scss" scoped>
 .topSection {
-    padding-bottom: 90px;
+    padding-bottom: 84px;
 }
 .image {
     width: 100%;
     height: 470px;
     object-fit: cover;
-    margin-bottom: 57px;
+    margin-bottom: 67px;
 }
 .headingPreamble {
     text-align: center;
     &__heading {
         line-height: 1.05;
-        text-transform: uppercase;
         font-size: 50px;
         letter-spacing: 10px;
-        color: #202020;
-        font-weight: bold;
         margin-left: 12px; // NOTE: Bör plockas bort?
     }
     &__preamble {
         font-size: 20px;
-        font-family: $secondaryFont;
         line-height: 1.55;
         margin-top: 42px;
         margin-left: 6px;

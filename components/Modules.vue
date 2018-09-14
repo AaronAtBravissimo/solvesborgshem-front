@@ -4,12 +4,12 @@
             v-for="(module, index) in modules"
         >
             <TwoColumn
-                v-if="module.acf_fc_layout == 'twoColumns'"
+                v-if="module.acf_fc_layout === 'twoColumns'"
                 :key="index"
                 :columns="module.columns"
             />
             <Shortcuts
-                v-if="module.acf_fc_layout == 'shortcuts'"
+                v-if="module.acf_fc_layout === 'shortcuts'"
                 :key="index"
                 :heading="module.heading"
             />
