@@ -4,12 +4,25 @@
             <div class="headingHolder">
                 <h2>{{ heading }}</h2>
             </div>
+            <Shortcut
+                v-for="(shortcut, index) in shortcuts"
+                :key="index"
+                :image="shortcut.acf.image"
+                :heading="shortcut.acf.heading"
+                :content="shortcut.acf.content"
+                :link="shortcut.acf.link"
+            />
         </div>
     </section>
 </template>
 
 <script>
+import Shortcut from './Shortcut.vue';
+
 export default {
+    components: {
+        Shortcut,
+    },
     props: {
         heading: {
             type: String,
