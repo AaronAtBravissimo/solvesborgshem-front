@@ -100,7 +100,9 @@ module.exports = {
     ** Build configuration
     */
     build: {
-        extractCSS: true,
+        extractCSS: {
+            allChunks: true
+        },
         extend(config, { isDev, isClient }) {
             // Run ESLint on save
             if (isDev && isClient) {
