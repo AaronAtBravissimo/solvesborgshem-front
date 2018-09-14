@@ -9,8 +9,8 @@ const apiUrl = config.apiUrl;
 
 function getRoutes() {
     const pages = axios
-        .get(`${apiUrl}/wp/v2/pages`)
-        .then(res => res.data.map(item => item.link.replace(baseUrl, '')));
+        .get(`${apiUrl}/api/page`)
+        .then(res => res.data.map(item => item.post_link.replace(baseUrl, '')));
     return Promise.all([pages]).then(values => values.join().split(','));
 }
 
