@@ -6,20 +6,11 @@
             </div>
             <div class="navigationHolder flex flex-grow items-center justify-end">
                 <TheNavigation/>
-                <a
-                    class="button"
-                    href="#"
-                >
-                    <div class="flex">
-                        <div class="button__inner">
-                            <img
-                                src="../assets/images/icon-user.svg"
-                                class="button__icon"
-                            >
-                            <div class="button__label">Mina sidor</div>
-                        </div>
-                    </div>
-                </a>
+                <AppButton
+                    :icon="userIcon"
+                    url="#minaSidor"
+                    label="Mina sidor"
+                />
             </div>
         </div>
     </header>
@@ -28,11 +19,19 @@
 <script>
 import Logo from './Logo.vue';
 import TheNavigation from './TheNavigation.vue';
+import AppButton from './AppButton.vue';
+import userIcon from '../assets/images/icon-user.svg';
 
 export default {
     components: {
         Logo,
         TheNavigation,
+        AppButton,
+    },
+    data() {
+        return {
+            userIcon,
+        };
     },
 };
 </script>
