@@ -11,14 +11,23 @@
             <div class="infoHolder">
                 {{ heading }}
                 {{ content }}
-                {{ link }}
+                <AppButton
+                    :url="link.url"
+                    :target="link.target"
+                    label="Läs mer"
+                />
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import AppButton from './AppButton.vue';
+
 export default {
+    components: {
+        AppButton,
+    },
     props: {
         image: {
             type: Object,
