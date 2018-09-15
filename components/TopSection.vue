@@ -1,7 +1,7 @@
 <template>
     <section class="topSection">
         <img
-            :src="topSection.image.sizes.large"
+            :src="`${topSection.image.sizes.large}.webp`"
             :alt="topSection.image.alt"
             class="image"
         >

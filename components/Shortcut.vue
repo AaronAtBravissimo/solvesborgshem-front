@@ -3,7 +3,7 @@
         <div class="inner">
             <div class="imageHolder">
                 <img
-                    :src="image.sizes.large"
+                    :src="`${image.sizes.large}.webp`"
                     :alt="image.alt"
                     class="image"
                 >
