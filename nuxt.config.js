@@ -79,6 +79,7 @@ module.exports = {
                 id: 'GTM-xxx'
             }
         ],
+        '@/modules/generate',
     ],
 
     sitemap: {
@@ -91,6 +92,7 @@ module.exports = {
 
     generate: {
         fallback: true,
+        apiCacheDir: 'static/json/',
         routes() {
             return getRoutes();
         },

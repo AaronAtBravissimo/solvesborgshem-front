@@ -19,17 +19,25 @@ import { apiUrl } from '../utils/config';
 import { getMeta } from '../utils/helpers';
 
 export default {
-    head() {
-        return getMeta(this.page.yoast);
-    },
-    async asyncData({ route }) {
-        const { path } = route;
-        const { data } = await axios.get(`${apiUrl}/api/page?path=${path}`);
-        return { page: data };
-    },
     components: {
         TopSection,
         Modules,
+    },
+    head() {
+        return getMeta(this.page.yoast);
+    },
+    async asyncData({ route, isClient }) {
+        let { path } = route;
+
+        if (isClient) {
+            path = path.replace(/\//g, '-_-');
+            path = path.replace(/\\/g, '-_-');
+            const { data } = await axios.get(`/json/${path}.json`);
+            return { page: data };
+        }
+
+        const { data } = await axios.get(`${apiUrl}/api/page?path=${path}`);
+        return { page: data };
     },
 };
 </script>

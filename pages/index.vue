@@ -15,7 +15,12 @@ export default {
     head() {
         return getMeta(this.page.yoast, true);
     },
-    async asyncData() {
+    async asyncData({ isClient }) {
+        if (isClient) {
+            const { data } = await axios.get('/json/-_-.json');
+            return { page: data };
+        }
+
         const { data } = await axios.get(`${apiUrl}/api/page?frontpage=true`);
         return { page: data };
     },
