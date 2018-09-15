@@ -1,10 +1,16 @@
 <template>
     <section class="topSection">
-        <img
-            :src="`${topSection.image.sizes.large}.webp`"
-            :alt="topSection.image.alt"
-            class="image"
-        >
+        <picture>
+            <source
+                :srcset="`${topSection.image.sizes.large}.webp`"
+                type="image/webp"
+            >
+            <img
+                :src="topSection.image.sizes.large"
+                :alt="topSection.image.alt"
+                class="image objectFitCover"
+            >
+        </picture>
         <div class="headingPreamble">
             <div class="container">
                 <h1 class="headingPreamble__heading">
@@ -36,7 +42,6 @@ export default {
 .image {
     width: 100%;
     height: 470px;
-    object-fit: cover;
     margin-bottom: 67px;
 }
 .headingPreamble {

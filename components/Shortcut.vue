@@ -2,11 +2,17 @@
     <div class="shortcut">
         <div class="inner">
             <div class="imageHolder">
-                <img
-                    :src="`${image.sizes.large}.webp`"
-                    :alt="image.alt"
-                    class="image"
-                >
+                <picture>
+                    <source
+                        :srcset="`${image.sizes.large}.webp`"
+                        type="image/webp"
+                    >
+                    <img
+                        :src="image.sizes.large"
+                        :alt="image.alt"
+                        class="image objectFitCover"
+                    >
+                </picture>
             </div>
             <div class="infoHolder">
                 {{ heading }}
