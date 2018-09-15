@@ -27,6 +27,9 @@ module.exports = {
     ** Headers of the page
     */
     head: {
+        htmlAttrs: {
+            lang: 'sv',
+        },
         title: 'Sölvesborgshem',
         titleTemplate: '%s',
         meta: [
