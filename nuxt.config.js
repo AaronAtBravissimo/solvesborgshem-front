@@ -98,6 +98,16 @@ module.exports = {
         },
     },
 
+    router: {
+        extendRoutes (routes, resolve) {
+            routes.push({
+                name: 'page',
+                path: '*',
+                component: resolve(__dirname, 'pages/_slug.vue'),
+            });
+        },
+    },
+
     /*
     ** Build configuration
     */
