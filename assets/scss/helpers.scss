@@ -57,3 +57,12 @@
     object-fit: cover;
     font-family: "object-fit: cover;";
 }
+
+.page-enter-active, 
+.page-leave-active {
+    transition: opacity 0.35s;
+}
+.page-enter, 
+.page-leave-to {
+    opacity: 0;
+}
