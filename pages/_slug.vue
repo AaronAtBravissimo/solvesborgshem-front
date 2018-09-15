@@ -26,10 +26,10 @@ export default {
     head() {
         return getMeta(this.page.yoast);
     },
-    async asyncData({ route, isClient }) {
+    async asyncData({ route }) {
         let { path } = route;
 
-        if (isClient) {
+        if (process.client) {
             path = path.replace(/\//g, '-_-');
             path = path.replace(/\\/g, '-_-');
             const { data } = await axios.get(`/json/${path}.json`);
