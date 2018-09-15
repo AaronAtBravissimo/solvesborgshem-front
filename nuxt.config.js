@@ -141,7 +141,16 @@ module.exports = {
                                 extensions: ['vue'],
                             },
                         ],
-                        whitelist: ['html', 'body', 'nuxt-progress', 'vue-map'],
+                        whitelist: [
+                            'html', 
+                            'body', 
+                            'nuxt-progress', 
+                            'vue-map',
+                            'page-enter-active',
+                            'page-leave-active',
+                            'page-enter',
+                            'page-leave-to',
+                        ],
                     }),
                 );
             }
