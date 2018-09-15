@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { apiUrl } from '../utils/config';
 import { getMeta } from '../utils/helpers';
 
 export default {
@@ -16,12 +14,7 @@ export default {
         return getMeta(this.page.yoast, true);
     },
     async asyncData() {
-        if (process.client) {
-            const { data } = await axios.get('/json/-_-.json');
-            return { page: data };
-        }
-
-        const { data } = await axios.get(`${apiUrl}/api/page?frontpage=true`);
+        const data = await import('../static/json/-_-.json');
         return { page: data };
     },
 };

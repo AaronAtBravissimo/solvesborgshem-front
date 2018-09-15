@@ -12,10 +12,8 @@
 </template>
 
 <script>
-import axios from 'axios';
 import TopSection from '../components/TopSection.vue';
 import Modules from '../components/Modules.vue';
-import { apiUrl } from '../utils/config';
 import { getMeta } from '../utils/helpers';
 
 export default {
@@ -29,14 +27,9 @@ export default {
     async asyncData({ route }) {
         let { path } = route;
 
-        if (process.client) {
-            path = path.replace(/\//g, '-_-');
-            path = path.replace(/\\/g, '-_-');
-            const { data } = await axios.get(`/json/${path}.json`);
-            return { page: data };
-        }
-
-        const { data } = await axios.get(`${apiUrl}/api/page?path=${path}`);
+        path = path.replace(/\//g, '-_-');
+        path = path.replace(/\\/g, '-_-');
+        const data = await import(`../static/json/${path}.json`);
         return { page: data };
     },
 };
