@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 .aboveHeader {
-    background-color: #000;
+    background-color: #232323;
     min-height: 69px;
     display: flex;
     margin-left: -50px;

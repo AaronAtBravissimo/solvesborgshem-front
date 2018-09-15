@@ -47,7 +47,6 @@ export default {
 .headingHolder {
     text-align: center;
     margin-bottom: 65px;
-    padding-left: 12px; // NOTE: Bör plockas bort?
 }
 
 </style>

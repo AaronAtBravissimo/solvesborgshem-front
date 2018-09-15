@@ -162,7 +162,7 @@ export default {
         pointer-events: none;
     }
     &:hover {
-        background-color: #000000;
+        background-color: #232323;
     }
 }
 

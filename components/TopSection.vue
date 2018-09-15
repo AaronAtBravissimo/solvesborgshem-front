@@ -11,12 +11,12 @@
                 class="image objectFitCover"
             >
         </picture>
-        <div class="headingPreamble">
+        <div class="textHolder text-center">
             <div class="container">
-                <h1 class="headingPreamble__heading">
+                <h1 class="heading">
                     {{ topSection.heading }}
                 </h1>
-                <p class="headingPreamble__preamble">
+                <p class="preamble">
                     {{ topSection.preamble }}
                 </p>
             </div>
@@ -44,19 +44,8 @@ export default {
     height: 470px;
     margin-bottom: 67px;
 }
-.headingPreamble {
-    text-align: center;
-    &__heading {
-        line-height: 1.05;
-        font-size: 50px;
-        letter-spacing: 10px;
-        margin-left: 12px; // NOTE: Bör plockas bort?
-    }
-    &__preamble {
-        font-size: 20px;
-        line-height: 1.55;
-        margin-top: 42px;
-        margin-left: 6px;
-    }
+.preamble {
+    margin-top: 42px;
+    margin-left: 6px;
 }
 </style>
