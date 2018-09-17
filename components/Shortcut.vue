@@ -65,6 +65,20 @@ export default {
     height: 236px;
     border-radius: 100%;
     overflow: hidden;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #8ac8df 0%,#94d3b3 100%);
+    }
+}
+.image {
+    mix-blend-mode: overlay;
+    opacity: 0.6;
 }
 .infoHolder {
     flex-shrink: 1;
