@@ -4,14 +4,20 @@
             <div class="headingHolder">
                 <h2>{{ heading }}</h2>
             </div>
-            <Shortcut
+        </div>
+        <div class="columns">
+            <div
                 v-for="(shortcut, index) in shortcuts"
                 :key="index"
-                :image="shortcut.image"
-                :heading="shortcut.heading"
-                :content="shortcut.content"
-                :link="shortcut.link"
-            />
+                class="column"
+            >
+                <Shortcut
+                    :image="shortcut.image"
+                    :heading="shortcut.heading"
+                    :content="shortcut.content"
+                    :link="shortcut.link"
+                />
+            </div>
         </div>
     </section>
 </template>
@@ -46,7 +52,30 @@ export default {
 
 .headingHolder {
     text-align: center;
-    margin-bottom: 65px;
+    margin-bottom: 92px;
+}
+
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 14px;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: 2px; // NOTE: Bör ändras till typ -0.5px
+        width: 1px;
+        height: 100%;
+        background-color: #d2dde1;
+    }
+}
+
+.column {
+    width: 50%;
+    padding: 0 66px;
+    margin-bottom: 100px;
 }
 
 </style>

@@ -15,8 +15,8 @@
                 </picture>
             </div>
             <div class="infoHolder">
-                {{ heading }}
-                {{ content }}
+                <h3 class="heading">{{ heading }}</h3>
+                <p class="text">{{ content }}</p>
                 <AppButton
                     :url="link.url"
                     :target="link.target"
@@ -56,5 +56,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.inner {
+    display: flex;
+}
+.imageHolder {
+    flex-shrink: 0;
+    width: 236px;
+    height: 236px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.infoHolder {
+    flex-shrink: 1;
+    padding-left: 60px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.heading {
+    margin-bottom: 18px;
+}
+.text {
+    font-size: 16px;
+    line-height: 1.63;
+    flex-grow: 1;
+}
+.button {
+    min-width: 200px;
+}
 
 </style>
