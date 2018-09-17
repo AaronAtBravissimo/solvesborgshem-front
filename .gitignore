@@ -12,3 +12,6 @@ dist
 
 # sitemap
 static/sitemap.xml
+
+# local json files
+static/json/*.json
