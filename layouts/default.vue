@@ -1,23 +1,28 @@
 <template>
     <div class="app">
-        <div class="wrapper">
-            <AboveHeader/>
-            <TheHeader/>
-            <main class="inner">
-                <nuxt/>
-            </main>
+        <div class="app__inner">
+            <div class="wrapper">
+                <AboveHeader/>
+                <TheHeader/>
+                <main class="inner">
+                    <nuxt/>
+                </main>
+            </div>
         </div>
+        <TheFooter/>
     </div>
 </template>
 
 <script>
 import AboveHeader from '../components/AboveHeader.vue';
 import TheHeader from '../components/TheHeader.vue';
+import TheFooter from '../components/TheFooter.vue';
 
 export default {
     components: {
         AboveHeader,
         TheHeader,
+        TheFooter,
     },
     mounted() {
         this.$store.dispatch('nuxtServerInit');
@@ -26,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app {
+.app__inner {
     padding: 50px;
 }
 .wrapper {
