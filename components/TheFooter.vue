@@ -56,7 +56,16 @@
                         </div>
                     </div>
                     <div class="bottom__right">
-
+                        <div class="socialIcons">
+                            <SocialIcon
+                                :link="footerData.facebook"
+                                icon="facebook"
+                            />
+                            <SocialIcon
+                                :link="footerData.instagram"
+                                icon="instagram"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,14 +75,12 @@
 
 <script>
 import Logo from './Logo.vue';
+import SocialIcon from './SocialIcon.vue';
 
 export default {
     components: {
         Logo,
-    },
-    data() {
-        return {
-        };
+        SocialIcon,
     },
     computed: {
         footerData() {
@@ -127,6 +134,14 @@ export default {
 }
 .bottom {
     margin-top: -8px;
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    &__left {
+        flex-shrink: 1;
+    }
 }
 .logoHolder {
     width: 378px;
@@ -174,5 +189,8 @@ export default {
     /deep/ a:hover {
         color: $primaryColor;
     }
+}
+.socialIcons {
+    display: flex;
 }
 </style>
