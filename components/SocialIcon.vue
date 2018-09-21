@@ -44,6 +44,10 @@ export default {
     justify-content: center;
     margin-right: 22px;
     line-height: 0;
+    @media ($mobile) {
+        width: 44px;
+        height: 44px;
+    }
     &:last-child {
         margin-right: 0;
     }
