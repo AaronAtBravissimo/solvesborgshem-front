@@ -7,18 +7,24 @@
         @click="$emit('clicked')"
     >
         <div class="flex">
-            <div class="button__inner">
+            <div class="inner">
                 <img
                     v-if="icon"
                     :src="icon"
-                    class="button__icon"
+                    class="icon"
                 >
-                <div class="button__label">{{ label }}</div>
+                <div
+                    v-if="counter"
+                    class="counter flex items-center justify-center"
+                >
+                    {{ counter }}
+                </div>
+                <div class="label">{{ label }}</div>
             </div>
         </div>
-        <div class="button__loading">
+        <div class="loading">
             <img
-                class="button__loadingIcon"
+                class="loadingIcon"
                 src="../assets/images/spinner.svg"
                 alt=""
             >
@@ -65,6 +71,10 @@ export default {
             type: String,
             default: 'button',
         },
+        counter: {
+            type: Number,
+            default: null,
+        },
     },
     methods: {
         setUrlAttr(url) {
@@ -96,7 +106,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 .button {
     background-color: $primaryColor;
@@ -114,14 +124,14 @@ export default {
         min-width: 120px;
         padding: 8px 14px;
     }
-    &__inner {
+    .inner {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         min-height: 24px;
     }
-    &__label {
+    .label {
         letter-spacing: 2.8px;
         text-transform: uppercase;
         color: #fff;
@@ -135,14 +145,14 @@ export default {
             font-size: 12px;
         }
     }
-    &__icon {
+    .icon {
         width: 16px;
         height: 16px;
         margin-right: 20px;
         display: flex;
         flex-shrink: 0;
     }
-    &__loading {
+    .loading {
         width: 30px;
         height: 30px;
         position: absolute;
@@ -152,7 +162,7 @@ export default {
         margin-top: -15px;
         opacity: 0;
     }
-    &__loadingIcon {
+    .loadingIcon {
         width: 100%;
         height: 100%;
     }
@@ -166,16 +176,62 @@ export default {
     }
 }
 
+.iconAndLabel {
+    background: none;
+    padding: 0;
+    margin-right: 32px;
+    &:last-child {
+        margin-right: 0;
+    }
+    .inner {
+        display: flex;
+        align-items: center;
+    }
+    .icon {
+        max-height: 16px;
+        margin-right: 0;
+    }
+    .counter {
+        font-size: 12px;
+        color: #ffffff;
+        width: 28px;
+        height: 28px;
+        border-radius: 100%;
+        font-weight: bold;
+        background-color: #efb56b;
+    }
+    .label {
+        flex-shrink: 1;
+        padding: 0 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #ffffff;
+        letter-spacing: 2.1px;
+        font-weight: bold;
+    }
+    &.thinLabel .label {
+        font-weight: 300;
+    }
+    &.apartmentsIcon .icon {
+        width: 38px;
+    }
+    &.customizeIcon .icon {
+        width: 18px;
+    }
+    &.noMarginRight {
+        margin-right: 0;
+    }
+}
 
 .button.isLoading {
     pointer-events: none;
-    .button__inner {
+    .inner {
         opacity: 0;
     }
-    .button__loading {
+    .loading {
         opacity: 1;
     }
-    .button__loadingIcon {
+    .loadingIcon {
         animation-name: rotate;
         animation-duration: 0.8s;
         animation-fill-mode: forwards;

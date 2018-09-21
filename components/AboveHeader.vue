@@ -2,60 +2,57 @@
     <header class="aboveHeader">
         <div class="inner w-full">
             <div class="left flex items-center">
-                <iconAndLabel
+                <AppButton
                     :icon="apartmentsIcon"
-                    icon-class="icon-apartments"
                     label="Lediga lägenheter just nu"
-
+                    class="iconAndLabel thinLabel apartmentsIcon noMarginRight"
                 />
-                <div class="iconAndLabel">
-                    <div class="iconAndLabel__inner">
-                        <div class="iconAndLabel__iconHolder">
-                            <div class="iconAndLabel__counter flex items-center justify-center">
-                                2
-                            </div>
-                        </div>
-                        <div class="iconAndLabel__label">
-                            Se lägenheter
-                        </div>
-                    </div>
-                </div>
-
+                <AppButton
+                    :counter="number"
+                    label="Se lägenheter"
+                    class="iconAndLabel"
+                />
             </div>
             <div class="right">
-
-                <div class="iconAndLabel iconAndLabel--thinLabel">
-                    <div class="iconAndLabel__inner">
-                        <div class="iconAndLabel__iconHolder">
-                            <img
-                                class="iconAndLabel__icon"
-                                src="../assets/images/icon-error-report.svg"
-                                alt=""
-                            >
-                        </div>
-                        <div class="iconAndLabel__label">
-                            Felanmälan
-                        </div>
-                    </div>
-                </div>
-
+                <AppButton
+                    :icon="errorReportIcon"
+                    label="Felanmälan"
+                    class="iconAndLabel"
+                    url="/kundtjanst/"
+                />
+                <AppButton
+                    :icon="customizeIcon"
+                    label="Anpassa"
+                    class="iconAndLabel customizeIcon"
+                />
+                <AppButton
+                    :icon="searchIcon"
+                    label="Sök"
+                    class="iconAndLabel"
+                />
             </div>
         </div>
     </header>
 </template>
 
 <script>
-import IconAndLabel from './IconAndLabel.vue';
+import AppButton from './AppButton.vue';
 import apartmentsIcon from '../assets/images/icon-apartments.svg';
-
+import errorReportIcon from '../assets/images/icon-error-report.svg';
+import customizeIcon from '../assets/images/icon-customize.svg';
+import searchIcon from '../assets/images/icon-search.svg';
 
 export default {
     components: {
-        IconAndLabel,
+        AppButton,
     },
     data() {
         return {
             apartmentsIcon,
+            errorReportIcon,
+            customizeIcon,
+            searchIcon,
+            number: 2,
         };
     },
 };
@@ -74,5 +71,8 @@ export default {
     align-items: center;
     justify-content: space-between;
     padding: 0 50px;
+}
+.right {
+    margin-right: -12px;
 }
 </style>
