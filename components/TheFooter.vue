@@ -14,20 +14,12 @@
                         <div class="logoHolder flex-no-shrink">
                             <Logo white-color/>
                         </div>
-                    </div>
-                    <div class="top__right">
-                        <h4 class="quoteText">Flytta in. Andas ut.</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="middle">
-                <div class="middleInner">
-                    <div class="middleLeft">
                         <p class="openingHoursText">
                             {{ footerData.openingHours }}
                         </p>
                     </div>
-                    <div class="middleRight">
+                    <div class="topRight">
+                        <h4 class="quoteText">Flytta in. Andas ut.</h4>
                         <p class="descriptionText">
                             {{ footerData.businessDescription }}
                         </p>
@@ -114,27 +106,21 @@ export default {
 }
 .inner {
     background-color: #232323;
-    padding: 0 100px 100px;
+    padding: 0 100px 95px;
     margin-top: -132px;
-}
-.top {
-    margin-bottom: 24px;
 }
 .topInner {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
 }
-.middleInner {
-    display: flex;
-    justify-content: space-between;
+.topLeft {
+    flex-shrink: 0;
 }
-.middleLeft {
-    width: 50%;
-}
-.middleRight {
+.topRight {
     width: 550px;
-    text-align: right
+    flex-shrink: 1;
+    text-align: right;
+    margin-top: 10px;
 }
 .bottom {
     margin-top: -8px;
@@ -151,17 +137,17 @@ export default {
     width: 378px;
     height: 44px;
     position: relative;
+    margin-bottom: 25px;
 }
 .quoteText {
     font-size: 30px;
     line-height: 1.5;
     letter-spacing: 5.9px;
     margin-right: -7px;
-    margin-bottom: -11px;
+    margin-bottom: 18px;
     color: #fff;
 }
 .descriptionText {
-    margin-top: 6px;
     color: #a1a0a0;
 }
 .columns {
