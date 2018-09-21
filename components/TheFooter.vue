@@ -9,8 +9,8 @@
         </div>
         <div class="inner">
             <div class="top">
-                <div class="top__inner">
-                    <div class="top__left">
+                <div class="topInner">
+                    <div class="topLeft">
                         <div class="logoHolder flex-no-shrink">
                             <Logo white-color/>
                         </div>
@@ -21,13 +21,13 @@
                 </div>
             </div>
             <div class="middle">
-                <div class="middle__inner">
-                    <div class="middle__left">
+                <div class="middleInner">
+                    <div class="middleLeft">
                         <p class="openingHoursText">
                             {{ footerData.openingHours }}
                         </p>
                     </div>
-                    <div class="middle__right">
+                    <div class="middleRight">
                         <p class="descriptionText">
                             {{ footerData.businessDescription }}
                         </p>
@@ -35,8 +35,8 @@
                 </div>
             </div>
             <div class="bottom">
-                <div class="bottom__inner">
-                    <div class="bottom__left">
+                <div class="bottomInner">
+                    <div class="bottomLeft">
                         <div class="columns">
                             <div
                                 v-for="(column, index) in footerData.columns"
@@ -44,10 +44,10 @@
                                 class="column"
                             >
                                 <div class="widget">
-                                    <p class="widget__heading">{{ column.heading }}</p>
+                                    <p class="widgetHeading">{{ column.heading }}</p>
                                     <div
                                         v-if="column.content"
-                                        class="widget__body"
+                                        class="widgetBody"
                                         v-html="column.content"
                                     >
                                     </div>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bottom__right">
+                    <div class="bottomRight">
                         <div class="socialIcons">
                             <SocialIcon
                                 :link="footerData.facebook"
@@ -91,15 +91,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ p {
-    font-size: 16px;
-    line-height: 1.63;
-}
 .mainFooter {
     margin-top: 22px;
+    /deep/ p {
+        font-size: 16px;
+        line-height: 1.63;
+    }
+    .openingHoursText {
+        font-size: 20px;
+        line-height: 1.6;
+        color: #a1a1a1;
+    }
 }
 .graphicHolder {
     line-height: 0;
+    overflow: hidden;
 }
 .graphic {
     width: calc(100% + 50px);
@@ -113,35 +119,33 @@ export default {
 }
 .top {
     margin-bottom: 24px;
-    &__inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
 }
-.middle {
-    &__inner {
-        display: flex;
-        justify-content: space-between;
-    }
-    &__left {
-        width: 50%;
-    }
-    &__right {
-        width: 550px;
-        text-align: right
-    }
+.topInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.middleInner {
+    display: flex;
+    justify-content: space-between;
+}
+.middleLeft {
+    width: 50%;
+}
+.middleRight {
+    width: 550px;
+    text-align: right
 }
 .bottom {
     margin-top: -8px;
-    &__inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-    &__left {
-        flex-shrink: 1;
-    }
+}
+.bottomInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.bottomLeft {
+    flex-shrink: 1;
 }
 .logoHolder {
     width: 378px;
@@ -155,11 +159,6 @@ export default {
     margin-right: -7px;
     margin-bottom: -11px;
     color: #fff;
-}
-.openingHoursText {
-    font-size: 20px;
-    line-height: 1.6;
-    color: #a1a1a1;
 }
 .descriptionText {
     margin-top: 6px;
@@ -178,17 +177,17 @@ export default {
     }
 }
 .widget {
-    &__heading {
-        font-weight: bold;
-        color: $primaryColor;
-        margin-bottom: 0;
-    }
-    &__body {
-        color: #ffffff;
-    }
     /deep/ a:hover {
         color: $primaryColor;
     }
+}
+.widgetHeading {
+    font-weight: bold;
+    color: $primaryColor;
+    margin-bottom: 0;
+}
+.widgetBody {
+    color: #ffffff;
 }
 .socialIcons {
     display: flex;
