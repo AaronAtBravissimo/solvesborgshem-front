@@ -7,8 +7,8 @@
         </div>
         <div class="columns">
             <div
-                v-for="(shortcut, index) in shortcuts"
-                :key="index"
+                v-for="shortcut in shortcuts"
+                :key="shortcut.id"
                 class="column"
             >
                 <Shortcut

@@ -1,15 +1,20 @@
 <template>
-    <div class="page py-6">
-        <div class="container">
-            <h1 class="text-center mobile:text-left">{{ page.post_title }}</h1>
-        </div>
+    <div class="page">
+        <Shortcuts
+            v-if="page.shortcuts"
+            :shortcuts="page.shortcuts"
+        />
     </div>
 </template>
 
 <script>
 import { getMeta } from '../utils/helpers';
+import Shortcuts from '../components/Shortcuts.vue';
 
 export default {
+    components: {
+        Shortcuts,
+    },
     head() {
         return getMeta(this.page.yoast, true);
     },
