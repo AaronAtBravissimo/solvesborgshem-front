@@ -1,5 +1,5 @@
-const baseUrl = 'http://solvesborgshem.se.preview72.i8t.com';
-const apiUrl = 'http://solvesborgshem.se.preview72.i8t.com/wp-json';
+const baseUrl = 'https://cms.solvesborgshem.se';
+const apiUrl = 'https://cms.solvesborgshem.se/wp-json';
 
 exports.baseUrl = baseUrl;
 exports.apiUrl = apiUrl;
