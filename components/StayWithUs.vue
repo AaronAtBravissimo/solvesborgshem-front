@@ -52,11 +52,10 @@ $gutter: 35px;
 
 .stayWithUs {
     text-align: center;
-    background-color: #ffffff;
-    padding: 97px 0 110px;
+    background-color: #fff;
+    padding: 97px 0 114px;
     margin-left: -50px;
     margin-right: -50px;
-    margin-bottom: 70px;
 }
 .top {
     margin-bottom: 60px;
