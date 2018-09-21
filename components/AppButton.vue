@@ -184,10 +184,6 @@ export default {
     &:last-child {
         margin-right: 0;
     }
-    .inner {
-        display: flex;
-        align-items: center;
-    }
     .icon {
         max-height: 16px;
         margin-right: 0;
@@ -205,8 +201,6 @@ export default {
         flex-shrink: 1;
         padding: 0 10px;
         font-size: 12px;
-        text-transform: uppercase;
-        color: #ffffff;
         letter-spacing: 2.1px;
         font-weight: bold;
     }
