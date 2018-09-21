@@ -124,48 +124,6 @@ export default {
         min-width: 120px;
         padding: 8px 14px;
     }
-    .inner {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 24px;
-    }
-    .label {
-        letter-spacing: 2.8px;
-        text-transform: uppercase;
-        color: #fff;
-        font-family: $primaryFont;
-        font-weight: bold;
-        font-size: 14px;
-        @media(tablet) {
-            font-size: 13px;
-        }
-        @media(mobile) {
-            font-size: 12px;
-        }
-    }
-    .icon {
-        width: 16px;
-        height: 16px;
-        margin-right: 20px;
-        display: flex;
-        flex-shrink: 0;
-    }
-    .loading {
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: -15px;
-        margin-top: -15px;
-        opacity: 0;
-    }
-    .loadingIcon {
-        width: 100%;
-        height: 100%;
-    }
     &.isDisabled {
         cursor: default;
         opacity: 0.6;
@@ -174,6 +132,49 @@ export default {
     &:hover {
         background-color: #232323;
     }
+}
+
+.inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+}
+.label {
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: $primaryFont;
+    font-weight: bold;
+    font-size: 14px;
+    @media(tablet) {
+        font-size: 13px;
+    }
+    @media(mobile) {
+        font-size: 12px;
+    }
+}
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+    display: flex;
+    flex-shrink: 0;
+}
+.loading {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    opacity: 0;
+}
+.loadingIcon {
+    width: 100%;
+    height: 100%;
 }
 
 .iconAndLabel {
