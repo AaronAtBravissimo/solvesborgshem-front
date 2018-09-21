@@ -76,13 +76,18 @@ export default {
             default: null,
         },
     },
+    computed: {
+        isRelative() {
+            return this.url.substring(4) !== 'http';
+        },
+    },
     methods: {
         setUrlAttr(url) {
             if (url.length < 1) {
                 return { type: this.buttonType };
             }
 
-            if (url.indexOf(baseUrl) !== -1) {
+            if (url.indexOf(baseUrl) !== -1 || this.isRelative) {
                 return { to: makeUrlRelative(url) };
             }
 
@@ -96,7 +101,7 @@ export default {
                 return 'button';
             }
 
-            if (url.indexOf(baseUrl) !== -1) {
+            if (url.indexOf(baseUrl) !== -1 || this.isRelative) {
                 return 'nuxt-link';
             }
 
