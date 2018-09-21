@@ -1,16 +1,10 @@
 <template>
     <section class="topSection">
-        <picture>
-            <source
-                :srcset="`${topSection.image.sizes.large}.webp`"
-                type="image/webp"
-            >
-            <img
-                :src="topSection.image.sizes.large"
-                :alt="topSection.image.alt"
-                class="image objectFitCover"
-            >
-        </picture>
+        <AppImage
+            :image="topSection.image.sizes.large"
+            :alt="topSection.image.alt"
+            class="image objectFitCover"
+        />
         <div class="textHolder text-center">
             <div class="container">
                 <h1 class="heading">
@@ -25,7 +19,12 @@
 </template>
 
 <script>
+import AppImage from './AppImage.vue';
+
 export default {
+    components: {
+        AppImage,
+    },
     props: {
         topSection: {
             type: Object,

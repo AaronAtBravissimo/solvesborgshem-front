@@ -2,17 +2,11 @@
     <div class="shortcut">
         <div class="inner">
             <div class="imageHolder">
-                <picture>
-                    <source
-                        :srcset="`${image.sizes.large}.webp`"
-                        type="image/webp"
-                    >
-                    <img
-                        :src="image.sizes.large"
-                        :alt="image.alt"
-                        class="image objectFitCover"
-                    >
-                </picture>
+                <AppImage
+                    :image="image.sizes.large"
+                    :alt="image.alt"
+                    class="image"
+                />
             </div>
             <div class="infoHolder">
                 <h3 class="heading">{{ heading }}</h3>
@@ -29,10 +23,12 @@
 
 <script>
 import AppButton from './AppButton.vue';
+import AppImage from './AppImage.vue';
 
 export default {
     components: {
         AppButton,
+        AppImage,
     },
     props: {
         image: {
