@@ -9,11 +9,13 @@
                     class="slide relative"
                 >
                     <div class="backgroundHolder">
-                        <img
-                            :src="slide.ordinaryImage.sizes.large"
-                            :alt="slide.ordinaryImage.alt"
-                            class="background"
-                        >
+                        <div class="background">
+                            <img
+                                :src="slide.ordinaryImage.sizes.large"
+                                :alt="slide.ordinaryImage.alt"
+                                class="backgroundImage objectFitCover"
+                            >
+                        </div>
                         <div class="buttons">
                             <button @click="prevHandler">prev</button>
                             <button @click="pause">
@@ -34,7 +36,7 @@
                     <img
                         :src="slide.transparentImage.sizes.large"
                         :alt="slide.transparentImage.alt"
-                        class="image"
+                        class="image objectFitCovere"
                     >
                 </div>
             </transition-group>
@@ -127,18 +129,25 @@ export default {
     right: 0;
 }
 .backgroundHolder {
-    width: 789px;
+    width: 100%;
+    padding-right: 267px;
     height: 540px;
     position: relative;
     margin: 40px;
-    background-color: #fff;
 }
 .background {
-    position: absolute;
-    top: -40px;
-    left: -40px;
+    background-color: #fff;
+}
+.background,
+.backgroundImage {
+    position: relative;
     width: 100%;
     height: 100%;
+}
+.backgroundImage {
+    top: -40px;
+    left: -40px;
+    position: absolute;
 }
 .buttons {
     position: absolute;

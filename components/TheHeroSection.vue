@@ -60,7 +60,7 @@ export default {
     top: -4px;
 }
 .left {
-    width: 1100px;
+    width: calc(100% - 550px);
 }
 .right {
     padding-right: 75px;
