@@ -7,11 +7,18 @@
                 :key="index"
                 class="slide relative"
             >
-                <img
-                    :src="slide.ordinaryImage.sizes.large"
-                    :alt="slide.ordinaryImage.alt"
-                    class="background"
-                >
+                <div class="backgroundHolder">
+                    <img
+                        :src="slide.ordinaryImage.sizes.large"
+                        :alt="slide.ordinaryImage.alt"
+                        class="background"
+                    >
+                    <div class="buttons">
+                        <button @click="prevHandler">prev</button>
+                        <button @click="pause">pause</button>
+                        <button @click="nextHandler">next</button>
+                    </div>
+                </div>
                 <img
                     :src="slide.transparentImage.sizes.large"
                     :alt="slide.transparentImage.alt"
@@ -33,13 +40,20 @@ export default {
     data() {
         return {
             currentIndex: 0,
-            interval: null,
+            interval: false,
         };
     },
     mounted() {
         this.start();
     },
     methods: {
+        prevSlide() {
+            if (this.currentIndex !== 0) {
+                this.currentIndex--;
+            } else {
+                this.currentIndex = this.slides.length - 1;
+            }
+        },
         nextSlide() {
             if (this.currentIndex >= (this.slides.length - 1)) {
                 this.currentIndex = 0;
@@ -52,6 +66,28 @@ export default {
         },
         stop() {
             clearInterval(this.interval);
+            this.interval = false;
+        },
+        restartInterval() {
+            if (this.interval) {
+                this.stop();
+                this.start();
+            }
+        },
+        prevHandler() {
+            this.restartInterval();
+            this.prevSlide();
+        },
+        pause() {
+            if (this.interval) {
+                this.stop();
+            } else {
+                this.start();
+            }
+        },
+        nextHandler() {
+            this.restartInterval();
+            this.nextSlide();
         },
     },
 };
@@ -65,5 +101,24 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
+}
+.backgroundHolder {
+    width: 789px;
+    height: 540px;
+    position: relative;
+    margin: 40px;
+    background-color: #fff;
+}
+.background {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 100%;
+    height: 100%;
+}
+.buttons {
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 </style>
