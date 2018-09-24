@@ -14,6 +14,11 @@
             >
                 <div class="step">
                     <div class="iconHolder">
+                        <img
+                            :src="getIcon(step.icon)"
+                            :class="`icon--${step.icon}`"
+                            class="icon"
+                        >
                         <div class="stepNumber">
                             {{ index + 1 }}
                         </div>
@@ -27,6 +32,10 @@
 </template>
 
 <script>
+import person from '../assets/images/icon-person.svg';
+import thumbUp from '../assets/images/icon-thumbs-up.svg';
+import house from '../assets/images/icon-house.svg';
+import checklist from '../assets/images/icon-checklist.svg';
 
 export default {
     props: {
@@ -42,6 +51,17 @@ export default {
     computed: {
         stayWithUs() {
             return this.$store.getters.options.stayWithUs;
+        },
+    },
+    methods: {
+        getIcon(icon) {
+            const icons = {
+                person,
+                thumbUp,
+                house,
+                checklist,
+            };
+            return icons[icon];
         },
     },
 };
@@ -76,12 +96,34 @@ $gutter: 35px;
     padding: 0 $gutter;
 }
 .iconHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     margin: 0 auto 52px;
     width: 220px;
     height: 220px;
+    padding-bottom: 10px;
     border-radius: 100%;
     border: 8px solid #f4f8fa;
+}
+.icon {
+    &--person {
+        width: 37px;
+        height: 78px;
+    }
+    &--thumbUp {
+        width: 66px;
+        height: 66px;
+    }
+    &--house {
+        width: 76px;
+        height: 82px;
+    }
+    &--checklist {
+        width: 55px;
+        height: 79px;
+    }
 }
 .stepHeading {
     margin-bottom: 16px;
