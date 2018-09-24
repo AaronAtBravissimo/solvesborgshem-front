@@ -16,7 +16,7 @@
                     <div class="iconHolder">
                         <img
                             :src="getIcon(step.icon)"
-                            :class="`icon--${step.icon}`"
+                            :class="`${step.icon}`"
                             class="icon"
                         >
                         <div class="stepNumber">
@@ -187,7 +187,7 @@ $gutterSmallTablet: 25px;
     }
 }
 .icon {
-    &--person {
+    &.person {
         width: 37px;
         height: 78px;
         @media ($smallTablet) {
@@ -198,7 +198,7 @@ $gutterSmallTablet: 25px;
 
         }
     }
-    &--thumbUp {
+    &.thumbUp {
         width: 66px;
         height: 66px;
         @media ($smallTablet) {
@@ -210,7 +210,7 @@ $gutterSmallTablet: 25px;
             height: 46px;
         }
     }
-    &--house {
+    &.house {
         width: 76px;
         height: 82px;
         @media ($smallTablet) {
@@ -222,7 +222,7 @@ $gutterSmallTablet: 25px;
             height: 54px;
         }
     }
-    &--checklist {
+    &.checklist {
         width: 55px;
         height: 79px;
         @media ($smallTablet) {
