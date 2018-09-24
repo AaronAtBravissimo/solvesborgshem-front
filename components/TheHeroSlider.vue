@@ -16,7 +16,18 @@
                         >
                         <div class="buttons">
                             <button @click="prevHandler">prev</button>
-                            <button @click="pause">pause</button>
+                            <button @click="pause">
+                                <img
+                                    v-if="interval"
+                                    src="../assets/images/icon-pause.svg"
+                                    alt=""
+                                >
+                                <img
+                                    v-if="!interval"
+                                    src="../assets/images/icon-play.svg"
+                                    alt=""
+                                >
+                            </button>
                             <button @click="nextHandler">next</button>
                         </div>
                     </div>
@@ -98,6 +109,9 @@ export default {
 <style lang="css" scoped>
 .slide-fade-enter-active {
     transition: all 1s ease;
+}
+.slide-fade-leave-active {
+    opacity: 0;
 }
 .slide-fade-enter {
     transform: translateX(10px);
