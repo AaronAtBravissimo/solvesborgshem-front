@@ -36,7 +36,7 @@
                     <img
                         :src="slide.transparentImage.sizes.large"
                         :alt="slide.transparentImage.alt"
-                        class="image objectFitCovere"
+                        class="slideImage objectFitCovere"
                     >
                 </div>
             </transition-group>
@@ -123,7 +123,7 @@ export default {
     height: 700px;
     overflow: hidden;
 }
-.image {
+.slideImage {
     position: absolute;
     top: 0;
     right: 0;
