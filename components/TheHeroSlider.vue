@@ -1,30 +1,32 @@
 <template>
     <div class="heroSlider">
         <div class="slides">
-            <div
-                v-for="(slide, index) in slides"
-                v-show="index === currentIndex"
-                :key="index"
-                class="slide relative"
-            >
-                <div class="backgroundHolder">
-                    <img
-                        :src="slide.ordinaryImage.sizes.large"
-                        :alt="slide.ordinaryImage.alt"
-                        class="background"
-                    >
-                    <div class="buttons">
-                        <button @click="prevHandler">prev</button>
-                        <button @click="pause">pause</button>
-                        <button @click="nextHandler">next</button>
-                    </div>
-                </div>
-                <img
-                    :src="slide.transparentImage.sizes.large"
-                    :alt="slide.transparentImage.alt"
-                    class="image"
+            <transition-group name="slide-fade">
+                <div
+                    v-for="(slide, index) in slides"
+                    v-show="index === currentIndex"
+                    :key="index"
+                    class="slide relative"
                 >
-            </div>
+                    <div class="backgroundHolder">
+                        <img
+                            :src="slide.ordinaryImage.sizes.large"
+                            :alt="slide.ordinaryImage.alt"
+                            class="background"
+                        >
+                        <div class="buttons">
+                            <button @click="prevHandler">prev</button>
+                            <button @click="pause">pause</button>
+                            <button @click="nextHandler">next</button>
+                        </div>
+                    </div>
+                    <img
+                        :src="slide.transparentImage.sizes.large"
+                        :alt="slide.transparentImage.alt"
+                        class="image"
+                    >
+                </div>
+            </transition-group>
         </div>
     </div>
 </template>
@@ -94,8 +96,16 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.slide-fade-enter-active {
+    transition: all 1s ease;
+}
+.slide-fade-enter {
+    transform: translateX(10px);
+    opacity: 0;
+}
 .heroSlider {
     height: 700px;
+    overflow: hidden;
 }
 .image {
     position: absolute;
