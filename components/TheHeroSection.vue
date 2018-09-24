@@ -2,7 +2,9 @@
     <section class="heroSection">
         <div class="inner">
             <div class="left">
-                <TheHeroSlider/>
+                <TheHeroSlider
+                    :slides="heroSection.slider"
+                />
             </div>
             <div class="right">
                 <div class="textHolder">

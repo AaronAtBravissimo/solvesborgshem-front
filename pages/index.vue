@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import { getMeta } from '../utils/helpers';
 import TheHeroSection from '../components/TheHeroSection.vue';
 import Shortcuts from '../components/Shortcuts.vue';
 import StayWithUs from '../components/StayWithUs.vue';
 import SocialPosts from '../components/SocialPosts.vue';
+import { getMeta } from '../utils/helpers';
 
 export default {
     components: {
