@@ -52,6 +52,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.shortcut {
+    padding: 36px 40px;
+    transition: 0.25s;
+    &:hover {
+        background-color: #f4f8fa;
+    }
+}
 .inner {
     display: flex;
 }
@@ -90,6 +97,7 @@ export default {
     font-size: 16px;
     line-height: 1.63;
     flex-grow: 1;
+    margin-bottom: 32px;
 }
 .button {
     min-width: 200px;
