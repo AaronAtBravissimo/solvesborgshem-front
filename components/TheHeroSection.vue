@@ -10,7 +10,11 @@
                         <div class="firstRow">{{ heroSection.heading.firstRow }}</div>
                         <div class="secondRow">{{ heroSection.heading.secondRow }}</div>
                     </h1>
-                    <p class="preamble">{{ heroSection.preamble }}</p>
+                    <p
+                        class="preamble"
+                        v-html="heroSection.preamble"
+                    >
+                    </p>
                 </div>
             </div>
         </div>
