@@ -1,5 +1,8 @@
 <template>
     <div class="homePage">
+        <TheHeroSection
+            :hero-section="page.heroSection"
+        />
         <Shortcuts
             v-if="page.shortcuts"
             :shortcuts="page.shortcuts"
@@ -11,12 +14,14 @@
 
 <script>
 import { getMeta } from '../utils/helpers';
+import TheHeroSection from '../components/TheHeroSection.vue';
 import Shortcuts from '../components/Shortcuts.vue';
 import StayWithUs from '../components/StayWithUs.vue';
 import SocialPosts from '../components/SocialPosts.vue';
 
 export default {
     components: {
+        TheHeroSection,
         Shortcuts,
         StayWithUs,
         SocialPosts,
