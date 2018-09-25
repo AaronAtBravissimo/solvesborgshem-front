@@ -6,12 +6,6 @@
     >
         <div class="top">
             <div class="imageHolder">
-                <span
-                    :class="card.type"
-                    class="tag"
-                >
-                    {{ card.type }}
-                </span>
                 <img
                     :src="image"
                     class="image ab100 objectFitCover"
@@ -23,13 +17,18 @@
                         class="dateIcon"
                         src="../assets/images/card/icon-calendar.svg"
                     >
-                    <span class="dateLabel">{{ card.date }}</span>
+                    <span class="dateLabel">{{ getFormattedDate(card.date) }}</span>
                 </div>
                 <p>{{ card.text }}</p>
             </div>
         </div>
         <div class="bottom">
-            <p class="readMore">Läs mer ›</p>
+            <span
+                :class="card.type"
+                class="tag"
+            >
+                {{ card.type }}
+            </span>
         </div>
     </a>
 </template>
@@ -51,35 +50,36 @@ export default {
             return 'https://via.placeholder.com/366x245';
         },
     },
+    methods: {
+        getFormattedDate(date) {
+            const formattedDate = new Date(date * 1000);
+            const day = formattedDate.getDate();
+            const month = formattedDate.toLocaleString('sv-se', { month: 'long' });
+            const year = formattedDate.getFullYear();
+            return `${day} ${month} ${year}`;
+        },
+    },
 };
 </script>
 
 <style lang="scss" scoped>
 .card {
     width: 100%;
-    height: 100%;
     background-color: #ffffff;
-    box-shadow: 0 0 73px 0 rgba(214, 220, 221, 0.79);
+    padding: 20px;
+    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    &:hover {
+    /* &:hover {
         transform: translateY(-10px);
-    }
+    } */ // NOTE: Plocka fram senare
 }
 .imageHolder {
-    height: 245px;
     position: relative;
-    @media ($tablet) {
-        height: 225px;
-    }
-    @media ($smallTablet) {
-        height: 200px;
-    }
-    @media ($mobile) {
-        height: 180px;
-    }
+    height: 353px;
+    margin-bottom: 30px;
 }
 .title {
     display: block;
@@ -89,7 +89,6 @@ export default {
     margin-bottom: 15px;
 }
 .content {
-    padding: 30px;
     font-size: 16px;
     line-height: 1.63;
 }
@@ -99,6 +98,7 @@ export default {
     align-items: center;
     margin-bottom: 20px;
     text-align: center;
+    color: #83a1ab;
 }
 .dateIcon {
     width: 16px;
@@ -109,11 +109,6 @@ export default {
 .dateLabel {
     margin-left: 12px;
     font-size: 14px;
-}
-.readMore {
-    padding: 0 30px 30px 30px;
-    font-size: 16px;
-    font-weight: bold;
 }
 .tag {
     display: block;

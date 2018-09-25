@@ -113,14 +113,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gutter: 15px;
+$gutter: 25px;
 
 .socialPosts {
     padding: 68px 0 80px;
     text-align: center;
 }
 .top {
-    margin-bottom: 60px;
+    margin-bottom: 35px;
 }
 .heading {
     margin-bottom: 26px;
