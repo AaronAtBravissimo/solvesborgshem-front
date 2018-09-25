@@ -10,7 +10,11 @@
             </div>
         </div>
 
-        <div class="columns flex flex-wrap">
+        <transition-group
+            class="columns flex flex-wrap"
+            name="fade-in"
+            tag="div"
+        >
             <div
                 v-for="(post, index) in posts"
                 v-if="offset > index"
@@ -19,7 +23,7 @@
             >
                 <Card :card="post"/>
             </div>
-        </div>
+        </transition-group>
 
         <AppButton
             v-show="!allLoaded"
@@ -115,6 +119,17 @@ export default {
 
 <style lang="scss" scoped>
 $gutter: 25px;
+
+.fade-in-enter-active {
+    transition: all 0.5s ease;
+}
+.fade-in-leave-active {
+    opacity: 0;
+}
+.fade-in-enter {
+    transform: translateY($gutter);
+    opacity: 0;
+}
 
 .socialPosts {
     padding: 68px 0 0;
