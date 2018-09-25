@@ -18,7 +18,7 @@ module.exports = function () {
 
             generateJsonFiles(generator);
 		}
-		await routes();
+		return await routes();
 	});
 }
 
