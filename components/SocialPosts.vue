@@ -3,6 +3,10 @@
         <div class="container">
             <div class="top">
                 <h2 class="heading">Följ oss</h2>
+                <Filters
+                    :filters="filters"
+                    @filterChanged="filterChanged"
+                />
             </div>
         </div>
 
@@ -30,16 +34,24 @@
 import axios from 'axios';
 import AppButton from './AppButton.vue';
 import Card from './Card.vue';
+import Filters from './Filters.vue';
 
 export default {
     components: {
         AppButton,
         Card,
+        Filters,
     },
     data() {
         return {
             loading: false,
             posts: [],
+            currentFilter: 0,
+            filters: [
+                { label: 'Visa alla', value: 0 },
+                { label: 'Facebook', value: 'facebook' },
+                { label: 'Instagram', value: 'instagram' },
+            ],
         };
     },
     computed: {
@@ -49,14 +61,30 @@ export default {
         numToLoad() {
             return this.offset === 0 ? 4 : 12;
         },
+        apiUrl() {
+            const base = 'https://social-api.bravissimo.se/posts/edffd670-4179-11e8-8f86-1b3fc7f38dbd';
+
+            if (!this.currentFilter) {
+                return base;
+            }
+
+            return `${base}/${this.currentFilter}`;
+        },
     },
     mounted() {
         this.loadPosts();
     },
     methods: {
+        filterChanged(value) {
+            this.posts = [];
+            this.currentFilter = value;
+            this.loadPosts();
+        },
         async loadPosts() {
+            if (this.loading) return;
+
             this.loading = true;
-            const res = await axios.get('https://social-api.bravissimo.se/posts/edffd670-4179-11e8-8f86-1b3fc7f38dbd', {
+            const res = await axios.get(this.apiUrl, {
                 params: {
                     count: this.numToLoad,
                     offset: this.offset,
@@ -78,6 +106,9 @@ $gutter: 15px;
 }
 .top {
     margin-bottom: 60px;
+}
+.heading {
+    margin-bottom: 30px;
 }
 .columns {
     margin-left: -$gutter;
