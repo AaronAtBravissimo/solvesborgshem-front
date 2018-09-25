@@ -38,10 +38,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        initialSelected: {
-            type: Number,
-            default: 0,
-        },
         showFirstItem: {
             type: Boolean,
             default: true,
@@ -49,14 +45,14 @@ export default {
     },
     data() {
         return {
-            selected: this.initialSelected,
+            selected: null,
             isOpen: false,
             focusedItem: null,
         };
     },
     computed: {
         activeItem() {
-            return this.items[this.selected];
+            return this.items[this.selected ? this.selected : 0];
         },
         itemsFixed() {
             if (this.showFirstItem) {
