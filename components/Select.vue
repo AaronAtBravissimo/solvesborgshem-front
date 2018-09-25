@@ -17,7 +17,7 @@
             <li
                 v-for="(item, index) in items"
                 :key="index"
-                :class="[selected === index ? 'isSelected' : '']"
+                :class="{'isFocused': focusedItem === index, 'isSelected': selected === index}"
                 class="dropdownItem"
                 @click="changeActive(index)"
             >
@@ -83,6 +83,20 @@ export default {
 
             if (event.keyCode === 27 || event.keyCode === 9) { // Escape or Tab
                 this.isOpen = false;
+            } else if (event.keyCode === 38) { // Arrow up
+                event.preventDefault();
+                if (this.focusedItem > 0) {
+                    this.focusedItem--;
+                }
+            } else if (event.keyCode === 40) { // Arrow down
+                event.preventDefault();
+                if (this.focusedItem === null) {
+                    this.focusedItem = 0;
+                } else if (this.focusedItem < (this.items.length - 1)) {
+                    this.focusedItem++;
+                }
+            } else if (event.keyCode === 13 && this.focusedItem !== null) {
+                this.changeActive(this.focusedItem);
             }
         },
         changeActive(index) {
@@ -178,12 +192,13 @@ $verticalPadding: 20px;
     display: flex;
     align-items: center;
     padding: 12px $verticalPadding;
+    &.isSelected {
+        background-color: $borderColor;
+    }
+    &.isFocused,
     &:hover,
     &:focus {
         background-color: #e8e8e8;
-    }
-    &.isSelected {
-        background-color: $borderColor;
     }
     &:last-child {
         border: 0;
