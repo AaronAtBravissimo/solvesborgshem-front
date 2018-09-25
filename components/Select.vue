@@ -80,8 +80,8 @@ export default {
         },
         keyListener(event) {
             if (!this.isOpen) return;
-            console.log(event.key);
-            if (event.key === 'Escape' || event.keyCode === 9) {
+
+            if (event.keyCode === 27 || event.keyCode === 9) { // Escape or Tab
                 this.isOpen = false;
             }
         },
