@@ -15,7 +15,7 @@
                 v-for="(post, index) in posts"
                 v-if="offset > index"
                 :key="post.id"
-                class="column"
+                class="column flex"
             >
                 <Card :card="post"/>
             </div>
@@ -92,7 +92,7 @@ export default {
                 params: {
                     count: this.numToLoad,
                     offset: this.offset,
-                    date_format: 'y-m-d',
+                    date_format: 'j F Y',
                 },
             });
 
@@ -133,5 +133,8 @@ $gutter: 25px;
 .column {
     padding: $gutter;
     width: 25%;
+}
+.button {
+    margin-top: $gutter;
 }
 </style>

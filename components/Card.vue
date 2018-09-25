@@ -19,21 +19,30 @@
                     >
                     <span class="dateLabel">{{ card.date_formatted }}</span>
                 </div>
-                <p>{{ card.text }}</p>
+                <p class="text">{{ card.text }}</p>
             </div>
         </div>
         <div class="bottom">
-            <span
+            <div
                 :class="card.type"
-                class="tag"
+                class="mediaType flex items-center justify-center"
             >
-                {{ card.type }}
-            </span>
+                <img
+                    :src="getSocialIcon"
+                    class="mediaTypeIcon"
+                >
+            </div>
         </div>
     </a>
 </template>
 
 <script>
+import facebook from '../assets/images/card/facebook.svg';
+import instagram from '../assets/images/icon-instagram.svg';
+import linkedin from '../assets/images/card/linkedin.svg';
+import twitter from '../assets/images/card/twitter.svg';
+import youtube from '../assets/images/card/youtube.svg';
+
 export default {
     props: {
         card: {
@@ -47,7 +56,17 @@ export default {
                 return this.card.image;
             }
 
-            return 'https://via.placeholder.com/366x245';
+            return 'https://via.placeholder.com/353x353';
+        },
+        getSocialIcon() {
+            const icons = {
+                facebook,
+                instagram,
+                linkedin,
+                twitter,
+                youtube,
+            };
+            return icons[this.card.type];
         },
     },
 };
@@ -55,6 +74,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+    font-family: $secondaryFont;
     width: 100%;
     background-color: #ffffff;
     padding: 20px;
@@ -67,10 +87,16 @@ export default {
         transform: translateY(-10px);
     } */ // NOTE: Plocka fram senare
 }
+.top {
+    margin-bottom: 57px;
+}
+.bottom {
+    margin-bottom: 20px;
+}
 .imageHolder {
     position: relative;
     height: 353px;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 }
 .title {
     display: block;
@@ -82,12 +108,13 @@ export default {
 .content {
     font-size: 16px;
     line-height: 1.63;
+    padding: 0 15px;
 }
 .date {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     text-align: center;
     color: #83a1ab;
 }
@@ -100,6 +127,10 @@ export default {
 .dateLabel {
     margin-left: 12px;
     font-size: 14px;
+}
+.text {
+    font-size: 14px;
+    line-height: 1.715;
 }
 .tag {
     display: block;
@@ -117,12 +148,20 @@ export default {
     text-align: center;
     text-transform: capitalize;
     font-weight: 300;
+
+}
+.mediaType {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    margin: 0 auto;
     &.facebook {
         background-color: #385899;
     }
     &.instagram {
         background: linear-gradient(
-            45deg,
+            0deg,
             #f09433 0%,
             #e6683c 25%,
             #dc2743 50%,
@@ -139,5 +178,8 @@ export default {
     &.linkedin {
         background-color: #0077b5;
     }
+}
+.mediaTypeIcon {
+    height: 18px;
 }
 </style>
