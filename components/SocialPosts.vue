@@ -22,6 +22,7 @@
         </div>
 
         <AppButton
+            v-show="!allLoaded"
             :loading="loading"
             label="Ladda fler"
             @clicked="loadPosts"
@@ -47,6 +48,7 @@ export default {
             loading: false,
             posts: [],
             currentFilter: 0,
+            allLoaded: false,
             filters: [
                 { label: 'Visa alla', value: 0 },
                 { label: 'Facebook', value: 'facebook' },
@@ -77,21 +79,34 @@ export default {
     methods: {
         filterChanged(value) {
             this.posts = [];
+            this.allLoaded = false;
             this.currentFilter = value;
             this.loadPosts();
         },
         async loadPosts() {
-            if (this.loading) return;
+            if (this.loading || this.allLoaded) return;
 
             this.loading = true;
+
             const res = await axios.get(this.apiUrl, {
                 params: {
                     count: this.numToLoad,
                     offset: this.offset,
                 },
             });
-            res.data.map(post => this.posts.push(post));
+
             this.loading = false;
+
+            if (res.data.length < 1) {
+                this.allLoaded = true;
+                return;
+            }
+
+            if (this.posts.length > 0 && res.data.length < 12) {
+                this.allLoaded = true;
+            }
+
+            res.data.map(post => this.posts.push(post));
         },
     },
 };
