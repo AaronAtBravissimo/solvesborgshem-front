@@ -1,10 +1,18 @@
 <template>
     <div
         :class="{'isOpen': isOpen, 'isDisabled': disabled}"
+        role="menu"
         class="select"
-        @click="toggle()"
     >
-        <div class="activeItem">{{ activeItem.label }}</div>
+        <button
+            class="dropdownToggle"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            @click="toggle"
+        >
+            {{ activeItem.label }}
+        </button>
         <ul class="dropdown">
             <li
                 v-for="(item, index) in items"
@@ -46,10 +54,26 @@ export default {
             return this.items[this.selected];
         },
     },
+    created() {
+        if (process.client) {
+            document.addEventListener('keydown', this.keyListener);
+        }
+    },
+    beforeDestroy() {
+        document.removeEventListener('keydown', this.keyListener);
+    },
     methods: {
+        keyListener(event) {
+            if (!this.isOpen) return;
+
+            if (event.key === 'Escape') {
+                this.isOpen = false;
+            }
+        },
         changeActive(index) {
             this.selected = index;
             this.$emit('changed', this.activeItem.value);
+            this.isOpen = false;
         },
         toggle() {
             if (this.disabled) {
@@ -82,7 +106,7 @@ $verticalPadding: 20px;
         opacity: 0.6;
     }
 }
-.activeItem {
+.dropdownToggle {
     position: relative;
     padding: $verticalPadding;
     padding-right: 64px;
@@ -90,7 +114,8 @@ $verticalPadding: 20px;
     align-items: center;
     background-color: #ffffff;
     z-index: 1;
-    border: 1px solid $borderColor;
+    border: 2px solid $borderColor;
+    width: 100%;
     &::after {
         content: "";
         position: absolute;
@@ -102,6 +127,9 @@ $verticalPadding: 20px;
         background: url("../assets/images/icon-arrow.svg") no-repeat center;
         background-size: 100%;
         transition: 0.25s;
+    }
+    &:focus {
+        border-color: $primaryColor;
     }
 }
 .dropdown {
