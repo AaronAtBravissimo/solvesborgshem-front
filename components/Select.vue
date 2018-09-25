@@ -19,6 +19,7 @@
                 :key="index"
                 :class="[selected === index ? 'isSelected' : '']"
                 class="dropdownItem"
+                @mouseover="focusedItem = index"
                 @click="changeActive(index)"
             >
                 {{ item.label }}
@@ -47,6 +48,7 @@ export default {
         return {
             selected: this.initialSelected,
             isOpen: false,
+            focusedItem: null,
         };
     },
     computed: {

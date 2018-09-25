@@ -92,7 +92,7 @@ export default {
                 params: {
                     count: this.numToLoad,
                     offset: this.offset,
-                    date_format: 'y-m-d',
+                    date_format: 'j F Y',
                 },
             });
 
