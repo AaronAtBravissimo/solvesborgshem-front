@@ -13,18 +13,17 @@
         >
             {{ activeItem.label }}
         </button>
-        <div class="dropdown">
-            <a
+        <ul class="dropdown">
+            <li
                 v-for="(item, index) in items"
                 :key="index"
                 :class="[selected === index ? 'isSelected' : '']"
-                href="#"
                 class="dropdownItem"
-                @click.prevent="changeActive(index)"
+                @click="changeActive(index)"
             >
                 {{ item.label }}
-            </a>
-        </div>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -58,12 +57,26 @@ export default {
     created() {
         if (process.client) {
             document.addEventListener('keydown', this.keyListener);
+            document.addEventListener('click', this.clickOutSideHandler);
         }
     },
     beforeDestroy() {
+        document.removeEventListener('click', this.clickOutSideHandler);
         document.removeEventListener('keydown', this.keyListener);
     },
     methods: {
+        clickOutSideHandler(event) {
+            const classes = event.target.classList;
+
+            if (
+                !classes.contains('select')
+                && !classes.contains('dropdownToggle')
+                && !classes.contains('dropdown')
+                && !classes.contains('dropdownItem')
+            ) {
+                this.isOpen = false;
+            }
+        },
         keyListener(event) {
             if (!this.isOpen) return;
 
