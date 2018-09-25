@@ -8,7 +8,14 @@
             class="filter"
             @click="changeFilter(filter.value)"
         >
-            {{ filter.label }}
+            <div class="inner flex items-center">
+                <div class="icon">
+
+                </div>
+                <div class="label">
+                    {{ filter.label }}
+                </div>
+            </div>
         </button>
     </div>
 </template>
@@ -38,10 +45,58 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$checkWidth: 7px;
+
 .filter {
-    margin: 0 20px;
-    &.isActive {
-        border-bottom: 2px solid #000;
+    margin: 0 25px;
+    &.isActive .icon::after {
+        border-color: $primaryTextColor;
+        animation: check 0.5s;
+    }
+}
+.icon {
+    flex-shrink: 0;
+    position: relative;
+    width: 34px;
+    height: 34px;
+    border-radius: 100%;
+    background-color: #dfe8eb;
+    &::after {
+        content: "";
+        transform: scaleX(-1) rotate(180deg + -45deg);
+        transform-origin: top left;
+        border-right: 2px solid transparent;
+        border-top: 2px solid transparent;
+        display: block;
+        width: $checkWidth;
+        height: $checkWidth * 2;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        margin-left: -#{$checkWidth + 1px};
+        margin-top: 1px;
+    }
+}
+.label {
+    flex-grow: 1;
+    padding-left: 16px;
+    font-family: $secondaryFont;
+    line-height: 1.63;
+    font-size: 16px;
+}
+
+@keyframes check {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    25% {
+        width: $checkWidth;
+        height: 0;
+    }
+    50% {
+        width: $checkWidth;
+        height: $checkWidth * 2;
     }
 }
 </style>

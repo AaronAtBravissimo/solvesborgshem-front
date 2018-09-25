@@ -123,7 +123,7 @@ $gutter: 15px;
     margin-bottom: 60px;
 }
 .heading {
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 }
 .columns {
     margin-left: -$gutter;
