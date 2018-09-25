@@ -88,7 +88,7 @@ export default {
 .heroSection {
     position: relative;
     margin-top: 46px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 .inner {
     display: flex;

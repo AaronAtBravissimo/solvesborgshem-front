@@ -15,22 +15,45 @@
                                 :alt="slide.ordinaryImage.alt"
                                 class="backgroundImage objectFitCover"
                             >
-                        </div>
-                        <div class="buttons">
-                            <button @click="prevHandler">prev</button>
-                            <button @click="pause">
-                                <img
-                                    v-if="interval"
-                                    src="../assets/images/icon-pause.svg"
-                                    alt=""
+                            <div class="buttons flex justify-center">
+                                <button
+                                    class="flex items-center justify-center"
+                                    @click="prevHandler"
                                 >
-                                <img
-                                    v-if="!interval"
-                                    src="../assets/images/icon-play.svg"
-                                    alt=""
+                                    <img
+                                        class="buttonIcon prev"
+                                        src="../assets/images/icon-arrow-right.svg"
+                                        alt=""
+                                    >
+                                </button>
+                                <button
+                                    class="flex items-center justify-center"
+                                    @click="pause"
                                 >
-                            </button>
-                            <button @click="nextHandler">next</button>
+                                    <img
+                                        v-if="interval"
+                                        class="buttonIcon pause"
+                                        src="../assets/images/icon-pause.svg"
+                                        alt=""
+                                    >
+                                    <img
+                                        v-if="!interval"
+                                        class="buttonIcon play"
+                                        src="../assets/images/icon-play.svg"
+                                        alt=""
+                                    >
+                                </button>
+                                <button
+                                    class="flex items-center justify-center"
+                                    @click="nextHandler"
+                                >
+                                    <img
+                                        class="buttonIcon next"
+                                        src="../assets/images/icon-arrow-right.svg"
+                                        alt=""
+                                    >
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <img
@@ -121,16 +144,15 @@ export default {
 }
 .heroSlider {
     height: 700px;
-    overflow: hidden;
 }
 .slideImage {
     position: absolute;
-    top: 0;
-    right: 0;
+    right: -142px;
+    top: 13px;
 }
 .backgroundHolder {
     width: 100%;
-    padding-right: 267px;
+    padding-right: 305px;
     height: 540px;
     position: relative;
     margin: 40px;
@@ -145,13 +167,24 @@ export default {
     height: 100%;
 }
 .backgroundImage {
-    top: -40px;
     left: -40px;
+    top: -40px;
     position: absolute;
 }
 .buttons {
     position: absolute;
     left: 0;
     bottom: 0;
+    width: calc(100% - 40px);
+}
+.buttonIcon {
+    width: 40px;
+}
+.prev {
+    transform: rotate(0.5turn);
+}
+.pause,
+.play {
+    width: 32px;
 }
 </style>
