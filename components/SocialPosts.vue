@@ -117,8 +117,9 @@ export default {
 $gutter: 25px;
 
 .socialPosts {
-    padding: 68px 0 80px;
+    padding: 68px 0 0;
     text-align: center;
+    margin-bottom: -50px;
 }
 .top {
     margin-bottom: 35px;
@@ -136,5 +137,21 @@ $gutter: 25px;
 }
 .button {
     margin-top: $gutter;
+    /deep/ {
+        .inner {
+            opacity: 1 !important;
+        }
+        .label {
+            padding-left: 40px;
+        }
+         .loading {
+            opacity: 1;
+            left: 0;
+            margin-left: 20px;
+            margin-top: -12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
 }
 </style>
