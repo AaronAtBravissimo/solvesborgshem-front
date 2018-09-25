@@ -1,14 +1,14 @@
 <template>
     <div
         :class="{'isOpen': isOpen, 'isDisabled': disabled}"
+        :aria-expanded="isOpen"
+        aria-haspopup="true"
         role="menu"
         class="select"
     >
         <button
             class="dropdownToggle"
             type="button"
-            aria-haspopup="true"
-            aria-expanded="false"
             @click="toggle"
         >
             {{ activeItem.label }}
@@ -19,7 +19,6 @@
                 :key="index"
                 :class="[selected === index ? 'isSelected' : '']"
                 class="dropdownItem"
-                @mouseover="focusedItem = index"
                 @click="changeActive(index)"
             >
                 {{ item.label }}
@@ -81,8 +80,8 @@ export default {
         },
         keyListener(event) {
             if (!this.isOpen) return;
-
-            if (event.key === 'Escape') {
+            console.log(event.key);
+            if (event.key === 'Escape' || event.keyCode === 9) {
                 this.isOpen = false;
             }
         },
