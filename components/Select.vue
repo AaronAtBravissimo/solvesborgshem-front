@@ -15,7 +15,7 @@
         </button>
         <ul class="dropdown">
             <li
-                v-for="(item, index) in items"
+                v-for="(item, index) in itemsFixed"
                 :key="index"
                 :class="{'isFocused': focusedItem === index, 'isSelected': selected === index}"
                 class="dropdownItem"
@@ -42,6 +42,10 @@ export default {
             type: Number,
             default: 0,
         },
+        showFirstItem: {
+            type: Boolean,
+            default: true,
+        },
     },
     data() {
         return {
@@ -53,6 +57,13 @@ export default {
     computed: {
         activeItem() {
             return this.items[this.selected];
+        },
+        itemsFixed() {
+            if (this.showFirstItem) {
+                return this.items;
+            }
+
+            return this.items.slice(1);
         },
     },
     created() {
@@ -92,7 +103,7 @@ export default {
                 event.preventDefault();
                 if (this.focusedItem === null) {
                     this.focusedItem = 0;
-                } else if (this.focusedItem < (this.items.length - 1)) {
+                } else if (this.focusedItem < (this.itemsFixed.length - 1)) {
                     this.focusedItem++;
                 }
             } else if (event.keyCode === 13 && this.focusedItem !== null) {
