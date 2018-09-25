@@ -13,17 +13,18 @@
         >
             {{ activeItem.label }}
         </button>
-        <ul class="dropdown">
-            <li
+        <div class="dropdown">
+            <a
                 v-for="(item, index) in items"
                 :key="index"
                 :class="[selected === index ? 'isSelected' : '']"
+                href="#"
                 class="dropdownItem"
-                @click="changeActive(index)"
+                @click.prevent="changeActive(index)"
             >
                 {{ item.label }}
-            </li>
-        </ul>
+            </a>
+        </div>
     </div>
 </template>
 
@@ -163,7 +164,8 @@ $verticalPadding: 20px;
     display: flex;
     align-items: center;
     padding: 12px $verticalPadding;
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: #e8e8e8;
     }
     &.isSelected {
