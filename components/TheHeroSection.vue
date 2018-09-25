@@ -108,7 +108,7 @@ export default {
 .textHolder {
     width: 550px;
     margin-top: 118px;
-    margin-bottom: 45px;
+    margin-bottom: 47px;
 }
 .heading {
     line-height: 1.2;
