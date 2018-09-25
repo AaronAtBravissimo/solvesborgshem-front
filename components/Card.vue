@@ -88,7 +88,7 @@ export default {
     } */ // NOTE: Plocka fram senare
 }
 .top {
-    margin-bottom: 57px;
+    margin-bottom: 38px;
 }
 .bottom {
     margin-bottom: 20px;
@@ -97,6 +97,27 @@ export default {
     position: relative;
     height: 353px;
     margin-bottom: 26px;
+    @media ($largeDesktop) {
+        height: 250px;
+    }
+    @media ($smallDesktop) {
+        height: 300px;
+    }
+    @media ($laptop) {
+        height: 250px;
+    }
+    @media ($tablet) {
+        height: 200px;
+    }
+    @media ($mediumTablet) {
+        height: 180px;
+    }
+    @media ($smallTablet) {
+        height: 150px;
+    }
+    @media ($smallerTablet) {
+        height: 200px;
+    }
 }
 .title {
     display: block;
@@ -127,28 +148,16 @@ export default {
 .dateLabel {
     margin-left: 12px;
     font-size: 14px;
+    @media ($smallTablet) {
+        font-size: 12px;
+    }
 }
 .text {
     font-size: 14px;
     line-height: 1.715;
-}
-.tag {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    min-width: 135px;
-    max-width: 100%;
-    transform: translateX(-50%);
-    z-index: 2;
-    line-height: 1.15;
-    font-size: 15px;
-    color: #ffffff;
-    padding: 12px;
-    text-align: center;
-    text-transform: capitalize;
-    font-weight: 300;
-
+    @media ($smallTablet) {
+        font-size: 13px;
+    }
 }
 .mediaType {
     position: relative;
@@ -156,6 +165,10 @@ export default {
     height: 42px;
     border-radius: 100%;
     margin: 0 auto;
+    @media ($smallTablet) {
+        width: 36px;
+        height: 36px;
+    }
     &.facebook {
         background-color: #385899;
     }
@@ -181,5 +194,8 @@ export default {
 }
 .mediaTypeIcon {
     height: 18px;
+    @media ($smallTablet) {
+        height: 16px;
+    }
 }
 </style>

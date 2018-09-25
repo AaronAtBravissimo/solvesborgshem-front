@@ -119,6 +119,8 @@ export default {
 
 <style lang="scss" scoped>
 $gutter: 25px;
+$gutterLargeDesktop: 15px;
+$gutterMediumTablet: 10px;
 
 .fade-in-enter-active {
     transition: all 0.5s ease;
@@ -145,10 +147,38 @@ $gutter: 25px;
 .columns {
     margin-left: -$gutter;
     margin-right: -$gutter;
+    @media ($largeDesktop) {
+        margin-left: -$gutterLargeDesktop;
+        margin-right: -$gutterLargeDesktop;
+    }
+    @media ($mediumTablet) {
+        margin-left: -$gutterMediumTablet;
+        margin-right: -$gutterMediumTablet;
+    }
+    @media ($smallerTablet) {
+        margin: 0;
+    }
 }
 .column {
     padding: $gutter;
     width: 25%;
+    @media ($largeDesktop) {
+        padding: $gutterLargeDesktop;
+    }
+    @media ($smallDesktop) {
+        width: 33.33%;
+    }
+    @media ($largeTablet) {
+        width: 50%;
+    }
+    @media ($mediumTablet) {
+        padding: $gutterMediumTablet;
+    }
+    @media ($smallerTablet) {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 25px;
+    }
 }
 .button {
     margin-top: $gutter;
