@@ -1,3 +1,4 @@
+import { generateJsonFiles } from './modules/generate';
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require('glob-all');
 const path = require('path');
@@ -118,6 +119,9 @@ module.exports = {
             allChunks: true
         },
         extend(config, { isDev, isClient }) {
+            if (isDev) {
+                generateJsonFiles('static/json/');
+            }
             // Run ESLint on save
             if (isDev && isClient) {
                 config.module.rules.push({

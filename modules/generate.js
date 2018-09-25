@@ -16,20 +16,20 @@ module.exports = function () {
                 }
             })
 
-            return generateJsonFiles(generator);
+            return generateJsonFiles(generator.nuxt.options.generate.apiCacheDir);
 		}
 		return await routes();
-	});
+    });
 }
 
-async function generateJsonFiles(generator) {
+export async function generateJsonFiles(dir) {
     const res = await axios.get(`${apiUrl}/api/page`);
     
     res.data.map(page => {
         let name = page.post_link.replace(baseUrl, '');
         name = name.replace(/\//g, '-_-');
         name = name.replace(/\\/g, '-_-');
-        const path = (generator.nuxt.options.generate.apiCacheDir + '/' + name + '.json');
+        const path = (dir + '/' + name + '.json');
         fs.writeFile(path, JSON.stringify(page) , (err) => {
             if (err) throw err;
         })
