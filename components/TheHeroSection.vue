@@ -18,6 +18,12 @@
                     >
                     </p>
                 </div>
+                <div class="linkSelect">
+                    <Select
+                        :items="linkSelect"
+                        @changed="linkSelectChanged"
+                    />
+                </div>
             </div>
         </div>
         <img
@@ -29,16 +35,49 @@
 </template>
 
 <script>
+import Select from './Select.vue';
 import TheHeroSlider from './TheHeroSlider.vue';
+import { baseUrl } from '../utils/config';
+import { makeUrlRelative } from '../utils/helpers';
 
 export default {
     components: {
+        Select,
         TheHeroSlider,
     },
     props: {
         heroSection: {
             type: Object,
             default: null,
+        },
+    },
+    computed: {
+        linkSelect() {
+            const initial = [
+                {
+                    label: 'Vad kan vi hjälpa dig med?',
+                    value: null,
+                },
+            ];
+            const items = this.heroSection.linkList
+                .map(item => ({
+                    label: item.link.title,
+                    value: item.link.url,
+                }));
+
+            return [...initial, ...items];
+        },
+    },
+    methods: {
+        linkSelectChanged(value) {
+            if (!value) return;
+
+            if (value.indexOf(baseUrl) !== -1) {
+                const url = makeUrlRelative(value);
+                this.$router.push(url);
+            } else {
+                window.location.href = value;
+            }
         },
     },
 };
