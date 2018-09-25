@@ -17,7 +17,7 @@
                         class="dateIcon"
                         src="../assets/images/card/icon-calendar.svg"
                     >
-                    <span class="dateLabel">{{ date }}</span>
+                    <span class="dateLabel">{{ card.date_formatted }}</span>
                 </div>
                 <p>{{ card.text }}</p>
             </div>
@@ -48,13 +48,6 @@ export default {
             }
 
             return 'https://via.placeholder.com/366x245';
-        },
-        date() {
-            const formattedDate = new Date(this.card.date * 1000);
-            const day = formattedDate.getDate();
-            const month = formattedDate.toLocaleString('sv-se', { month: 'long' });
-            const year = formattedDate.getFullYear();
-            return `${day} ${month} ${year}`;
         },
     },
 };
