@@ -8,7 +8,8 @@
 
         <div class="columns flex flex-wrap">
             <div
-                v-for="post in posts"
+                v-for="(post, index) in posts"
+                v-if="offset > index"
                 :key="post.id"
                 class="column"
             >
@@ -17,6 +18,7 @@
         </div>
 
         <AppButton
+            :loading="loading"
             label="Ladda fler"
             @clicked="loadPosts"
         />
@@ -36,6 +38,7 @@ export default {
     },
     data() {
         return {
+            loading: false,
             posts: [],
         };
     },
@@ -43,16 +46,24 @@ export default {
         offset() {
             return this.posts.length;
         },
+        numToLoad() {
+            return this.offset === 0 ? 4 : 12;
+        },
     },
     mounted() {
         this.loadPosts();
     },
     methods: {
         async loadPosts() {
-            const res = await axios.get(
-                `https://social-api.bravissimo.se/posts/4b3ba210-51fd-11e8-a5d8-b9e96f3a5ae9/instagram?count=4&offset=${this.offset}&timestamp=${new Date().getTime()}`,
-            );
+            this.loading = true;
+            const res = await axios.get('https://social-api.bravissimo.se/posts/edffd670-4179-11e8-8f86-1b3fc7f38dbd', {
+                params: {
+                    count: this.numToLoad,
+                    offset: this.offset,
+                },
+            });
             res.data.map(post => this.posts.push(post));
+            this.loading = false;
         },
     },
 };
