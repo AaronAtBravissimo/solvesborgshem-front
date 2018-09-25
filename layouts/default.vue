@@ -33,9 +33,21 @@ export default {
 <style lang="scss" scoped>
 .app__inner {
     padding: 50px;
+    @media ($laptop) {
+        padding: 30px;
+    }
+    @media ($mobile) {
+        padding: 0;
+    }
 }
 .wrapper {
     background-color: #f4f8fa;
     padding: 0 50px 120px;
+    @media ($laptop) {
+        padding: 0 30px 90px;
+    }
+    @media ($mobile) {
+        padding: 0 15px 90px;
+    }
 }
 </style>
