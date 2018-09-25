@@ -1,30 +1,29 @@
 <template>
     <div
         :class="{'isOpen': isOpen, 'isDisabled': disabled}"
+        :aria-expanded="isOpen"
+        aria-haspopup="true"
         role="menu"
         class="select"
     >
         <button
             class="dropdownToggle"
             type="button"
-            aria-haspopup="true"
-            aria-expanded="false"
             @click="toggle"
         >
             {{ activeItem.label }}
         </button>
-        <div class="dropdown">
-            <a
-                v-for="(item, index) in items"
+        <ul class="dropdown">
+            <li
+                v-for="(item, index) in itemsFixed"
                 :key="index"
-                :class="[selected === index ? 'isSelected' : '']"
-                href="#"
+                :class="{'isFocused': focusedItem === index, 'isSelected': selected === index}"
                 class="dropdownItem"
-                @click.prevent="changeActive(index)"
+                @click="changeActive(index)"
             >
                 {{ item.label }}
-            </a>
-        </div>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -39,36 +38,72 @@ export default {
             type: Boolean,
             default: false,
         },
-        initialSelected: {
-            type: Number,
-            default: 0,
+        showFirstItem: {
+            type: Boolean,
+            default: true,
         },
     },
     data() {
         return {
-            selected: this.initialSelected,
+            selected: null,
             isOpen: false,
+            focusedItem: null,
         };
     },
     computed: {
         activeItem() {
-            return this.items[this.selected];
+            return this.items[this.selected ? this.selected : 0];
+        },
+        itemsFixed() {
+            if (this.showFirstItem) {
+                return this.items;
+            }
+
+            return this.items.slice(1);
         },
     },
     created() {
         if (process.client) {
             document.addEventListener('keydown', this.keyListener);
+            document.addEventListener('click', this.clickOutSideHandler);
         }
     },
     beforeDestroy() {
+        document.removeEventListener('click', this.clickOutSideHandler);
         document.removeEventListener('keydown', this.keyListener);
     },
     methods: {
+        clickOutSideHandler(event) {
+            const classes = event.target.classList;
+
+            if (
+                !classes.contains('select')
+                && !classes.contains('dropdownToggle')
+                && !classes.contains('dropdown')
+                && !classes.contains('dropdownItem')
+            ) {
+                this.isOpen = false;
+            }
+        },
         keyListener(event) {
             if (!this.isOpen) return;
 
-            if (event.key === 'Escape') {
+            if (event.keyCode === 27 || event.keyCode === 9) { // Escape or Tab
                 this.isOpen = false;
+            } else if (event.keyCode === 38) { // Arrow up
+                event.preventDefault();
+                if (this.focusedItem > 0) {
+                    this.focusedItem--;
+                }
+            } else if (event.keyCode === 40) { // Arrow down
+                event.preventDefault();
+                if (this.focusedItem === null) {
+                    this.focusedItem = 0;
+                } else if (this.focusedItem < (this.itemsFixed.length - 1)) {
+                    this.focusedItem++;
+                }
+            } else if (event.keyCode === 13 && this.focusedItem !== null) {
+                this.changeActive(this.focusedItem);
             }
         },
         changeActive(index) {
@@ -164,12 +199,13 @@ $verticalPadding: 20px;
     display: flex;
     align-items: center;
     padding: 12px $verticalPadding;
+    &.isSelected {
+        background-color: $borderColor;
+    }
+    &.isFocused,
     &:hover,
     &:focus {
         background-color: #e8e8e8;
-    }
-    &.isSelected {
-        background-color: $borderColor;
     }
     &:last-child {
         border: 0;

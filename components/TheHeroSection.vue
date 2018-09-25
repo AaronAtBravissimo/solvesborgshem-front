@@ -21,6 +21,7 @@
                 <div class="linkSelect">
                     <Select
                         :items="linkSelect"
+                        :show-first-item="false"
                         @changed="linkSelectChanged"
                     />
                 </div>
