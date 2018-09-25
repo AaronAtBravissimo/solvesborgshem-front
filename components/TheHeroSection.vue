@@ -122,4 +122,8 @@ export default {
 .preamble {
     text-align: center;
 }
+.linkSelect {
+    width: 330px;
+    margin: 0 auto;
+}
 </style>

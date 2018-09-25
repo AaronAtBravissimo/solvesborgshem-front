@@ -123,11 +123,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$borderColor: #ced4da;
-$arrowSize: 24px;
-$verticalPadding: 20px;
+$borderColor: #ffffff;
+$arrowSize: 16px;
+$verticalPadding: 25px;
 
 .select {
+    font-family: $secondaryFont;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
     position: relative;
     &.isOpen .activeItem::after {
@@ -136,6 +139,11 @@ $verticalPadding: 20px;
     &.isOpen .dropdown {
         transform: scaleY(1);
         z-index: 2;
+        margin-top: -5px;
+        border-top: 0;
+    }
+    &.isOpen .dropDownToggle {
+        padding: 16px $verticalPadding 21px;
     }
     &.isDisabled {
         pointer-events: none;
@@ -144,27 +152,34 @@ $verticalPadding: 20px;
 }
 .dropdownToggle {
     position: relative;
-    padding: $verticalPadding;
-    padding-right: 64px;
+    padding: 16px $verticalPadding;
+    padding-right: 60px;
     display: flex;
     align-items: center;
     background-color: #ffffff;
     z-index: 1;
     border: 2px solid $borderColor;
     width: 100%;
+    border-radius: 6px;
+    box-shadow: 7.5px 13px 30px 0 rgba(13, 42, 56, 0.1);
     &::after {
         content: "";
         position: absolute;
         top: 50%;
         margin-top: (-$arrowSize / 2);
-        right: $verticalPadding;
+        right: 24px;
         width: $arrowSize;
         height: $arrowSize;
         background: url("../assets/images/icon-arrow.svg") no-repeat center;
         background-size: 100%;
         transition: 0.25s;
+        .isOpen & {
+            transform: rotate(0.5turn);
+            margin-top: -10px;
+        }
     }
-    &:focus {
+    &:focus,
+    .isOpen & {
         border-color: $primaryColor;
     }
 }
@@ -178,9 +193,11 @@ $verticalPadding: 20px;
     transition: 0.25s;
     transform-origin: top;
     overflow: auto;
-    box-shadow: 0 10px 30px 2px rgba(0, 0, 0, 0.1);
     max-height: 320px;
     background-color: #ffffff;
+    border: 2px solid $primaryColor;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
     &::-webkit-scrollbar {
         width: 8px;
     }
@@ -194,10 +211,12 @@ $verticalPadding: 20px;
     }
 }
 .dropdownItem {
-    border-bottom: 1px solid $borderColor;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
     transition: 0.25s;
     display: flex;
     align-items: center;
+    font-weight: 400;
     padding: 12px $verticalPadding;
     &.isSelected {
         background-color: $borderColor;
@@ -205,7 +224,10 @@ $verticalPadding: 20px;
     &.isFocused,
     &:hover,
     &:focus {
-        background-color: #e8e8e8;
+        background-color: #f1f1f1;
+    }
+    &:first-child {
+        border-top: 1px solid #f1f1f1;
     }
     &:last-child {
         border: 0;
