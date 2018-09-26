@@ -148,14 +148,17 @@ module.exports = {
                             },
                         ],
                         whitelist: [
-                            'html', 
-                            'body', 
-                            'nuxt-progress', 
+                            'html',
+                            'body',
+                            'nuxt-progress',
                             'vue-map',
                             'page-enter-active',
                             'page-leave-active',
                             'page-enter',
                             'page-leave-to',
+                            'fade-in-enter-active',
+                            'fade-in-leave-active',
+                            'fade-in-enter'
                         ],
                     }),
                 );

@@ -114,7 +114,6 @@ $gutterSmallTablet: 25px;
         padding: 0 50px;
     }
     @media ($laptop) {
-        padding: 0;
         margin-left: -$gutterLaptop;
         margin-right: -$gutterLaptop;
     }
