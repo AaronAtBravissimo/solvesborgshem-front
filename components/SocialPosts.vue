@@ -1,13 +1,11 @@
 <template>
     <section class="socialPosts">
-        <div class="container">
-            <div class="top">
-                <h2 class="heading">Följ oss</h2>
-                <Filters
-                    :filters="filters"
-                    @filterChanged="filterChanged"
-                />
-            </div>
+        <div class="top">
+            <h2 class="heading">Följ oss</h2>
+            <Filters
+                :filters="filters"
+                @filterChanged="filterChanged"
+            />
         </div>
 
         <transition-group

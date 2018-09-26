@@ -46,12 +46,44 @@ export default {
 
 <style lang="scss" scoped>
 $checkWidth: 7px;
+$checkWidthMediumTablet: 6px;
+$checkWidthSmallerTablet: 5px;
+
+.filters {
+    @media ($mobile) {
+        justify-content: space-between;
+    }
+    @media (max-width: 370px) {
+        flex-wrap: wrap;
+        margin-bottom: -15px;
+    }
+}
 
 .filter {
     margin: 0 25px;
+    text-align: left;
+    @media ($mediumTablet) {
+        margin: 0 15px;
+    }
+    @media ($smallerTablet) {
+        margin: 0 12px;
+    }
+    @media ($mobile) {
+        margin: 0 8px;
+    }
+    @media (max-width: 370px) {
+        width: 100%;
+        margin: 0 0 15px;
+    }
     &.isActive .icon::after {
         border-color: $primaryTextColor;
         animation: check 0.5s;
+        @media ($mediumTablet) {
+            animation: checkMediumTablet 0.5s;
+        }
+        @media ($smallerTablet) {
+            animation: checkSmallerTablet 0.5s;
+        }
     }
 }
 .icon {
@@ -61,6 +93,14 @@ $checkWidth: 7px;
     height: 34px;
     border-radius: 100%;
     background-color: #dfe8eb;
+    @media ($mediumTablet) {
+        width: 30px;
+        height: 30px;
+    }
+    @media ($smallerTablet) {
+        width: 26px;
+        height: 26px;
+    }
     &::after {
         content: "";
         transform: scaleX(-1) rotate(180deg + -45deg);
@@ -75,6 +115,16 @@ $checkWidth: 7px;
         position: absolute;
         margin-left: -#{$checkWidth + 1px};
         margin-top: 1px;
+        @media ($mediumTablet) {
+            width: $checkWidthMediumTablet;
+            height: $checkWidthMediumTablet * 2;
+            margin-left: -#{$checkWidthMediumTablet + 1px};
+        }
+        @media ($smallerTablet) {
+            width: $checkWidthSmallerTablet;
+            height: $checkWidthSmallerTablet * 2;
+            margin-left: -#{$checkWidthSmallerTablet + 1px};
+        }
     }
 }
 .label {
@@ -83,6 +133,14 @@ $checkWidth: 7px;
     font-family: $secondaryFont;
     line-height: 1.63;
     font-size: 16px;
+    @media ($mediumTablet) {
+        padding-left: 14px;
+        font-size: 15px;
+    }
+    @media ($smallerTablet) {
+        padding-left: 10px;
+        font-size: 13px;
+    }
 }
 
 @keyframes check {
@@ -97,6 +155,36 @@ $checkWidth: 7px;
     50% {
         width: $checkWidth;
         height: $checkWidth * 2;
+    }
+}
+
+@keyframes checkMediumTablet {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    25% {
+        width: $checkWidthMediumTablet;
+        height: 0;
+    }
+    50% {
+        width: $checkWidthMediumTablet;
+        height: $checkWidthMediumTablet * 2;
+    }
+}
+
+@keyframes checkSmallerTablet {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    25% {
+        width: $checkWidthSmallerTablet;
+        height: 0;
+    }
+    50% {
+        width: $checkWidthSmallerTablet;
+        height: $checkWidthSmallerTablet * 2;
     }
 }
 </style>
