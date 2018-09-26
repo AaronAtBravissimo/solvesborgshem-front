@@ -1,28 +1,44 @@
 <template>
     <div class="app">
-        <div class="app__inner">
-            <div class="wrapper">
-                <AboveHeader/>
-                <TheHeader/>
-                <main class="inner">
-                    <nuxt/>
-                </main>
+        <div
+            :class="{'menuOpen': menuOpen}"
+            class="wrapper"
+        >
+            <div
+
+                class="app__inner"
+            >
+                <div class="wrapper__inner">
+                    <AboveHeader/>
+                    <TheHeader/>
+                    <main class="inner">
+                        <nuxt/>
+                    </main>
+                </div>
             </div>
+            <TheFooter/>
         </div>
-        <TheFooter/>
+        <ExpandedMenu/>
     </div>
 </template>
 
 <script>
 import AboveHeader from '../components/AboveHeader.vue';
+import ExpandedMenu from '../components/ExpandedMenu.vue';
 import TheHeader from '../components/TheHeader.vue';
 import TheFooter from '../components/TheFooter.vue';
 
 export default {
     components: {
         AboveHeader,
+        ExpandedMenu,
         TheHeader,
         TheFooter,
+    },
+    computed: {
+        menuOpen() {
+            return this.$store.getters.expandedMenuOpen;
+        },
     },
     mounted() {
         this.$store.dispatch('nuxtServerInit');
@@ -31,8 +47,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrapper {
+    position: relative;
+    z-index: 50;
+    transition: transform 0.35s;
+    background-color: #ffffff;
+    overflow: hidden;
+    &.menuOpen {
+        transform: translateX(-250px);
+        box-shadow: -10px 0 20px 10px rgba(0, 0, 0, 0.3);
+    }
+}
 .app__inner {
     padding: 50px;
+    position: relative;
+
     @media ($smallDesktop) {
         padding: 30px;
     }
@@ -40,7 +69,7 @@ export default {
         padding: 0;
     }
 }
-.wrapper {
+.wrapper__inner {
     background-color: #f4f8fa;
     padding: 0 50px 120px;
     @media ($smallDesktop) {

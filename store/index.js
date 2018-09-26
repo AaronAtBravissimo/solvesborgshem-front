@@ -7,10 +7,12 @@ const createStore = () => new Vuex.Store({
     state: {
         menu: {},
         options: [],
+        expandedMenuOpen: false,
     },
     getters: {
         menu: state => state.menu,
         options: state => state.options,
+        expandedMenuOpen: state => state.expandedMenuOpen,
     },
     mutations: {
         setMenu(state, { menu }) {
@@ -18,6 +20,18 @@ const createStore = () => new Vuex.Store({
         },
         setOptions(state, { options }) {
             state.options = options;
+        },
+        toggleMenu(state) {
+            state.expandedMenuOpen = !state.expandedMenuOpen;
+            document.body.classList.toggle('overflow-hidden');
+        },
+        closeMenu(state) {
+            state.expandedMenuOpen = false;
+            document.body.classList.remove('overflow-hidden');
+        },
+        openMenu(state) {
+            state.expandedMenuOpen = true;
+            document.body.classList.add('overflow-hidden');
         },
     },
     actions: {

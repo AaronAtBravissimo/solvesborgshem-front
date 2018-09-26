@@ -12,6 +12,7 @@
                     label="Mina sidor"
                     class="loginButton"
                 />
+                <MenuButton/>
             </div>
         </div>
     </header>
@@ -21,6 +22,7 @@
 import Logo from './Logo.vue';
 import TheNavigation from './TheNavigation.vue';
 import AppButton from './AppButton.vue';
+import MenuButton from './MenuButton.vue';
 import userIcon from '../assets/images/icon-user.svg';
 
 export default {
@@ -28,6 +30,7 @@ export default {
         Logo,
         TheNavigation,
         AppButton,
+        MenuButton,
     },
     data() {
         return {

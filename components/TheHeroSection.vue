@@ -84,7 +84,7 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .heroSection {
     position: relative;
     margin-top: 46px;
@@ -98,6 +98,9 @@ export default {
     position: absolute;
     right: -50px;
     top: -4px;
+    @media ($smallDesktop) {
+        right: -30px;
+    }
 }
 .left {
     width: calc(100% - 550px);
