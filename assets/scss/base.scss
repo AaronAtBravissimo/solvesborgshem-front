@@ -12,8 +12,14 @@ body {
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    @media ($mobile) {
+    @media ($tablet) {
+        font-size: 17px;
+    }
+    @media ($smallTablet) {
         font-size: 16px;
+    }
+    @media ($mobile) {
+        font-size: 15px;
     }
 }
 

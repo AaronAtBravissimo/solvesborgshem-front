@@ -27,17 +27,39 @@ export default {
 
 <style lang="scss" scoped>
 $gutter: 31.5px;
+$gutterTablet: 25px;
 
 .twoColumn {
     padding-bottom: 62px;
 }
 
+.container {
+    @media ($tablet) {
+        padding: 0;
+    }
+}
+
 .columns {
     margin-left: -$gutter;
     margin-right: -$gutter;
+    @media($tablet) {
+        margin-left: -$gutterTablet;
+        margin-right: -$gutterTablet;
+    }
+    @media ($smallTablet) {
+        margin: 0 0 -30px;
+    }
 }
 .column {
     padding: 0 $gutter;
     width: 50%;
+    @media($tablet) {
+        padding: 0 $gutterTablet;
+    }
+    @media ($smallTablet) {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 30px;
+    }
 }
 </style>
