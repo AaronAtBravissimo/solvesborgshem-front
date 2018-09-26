@@ -10,6 +10,7 @@
                     :icon="userIcon"
                     url="#minaSidor"
                     label="Mina sidor"
+                    class="loginButton"
                 />
             </div>
         </div>
@@ -42,10 +43,20 @@ export default {
     height: 44px;
     position: relative;
     top: -4px;
+    @media ($smallDesktop) {
+        width: 350px;
+        height: 40px;
+        top: -2px;
+    }
 }
 .inner {
     padding: 40px 0 46px; // NOTE: Paddingen nedåt bör plockas bort sedan...
     display: flex;
     align-items: center;
+}
+.loginButton {
+    @media ($laptop) {
+        display: none;
+    }
 }
 </style>

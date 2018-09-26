@@ -32,9 +32,18 @@ export default {
 <style lang="scss" scoped>
 .mainNavigation {
     margin-right: 45px;
+    @media ($smallDesktop) {
+        margin-right: 30px;
+    }
+    @media ($laptop) {
+        display: none;
+    }
 }
 .item {
     margin-right: 39px;
+    @media ($smallDesktop) {
+        margin-right: 25px;
+    }
     &:last-child {
         margin-right: 0;
     }

@@ -65,14 +65,33 @@ export default {
     display: flex;
     margin-left: -50px;
     width: calc(100% + 100px);
+    @media ($smallDesktop) {
+        margin-left: -30px;
+        width: calc(100% + 60px);
+    }
+    @media ($smallTablet) {
+        min-height: 50px;
+    }
 }
 .inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 50px;
+    @media ($smallDesktop) {
+        padding: 0 30px;
+    }
+    @media ($tablet) {
+        justify-content: center;
+    }
+    @media ($smallerTablet) {
+        display: none;
+    }
 }
 .right {
     margin-right: -12px;
+    @media ($tablet) {
+        display: none;
+    }
 }
 </style>

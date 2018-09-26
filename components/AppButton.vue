@@ -186,6 +186,9 @@ export default {
     background: none;
     padding: 0;
     margin-right: 32px;
+    @media ($largeTablet) {
+        margin-right: 15px;
+    }
     &:last-child {
         margin-right: 0;
     }
