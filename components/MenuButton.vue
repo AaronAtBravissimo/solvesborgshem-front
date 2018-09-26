@@ -76,7 +76,7 @@ $hamburgerHeight: 18px;
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: $primaryColor;
+    background-color: $primaryTextColor;
     left: 0;
     top: 0;
     transition: 0.25s;
@@ -92,7 +92,7 @@ $hamburgerHeight: 18px;
 
 .menuButton:hover {
     .label {
-        color: $primaryColor;
+        color: $primaryTextColor;
     }
 }
 

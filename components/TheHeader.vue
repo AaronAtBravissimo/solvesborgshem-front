@@ -51,6 +51,10 @@ export default {
         height: 40px;
         top: -2px;
     }
+    @media ($mobile) {
+        width: 220px;
+        height: 26px;
+    }
 }
 .inner {
     padding: 40px 0 46px; // NOTE: Paddingen nedåt bör plockas bort sedan...
