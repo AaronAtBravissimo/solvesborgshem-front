@@ -137,6 +137,7 @@ export default {
 }
 .slide-fade-leave-active {
     opacity: 0;
+    display: none;
 }
 .slide-fade-enter {
     transform: translateX(10px);

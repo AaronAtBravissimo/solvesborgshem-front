@@ -53,6 +53,7 @@ export default {
     }
 }
 .image {
+    position: relative;
     width: 100%;
     height: 470px;
     margin-bottom: 67px;

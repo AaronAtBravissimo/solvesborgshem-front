@@ -29,7 +29,6 @@ export default {
 
 <style lang="scss" scoped>
 .image {
-    position: relative;
     display: block;
     width: 100%;
 }
