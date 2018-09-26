@@ -158,7 +158,9 @@ module.exports = {
                             'page-leave-to',
                             'fade-in-enter-active',
                             'fade-in-leave-active',
-                            'fade-in-enter'
+                            'fade-in-enter',
+                            'nuxt-link-active',
+                            'nuxt-link-exact-active',
                         ],
                     }),
                 );

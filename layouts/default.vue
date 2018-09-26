@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 .app__inner {
     padding: 50px;
-    @media ($laptop) {
+    @media ($smallDesktop) {
         padding: 30px;
     }
     @media ($mobile) {
@@ -43,7 +43,7 @@ export default {
 .wrapper {
     background-color: #f4f8fa;
     padding: 0 50px 120px;
-    @media ($laptop) {
+    @media ($smallDesktop) {
         padding: 0 30px 90px;
     }
     @media ($mobile) {

@@ -54,7 +54,14 @@ export default {
 
 .headingHolder {
     text-align: center;
-    margin-bottom: 92px;
+    margin-top: 11px;
+    margin-bottom: 67px;
+    @media ($tablet) {
+        margin-bottom: 30px;
+    }
+    @media ($smallTablet) {
+        margin-bottom: 0;
+    }
 }
 
 .columns {
@@ -62,6 +69,12 @@ export default {
     flex-wrap: wrap;
     padding: 35px 40px;
     position: relative;
+    @media ($tablet) {
+        padding: 30px;
+    }
+    @media ($mobile) {
+        padding: 30px 15px;
+    }
     &::after {
         content: '';
         position: absolute;
@@ -71,16 +84,46 @@ export default {
         width: 1px;
         height: 100%;
         background-color: #d2dde1;
+        @media ($tablet) {
+            display: none;
+        }
     }
 }
 
 .column {
     width: 50%;
+    @media ($tablet) {
+        width: 100%;
+    }
     &:nth-child(even) .shortcut {
         padding-left: 68px;
+        @media ($largeDesktop) {
+            padding-left: 50px;
+        }
+        @media ($largeTablet) {
+            padding-left: 40px;
+        }
+        @media ($tablet) {
+            padding-left: 30px;
+        }
+        @media ($mobile) {
+            padding-left: 15px;
+        }
     }
     &:nth-child(odd) .shortcut {
         padding-right: 68px;
+        @media ($largeDesktop) {
+            padding-right: 50px;
+        }
+        @media ($largeTablet) {
+            padding-right: 40px;
+        }
+        @media ($tablet) {
+            padding-right: 30px;
+        }
+        @media ($mobile) {
+            padding-right: 15px;
+        }
     }
 }
 

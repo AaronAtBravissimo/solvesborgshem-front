@@ -58,12 +58,28 @@ export default {
     display: block;
     padding: 36px 40px;
     transition: 0.25s;
+    @media ($largeTablet) {
+        padding: 30px;
+    }
+    @media ($mobile) {
+        padding: 25px 15px;
+    }
     &:hover {
         background-color: #f4f8fa;
     }
 }
 .inner {
     display: flex;
+    @media ($smallDesktop) {
+        flex-wrap: wrap;
+    }
+    @media ($tablet) {
+        flex-wrap: nowrap;
+    }
+    @media ($smallTablet) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 .imageHolder {
     flex-shrink: 0;
@@ -72,6 +88,29 @@ export default {
     border-radius: 100%;
     overflow: hidden;
     position: relative;
+    @media ($largeDesktop) {
+        width: 200px;
+        height: 200px;
+    }
+    @media ($smallDesktop) {
+        margin-bottom: 30px;
+    }
+    @media ($tablet) {
+        margin-bottom: 0;
+        width: 180px;
+        height: 180px;
+    }
+    @media ($mediumTablet) {
+        width: 160px;
+        height: 160px;
+    }
+    @media ($smallTablet) {
+        margin-bottom: 30px;
+    }
+    @media ($mobile) {
+        width: 120px;
+        height: 120px;
+    }
     &::before {
         content: '';
         position: absolute;
@@ -92,6 +131,23 @@ export default {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    @media ($largeDesktop) {
+        padding-left: 50px;
+    }
+    @media ($smallDesktop) {
+        width: 100%;
+        padding-left: 0;
+    }
+    @media ($tablet) {
+        width: auto;
+        padding-left: 30px;
+    }
+    @media ($smallTablet) {
+        width: 100%;
+        padding-left: 0;
+        align-items: center;
+        text-align: center;
+    }
 }
 .heading {
     margin-bottom: 18px;
@@ -101,6 +157,13 @@ export default {
     line-height: 1.63;
     flex-grow: 1;
     margin-bottom: 32px;
+    @media ($tablet) {
+        font-size: 15px;
+    }
+    @media ($mobile) {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
 }
 .button {
     min-width: 200px;

@@ -39,6 +39,5 @@ export default {
 <style lang="scss" scoped>
 .modules > section:last-child {
     margin-bottom: 0;
-    padding-bottom: 0;
 }
 </style>
