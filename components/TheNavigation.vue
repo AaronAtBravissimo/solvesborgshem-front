@@ -8,10 +8,11 @@
             >
                 <AppLink
                     :url="item.url"
-                    :title="item.title"
                     :target="item.target"
                     classes="link"
-                />
+                >
+                    <span v-html="item.title"></span>
+                </Applink>
             </li>
         </ul>
     </nav>

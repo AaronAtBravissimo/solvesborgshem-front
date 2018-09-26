@@ -1,5 +1,9 @@
 <template>
-    <div class="shortcut">
+    <AppLink
+        :url="link.url"
+        :target="link.target"
+        class="shortcut"
+    >
         <div class="inner">
             <div class="imageHolder">
                 <AppImage
@@ -11,22 +15,20 @@
             <div class="infoHolder">
                 <h3 class="heading">{{ heading }}</h3>
                 <p class="text">{{ content }}</p>
-                <AppButton
-                    :url="link.url"
-                    :target="link.target"
-                    label="Läs mer"
-                />
+                <AppButton label="Läs mer"/>
             </div>
         </div>
-    </div>
+    </Applink>
 </template>
 
 <script>
+import AppLink from './AppLink.vue';
 import AppButton from './AppButton.vue';
 import AppImage from './AppImage.vue';
 
 export default {
     components: {
+        AppLink,
         AppButton,
         AppImage,
     },
@@ -53,6 +55,7 @@ export default {
 
 <style lang="scss" scoped>
 .shortcut {
+    display: block;
     padding: 36px 40px;
     transition: 0.25s;
     &:hover {

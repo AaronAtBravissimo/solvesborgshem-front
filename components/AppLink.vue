@@ -4,8 +4,9 @@
         :class="classes"
         :target="target"
         v-bind="setUrlAttr(url)"
-        v-html="title"
-    />
+    >
+        <slot></slot>
+    </component>
 </template>
 
 <script>
@@ -15,10 +16,6 @@ import { makeUrlRelative } from '../utils/helpers';
 export default {
     props: {
         url: {
-            type: String,
-            default: '',
-        },
-        title: {
             type: String,
             default: '',
         },
