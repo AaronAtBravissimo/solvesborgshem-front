@@ -7,7 +7,7 @@
         <img
             :src="image"
             :alt="alt"
-            class="image objectFitCover"
+            class="ab100 objectFitCover"
         >
     </picture>
 </template>
@@ -29,6 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .image {
+    position: relative;
     display: block;
     width: 100%;
 }

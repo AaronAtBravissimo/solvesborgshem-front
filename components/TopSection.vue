@@ -38,13 +38,49 @@ export default {
 .topSection {
     padding-bottom: 84px;
 }
+.container {
+    @media ($tablet) {
+        padding: 0;
+    }
+}
 .image {
     width: 100%;
     height: 470px;
     margin-bottom: 67px;
+    @media ($smallDesktop) {
+        height: 420px;
+        margin-bottom: 50px;
+    }
+    @media ($largeTablet) {
+        height: 380px;
+        margin-bottom: 45px;
+    }
+    @media ($tablet) {
+        height: 350px;
+        margin-bottom: 40px;
+    }
+    @media ($smallTablet) {
+        height: 300px;
+        margin-bottom: 35px;
+    }
+    @media ($mobile) {
+        height: 250px;
+        margin-bottom: 30px;
+    }
 }
 .preamble {
     margin-top: 42px;
-    margin-left: 6px;
+    @media ($largeTablet) {
+        margin-top: 35px;
+    }
+    @media ($tablet) {
+        margin-top: 30px;
+    }
+    @media ($smallTablet) {
+        margin-top: 25px;
+    }
+    @media ($mobile) {
+        margin-top: 20px;
+    }
 }
 </style>
