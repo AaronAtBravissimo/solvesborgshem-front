@@ -258,7 +258,6 @@ $gutterMobile: 15px;
     }
     @media ($laptop) {
         width: calc(100% - $gutterLaptop);
-        display: none;
     }
     @media ($mobile) {
         width: calc(100% - $gutterMobile);
