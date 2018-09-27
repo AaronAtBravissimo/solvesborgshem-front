@@ -252,15 +252,15 @@ $gutterMobile: 15px;
     position: absolute;
     left: 0;
     bottom: 0;
-    width: calc(100% - $gutter);
+    width: calc(100% - #{$gutter});
     @media ($smallDesktop) {
         justify-content: flex-start;
     }
     @media ($laptop) {
-        width: calc(100% - $gutterLaptop);
+        width: calc(100% - #{$gutterLaptop});
     }
     @media ($mobile) {
-        width: calc(100% - $gutterMobile);
+        width: calc(100% - #{$gutterMobile});
     }
 }
 .buttonIcon {
