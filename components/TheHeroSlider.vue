@@ -258,6 +258,7 @@ $gutterMobile: 15px;
     }
     @media ($laptop) {
         width: calc(100% - #{$gutterLaptop});
+        display: none; // NOTE: Plocka fram sedan och lägg där det passar bäst
     }
     @media ($mobile) {
         width: calc(100% - #{$gutterMobile});
