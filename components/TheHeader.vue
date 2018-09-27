@@ -60,6 +60,9 @@ export default {
     padding: 40px 0 46px; // NOTE: Paddingen nedåt bör plockas bort sedan...
     display: flex;
     align-items: center;
+    @media ($mobile) {
+        padding: 30px 0;
+    }
 }
 .loginButton {
     @media ($laptop) {

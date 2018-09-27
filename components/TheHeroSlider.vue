@@ -1,7 +1,10 @@
 <template>
     <div class="heroSlider">
         <div class="slides">
-            <transition-group name="slide-fade">
+            <transition-group
+                name="slide-fade"
+                tag="div"
+            >
                 <div
                     v-for="(slide, index) in slides"
                     v-show="index === currentIndex"
@@ -82,7 +85,7 @@ export default {
         };
     },
     mounted() {
-        // this.start();
+        this.start();
     },
     methods: {
         prevSlide() {
@@ -134,6 +137,7 @@ export default {
 <style lang="scss" scoped>
 $gutter: 40px;
 $gutterLaptop: 20px;
+$gutterMobile: 15px;
 
 .slide-fade-enter-active {
     transition: all 1s ease;
@@ -151,25 +155,45 @@ $gutterLaptop: 20px;
     @media ($laptop) {
         width: calc(100% + 30px);
     }
+    @media ($largeTablet) {
+        width: calc(100% + 50px);
+    }
+    @media ($tablet) {
+        width: 100%;
+        height: auto;
+    }
 }
 .slideImage {
     position: absolute;
     right: -142px;
     top: 13px;
     @media ($largeDesktop) {
-        top: 0;
         right: -110px;
+        top: 0;
         width: 650px;
     }
     @media ($smallDesktop) {
-        top: 30px;
         right: -120px;
+        top: 30px;
         width: 600px;
     }
     @media ($laptop) {
-        top: 50px;
         right: -50px;
+        top: 50px;
         width: 520px;
+    }
+    @media ($largeTablet) {
+        right: -40px;
+        width: 450px;
+    }
+    @media ($tablet) {
+        right: -30px;
+        width: 425px;
+    }
+    @media ($mobile) {
+        right: -15px;
+        top: 30px;
+        width: 280px;
     }
 }
 .backgroundHolder {
@@ -189,6 +213,18 @@ $gutterLaptop: 20px;
         height: 450px;
         margin: $gutterLaptop;
     }
+    @media ($largeTablet) {
+        height: 400px;
+    }
+    @media ($mediumTablet) {
+        height: 375px;
+        padding-right: $gutterLaptop;
+    }
+    @media ($mobile) {
+        height: 250px;
+        margin: $gutterMobile;
+        padding-right: $gutterMobile;
+    }
 }
 .background {
     background-color: #fff;
@@ -207,6 +243,10 @@ $gutterLaptop: 20px;
         left: -$gutterLaptop;
         top: -$gutterLaptop;
     }
+    @media ($mobile) {
+        left: -$gutterMobile;
+        top: -$gutterMobile;
+    }
 }
 .buttons {
     position: absolute;
@@ -218,6 +258,10 @@ $gutterLaptop: 20px;
     }
     @media ($laptop) {
         width: calc(100% - $gutterLaptop);
+        display: none;
+    }
+    @media ($mobile) {
+        width: calc(100% - $gutterMobile);
     }
 }
 .buttonIcon {

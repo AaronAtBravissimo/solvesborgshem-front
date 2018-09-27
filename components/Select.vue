@@ -125,7 +125,9 @@ export default {
 <style lang="scss" scoped>
 $borderColor: #ffffff;
 $arrowSize: 16px;
+$arrowSizeMobile: 14px;
 $verticalPadding: 25px;
+$verticalPaddingMobile: 15px;
 
 .select {
     font-family: $secondaryFont;
@@ -133,6 +135,9 @@ $verticalPadding: 25px;
     font-weight: bold;
     cursor: pointer;
     position: relative;
+    @media ($mobile) {
+        font-size: 13px;
+    }
     &.isOpen .activeItem::after {
         transform: rotate(180deg);
     }
@@ -144,6 +149,9 @@ $verticalPadding: 25px;
     }
     &.isOpen .dropDownToggle {
         padding: 16px $verticalPadding 21px;
+        @media ($mobile) {
+            padding: 16px $verticalPaddingMobile 21px;
+        }
     }
     &.isDisabled {
         pointer-events: none;
@@ -162,17 +170,26 @@ $verticalPadding: 25px;
     width: 100%;
     border-radius: 6px;
     box-shadow: 7.5px 13px 30px 0 rgba(13, 42, 56, 0.1);
+    @media ($mobile) {
+        padding: 16px $verticalPaddingMobile;
+    }
     &::after {
         content: "";
         position: absolute;
+        right: 24px;
         top: 50%;
         margin-top: (-$arrowSize / 2);
-        right: 24px;
         width: $arrowSize;
         height: $arrowSize;
         background: url("../assets/images/icon-arrow.svg") no-repeat center;
         background-size: 100%;
         transition: 0.25s;
+        @media ($mobile) {
+            right: 16px;
+            margin-top: (-$arrowSizeMobile / 2);
+            width: $arrowSizeMobile;
+            height: $arrowSizeMobile;
+        }
         .isOpen & {
             transform: rotate(0.5turn);
             margin-top: -10px;
@@ -218,6 +235,9 @@ $verticalPadding: 25px;
     align-items: center;
     font-weight: 400;
     padding: 12px $verticalPadding;
+    @media ($mobile) {
+        padding: 12px $verticalPaddingMobile;
+    }
     &.isSelected {
         background-color: $borderColor;
     }

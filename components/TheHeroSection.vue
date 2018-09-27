@@ -89,10 +89,17 @@ export default {
     position: relative;
     margin-top: 46px;
     margin-bottom: 20px;
+    @media ($tablet) {
+        margin-top: 0;
+        margin-bottom: 50px;
+    }
 }
 .inner {
     display: flex;
     justify-content: space-between;
+    @media ($tablet) {
+        flex-wrap: wrap;
+    }
 }
 .leafs {
     position: absolute;
@@ -104,11 +111,17 @@ export default {
 }
 .left {
     flex-grow: 1;
+    @media ($tablet) {
+        margin-bottom: 50px;
+    }
 }
 .right {
     padding-right: 75px;
     @media ($largeDesktop) {
         padding-right: 0;
+    }
+    @media ($tablet) {
+        width: 100%;
     }
 }
 .textHolder {
@@ -126,12 +139,37 @@ export default {
         margin-top: 55px;
         margin-bottom: 35px;
     }
+    @media ($largeTablet) {
+        width: 380px;
+        margin-top: 40px;
+    }
+    @media ($tablet) {
+        width: 500px;
+        max-width: 100%;
+        margin: 0 auto 35px;
+    }
 }
 .heading {
     line-height: 1.2;
     margin-bottom: 27px;
     padding-left: 30px;
     padding-right: 20px;
+    @media ($largeTablet) {
+        font-size: 40px;
+    }
+    @media ($tablet) {
+        font-size: 38px;
+        width: 400px;
+        margin: 0 auto 25px;
+    }
+    @media ($smallTablet) {
+        font-size: 32px;
+        width: 350px;
+    }
+    @media ($mobile) {
+        font-size: 28px;
+        width: 300px;
+    }
 }
 .secondRow {
     text-align: right;
@@ -144,12 +182,24 @@ export default {
     @media ($laptop) {
         font-size: 17px;
     }
+    @media ($tablet) {
+        font-size: 18px;
+    }
+    @media ($smallTablet) {
+        font-size: 17px;
+    }
+    @media ($mobile) {
+        font-size: 16px;
+    }
 }
 .linkSelect {
     width: 330px;
     margin: 0 auto;
     @media ($smallDesktop) {
         width: 300px;
+    }
+    @media ($mobile) {
+        width: 260px;
     }
 }
 </style>
