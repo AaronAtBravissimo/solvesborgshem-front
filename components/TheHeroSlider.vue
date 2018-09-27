@@ -82,7 +82,7 @@ export default {
         };
     },
     mounted() {
-        this.start();
+        // this.start();
     },
     methods: {
         prevSlide() {
@@ -131,7 +131,10 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+$gutter: 40px;
+$gutterLaptop: 20px;
+
 .slide-fade-enter-active {
     transition: all 1s ease;
 }
@@ -145,18 +148,47 @@ export default {
 }
 .heroSlider {
     height: 700px;
+    @media ($laptop) {
+        width: calc(100% + 30px);
+    }
 }
 .slideImage {
     position: absolute;
     right: -142px;
     top: 13px;
+    @media ($largeDesktop) {
+        top: 0;
+        right: -110px;
+        width: 650px;
+    }
+    @media ($smallDesktop) {
+        top: 30px;
+        right: -120px;
+        width: 600px;
+    }
+    @media ($laptop) {
+        top: 50px;
+        right: -50px;
+        width: 520px;
+    }
 }
 .backgroundHolder {
     width: 100%;
     padding-right: 305px;
     height: 540px;
     position: relative;
-    margin: 40px;
+    margin: $gutter;
+    @media ($largeDesktop) {
+        padding-right: 200px;
+        height: 500px;
+    }
+    @media ($smallDesktop) {
+        padding-right: 100px;
+    }
+    @media ($laptop) {
+        height: 450px;
+        margin: $gutterLaptop;
+    }
 }
 .background {
     background-color: #fff;
@@ -168,15 +200,25 @@ export default {
     height: 100%;
 }
 .backgroundImage {
-    left: -40px;
-    top: -40px;
+    left: -$gutter;
+    top: -$gutter;
     position: absolute;
+    @media ($laptop) {
+        left: -$gutterLaptop;
+        top: -$gutterLaptop;
+    }
 }
 .buttons {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: calc(100% - 40px);
+    width: calc(100% - $gutter);
+    @media ($smallDesktop) {
+        justify-content: flex-start;
+    }
+    @media ($laptop) {
+        width: calc(100% - $gutterLaptop);
+    }
 }
 .buttonIcon {
     width: 40px;

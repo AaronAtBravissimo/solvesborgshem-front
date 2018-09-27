@@ -49,6 +49,10 @@ export default {
     background-color: $primaryColor;
     opacity: 0;
     transition-delay: 0.35s;
+    display: none;
+    @media ($laptop) {
+        display: block;
+    }
     &.isOpen {
         opacity: 1;
         transition-delay: 0s;

@@ -98,20 +98,34 @@ export default {
     position: absolute;
     right: -50px;
     top: -4px;
-    @media ($smallDesktop) {
-        right: -30px;
+    @media ($largeDesktop) {
+        display: none;
     }
 }
 .left {
-    width: calc(100% - 550px);
+    flex-grow: 1;
 }
 .right {
     padding-right: 75px;
+    @media ($largeDesktop) {
+        padding-right: 0;
+    }
 }
 .textHolder {
     width: 550px;
     margin-top: 118px;
     margin-bottom: 47px;
+    @media ($largeDesktop) {
+        width: 500px;
+    }
+    @media ($smallDesktop) {
+        width: 490px;
+    }
+    @media ($laptop) {
+        width: 460px;
+        margin-top: 55px;
+        margin-bottom: 35px;
+    }
 }
 .heading {
     line-height: 1.2;
@@ -124,9 +138,18 @@ export default {
 }
 .preamble {
     text-align: center;
+    @media ($largeDesktop) {
+        font-size: 18px;
+    }
+    @media ($laptop) {
+        font-size: 17px;
+    }
 }
 .linkSelect {
     width: 330px;
     margin: 0 auto;
+    @media ($smallDesktop) {
+        width: 300px;
+    }
 }
 </style>
