@@ -86,7 +86,7 @@ export default {
         left: 15px;
     }
     @media ($mobile) {
-        padding: 15px 15px 10px 20px;
+        padding: 15px;
         padding-bottom: 10px;
         width: calc(100% - 20px);
         margin-left: 0;
