@@ -1,5 +1,8 @@
 <template>
-    <div class="page">
+    <div
+        v-if="page"
+        class="page"
+    >
         <TopSection
             v-if="page.topSection"
             :top-section="page.topSection"
@@ -26,6 +29,8 @@ export default {
     },
     async asyncData({ route }) {
         let { path } = route;
+
+        if (path.includes('.')) return false;
 
         path = path.replace(/\//g, '-_-');
         path = path.replace(/\\/g, '-_-');
