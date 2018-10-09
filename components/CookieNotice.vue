@@ -1,0 +1,126 @@
+<template>
+    <transition
+        name="cookeNotice"
+        appear
+    >
+        <div
+            v-if="active"
+            class="cookieNotice"
+        >
+            <p class="inner">
+                Vi använder cookies för att ge dig den bästa upplevelsen av vår webbplats.
+                Genom att fortsätta använda webbplatsen godkänner du detta.
+                <button
+                    class="readMore"
+                    @click="termsOpen = true"
+                >
+                    Läs mer
+                </button>
+            </p>
+            <button
+                class="close"
+                @click="close()"
+            >
+            </button>
+            <portal to="endOfPage">
+                <AppDialog
+                    v-if="termsOpen"
+                    :content="termsText"
+                    heading="Vår policy för cookies"
+                    @close="termsOpen = false"
+                />
+            </portal>
+        </div>
+    </transition>
+</template>
+
+<script>
+import AppDialog from './AppDialog.vue';
+
+export default {
+    components: {
+        AppDialog,
+    },
+    data() {
+        return {
+            active: window.localStorage.getItem('cookieInformationAccepted') === null,
+            termsOpen: false,
+        };
+    },
+    computed: {
+        termsText() {
+            return 'text';
+        },
+    },
+    methods: {
+        close() {
+            window.localStorage.setItem('cookieInformationAccepted', true);
+            this.active = false;
+        },
+    },
+};
+</script>
+
+<style lang="scss" scoped>
+.cookeNotice-enter-active,
+.cookeNotice-leave-active {
+    opacity: 0;
+}
+.cookieNotice {
+    position: fixed;
+    left: 50%;
+    bottom: 15px;
+    transform: translate(-50%, 0);
+    width: 700px;
+    z-index: 100;
+    padding: 15px 25px;
+    padding-right: 60px;
+    background-color: #fff;
+    transition: 0.35s;
+    box-shadow: 0px 0px 20px 1px rgba(13, 42, 56, 0.35);
+    border-radius: 6px;
+    overflow: hidden;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 100%;
+        background: linear-gradient(135deg, #8ac8df 0%, #94d3b3 100%);
+    }
+}
+.inner {
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 16px;
+}
+.readMore {
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    position: relative;
+    padding-bottom: 2px;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+    }
+}
+.close {
+    position: absolute;
+    top: 50%;
+    margin-top: -28px;
+    right: 0;
+    height: 56px;
+    width: 56px;
+    cursor: pointer;
+    z-index: 50;
+    transition: 0.25s;
+    background: url("../assets/images/icon-close.svg") no-repeat center;
+    background-size: 18px;
+}
+</style>

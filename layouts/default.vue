@@ -19,11 +19,16 @@
             <TheFooter/>
         </div>
         <ExpandedMenu/>
+        <no-ssr>
+            <CookieNotice/>
+        </no-ssr>
+        <portal-target name="endOfPage"/>
     </div>
 </template>
 
 <script>
 import AboveHeader from '../components/AboveHeader.vue';
+import CookieNotice from '../components/CookieNotice.vue';
 import ExpandedMenu from '../components/ExpandedMenu.vue';
 import TheHeader from '../components/TheHeader.vue';
 import TheFooter from '../components/TheFooter.vue';
@@ -31,6 +36,7 @@ import TheFooter from '../components/TheFooter.vue';
 export default {
     components: {
         AboveHeader,
+        CookieNotice,
         ExpandedMenu,
         TheHeader,
         TheFooter,

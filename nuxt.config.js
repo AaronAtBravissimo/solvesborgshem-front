@@ -61,7 +61,11 @@ module.exports = {
     /*
     ** Plugins to load before mounting the App
     */
-    plugins: [{ src: '~/plugins/polyfills', ssr: false }, '~/plugins/app-link'],
+    plugins: [
+        { src: '~/plugins/polyfills', ssr: false }, 
+        '~/plugins/app-link',
+        '~/plugins/portal-vue',
+    ],
 
     /*
     ** Nuxt.js modules

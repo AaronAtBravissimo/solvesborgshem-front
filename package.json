@@ -19,7 +19,8 @@
         "axios": "^0.18.0",
         "nuxt": "^2.0.0",
         "nuxt-sass-resources-loader": "^2.0.5",
-        "object-fit-images": "^3.2.4"
+        "object-fit-images": "^3.2.4",
+        "portal-vue": "^1.4.0"
     },
     "devDependencies": {
         "autoprefixer": "^9.1.5",
