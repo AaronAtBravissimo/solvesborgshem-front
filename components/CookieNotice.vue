@@ -86,11 +86,12 @@ export default {
         left: 15px;
     }
     @media ($mobile) {
-        padding: 15px;
+        padding: 15px 14px;
         padding-bottom: 10px;
         width: calc(100% - 20px);
         margin-left: 0;
         left: 10px;
+        bottom: 10px;
     }
     &::after {
         content: '';
@@ -101,7 +102,7 @@ export default {
         height: 100%;
         background: linear-gradient(135deg, #8ac8df 0%, #94d3b3 100%);
         @media ($mobile) {
-            width: 5px;
+            width: 4px;
         }
     }
 }
@@ -114,7 +115,7 @@ export default {
     }
     @media ($mobile) {
         text-align: center;
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 .readMore {
