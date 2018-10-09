@@ -70,7 +70,7 @@ export default {
     position: fixed;
     left: 50%;
     bottom: 15px;
-    transform: translate(-50%, 0);
+    margin-left: -350px;
     width: 700px;
     z-index: 100;
     padding: 15px 25px;
@@ -80,6 +80,18 @@ export default {
     box-shadow: 0px 0px 20px 1px rgba(13, 42, 56, 0.35);
     border-radius: 6px;
     overflow: hidden;
+    @media ($smallTablet) {
+        width: calc(100% - 30px);
+        margin-left: 0;
+        left: 15px;
+    }
+    @media ($mobile) {
+        padding: 15px 15px 10px 20px;
+        padding-bottom: 10px;
+        width: calc(100% - 20px);
+        margin-left: 0;
+        left: 10px;
+    }
     &::after {
         content: '';
         position: absolute;
@@ -88,12 +100,22 @@ export default {
         width: 8px;
         height: 100%;
         background: linear-gradient(135deg, #8ac8df 0%, #94d3b3 100%);
+        @media ($mobile) {
+            width: 5px;
+        }
     }
 }
 .inner {
     margin-bottom: 0;
     text-align: left;
     font-size: 16px;
+    @media ($smallTablet) {
+        font-size: 15px;
+    }
+    @media ($mobile) {
+        text-align: center;
+        font-size: 14px;
+    }
 }
 .readMore {
     font-weight: 700;
@@ -122,5 +144,16 @@ export default {
     transition: 0.25s;
     background: url("../assets/images/icon-close.svg") no-repeat center;
     background-size: 18px;
+    @media ($mobile) {
+        position: relative;
+        right: 0;
+        top: auto;
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 28px;
+        width: 28px;
+        background-size: 14px;
+        display: block;
+    }
 }
 </style>
