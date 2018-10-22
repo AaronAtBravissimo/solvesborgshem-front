@@ -21,11 +21,26 @@
                 </li>
             </ul>
         </nav>
+        <AppButton
+            :icon="userIcon"
+            url="#minaSidor"
+            label="Mina sidor"
+            class="loginButton"
+        />
     </aside>
 </template>
 
 <script>
+import AppButton from './AppButton.vue';
+import userIcon from '../assets/images/icon-user.svg';
+
 export default {
+    components: {
+        AppButton,
+    },
+    data: () => ({
+        userIcon,
+    }),
     computed: {
         menu() {
             return this.$store.getters.menu;
@@ -43,7 +58,8 @@ export default {
     right: 0;
     top: 0;
     height: 100%;
-    width: 250px;
+    width: 280px;
+    padding: 60px 30px;
     z-index: 40;
     overflow: auto;
     background-color: #232323;
@@ -53,6 +69,9 @@ export default {
     @media ($laptop) {
         display: block;
     }
+    @media ($mobile) {
+        padding: 40px 15px;
+    }
     &.isOpen {
         opacity: 1;
         transition-delay: 0s;
@@ -60,37 +79,18 @@ export default {
 }
 
 .list {
-    padding: 0;
-    padding-bottom: 30px;
-    padding-top: 60px;
-    @media ($mobile) {
-        padding-top: 38px;
-    }
+    margin-bottom: 30px;
 }
 
 .link {
     color: #ffffff;
     font-weight: 700;
-    font-size: 16px;
-    padding: 12px 25px;
+    font-size: 18px;
+    padding: 15px 0;
     display: block;
     position: relative;
-    &.nuxt-link-active {
-        padding-left: 55px;
-    }
-    &::after {
-        content: "";
-        position: absolute;
-        left: 25px;
-        top: 50%;
-        margin-top: -6px;
-        width: 17px;
-        height: 12px;
-        opacity: 0;
-        transition: 0.25s 0.25s;
-    }
-    &.nuxt-link-active::after {
-        opacity: 1;
-    }
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    border-bottom: 2px solid transparentize(#ffffff, 0.75);
 }
 </style>

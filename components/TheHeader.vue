@@ -57,11 +57,11 @@ export default {
     }
 }
 .inner {
-    padding: 40px 0 46px; // NOTE: Paddingen nedåt bör plockas bort sedan...
+    padding: 40px 0 46px;
     display: flex;
     align-items: center;
     @media ($mobile) {
-        padding: 30px 0;
+        padding: 25px 0;
     }
 }
 .loginButton {

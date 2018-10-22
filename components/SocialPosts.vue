@@ -66,7 +66,7 @@ export default {
             return this.offset === 0 ? 4 : 12;
         },
         apiUrl() {
-            const base = 'https://social-api.bravissimo.se/posts/edffd670-4179-11e8-8f86-1b3fc7f38dbd';
+            const base = 'https://social-api.bravissimo.se/posts/86585180-b74c-11e8-9459-6725f24f20cc';
 
             if (!this.currentFilter) {
                 return base;
