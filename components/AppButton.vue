@@ -121,11 +121,11 @@ export default {
     text-align: center;
     position: relative;
     outline: none !important;
-    @media(tablet) {
+    @media($tablet) {
         min-width: 180px;
         padding: 10px 20px;
     }
-    @media(mobile) {
+    @media($mobile) {
         min-width: 120px;
         padding: 8px 14px;
     }
@@ -153,10 +153,10 @@ export default {
     font-family: $primaryFont;
     font-weight: bold;
     font-size: 14px;
-    @media(tablet) {
+    @media($tablet) {
         font-size: 13px;
     }
-    @media(mobile) {
+    @media($mobile) {
         font-size: 12px;
     }
 }
