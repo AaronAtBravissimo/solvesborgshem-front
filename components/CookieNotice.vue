@@ -126,11 +126,15 @@ export default {
     &::after {
         content: "";
         position: absolute;
-        bottom: 0;
+        bottom: -1px;
         left: 0;
         width: 100%;
         height: 2px;
-        background-color: #ffffff;
+        background-color: $primaryTextColor;
+        transition: 0.25s;
+    }
+    &:hover::after {
+        opacity: 0;
     }
 }
 .close {

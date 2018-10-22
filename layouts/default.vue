@@ -10,6 +10,7 @@
             >
                 <div class="wrapper__inner">
                     <AboveHeader/>
+                    <HeaderNotice v-if="activeNotice"/>
                     <TheHeader/>
                     <main class="inner">
                         <nuxt/>
@@ -32,6 +33,7 @@ import CookieNotice from '../components/CookieNotice.vue';
 import ExpandedMenu from '../components/ExpandedMenu.vue';
 import TheHeader from '../components/TheHeader.vue';
 import TheFooter from '../components/TheFooter.vue';
+import HeaderNotice from '../components/HeaderNotice.vue';
 
 export default {
     components: {
@@ -40,8 +42,12 @@ export default {
         ExpandedMenu,
         TheHeader,
         TheFooter,
+        HeaderNotice,
     },
     computed: {
+        activeNotice() {
+            return this.$store.getters.options.notice.active;
+        },
         menuOpen() {
             return this.$store.getters.expandedMenuOpen;
         },
