@@ -7,7 +7,7 @@ const createStore = () => new Vuex.Store({
     state: {
         menu: {},
         options: [],
-        expandedMenuOpen: false,
+        expandedMenuOpen: true,
     },
     getters: {
         menu: state => state.menu,

@@ -77,6 +77,9 @@ export default {
     @media ($smallDesktop) {
         padding: 30px;
     }
+    @media ($tablet) {
+        padding: 15px;
+    }
     @media ($mobile) {
         padding: 0;
     }

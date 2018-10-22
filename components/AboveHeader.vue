@@ -69,8 +69,8 @@ export default {
         margin-left: -30px;
         width: calc(100% + 60px);
     }
-    @media ($smallTablet) {
-        min-height: 50px;
+    @media ($laptop) {
+        display: none;
     }
 }
 .inner {

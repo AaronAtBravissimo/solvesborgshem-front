@@ -46,7 +46,7 @@ export default {
     width: 250px;
     z-index: 40;
     overflow: auto;
-    background-color: $primaryColor;
+    background-color: #232323;
     opacity: 0;
     transition-delay: 0.35s;
     display: none;
