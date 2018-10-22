@@ -143,6 +143,10 @@ export default {
         letter-spacing: 1.8px;
     }
 }
+.content /deep/ p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
 .close {
     width: 18px;
     height: 18px;
@@ -150,8 +154,8 @@ export default {
     top: 50%;
     right: 30px;
     margin-top: -9px;
-    background: url("../assets/images/icon-close.svg") no-repeat center;
-    background-size: 100%;
+    background: url("../assets/images/icon-close-white.svg") no-repeat center;
+    background-size: 16px;
     cursor: pointer;
     @media ($mobile) {
         right: 20px;
@@ -199,9 +203,5 @@ export default {
     &::after {
         transform: rotate(-45deg);
     }
-}
-p {
-    font-size: 16px;
-    margin-bottom: 20px;
 }
 </style>

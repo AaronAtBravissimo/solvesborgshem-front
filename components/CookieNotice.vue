@@ -25,8 +25,8 @@
             <portal to="endOfPage">
                 <AppDialog
                     v-if="termsOpen"
-                    :content="termsText"
-                    heading="Vår policy för cookies"
+                    :content="termsText.content"
+                    :heading="termsText.heading"
                     @close="termsOpen = false"
                 />
             </portal>
@@ -49,7 +49,7 @@ export default {
     },
     computed: {
         termsText() {
-            return 'text';
+            return this.$store.getters.options.popup;
         },
     },
     methods: {
