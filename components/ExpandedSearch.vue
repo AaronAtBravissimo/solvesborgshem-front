@@ -10,6 +10,7 @@
                     class="icon"
                 >
                 <input
+                    ref="searchField"
                     v-model="keyword"
                     type="search"
                     class="searchField w-full"
@@ -21,6 +22,7 @@
             :icon="closeIcon"
             label="Stäng"
             class="closeButton iconAndLabel"
+            @clicked="closeSearch()"
         />
     </div>
 </template>
@@ -43,6 +45,9 @@ export default {
         searchHandler() {
             if (this.keyword.length < 0) return;
             this.$router.push(`/sok/?sokord=${this.keyword}`);
+        },
+        closeSearch() {
+            this.$store.commit('closeSearch');
         },
     },
 };

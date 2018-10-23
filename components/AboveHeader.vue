@@ -29,6 +29,7 @@
                     :icon="searchIcon"
                     label="Sök"
                     class="iconAndLabel"
+                    @clicked="toggleSearch()"
                 />
             </div>
         </div>
@@ -54,6 +55,11 @@ export default {
             searchIcon,
             number: 2,
         };
+    },
+    methods: {
+        toggleSearch() {
+            this.$store.commit('toggleSearch');
+        },
     },
 };
 </script>

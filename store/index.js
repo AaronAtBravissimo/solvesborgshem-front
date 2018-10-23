@@ -8,11 +8,13 @@ const createStore = () => new Vuex.Store({
         menu: {},
         options: [],
         expandedMenuOpen: false,
+        expandedSearchOpen: false,
     },
     getters: {
         menu: state => state.menu,
         options: state => state.options,
         expandedMenuOpen: state => state.expandedMenuOpen,
+        expandedSearchOpen: state => state.expandedSearchOpen,
     },
     mutations: {
         setMenu(state, { menu }) {
@@ -32,6 +34,12 @@ const createStore = () => new Vuex.Store({
         openMenu(state) {
             state.expandedMenuOpen = true;
             document.body.classList.add('overflow-hidden');
+        },
+        toggleSearch(state) {
+            state.expandedSearchOpen = !state.expandedSearchOpen;
+        },
+        closeSearch(state) {
+            state.expandedSearchOpen = false;
         },
     },
     actions: {
