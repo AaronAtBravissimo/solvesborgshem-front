@@ -1,4 +1,4 @@
-import { generateJsonFiles } from './modules/generate';
+import generateJsonFiles from './modules/generate';
 
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require('glob-all');
@@ -13,7 +13,12 @@ function getRoutes() {
     const pages = axios
         .get(`${apiUrl}/api/page`)
         .then(res => res.data.map(item => item.post_link.replace(baseUrl, '')));
-    return Promise.all([pages]).then(values => values.join().split(','));
+
+    const buildings = axios
+        .get(`${apiUrl}/api/building`)
+        .then(res => res.data.map(item => item.post_link.replace(baseUrl, '')));
+
+    return Promise.all([pages, buildings]).then(values => values.join().split(','));
 }
 
 class TailwindExtractor {

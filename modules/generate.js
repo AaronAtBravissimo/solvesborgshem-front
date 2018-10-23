@@ -1,37 +1,48 @@
-const axios = require('axios')
-const fs = require('fs' )
-const ef = require('empty-folder')
-const debug = require('debug')('nuxt:generate')
+const axios = require('axios');
+const fs = require('fs');
+const ef = require('empty-folder');
+const siteConfig = require('../utils/config');
 
-const config = require('../utils/config');
-const apiUrl = config.apiUrl;
-const baseUrl = config.baseUrl;
+const { baseUrl, apiUrl } = siteConfig;
 
-module.exports = function () {
-	this.nuxt.hook('generate:before', async (generator) => {
-		const routes = async () => {
-            ef(generator.nuxt.options.generate.apiCacheDir, false, (feedback) => {
-                if (!feedback.error) {
-                    debug('Stale API cache removed');
-                }
-            })
-
-            return generateJsonFiles(generator.nuxt.options.generate.apiCacheDir);
-		}
-		return await routes();
-    });
-}
-
-export async function generateJsonFiles(dir) {
+async function generatePages(dir) {
     const res = await axios.get(`${apiUrl}/api/page`);
-    
-    res.data.map(page => {
+
+    res.data.forEach((page) => {
         let name = page.post_link.replace(baseUrl, '');
         name = name.replace(/\//g, '-_-');
         name = name.replace(/\\/g, '-_-');
-        const path = (dir + '/' + name + '.json');
-        fs.writeFile(path, JSON.stringify(page) , (err) => {
+        const path = `${dir}/${name}.json`;
+        fs.writeFile(path, JSON.stringify(page), (err) => {
             if (err) throw err;
-        })
+        });
     });
 }
+
+async function generateBuildings(dir) {
+    const res = await axios.get(`${apiUrl}/api/building`);
+
+    const path = `${dir}/buildings.json`;
+    fs.writeFile(path, JSON.stringify(res.data), (err) => {
+        if (err) throw err;
+    });
+}
+
+export default async function generateJsonFiles(dir) {
+    generatePages(dir);
+    generateBuildings(dir);
+}
+
+async function init(generator) {
+    ef(generator.nuxt.options.generate.apiCacheDir, false, (feedback) => {
+        if (!feedback.error) {
+            console.log('Stale API cache removed');
+        }
+    });
+
+    return generateJsonFiles(generator.nuxt.options.generate.apiCacheDir);
+}
+
+module.exports = function () {
+    this.nuxt.hook('generate:before', async generator => init(generator));
+};
