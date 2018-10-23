@@ -25,7 +25,7 @@ export default {
         Modules,
     },
     head() {
-        return this.page ? getMeta(this.page.yoast) : false;
+        return this.page !== undefined ? getMeta(this.page.yoast) : false;
     },
     async asyncData({ route }) {
         let { path } = route;

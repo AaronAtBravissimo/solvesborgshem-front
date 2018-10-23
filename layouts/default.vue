@@ -20,6 +20,7 @@
             <TheFooter/>
         </div>
         <ExpandedMenu/>
+        <ExpandedSearch/>
         <no-ssr>
             <CookieNotice/>
         </no-ssr>
@@ -31,6 +32,7 @@
 import AboveHeader from '../components/AboveHeader.vue';
 import CookieNotice from '../components/CookieNotice.vue';
 import ExpandedMenu from '../components/ExpandedMenu.vue';
+import ExpandedSearch from '../components/ExpandedSearch.vue';
 import TheHeader from '../components/TheHeader.vue';
 import TheFooter from '../components/TheFooter.vue';
 import HeaderNotice from '../components/HeaderNotice.vue';
@@ -40,6 +42,7 @@ export default {
         AboveHeader,
         CookieNotice,
         ExpandedMenu,
+        ExpandedSearch,
         TheHeader,
         TheFooter,
         HeaderNotice,

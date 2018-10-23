@@ -27,7 +27,7 @@ export default {
         SocialPosts,
     },
     head() {
-        return getMeta(this.page.yoast, true);
+        return this.page !== undefined ? getMeta(this.page.yoast) : false;
     },
     async asyncData() {
         const data = await import('../static/json/-_-.json');

@@ -1,12 +1,13 @@
 import { generateJsonFiles } from './modules/generate';
+
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require('glob-all');
 const path = require('path');
 const axios = require('axios');
 
-const config = require('./utils/config');
-const baseUrl = config.baseUrl;
-const apiUrl = config.apiUrl;
+const siteConfig = require('./utils/config');
+
+const { baseUrl, apiUrl } = siteConfig;
 
 function getRoutes() {
     const pages = axios
@@ -62,7 +63,7 @@ module.exports = {
     ** Plugins to load before mounting the App
     */
     plugins: [
-        { src: '~/plugins/polyfills', ssr: false }, 
+        { src: '~/plugins/polyfills', ssr: false },
         '~/plugins/app-link',
         '~/plugins/portal-vue',
     ],
@@ -83,8 +84,8 @@ module.exports = {
         [
             '@nuxtjs/google-tag-manager',
             {
-                id: 'GTM-xxx'
-            }
+                id: 'GTM-xxx',
+            },
         ],
         '@/modules/generate',
     ],
@@ -106,11 +107,21 @@ module.exports = {
     },
 
     router: {
-        extendRoutes (routes, resolve) {
+        extendRoutes(routes, resolve) {
             routes.push({
                 name: 'page',
                 path: '*',
                 component: resolve(__dirname, 'pages/_slug.vue'),
+            });
+            routes.push({
+                name: 'searchEmpty',
+                path: '/sok',
+                component: resolve(__dirname, 'pages/sok.vue'),
+            });
+            routes.push({
+                name: 'search',
+                path: '/sok/:keyword',
+                component: resolve(__dirname, 'pages/sok.vue'),
             });
         },
     },
@@ -120,7 +131,7 @@ module.exports = {
     */
     build: {
         extractCSS: {
-            allChunks: true
+            allChunks: true,
         },
         extend(config, { isDev, isClient }) {
             if (isDev) {
