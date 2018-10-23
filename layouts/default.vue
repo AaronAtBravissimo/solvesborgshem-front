@@ -1,5 +1,6 @@
 <template>
     <div class="app">
+
         <div
             :class="{'menuOpen': menuOpen}"
             class="wrapper"
@@ -9,6 +10,7 @@
                 class="app__inner"
             >
                 <div class="wrapper__inner">
+                    <ExpandedSearch/>
                     <AboveHeader/>
                     <HeaderNotice v-if="activeNotice"/>
                     <TheHeader/>
@@ -20,7 +22,6 @@
             <TheFooter/>
         </div>
         <ExpandedMenu/>
-        <ExpandedSearch/>
         <no-ssr>
             <CookieNotice/>
         </no-ssr>

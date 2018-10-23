@@ -7,7 +7,6 @@
                 name=""
             >
         </form>
-
         <div
             v-if="loading"
             class="loader"

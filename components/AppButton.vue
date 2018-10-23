@@ -183,7 +183,7 @@ export default {
 }
 
 .iconAndLabel {
-    background: none;
+    background: none !important;
     padding: 0;
     margin-right: 32px;
     @media ($largeTablet) {
