@@ -73,7 +73,11 @@ export default {
         topSection() {
             return {
                 heading: 'Sökresultat',
-                preamble: `Du sökte efter ${this.keyword}`,
+                preamble:
+                    `
+                        Du sökte efter <b>"${this.keyword}"</b>.<br>
+                        Det finns <b>${this.results.length} träffar</b> som motsvarar din sökning.
+                    `,
                 image: this.$store.getters.options.searchTopImage,
             };
         },
@@ -96,6 +100,7 @@ export default {
         },
         searchHandler(event) {
             const keyword = event.target[0].value;
+            if (!keyword || keyword.length < 0) return;
             this.$router.replace(`/sok/?sokord=${keyword}`);
         },
     },

@@ -11,8 +11,11 @@
                 <h1 class="heading">
                     {{ topSection.heading }}
                 </h1>
-                <p class="preamble">
-                    {{ topSection.preamble }}
+                <p
+                    v-if="topSection.preamble"
+                    class="preamble"
+                    v-html="topSection.preamble"
+                >
                 </p>
             </div>
         </div>
@@ -37,7 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .topSection {
-    padding-bottom: 84px;
+    padding-bottom: 80px;
     @media ($tablet) {
         padding-bottom: 70px;
     }
