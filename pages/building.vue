@@ -13,12 +13,19 @@
             </div>
             <div class="columns flex">
                 <div class="leftColumn">
-                    <div class="imageGallery">
-
+                    <div class="imageGallery relative">
+                        <img
+                            :src="building.imageGallery[0].sizes.large"
+                            :alt="building.imageGallery[0].alt"
+                            class="objectFitCover w-full h-full"
+                        >
+                        <AppButton
+                            :icon="expandIcon"
+                            :label="`Se alla ${building.imageGallery.length} bilder`"
+                            class="triggerGallery"
+                        />
                     </div>
-                    <div class="addressBox">
-
-                    </div>
+                    <AddressBox/>
                     <BuildingWidget
                         :heading="areaInfo.heading"
                         :body="areaInfo.content"
@@ -52,18 +59,24 @@
 <script>
 import TopSection from '../components/TopSection.vue';
 import BuildingWidget from '../components/BuildingWidget.vue';
+import AppButton from '../components/AppButton.vue';
+import AddressBox from '../components/AddressBox.vue';
 import { getMeta } from '../utils/helpers';
+import expandIcon from '../assets/images/icon-expand.svg';
 
 export default {
     components: {
         TopSection,
         BuildingWidget,
+        AppButton,
+        AddressBox,
     },
     head() {
         return getMeta(this.building.yoast);
     },
     data: () => ({
         buildings: false,
+        expandIcon,
     }),
     async asyncData() {
         const data = await import('../static/json/buildings.json');
@@ -123,7 +136,7 @@ $columnsGutter: 25px;
 .columns {
     width: 1620px;
     max-width: 100%;
-    margin: 0 -#{$columnsGutter};
+    margin: 0 -#{$columnsGutter} 50px;
     position: relative;
     &::after {
         content: '';
@@ -144,6 +157,13 @@ $columnsGutter: 25px;
     height: 520px;
     background-color: $primaryColor;
     margin-bottom: 30px;
+}
+.triggerGallery {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: transparentize(#000000, 0.5);
+    border-radius: 0;
 }
 .row {
     margin-bottom: 50px;
