@@ -33,16 +33,16 @@ export default async function generateJsonFiles(dir) {
     generateBuildings(dir);
 }
 
-async function init(generator) {
-    ef(generator.nuxt.options.generate.apiCacheDir, false, (feedback) => {
+async function init(dir) {
+    ef(dir, false, (feedback) => {
         if (!feedback.error) {
             console.log('Stale API cache removed');
         }
     });
 
-    return generateJsonFiles(generator.nuxt.options.generate.apiCacheDir);
+    return generateJsonFiles(dir);
 }
 
 module.exports = function () {
-    this.nuxt.hook('generate:before', async generator => init(generator));
+    this.nuxt.hook('generate:before', async generator => init(generator.nuxt.options.generate.apiCacheDir));
 };
