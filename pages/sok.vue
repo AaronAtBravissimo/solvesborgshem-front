@@ -67,14 +67,16 @@ export default {
     data: () => ({
         results: [],
         loading: true,
-        topSection: {
-            heading: 'Sökresultat',
-            preamble: 'Du sökte efter',
-            image: null,
-        },
         searchIcon,
     }),
     computed: {
+        topSection() {
+            return {
+                heading: 'Sökresultat',
+                preamble: `Du sökte efter ${this.keyword}`,
+                image: this.$store.getters.options.searchTopImage,
+            };
+        },
         keyword() {
             return this.$route.query.sokord;
         },
