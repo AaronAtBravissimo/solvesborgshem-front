@@ -1,0 +1,11 @@
+$smallCardGutter: 15px;
+
+.smallCardColumns {
+    margin-left: -$smallCardGutter;
+    margin-right: -$smallCardGutter;
+}
+.smallCardColumn {
+    width: 50%;
+    padding: 0 $smallCardGutter;
+    margin-bottom: $smallCardGutter * 2;
+}

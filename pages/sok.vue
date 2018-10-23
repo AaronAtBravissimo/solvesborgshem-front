@@ -16,11 +16,11 @@
         </div>
         <no-ssr v-if="results.length > 0 && !loading">
             <div class="results">
-                <div class="columns flex flex-wrap">
+                <div class="smallCardColumns flex flex-wrap">
                     <div
                         v-for="result in results"
                         :key="result.link"
-                        class="column flex"
+                        class="smallCardColumn flex"
                     >
                         <SmallCard
                             :image="result.image"
@@ -88,17 +88,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$columnGutter: 15px;
-
-.columns {
-    margin-left: -$columnGutter;
-    margin-right: -$columnGutter;
-}
-.column {
-    width: 50%;
-    padding: 0 $columnGutter;
-    margin-bottom: $columnGutter*2;
-}
 input {
     border: 1px solid #000;
 }

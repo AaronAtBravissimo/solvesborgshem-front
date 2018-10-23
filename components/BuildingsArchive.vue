@@ -1,11 +1,11 @@
 <template>
     <div class="buildingsArchive">
         <div class="buildings">
-            <div class="columns flex flex-wrap">
+            <div class="smallCardColumns flex flex-wrap">
                 <div
                     v-for="building in buildings"
                     :key="building.id"
-                    class="column flex"
+                    class="smallCardColumn flex"
                 >
                     <SmallCard
                         :image="building.topSection.image"
