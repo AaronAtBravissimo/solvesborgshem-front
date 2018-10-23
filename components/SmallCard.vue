@@ -1,7 +1,7 @@
 <template>
     <AppLink
         :url="link"
-        class="smallCard"
+        class="smallCard w-full"
     >
         <div class="inner">
             <div class="imageHolder">
@@ -51,9 +51,11 @@ export default {
 
 <style lang="scss" scoped>
 .smallCard {
-    display: block;
+    display: flex;
     transition: 0.25s;
     background-color: #fff;
+    padding: 30px 50px;
+    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
 }
 .inner {
     display: flex;
@@ -69,9 +71,6 @@ export default {
 .infoHolder {
     flex-shrink: 1;
     padding-left: 60px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
 }
 .heading {
     margin-bottom: 18px;
@@ -80,7 +79,6 @@ export default {
     font-size: 16px;
     line-height: 1.63;
     flex-grow: 1;
-    margin-bottom: 32px;
 }
 
 </style>

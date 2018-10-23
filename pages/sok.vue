@@ -20,7 +20,7 @@
                     <div
                         v-for="result in results"
                         :key="result.link"
-                        class="column"
+                        class="column flex"
                     >
                         <SmallCard
                             :image="result.image"
@@ -97,6 +97,7 @@ $columnGutter: 15px;
 .column {
     width: 50%;
     padding: 0 $columnGutter;
+    margin-bottom: $columnGutter*2;
 }
 input {
     border: 1px solid #000;

@@ -1,23 +1,32 @@
 <template>
     <div class="buildingsArchive">
         <div class="buildings">
-            <AppLink
-                v-for="building in buildings"
-                :key="building.id"
-                :url="building.post_link"
-
-                class="building block"
-            >
-                {{ building.post_title }}
-            </AppLink>
+            <div class="columns flex flex-wrap">
+                <div
+                    v-for="building in buildings"
+                    :key="building.id"
+                    class="column flex"
+                >
+                    <SmallCard
+                        :image="building.topSection.image"
+                        :heading="building.topSection.heading"
+                        :content="building.topSection.preamble"
+                        :link="building.post_link"
+                    />
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import buildings from '../static/json/buildings.json';
+import SmallCard from './SmallCard.vue';
 
 export default {
+    components: {
+        SmallCard,
+    },
     data: () => ({
         buildings,
     }),
@@ -25,4 +34,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$columnGutter: 15px;
+
+.columns {
+    margin-left: -$columnGutter;
+    margin-right: -$columnGutter;
+}
+.column {
+    width: 50%;
+    padding: 0 $columnGutter;
+    margin-bottom: $columnGutter*2;
+}
 </style>
