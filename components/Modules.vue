@@ -14,6 +14,10 @@
                 :heading="module.heading"
                 :shortcuts="module.shortcuts"
             />
+            <BuildingsArchive
+                v-if="module.acf_fc_layout === 'buildingsArchive'"
+                :key="index"
+            />
         </template>
     </section>
 </template>
@@ -21,11 +25,13 @@
 <script>
 import TwoColumn from './TwoColumn.vue';
 import Shortcuts from './Shortcuts.vue';
+import BuildingsArchive from './BuildingsArchive.vue';
 
 export default {
     components: {
         TwoColumn,
         Shortcuts,
+        BuildingsArchive,
     },
     props: {
         modules: {

@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import TopSection from '../../components/TopSection.vue';
-import { getMeta } from '../../utils/helpers';
+import TopSection from '../components/TopSection.vue';
+import { getMeta } from '../utils/helpers';
 
 export default {
     components: {
@@ -25,7 +25,7 @@ export default {
         buildings: false,
     }),
     async asyncData() {
-        const data = await import('../../static/json/buildings.json');
+        const data = await import('../static/json/buildings.json');
         return { buildings: data };
     },
     computed: {
