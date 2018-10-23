@@ -1,5 +1,6 @@
 <template>
     <div class="buildingsArchive">
+        <SearchFilterBox show-search-form/>
         <div class="buildings">
             <div class="smallCardColumns flex flex-wrap">
                 <div
@@ -23,10 +24,12 @@
 <script>
 import buildings from '../static/json/buildings.json';
 import SmallCard from './SmallCard.vue';
+import SearchFilterBox from './SearchFilterBox.vue';
 
 export default {
     components: {
         SmallCard,
+        SearchFilterBox,
     },
     data: () => ({
         buildings,

@@ -38,7 +38,6 @@ module.exports = {
             lang: 'sv',
         },
         title: 'Sölvesborgshem',
-        titleTemplate: '%s',
         meta: [
             { charset: 'utf-8' },
             {
