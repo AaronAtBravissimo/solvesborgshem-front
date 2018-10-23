@@ -10,7 +10,7 @@
                 class="app__inner"
             >
                 <div class="wrapper__inner">
-                    <ExpandedSearch v-if="searchOpen"/>
+                    <ExpandedSearch/>
                     <AboveHeader/>
                     <HeaderNotice v-if="activeNotice"/>
                     <TheHeader/>
@@ -55,8 +55,10 @@ export default {
         menuOpen() {
             return this.$store.getters.expandedMenuOpen;
         },
-        searchOpen() {
-            return this.$store.getters.expandedSearchOpen;
+    },
+    watch: {
+        $route() {
+            this.$store.commit('closeSearch');
         },
     },
     mounted() {
