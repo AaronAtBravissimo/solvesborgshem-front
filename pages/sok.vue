@@ -1,19 +1,26 @@
 <template>
     <div class="search">
         <TopSection :top-section="topSection"/>
-        <form @submit.prevent="searchHandler">
-            <input
-                :value="keyword"
-                type="search"
-                name=""
+        <div class="searchFilterBox flex justify-center">
+            <form
+                class="searchForm flex items-center"
+                @submit.prevent="searchHandler"
             >
-        </form>
-        <div
-            v-if="loading"
-            class="loader"
-        >
-            Laddar...
+                <input
+                    :value="keyword"
+                    type="search"
+                    class="searchInput"
+                    placeholder="Ange önskat sökord..."
+                >
+                <AppButton
+                    :icon="searchIcon"
+                    class="flex-no-shrink"
+                    label="Sök här"
+                    type="submit"
+                />
+            </form>
         </div>
+        <Spinner v-if="loading"/>
         <no-ssr v-if="results.length > 0 && !loading">
             <div class="results">
                 <div class="smallCardColumns flex flex-wrap">
@@ -32,12 +39,12 @@
                 </div>
             </div>
         </no-ssr>
-        <div
+        <p
             v-if="results.length < 1 && !loading"
-            class="noResults"
+            class="noResultsText"
         >
             Inget sökresultat kunde hittas.
-        </div>
+        </p>
     </div>
 </template>
 
@@ -45,12 +52,17 @@
 import axios from 'axios';
 import TopSection from '../components/TopSection.vue';
 import SmallCard from '../components/SmallCard.vue';
+import AppButton from '../components/AppButton.vue';
+import Spinner from '../components/Spinner.vue';
 import { apiUrl } from '../utils/config';
+import searchIcon from '../assets/images/icon-search.svg';
 
 export default {
     components: {
         TopSection,
         SmallCard,
+        AppButton,
+        Spinner,
     },
     data: () => ({
         results: [],
@@ -60,6 +72,7 @@ export default {
             preamble: 'Du sökte efter',
             image: null,
         },
+        searchIcon,
     }),
     computed: {
         keyword() {
@@ -88,7 +101,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-input {
-    border: 1px solid #000;
+.searchFilterBox {
+    background-color: #ffffff;
+    padding: 30px 50px;
+    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+    margin-bottom: 30px;
+}
+.searchInput {
+    min-width: 500px;
+    border-radius: 6px;
+    padding: 12px 20px;
+    border: solid 1px #cfcfcf;
+    background-color: #fafafa;
+    font-size: 16px;
+    font-family: $secondaryFont;
+    line-height: normal;
+    color: $primaryTextColor;
+    margin-right: 15px;
+}
+.spinner {
+    margin-top: 80px;
+}
+.noResultsText {
+    text-align: center;
+    font-style: italic;
+    margin-top: 80px;
 }
 </style>
