@@ -124,11 +124,6 @@ module.exports = {
                 component: resolve(__dirname, 'pages/building.vue'),
             });
             routes.push({
-                name: 'buildingsArchive',
-                path: '/bostader',
-                component: resolve(__dirname, 'pages/_slug.vue'),
-            });
-            routes.push({
                 name: 'searchEmpty',
                 path: '/sok',
                 component: resolve(__dirname, 'pages/sok.vue'),

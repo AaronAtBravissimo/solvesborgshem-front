@@ -29,8 +29,8 @@ async function generateBuildings(dir) {
 }
 
 export default async function generateJsonFiles(dir) {
-    generatePages(dir);
-    generateBuildings(dir);
+    await generatePages(dir);
+    await generateBuildings(dir);
 }
 
 async function init(dir) {
