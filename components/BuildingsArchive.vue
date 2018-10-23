@@ -1,13 +1,15 @@
 <template>
     <div class="buildingsArchive">
         <div class="buildings">
-            <div
+            <AppLink
                 v-for="building in buildings"
                 :key="building.id"
-                class="building"
+                :url="building.post_link"
+
+                class="building block"
             >
                 {{ building.post_title }}
-            </div>
+            </AppLink>
         </div>
     </div>
 </template>
