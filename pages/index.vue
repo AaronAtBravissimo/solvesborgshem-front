@@ -1,5 +1,8 @@
 <template>
-    <div class="homePage">
+    <div
+        v-if="page"
+        class="homePage"
+    >
         <TheHeroSection
             :hero-section="page.heroSection"
         />
@@ -27,8 +30,11 @@ export default {
         SocialPosts,
     },
     head() {
-        return this.page !== undefined ? getMeta(this.page.yoast) : false;
+        return getMeta(this.page.yoast);
     },
+    data: () => ({
+        page: false,
+    }),
     async asyncData() {
         const data = await import('../static/json/-_-.json');
         return { page: data };

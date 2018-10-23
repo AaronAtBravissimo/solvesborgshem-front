@@ -13,6 +13,10 @@ export function excerpt(string, maxLength = 200) {
 }
 
 export function getMeta(yoast, removeTitle = false) {
+    if (!yoast) {
+        return false;
+    }
+
     const meta = {
         meta: [
             {
