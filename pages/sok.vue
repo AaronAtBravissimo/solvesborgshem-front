@@ -30,7 +30,8 @@
                         class="smallCardColumn flex"
                     >
                         <SmallCard
-                            :image="result.image"
+                            :image="result.image.url"
+                            :imagealt="result.image.alt"
                             :heading="result.heading"
                             :content="result.preamble"
                             :link="result.link"

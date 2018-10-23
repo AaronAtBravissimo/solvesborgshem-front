@@ -8,7 +8,8 @@
                     class="smallCardColumn flex"
                 >
                     <SmallCard
-                        :image="building.topSection.image"
+                        :image="building.topSection.image.sizes.large"
+                        :imagealt="building.topSection.image.alt"
                         :heading="building.topSection.heading"
                         :content="building.topSection.preamble"
                         :link="building.post_link"

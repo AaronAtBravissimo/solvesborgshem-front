@@ -5,9 +5,10 @@
     >
         <div class="inner">
             <div class="imageHolder">
+                {{ imagealt }}
                 <AppImage
-                    :image="image.url"
-                    :alt="image.alt"
+                    :image="image"
+                    :alt="imagealt"
                     class="image"
                 />
             </div>
@@ -30,7 +31,11 @@ export default {
     },
     props: {
         image: {
-            type: Object,
+            type: String,
+            default: null,
+        },
+        imagealt: {
+            type: String,
             default: null,
         },
         heading: {
