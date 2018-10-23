@@ -140,8 +140,18 @@ module.exports = {
     ** Build configuration
     */
     build: {
-        extractCSS: {
-            allChunks: true,
+        extractCSS: true,
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    styles: {
+                        name: 'styles',
+                        test: /\.(css|vue)$/,
+                        chunks: 'all',
+                        enforce: true
+                    }
+                }
+            }
         },
         extend(config, { isDev, isClient }) {
             if (isDev) {
