@@ -195,6 +195,7 @@ module.exports = {
                             'fade-in-enter',
                             'nuxt-link-active',
                             'nuxt-link-exact-active',
+                            'overflow-hidden',
                         ],
                     }),
                 );
