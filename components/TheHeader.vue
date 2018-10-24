@@ -85,7 +85,7 @@ export default {
 }
 .searchButton {
     display: none;
-    @media ($laptop) {
+    @media ($tablet) {
         display: block;
     }
     /deep/ .label {

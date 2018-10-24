@@ -27,12 +27,25 @@
             label="Mina sidor"
             class="loginButton"
         />
+        <AppButton
+            :icon="errorReportIcon"
+            label="Felanmälan"
+            class="iconAndLabel"
+            url="/kundtjanst/"
+        />
+        <AppButton
+            :icon="customizeIcon"
+            label="Anpassa"
+            class="iconAndLabel customizeIcon"
+        />
     </aside>
 </template>
 
 <script>
 import AppButton from './AppButton.vue';
 import userIcon from '../assets/images/icon-user.svg';
+import errorReportIcon from '../assets/images/icon-error-report.svg';
+import customizeIcon from '../assets/images/icon-customize.svg';
 
 export default {
     components: {
@@ -40,6 +53,8 @@ export default {
     },
     data: () => ({
         userIcon,
+        errorReportIcon,
+        customizeIcon,
     }),
     computed: {
         menu() {
@@ -96,6 +111,19 @@ export default {
     @media ($mobile) {
         font-size: 16px;
         letter-spacing: 2px;
+    }
+}
+.loginButton {
+    margin-bottom: 20px;
+}
+.iconAndLabel {
+    display: none;
+    min-width: 0px;
+    padding: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+    @media ($tablet) {
+        display: inline-block;
     }
 }
 </style>

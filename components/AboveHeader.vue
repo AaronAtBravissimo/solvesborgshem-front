@@ -65,7 +65,10 @@ export default {
         margin-left: -#{$frameSizeSmallDesktop};
         width: calc(100% + #{$frameSizeSmallDesktop * 2});
     }
-    @media ($laptop) {
+    @media ($tablet) {
+        min-height: 55px;
+    }
+    @media ($smallerTablet) {
         display: none;
     }
 }
@@ -79,9 +82,6 @@ export default {
     }
     @media ($tablet) {
         justify-content: center;
-    }
-    @media ($smallerTablet) {
-        display: none;
     }
 }
 .right {
