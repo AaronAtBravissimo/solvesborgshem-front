@@ -27,6 +27,7 @@
                     </div>
                     <AddressBox
                         :map="mapInfo"
+                        :address="fullAddress"
                     />
                     <BuildingWidget
                         :heading="areaInfo.heading"
@@ -118,6 +119,13 @@ export default {
             }
 
             return this.building.map;
+        },
+        fullAddress() {
+            return `
+                ${this.building.address}<br>
+                ${this.building.city}<br>
+                ${this.building.zipCode}
+            `;
         },
     },
 };

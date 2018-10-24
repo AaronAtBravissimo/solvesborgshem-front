@@ -1,15 +1,13 @@
 <template>
     <div class="addressBox flex">
-        <div class="left flex">
+        <div class="left flex justify-center">
             <div class="iconHolder flex-no-shrink">
                 <img :src="apartmentsIcon">
             </div>
-            <div class="textHolder flex-grow flex-shrink content">
+            <div class="textHolder flex-shrink content">
                 <p>
                     Adress:<br>
-                    Daggåkevägen 1A<br>
-                    294 37, Sölvesborg<br>
-                    Blekinge län
+                    <span v-html="address"></span>
                 </p>
             </div>
         </div>
@@ -39,6 +37,10 @@ export default {
     props: {
         map: {
             type: Object,
+            default: null,
+        },
+        address: {
+            type: String,
             default: null,
         },
     },
@@ -79,7 +81,7 @@ export default {
     width: 50%;
     background-color: $primaryColor;
     color: #ffffff;
-    padding: 50px 30px;
+    padding: 70px 30px;
 }
 .right {
     width: 50%;
