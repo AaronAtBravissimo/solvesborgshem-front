@@ -78,7 +78,7 @@ export default {
 $tableGutter: 10px;
 
 .widget {
-    font-size: 16px;
+    font-size: 15px;
 }
 .iconHolder {
     width: 68px;
@@ -102,6 +102,7 @@ $tableGutter: 10px;
     margin-left: -$tableGutter;
     margin-right: -$tableGutter;
     text-align: left;
+    margin-bottom: 2px;
 }
 .column {
     padding: 0 $tableGutter;

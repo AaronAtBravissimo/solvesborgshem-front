@@ -16,6 +16,11 @@
                 <gmap-map
                     :zoom="16"
                     :center="positon"
+                    :options="{
+                        streetViewControl: false,
+                        mapTypeControl: false,
+                        fullscreenControl: false,
+                    }"
                     map-type-id="roadmap"
                 >
                     <gmap-marker
