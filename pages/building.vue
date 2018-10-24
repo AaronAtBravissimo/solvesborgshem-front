@@ -8,7 +8,7 @@
             :top-section="building.topSection"
         />
         <section class="information">
-            <div class="headingHolder">
+            <div class="headingHolder w-full">
                 <h2>Bostadsinformation</h2>
             </div>
             <div class="columns flex">
@@ -25,7 +25,9 @@
                             class="triggerGallery"
                         />
                     </div>
-                    <AddressBox/>
+                    <AddressBox
+                        :map="mapInfo"
+                    />
                     <BuildingWidget
                         :heading="areaInfo.heading"
                         :body="areaInfo.content"
@@ -110,6 +112,13 @@ export default {
                 content: area.description,
             };
         },
+        mapInfo() {
+            if (!this.building || !this.building.map) {
+                return false;
+            }
+
+            return this.building.map;
+        },
     },
 };
 </script>
@@ -121,6 +130,9 @@ $columnsGutter: 25px;
     background-color: #ffffff;
      box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
      padding: 40px 50px;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
 }
 .headingHolder {
     text-align: center;

@@ -21,7 +21,8 @@
         "nuxt-sass-resources-loader": "^2.0.5",
         "object-fit-images": "^3.2.4",
         "photoswipe": "^4.1.2",
-        "portal-vue": "^1.4.0"
+        "portal-vue": "^1.4.0",
+        "vue2-google-maps": "^0.10.2"
     },
     "devDependencies": {
         "autoprefixer": "^9.1.5",

@@ -67,6 +67,7 @@ module.exports = {
     ** Plugins to load before mounting the App
     */
     plugins: [
+        { src: '~/plugins/vue2-google-maps', ssr: false},
         { src: '~/plugins/polyfills', ssr: false },
         '~/plugins/app-link',
         '~/plugins/portal-vue',
@@ -196,9 +197,22 @@ module.exports = {
                             'nuxt-link-active',
                             'nuxt-link-exact-active',
                             'overflow-hidden',
+                            'vue-map',
                         ],
                     }),
                 );
+            }
+            if (!isClient) {
+                // This instructs Webpack to include `vue2-google-maps`'s Vue files
+                // for server-side rendering
+                config.externals = config.externals || [];
+                config.externals.splice(0, 0, (context, request, callback) => {
+                    if (/^vue2-google-maps($|\/)/.test(request)) {
+                        callback(null, false);
+                    } else {
+                        callback();
+                    }
+                });
             }
         },
     },
