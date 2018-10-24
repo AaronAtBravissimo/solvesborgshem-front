@@ -71,6 +71,7 @@ export default {
     }
     @media ($mobile) {
         padding: 40px 15px;
+        width: 260px;
     }
     &.isOpen {
         opacity: 1;
@@ -79,7 +80,7 @@ export default {
 }
 
 .list {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .link {
@@ -92,5 +93,9 @@ export default {
     text-transform: uppercase;
     letter-spacing: 4px;
     border-bottom: 2px solid transparentize(#ffffff, 0.75);
+    @media ($mobile) {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
 }
 </style>

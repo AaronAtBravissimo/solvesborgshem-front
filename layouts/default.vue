@@ -77,6 +77,9 @@ export default {
     &.menuOpen {
         transform: translateX(-300px);
         box-shadow: -10px 0 20px 10px rgba(0, 0, 0, 0.3);
+        @media ($mobile) {
+            transform: translateX(-260px);
+        }
     }
 }
 .app__inner {

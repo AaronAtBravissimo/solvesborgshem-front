@@ -34,10 +34,15 @@ export default {
     data: () => ({
         buildings,
     }),
+    computed: {
+        getFallbackImage() {
+            return this.$store.getters.options.defaultImage.sizes.large;
+        },
+    },
     methods: {
         checkImage(image) {
             return !image.sizes || image.sizes.length < 0
-                ? this.$store.getters.options.defaultImage.sizes.large : image.sizes.large;
+                ? this.getFallbackImage : image.sizes.large;
         },
     },
 };
