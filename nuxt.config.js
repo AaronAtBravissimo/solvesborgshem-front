@@ -198,6 +198,7 @@ module.exports = {
                             'nuxt-link-exact-active',
                             'overflow-hidden',
                             'vue-map',
+                            'pswp',
                         ],
                     }),
                 );
