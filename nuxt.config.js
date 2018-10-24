@@ -182,6 +182,7 @@ module.exports = {
                                 extensions: ['vue'],
                             },
                         ],
+                        whitelistPatterns: [/^pswp/],
                         whitelist: [
                             'html',
                             'body',
@@ -198,7 +199,6 @@ module.exports = {
                             'nuxt-link-exact-active',
                             'overflow-hidden',
                             'vue-map',
-                            'pswp',
                         ],
                     }),
                 );
