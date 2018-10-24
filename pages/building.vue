@@ -13,7 +13,10 @@
             </div>
             <div class="columns flex">
                 <div class="leftColumn">
-                    <div class="imageGallery relative">
+                    <div
+                        v-if="building.imageGallery"
+                        class="imageGallery relative"
+                    >
                         <img
                             :src="building.imageGallery[0].sizes.large"
                             :alt="building.imageGallery[0].alt"

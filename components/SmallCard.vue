@@ -5,7 +5,6 @@
     >
         <div class="inner">
             <div class="imageHolder">
-                {{ imagealt }}
                 <AppImage
                     :image="image"
                     :alt="imagealt"
