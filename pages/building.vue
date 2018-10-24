@@ -23,6 +23,7 @@
                             class="objectFitCover w-full h-full"
                         >
                         <AppButton
+                            v-if="building.imageGallery.length > 1"
                             :icon="expandIcon"
                             :label="`Se alla ${building.imageGallery.length} bilder`"
                             class="triggerGallery"
