@@ -59,11 +59,11 @@ export default {
     background-color: #232323;
     min-height: 69px;
     display: flex;
-    margin-left: -50px;
-    width: calc(100% + 100px);
+    margin-left: -#{$frameSize};
+    width: calc(100% + #{$frameSize * 2});
     @media ($smallDesktop) {
-        margin-left: -30px;
-        width: calc(100% + 60px);
+        margin-left: -#{$frameSizeSmallDesktop};
+        width: calc(100% + #{$frameSizeSmallDesktop * 2});
     }
     @media ($laptop) {
         display: none;

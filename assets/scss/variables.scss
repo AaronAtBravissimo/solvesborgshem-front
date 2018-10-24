@@ -4,7 +4,6 @@
 $primaryTextColor: #404040;
 $primaryColor: #3aa2d2;
 $secondaryColor: #73ac2c;
-
 $primaryColorContrast: #207196;
 
 /*
@@ -12,6 +11,14 @@ $primaryColorContrast: #207196;
 */
 $primaryFont: 'Open Sans', sans-serif;
 $secondaryFont: 'Merriweather', serif;
+
+/*
+// Frame sizes
+*/
+$frameSize: 50px;
+$frameSizeSmallDesktop: 30px;
+$frameSizeTablet: 15px;
+$frameSizeMobile: 0;
 
 /*
 // Media queries

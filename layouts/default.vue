@@ -80,24 +80,23 @@ export default {
     }
 }
 .app__inner {
-    padding: 50px;
+    padding: $frameSize;
     position: relative;
-
     @media ($smallDesktop) {
-        padding: 30px;
+        padding: $frameSizeSmallDesktop;
     }
     @media ($tablet) {
-        padding: 15px;
+        padding: $frameSizeTablet;
     }
     @media ($mobile) {
-        padding: 0;
+        padding: $frameSizeMobile;
     }
 }
 .wrapper__inner {
     background-color: #f4f8fa;
-    padding: 0 50px 120px;
+    padding: 0 $frameSize 120px;
     @media ($smallDesktop) {
-        padding: 0 30px 90px;
+        padding: 0 $frameSizeSmallDesktop 90px;
     }
     @media ($mobile) {
         padding: 0 15px 90px;
