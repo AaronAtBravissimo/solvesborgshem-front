@@ -72,7 +72,8 @@ export default {
     }
 }
 
-.nuxt-link-exact-active {
+.nuxt-link-exact-active,
+.nuxt-link-active {
     color: $primaryColor;
     &::after {
         opacity: 1;
