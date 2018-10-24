@@ -108,6 +108,7 @@ p {
     background-color: transparent;
     padding: 0;
     border-radius: 0;
+    min-width: 0;
     /deep/ .label {
         @media ($mobile) {
             font-size: 13px;

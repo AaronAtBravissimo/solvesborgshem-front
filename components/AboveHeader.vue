@@ -25,12 +25,7 @@
                     label="Anpassa"
                     class="iconAndLabel customizeIcon"
                 />
-                <AppButton
-                    :icon="searchIcon"
-                    label="Sök"
-                    class="iconAndLabel"
-                    @clicked="toggleSearch()"
-                />
+                <SearchButton/>
             </div>
         </div>
     </header>
@@ -38,28 +33,23 @@
 
 <script>
 import AppButton from './AppButton.vue';
+import SearchButton from './SearchButton.vue';
 import apartmentsIcon from '../assets/images/icon-apartments.svg';
 import errorReportIcon from '../assets/images/icon-error-report.svg';
 import customizeIcon from '../assets/images/icon-customize.svg';
-import searchIcon from '../assets/images/icon-search.svg';
 
 export default {
     components: {
         AppButton,
+        SearchButton,
     },
     data() {
         return {
             apartmentsIcon,
             errorReportIcon,
             customizeIcon,
-            searchIcon,
             number: 2,
         };
-    },
-    methods: {
-        toggleSearch() {
-            this.$store.commit('toggleSearch');
-        },
     },
 };
 </script>

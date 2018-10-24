@@ -58,7 +58,7 @@ export default {
     right: 0;
     top: 0;
     height: 100%;
-    width: 280px;
+    width: 300px;
     padding: 60px 30px;
     z-index: 40;
     overflow: auto;

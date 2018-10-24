@@ -75,7 +75,7 @@ export default {
     background-color: #ffffff;
     overflow: hidden;
     &.menuOpen {
-        transform: translateX(-280px);
+        transform: translateX(-300px);
         box-shadow: -10px 0 20px 10px rgba(0, 0, 0, 0.3);
     }
 }
