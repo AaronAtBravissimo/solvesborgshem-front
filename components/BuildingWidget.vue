@@ -18,7 +18,7 @@
                         <div class="column">
                             <p class="tableText">{{ labels[index] }}:</p>
                         </div>
-                        <div class="column">
+                        <div class="column flex-grow">
                             <p class="tableText">{{ row }}</p>
                         </div>
                     </div>
@@ -106,12 +106,9 @@ $tableGutter: 10px;
 }
 .column {
     padding: 0 $tableGutter;
-    width: 50%;
+    width: 205px;
     &:first-child .tableText {
         font-weight: bold;
-    }
-    &:last-child {
-        width: 100%;
     }
 }
 </style>
