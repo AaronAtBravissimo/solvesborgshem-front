@@ -1,24 +1,22 @@
 <template>
     <div class="addressBox flex">
-        <div class="left">
-            <div class="inner flex">
-                <div class="iconHolder flex-no-shrink">
-                    <img :src="apartmentsIcon">
-                </div>
-                <div class="textHolder flex-grow flex-shrink content">
-                    <p>
-                        Adress:<br>
-                        Daggåkevägen 1A<br>
-                        294 37, Sölvesborg<br>
-                        Blekinge län
-                    </p>
-                </div>
+        <div class="left flex">
+            <div class="iconHolder flex-no-shrink">
+                <img :src="apartmentsIcon">
+            </div>
+            <div class="textHolder flex-grow flex-shrink content">
+                <p>
+                    Adress:<br>
+                    Daggåkevägen 1A<br>
+                    294 37, Sölvesborg<br>
+                    Blekinge län
+                </p>
             </div>
         </div>
         <div class="right flex">
             <no-ssr>
                 <gmap-map
-                    :zoom="18"
+                    :zoom="16"
                     :center="positon"
                     map-type-id="roadmap"
                 >
