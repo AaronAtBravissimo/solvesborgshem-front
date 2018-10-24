@@ -26,6 +26,7 @@
                             :icon="expandIcon"
                             :label="`Se alla ${building.imageGallery.length} bilder`"
                             class="triggerGallery"
+                            @clicked="openLightbox()"
                         />
                     </div>
                     <AddressBox
@@ -59,6 +60,9 @@
                 </div>
             </div>
         </section>
+        <portal to="endOfPage">
+            <Photoswipe/>
+        </portal>
     </div>
 </template>
 
@@ -69,6 +73,10 @@ import AppButton from '../components/AppButton.vue';
 import AddressBox from '../components/AddressBox.vue';
 import { getMeta } from '../utils/helpers';
 import expandIcon from '../assets/images/icon-expand.svg';
+import Photoswipe from '../components/Photoswipe.vue';
+
+const PhotoSwipe = require('photoswipe/dist/photoswipe.js');
+const PhotoSwipeUIDefault = require('photoswipe/dist/photoswipe-ui-default.js');
 
 export default {
     components: {
@@ -76,6 +84,7 @@ export default {
         BuildingWidget,
         AppButton,
         AddressBox,
+        Photoswipe,
     },
     head() {
         return getMeta(this.building.yoast);
@@ -83,6 +92,14 @@ export default {
     data: () => ({
         buildings: false,
         expandIcon,
+        lightboxOptions: {
+            index: 0,
+            history: false,
+            shareEl: false,
+            bgOpacity: 0.8,
+            showHideOpacity: true,
+            timeToIdle: false,
+        },
     }),
     async asyncData() {
         const data = await import('../static/json/buildings.json');
@@ -129,6 +146,26 @@ export default {
                 ${this.building.city}<br>
                 ${this.building.zipCode}
             `;
+        },
+        images() {
+            return this.building.imageGallery;
+        },
+    },
+    methods: {
+        openLightbox() {
+            const el = document.querySelector('.pswp');
+            const items = [];
+
+            for (let i = 0; i < this.images.length; i++) {
+                items.push({
+                    src: this.images[i].url,
+                    w: this.images[i].width,
+                    h: this.images[i].height,
+                });
+            }
+
+            const gallery = new PhotoSwipe(el, PhotoSwipeUIDefault, items, this.lightboxOptions);
+            gallery.init();
         },
     },
 };

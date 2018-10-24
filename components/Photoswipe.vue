@@ -75,6 +75,9 @@
     </div>
 </template>
 
+<style src="photoswipe/dist/photoswipe.css"></style>
+<style src="photoswipe/dist/default-skin/default-skin.css"></style>
+
 <style lang="scss">
 .pswp__bg {
     background: #000000 !important;
