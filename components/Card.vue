@@ -19,7 +19,7 @@
                     >
                     <span class="dateLabel">{{ card.date_formatted }}</span>
                 </div>
-                <p class="text">{{ card.text }}</p>
+                <p class="text">{{ excerpt(card.text) }}</p>
             </div>
         </div>
         <div class="bottom">
@@ -69,6 +69,12 @@ export default {
             return icons[this.card.type];
         },
     },
+    methods: {
+        excerpt(text) {
+            const textLength = 150;
+            return text && text.length > textLength ? `${text.substring(0, textLength)}...` : text;
+        },
+    },
 };
 </script>
 
@@ -83,9 +89,9 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* &:hover {
+    &:hover {
         transform: translateY(-10px);
-    } */ // NOTE: Plocka fram senare
+    }
 }
 .top {
     margin-bottom: 38px;
