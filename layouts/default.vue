@@ -1,14 +1,12 @@
 <template>
     <div class="app">
-
         <div
+            ref="wrapper"
             :class="{'menuOpen': menuOpen}"
             class="wrapper"
+            tabindex="-1"
         >
-            <div
-
-                class="app__inner"
-            >
+            <div class="app__inner">
                 <div class="wrapper__inner">
                     <ExpandedSearch/>
                     <AboveHeader/>
@@ -59,6 +57,7 @@ export default {
     watch: {
         $route() {
             this.$store.commit('closeSearch');
+            this.$refs.wrapper.focus();
         },
     },
     mounted() {
