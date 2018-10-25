@@ -120,7 +120,11 @@ export default {
     border-radius: 6px;
     text-align: center;
     position: relative;
-    outline: none !important;
+    &:focus {
+        outline: 2px solid #fff;
+        outline-offset: 5px;
+        transition: 0.125s;
+    }
     @media($tablet) {
         min-width: 180px;
         padding: 10px 20px;

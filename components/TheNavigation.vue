@@ -67,13 +67,19 @@ export default {
         opacity: 0;
         transition: 0.25s;
     }
-    &:hover {
+    &:hover,
+    &:focus {
         color: $primaryColor;
+    }
+    &:focus {
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 5px;
+        transition: 0.125s;
     }
 }
 
-.nuxt-link-exact-active,
-.nuxt-link-active {
+.nuxt-link-exact-active:not(:focus),
+.nuxt-link-active:not(:focus) {
     color: $primaryColor;
     &::after {
         opacity: 1;

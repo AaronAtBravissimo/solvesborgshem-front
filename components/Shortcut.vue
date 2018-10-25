@@ -15,7 +15,10 @@
             <div class="infoHolder">
                 <h3 class="heading">{{ heading }}</h3>
                 <p class="text">{{ content }}</p>
-                <AppButton label="Läs mer"/>
+                <AppButton
+                    label="Läs mer"
+                    tabindex="-1"
+                />
             </div>
         </div>
     </Applink>
