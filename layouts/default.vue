@@ -73,6 +73,7 @@ export default {
     transition: transform 0.35s;
     background-color: #ffffff;
     overflow: hidden;
+    outline: 0 !important;
     &.menuOpen {
         transform: translateX(-300px);
         box-shadow: -10px 0 20px 10px rgba(0, 0, 0, 0.3);

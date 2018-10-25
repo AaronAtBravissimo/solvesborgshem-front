@@ -1,6 +1,6 @@
 <template>
     <nuxt-link
-        class="logoLink block w-full h-full"
+        class="block w-full h-full"
         to="/"
     >
         <img
@@ -28,11 +28,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss" scoped>
-.logoLink:focus {
-    outline: 2px solid $primaryTextColor;
-    outline-offset: 5px;
-    transition: 0.125s;
-}
-</style>

@@ -32,6 +32,11 @@ button {
     text-decoration: none;
     color: inherit;
     transition: 0.25s;
+    &:focus {
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 5px;
+        transition: 0.125s;
+    }
 }
 
 button {
@@ -39,10 +44,6 @@ button {
     cursor: pointer;
     background-color: transparent;
     padding: 0;
-}
-
-button:focus {
-    outline: 0;
 }
 
 img,

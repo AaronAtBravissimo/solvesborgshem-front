@@ -62,9 +62,7 @@ export default {
     padding: 36px 40px;
     transition: 0.25s;
     &:focus {
-        outline: 2px solid $primaryColor;
         outline-offset: 0;
-        transition: 0.125s;
     }
     @media ($largeTablet) {
         padding: 30px;

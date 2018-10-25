@@ -88,9 +88,6 @@ $columnsGutterTablet: 30px;
 
 .mainFooter {
     margin-top: 22px;
-    /deep/ .logoLink:focus {
-        outline-color: #ffffff;
-    }
     /deep/ p {
         font-size: 16px;
         line-height: 1.63;
@@ -114,6 +111,9 @@ $columnsGutterTablet: 30px;
         @media ($mobile) {
             font-size: 16px;
         }
+    }
+    /deep/ a:focus {
+        outline: 2px solid #fff;
     }
 }
 .graphicHolder {

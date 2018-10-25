@@ -71,11 +71,6 @@ export default {
     &:focus {
         color: $primaryColor;
     }
-    &:focus {
-        outline: 2px solid $primaryTextColor;
-        outline-offset: 5px;
-        transition: 0.125s;
-    }
 }
 
 .nuxt-link-exact-active:not(:focus),
