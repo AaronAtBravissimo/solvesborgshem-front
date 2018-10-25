@@ -13,7 +13,7 @@
             >
             <AppButton
                 :icon="searchIcon"
-                class="flex-no-shrink"
+                class="searchButton flex-no-shrink"
                 label="Sök här"
                 type="submit"
             />
@@ -71,5 +71,8 @@ export default {
     line-height: normal;
     color: $primaryTextColor;
     margin-right: 15px;
+}
+.searchButton:focus {
+    outline-color: $primaryTextColor;
 }
 </style>
