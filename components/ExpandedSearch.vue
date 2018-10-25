@@ -71,6 +71,7 @@ export default {
         },
         closeSearch() {
             this.$store.commit('closeSearch');
+            document.querySelector('.searchButton').focus();
         },
         slideDown(el, done) {
             el.style.transition = '0.35s';
