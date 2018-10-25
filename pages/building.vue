@@ -182,6 +182,12 @@ $columnsGutter: 25px;
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
+     @media ($largeDesktop) {
+         padding: 40px 30px;
+     }
+     @media ($smallerTablet) {
+         padding: 30px 15px;
+     }
 }
 .headingHolder {
     text-align: center;
@@ -190,15 +196,29 @@ $columnsGutter: 25px;
     @media ($tablet) {
         margin-bottom: 30px;
     }
-    @media ($smallTablet) {
-        margin-bottom: 0;
+}
+.heading {
+    @media ($smallerTablet) {
+        word-break: break-all;
+        letter-spacing: 2px;
+        font-size: 22px;
+    }
+    @media ($smallerMobile) {
+        letter-spacing: 1px;
+        font-size: 20px;
     }
 }
 .columns {
     width: 1620px;
-    max-width: 100%;
     margin: 0 -#{$columnsGutter} 50px;
     position: relative;
+    @media ($largeTablet) {
+        flex-wrap: wrap;
+    }
+    @media ($largeTablet) {
+        margin: 0;
+        max-width: 100%;
+    }
     &::after {
         content: '';
         position: absolute;
@@ -207,17 +227,50 @@ $columnsGutter: 25px;
         width: 1px;
         height: 100%;
         background-color: #d2dde1;
+        @media ($largeTablet) {
+            display: none;
+        }
     }
 }
 .leftColumn,
 .rightColumn {
     width: 50%;
     padding: 0 $columnsGutter;
+    @media ($largeTablet) {
+        width: 100%;
+        padding: 0;
+    }
+}
+.rightColumn {
+    @media ($largeTablet) {
+        border-top: 1px solid #d2dde1;
+        margin-top: 35px;
+        padding-top: 35px;
+    }
 }
 .imageGallery {
     height: 520px;
     background-color: $primaryColor;
     margin-bottom: 30px;
+    @media ($largeDesktop) {
+        height: 480px;
+    }
+    @media ($smallDesktop) {
+        height: 420px;
+    }
+    @media ($laptop) {
+        height: 380px;
+    }
+    @media ($smallTablet) {
+        height: 320px;
+    }
+    @media ($smallerTablet) {
+        height: 260px;
+        margin-bottom: 20px;
+    }
+    @media ($smallerMobile) {
+        height: 200px;
+    }
 }
 .triggerGallery {
     position: absolute;
@@ -225,14 +278,37 @@ $columnsGutter: 25px;
     bottom: 0;
     background-color: transparentize(#000000, 0.5);
     border-radius: 0;
+    min-width: 0;
+    width: 100%;
+    @media ($laptop) {
+        padding: 10px 15px;
+    }
+    @media ($smallerTablet) {
+        padding: 10px 15px;
+    }
 }
 .row {
     margin-bottom: 50px;
     padding-bottom: 50px;
     border-bottom: 1px solid #d2dde1;
+    @media ($laptop) {
+        margin-bottom: 35px;
+        padding-bottom: 35px;
+    }
+    @media ($smallerTablet) {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
     .rightColumn & {
         margin-left: -25px;
         padding-left: 50px;
+        @media ($largeDesktop) {
+            padding-left: 30px;
+        }
+        @media ($largeTablet) {
+            margin-left: 0;
+            padding-left: 0;
+        }
     }
     &:last-child {
         padding-bottom: 0;

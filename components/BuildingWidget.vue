@@ -1,6 +1,6 @@
 <template>
     <div class="widget">
-        <div class="inner flex">
+        <div class="inner">
             <div class="iconHolder flex-no-shrink">
 
             </div>
@@ -79,16 +79,59 @@ $tableGutter: 10px;
 
 .widget {
     font-size: 15px;
+    @media ($smallerTablet) {
+        font-size: 14px;
+    }
+}
+.inner {
+    display: flex;
+    @media ($laptop) {
+        flex-wrap: wrap;
+    }
+    @media ($largeTablet) {
+        flex-wrap: nowrap;
+    }
+    @media ($smallerTablet) {
+        flex-wrap: wrap;
+    }
 }
 .iconHolder {
     width: 68px;
     height: 68px;
     border-radius: 100%;
     border: 4px solid #f4f8fa;
+    @media ($smallDesktop) {
+        width: 60px;
+        height: 60px;
+        border-width: 3px;
+    }
+    @media ($smallerTablet) {
+        width: 50px;
+        height: 50px;
+        border-width: 2px;
+    }
 }
 .textHolder {
     padding-left: 35px;
     padding-top: 22px;
+    @media ($largeDesktop) {
+        padding-left: 30px;
+    }
+    @media ($smallDesktop) {
+        padding-top: 16px;
+    }
+    @media ($laptop) {
+        padding-left: 0;
+        width: 100%;
+    }
+    @media ($largeTablet) {
+        width: auto;
+        padding-left: 20px;
+    }
+    @media ($smallerTablet) {
+        padding-left: 0;
+        width: 100%;
+    }
 }
 .heading {
     font-size: 18px;
@@ -97,16 +140,39 @@ $tableGutter: 10px;
     letter-spacing: 3.6px;
     color: #202020;
     margin-bottom: 27px;
+    @media ($smallTablet) {
+        font-size: 17px;
+        margin-bottom: 20px;
+    }
+    @media ($smallerTablet) {
+        font-size: 16px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+    @media ($smallerMobile) {
+        letter-spacing: 2px;
+    }
 }
 .row {
     margin-left: -$tableGutter;
     margin-right: -$tableGutter;
     text-align: left;
     margin-bottom: 2px;
+    @media ($smallTablet) {
+        flex-wrap: wrap;
+        margin: 0 0 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 .column {
     padding: 0 $tableGutter;
     width: 205px;
+    @media ($smallTablet) {
+        width: 100%;
+        padding: 0;
+    }
     &:first-child .tableText {
         font-weight: bold;
     }

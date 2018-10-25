@@ -81,15 +81,43 @@ export default {
 <style lang="scss" scoped>
 .addressBox {
     margin-bottom: 30px;
+    @media ($smallerTablet) {
+        margin-bottom: 20px;
+    }
 }
 .left {
     width: 50%;
     background-color: $primaryColor;
     color: #ffffff;
     padding: 70px 30px;
+    @media ($smallDesktop) {
+        padding: 40px 30px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    @media ($largeTablet) {
+        flex-wrap: nowrap;
+    }
+    @media ($largeTablet) {
+        padding: 50px 30px;
+    }
+    @media ($smallTablet) {
+        flex-wrap: wrap;
+        padding: 40px 30px;
+    }
+    @media ($smallerTablet) {
+        display: none;
+    }
 }
 .right {
     width: 50%;
+    @media ($smallerTablet) {
+        height: 260px;
+        width: 100%;
+    }
+    @media ($smallerMobile) {
+        height: 200px;
+    }
 }
 .iconHolder {
     width: 50px;
@@ -98,6 +126,21 @@ export default {
     padding-left: 15px;
     padding-top: 2px;
     font-size: 16px;
+    @media ($smallDesktop) {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+    @media ($largeTablet) {
+        width: auto;
+        padding-left: 15px;
+        padding-top: 2px;
+    }
+    @media ($smallTablet) {
+        width: 100%;
+        padding-left: 0;
+        padding-top: 10px;
+    }
 }
 .vue-map-container {
     width: 100%;
