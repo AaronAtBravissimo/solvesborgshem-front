@@ -62,6 +62,11 @@ $checkWidthSmallerTablet: 5px;
 .filter {
     margin: 0 25px;
     text-align: left;
+    &:focus {
+        outline: 2px solid $primaryColor;
+        outline-offset: 5px;
+        transition: 0.125s;
+    }
     @media ($mediumTablet) {
         margin: 0 15px;
     }

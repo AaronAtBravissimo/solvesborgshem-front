@@ -80,7 +80,6 @@ export default {
         position: absolute;
         top: 0;
         left: 50%;
-        margin-left: -0.5px;
         width: 1px;
         height: 100%;
         background-color: #d2dde1;
@@ -92,6 +91,8 @@ export default {
 
 .column {
     width: 50%;
+    position: relative;
+    z-index: 1;
     @media ($tablet) {
         width: 100%;
     }

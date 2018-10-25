@@ -79,6 +79,11 @@ export default {
     }
 }
 .loginButton {
+    &:focus {
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 3px;
+        transition: 0.125s;
+    }
     @media ($laptop) {
         display: none;
     }

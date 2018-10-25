@@ -180,6 +180,11 @@ $gutterMediumTablet: 10px;
 }
 .button {
     margin-top: $gutter;
+    &:focus {
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 3px;
+        transition: 0.125s;
+    }
     /deep/ {
         .inner {
             opacity: 1 !important;
