@@ -170,6 +170,7 @@ $verticalPaddingMobile: 15px;
     width: 100%;
     border-radius: 6px;
     box-shadow: 7.5px 13px 30px 0 rgba(13, 42, 56, 0.1);
+    outline: 0 !important;
     @media ($mobile) {
         padding: 16px $verticalPaddingMobile;
     }
