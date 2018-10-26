@@ -1,9 +1,15 @@
 <template>
-    <div class="searchFilterBox flex justify-center">
+    <div class="searchFilterBox flex justify-center items-center">
         <form
             class="searchForm flex items-center"
             @submit.prevent="searchHandler"
         >
+            <p
+                v-if="searchLabel"
+                class="text"
+            >
+                {{ searchLabel }}
+            </p>
             <input
                 :value="keyword"
                 type="search"
@@ -17,7 +23,8 @@
                 type="submit"
             />
         </form>
-        <slot name="filter"></slot>
+        <slot name="filter">
+        </slot>
     </div>
 </template>
 
@@ -31,6 +38,10 @@ export default {
     },
     props: {
         keyword: {
+            type: String,
+            default: null,
+        },
+        searchLabel: {
             type: String,
             default: null,
         },
@@ -68,5 +79,12 @@ export default {
 }
 .searchButton:focus {
     outline-color: $primaryTextColor;
+}
+.filterHolder {
+    margin-left: 30px;
+}
+.text {
+    margin-bottom: 0;
+    margin-right: 15px;
 }
 </style>

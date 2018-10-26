@@ -2,15 +2,18 @@
     <div class="buildingsArchive">
         <SearchFilterBox
             :keyword="currentSearch"
+            search-label="Sök efter bostad:"
             @search="searchChanged"
         >
             <template slot="filter">
-                <Select
-                    ref="filter"
-                    :items="filters"
-                    class="ml-8"
-                    @changed="filterChanged"
-                />
+                <div class="filterHolder flex items-center">
+                    <p class="text">Sortera efter område:</p>
+                    <Select
+                        ref="filter"
+                        :items="filters"
+                        @changed="filterChanged"
+                    />
+                </div>
             </template>
         </SearchFilterBox>
         <div class="buildings">
