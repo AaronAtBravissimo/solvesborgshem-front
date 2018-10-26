@@ -133,6 +133,21 @@ export default {
 <style lang="scss" scoped>
 $columnGutter: 15px;
 
+.buildingsArchive /deep/ .searchInput {
+    @media ($largeTablet) {
+        width: 400px;
+    }
+    @media ($tablet) {
+        width: 300px;
+    }
+}
+
+.buildingsArchive /deep/ .searchForm .text {
+    @media ($tablet) {
+        display: none;
+    }
+}
+
 .columns {
     margin-left: -$columnGutter;
     margin-right: -$columnGutter;
