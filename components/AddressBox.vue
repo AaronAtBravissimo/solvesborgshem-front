@@ -54,14 +54,14 @@ export default {
         icon: {
             url: markerIcon,
             size: {
-                width: 46.32,
-                height: 61.84,
+                width: 58.1,
+                height: 85,
                 f: 'px',
                 b: 'px',
             },
             scaledSize: {
-                width: 46.32,
-                height: 61.84,
+                width: 58.1,
+                height: 85,
                 f: 'px',
                 b: 'px',
             },
