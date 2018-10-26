@@ -2,7 +2,7 @@
     <section class="topSection">
         <AppImage
             v-if="topSection.image"
-            :image="topSection.image.sizes.large"
+            :image="topSection.image.url"
             :alt="topSection.image.alt"
             class="image objectFitCover"
         />

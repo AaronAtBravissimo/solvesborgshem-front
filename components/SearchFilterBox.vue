@@ -1,9 +1,15 @@
 <template>
-    <div class="searchFilterBox flex justify-center">
+    <div class="searchFilterBox flex justify-center items-center">
         <form
             class="searchForm flex items-center"
             @submit.prevent="searchHandler"
         >
+            <p
+                v-if="searchLabel"
+                class="text"
+            >
+                {{ searchLabel }}
+            </p>
             <input
                 :value="keyword"
                 type="search"
@@ -17,7 +23,8 @@
                 type="submit"
             />
         </form>
-        <slot name="filter"></slot>
+        <slot name="filter">
+        </slot>
     </div>
 </template>
 
@@ -31,6 +38,10 @@ export default {
     },
     props: {
         keyword: {
+            type: String,
+            default: null,
+        },
+        searchLabel: {
             type: String,
             default: null,
         },
@@ -53,9 +64,18 @@ export default {
     padding: 30px 50px;
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
     margin-bottom: 30px;
+    @media ($largeDesktop) {
+        padding: 30px;
+    }
+    @media ($smallerTablet) {
+        padding: 30px 15px;
+    }
+}
+.searchForm {
+    max-width: 100%;
 }
 .searchInput {
-    min-width: 500px;
+    width: 500px;
     border-radius: 6px;
     padding: 12px 20px;
     border: solid 1px #cfcfcf;
@@ -68,5 +88,30 @@ export default {
 }
 .searchButton:focus {
     outline-color: $primaryTextColor;
+}
+.filterHolder {
+    width: 405px;
+    flex-shrink: 0;
+    margin-left: 30px;
+    @media ($laptop) {
+        width: 200px;
+        margin-left: 15px;
+    }
+    .text {
+        @media ($laptop) {
+            display: none;
+        }
+    }
+}
+.select {
+    width: 200px;
+    @media ($laptop) {
+        width: 100%;
+    }
+}
+.text {
+    margin-bottom: 0;
+    margin-right: 15px;
+    flex-shrink: 0;
 }
 </style>

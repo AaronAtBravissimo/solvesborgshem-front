@@ -171,9 +171,9 @@ export default {
 
             for (let i = 0; i < this.images.length; i++) {
                 items.push({
-                    src: this.images[i].url,
-                    w: this.images[i].width,
-                    h: this.images[i].height,
+                    src: this.images[i].sizes.large,
+                    w: this.images[i].sizes['large-width'],
+                    h: this.images[i].sizes['large-height'],
                 });
             }
 
@@ -291,12 +291,12 @@ $columnsGutter: 25px;
     background-color: transparentize(#000000, 0.5);
     border-radius: 0;
     min-width: 0;
-    width: 100%;
     @media ($laptop) {
         padding: 10px 15px;
     }
     @media ($smallerTablet) {
         padding: 10px 15px;
+        width: 100%;
     }
 }
 .row {

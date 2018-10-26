@@ -121,6 +121,14 @@ $tableGutter: 10px;
 .icon {
     width: 30px;
     height: 30px;
+    @media ($smallDesktop) {
+        width: 26px;
+        height: 26px;
+    }
+    @media ($smallerTablet) {
+        width: 24px;
+        height: 24px;
+    }
 }
 .textHolder {
     padding-left: 35px;

@@ -2,15 +2,18 @@
     <div class="buildingsArchive">
         <SearchFilterBox
             :keyword="currentSearch"
+            search-label="Sök efter bostad:"
             @search="searchChanged"
         >
             <template slot="filter">
-                <Select
-                    ref="filter"
-                    :items="filters"
-                    class="ml-8"
-                    @changed="filterChanged"
-                />
+                <div class="filterHolder flex items-center">
+                    <p class="text">Sortera efter område:</p>
+                    <Select
+                        ref="filter"
+                        :items="filters"
+                        @changed="filterChanged"
+                    />
+                </div>
             </template>
         </SearchFilterBox>
         <div class="buildings">
@@ -129,6 +132,21 @@ export default {
 
 <style lang="scss" scoped>
 $columnGutter: 15px;
+
+.buildingsArchive /deep/ .searchInput {
+    @media ($largeTablet) {
+        width: 400px;
+    }
+    @media ($tablet) {
+        width: 300px;
+    }
+}
+
+.buildingsArchive /deep/ .searchForm .text {
+    @media ($tablet) {
+        display: none;
+    }
+}
 
 .columns {
     margin-left: -$columnGutter;
