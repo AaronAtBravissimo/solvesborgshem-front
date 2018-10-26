@@ -41,8 +41,6 @@ export default {
     methods: {
         searchHandler(event) {
             const keyword = event.target[0].value;
-            if (!keyword || keyword.length < 0) return;
-
             this.$emit('search', keyword);
         },
     },
