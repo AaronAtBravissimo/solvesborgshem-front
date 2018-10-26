@@ -1,9 +1,9 @@
 <template>
-    <div class="employee">
+    <div class="employee flex">
         <img
             :src="image"
             :alt="employee.image.alt"
-            class="image objectFitCover"
+            class="image objectFitCover mr-8"
         >
         <div class="body">
             <h3>{{ employee.name }}</h3>
