@@ -17,6 +17,7 @@
                 type="submit"
             />
         </form>
+        <slot name="filter"></slot>
     </div>
 </template>
 
