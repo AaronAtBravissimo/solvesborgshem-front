@@ -253,6 +253,7 @@ $gutterMobile: 15px;
     left: 0;
     bottom: 0;
     width: calc(100% - #{$gutter});
+    display: none;
     @media ($smallDesktop) {
         justify-content: flex-start;
     }
