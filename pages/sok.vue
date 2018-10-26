@@ -1,7 +1,10 @@
 <template>
     <div class="search">
         <TopSection :top-section="topSection"/>
-        <SearchFilterBox/>
+        <SearchFilterBox
+            :keyword="keyword"
+            @search="searchHandler"
+        />
         <Spinner v-if="loading"/>
         <no-ssr v-if="results.length > 0 && !loading">
             <div class="results">
@@ -80,6 +83,9 @@ export default {
         },
     },
     methods: {
+        searchHandler(keyword) {
+            this.$router.replace(`/sok/?sokord=${keyword}`);
+        },
         async search() {
             this.loading = true;
             const res = await axios.get(`${apiUrl}/api/search?keyword=${this.keyword}`);
