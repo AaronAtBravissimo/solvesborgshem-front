@@ -29,19 +29,21 @@ export default {
     components: {
         AppButton,
     },
+    props: {
+        keyword: {
+            type: String,
+            default: null,
+        },
+    },
     data: () => ({
         searchIcon,
     }),
-    computed: {
-        keyword() {
-            return this.$route.query.sokord;
-        },
-    },
     methods: {
         searchHandler(event) {
             const keyword = event.target[0].value;
             if (!keyword || keyword.length < 0) return;
-            this.$router.replace(`/sok/?sokord=${keyword}`);
+
+            this.$emit('search', keyword);
         },
     },
 };
