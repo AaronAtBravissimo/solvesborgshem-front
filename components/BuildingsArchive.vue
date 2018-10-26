@@ -1,6 +1,6 @@
 <template>
     <div class="buildingsArchive">
-        <SearchFilterBox show-search-form/>
+        <SearchFilterBox/>
         <div class="buildings">
             <div class="smallCardColumns flex flex-wrap">
                 <div

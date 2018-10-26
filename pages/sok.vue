@@ -1,7 +1,7 @@
 <template>
     <div class="search">
         <TopSection :top-section="topSection"/>
-        <SearchFilterBox show-search-form/>
+        <SearchFilterBox/>
         <Spinner v-if="loading"/>
         <no-ssr v-if="results.length > 0 && !loading">
             <div class="results">
