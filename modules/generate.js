@@ -28,9 +28,19 @@ async function generateBuildings(dir) {
     });
 }
 
+async function generateEmployees(dir) {
+    const res = await axios.get(`${apiUrl}/api/employee`);
+
+    const path = `${dir}/employees.json`;
+    fs.writeFile(path, JSON.stringify(res.data), (err) => {
+        if (err) throw err;
+    });
+}
+
 export default async function generateJsonFiles(dir) {
     await generatePages(dir);
     await generateBuildings(dir);
+    await generateEmployees(dir);
 }
 
 async function init(dir) {
