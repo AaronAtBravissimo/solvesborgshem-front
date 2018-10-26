@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import Fuse from 'fuse.js';
 import buildings from '../static/json/buildings.json';
 import Select from './Select.vue';
 import SmallCard from './SmallCard.vue';
@@ -80,6 +81,21 @@ export default {
                 allBuildnings = allBuildnings.filter(
                     building => this.getTermId(building) === this.currentFilter,
                 );
+            }
+
+            if (this.currentSearch && this.currentSearch.length > 0) {
+                const fuse = new Fuse(allBuildnings, {
+                    threshold: 0.7,
+                    shouldSort: true,
+                    keys: [
+                        {
+                            name: ['post_title'],
+                            weight: 1,
+                        },
+                    ],
+                });
+
+                allBuildnings = fuse.search(this.currentSearch);
             }
 
             return allBuildnings;
