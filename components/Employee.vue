@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import placeholderImage from '../assets/images/placeholder.png';
+
 export default {
     props: {
         employee: {
@@ -46,7 +48,7 @@ export default {
     computed: {
         image() {
             if (!this.employee.image) {
-                return 'https://picsum.photos/200';
+                return placeholderImage;
             }
 
             return this.employee.image.sizes.medium;
