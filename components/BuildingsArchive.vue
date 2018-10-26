@@ -141,13 +141,11 @@ $columnGutter: 15px;
         width: 300px;
     }
 }
-
 .buildingsArchive /deep/ .searchForm .text {
     @media ($tablet) {
         display: none;
     }
 }
-
 .columns {
     margin-left: -$columnGutter;
     margin-right: -$columnGutter;

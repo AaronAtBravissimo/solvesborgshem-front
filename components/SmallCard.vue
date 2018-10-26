@@ -67,6 +67,9 @@ export default {
     @media ($mobile) {
         padding: 25px 15px;
     }
+    &:hover {
+        transform: translateY(-10px);
+    }
 }
 .inner {
     display: flex;

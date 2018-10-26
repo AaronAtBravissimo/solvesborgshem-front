@@ -61,11 +61,14 @@ export default {
 <style lang="scss" scoped>
 .searchFilterBox {
     background-color: #ffffff;
-    padding: 30px 50px;
+    padding: 50px;
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
     margin-bottom: 30px;
     @media ($largeDesktop) {
-        padding: 30px;
+        padding: 50px 30px;
+    }
+    @media ($laptop) {
+        padding: 40px 30px;
     }
     @media ($smallerTablet) {
         padding: 30px 15px;
@@ -90,7 +93,6 @@ export default {
     outline-color: $primaryTextColor;
 }
 .filterHolder {
-    width: 405px;
     flex-shrink: 0;
     margin-left: 30px;
     @media ($laptop) {
@@ -104,7 +106,7 @@ export default {
     }
 }
 .select {
-    width: 200px;
+    width: 300px;
     @media ($laptop) {
         width: 100%;
     }
