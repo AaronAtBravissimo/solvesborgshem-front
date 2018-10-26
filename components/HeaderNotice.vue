@@ -109,13 +109,31 @@ p {
     padding: 0;
     border-radius: 0;
     min-width: 0;
-    /deep/ .label {
-        @media ($mobile) {
-            font-size: 13px;
-        }
-    }
     &:hover {
         background-color: transparent;
+        /deep/ .label::after {
+            opacity: 0;
+        }
+    }
+}
+.readMore /deep/ .label {
+    position: relative;
+    font-family: $secondaryFont;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    @media ($mobile) {
+        font-size: 13px;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+        transition: 0.25s;
     }
 }
 </style>
