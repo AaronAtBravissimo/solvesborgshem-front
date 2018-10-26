@@ -21,7 +21,9 @@
                 </div>
                 <p
                     v-if="text"
-                    class="text">{{ text }}
+                    class="text"
+                >
+                    {{ text }}
                 </p>
             </div>
         </div>
