@@ -76,9 +76,9 @@ export default {
         text() {
             if (!this.card.text) return false;
 
-            const textLength = 150;
-            return this.card.text.length > textLength
-                ? `${this.card.text.substring(0, textLength)}...`
+            const maxLength = 150;
+            return this.card.text.length > maxLength
+                ? `${this.card.text.substring(0, maxLength)}...`
                 : this.card.text;
         },
     },
