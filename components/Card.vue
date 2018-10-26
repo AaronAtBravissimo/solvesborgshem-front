@@ -19,7 +19,10 @@
                     >
                     <span class="dateLabel">{{ card.date_formatted }}</span>
                 </div>
-                <p class="text">{{ excerpt(card.text) }}</p>
+                <p
+                    v-if="text"
+                    class="text">{{ text }}
+                </p>
             </div>
         </div>
         <div class="bottom">
@@ -68,11 +71,13 @@ export default {
             };
             return icons[this.card.type];
         },
-    },
-    methods: {
-        excerpt(text) {
+        text() {
+            if (!this.card.text) return false;
+
             const textLength = 150;
-            return text && text.length > textLength ? `${text.substring(0, textLength)}...` : text;
+            return this.card.text.length > textLength
+                ? `${this.card.text.substring(0, textLength)}...`
+                : this.card.text;
         },
     },
 };
