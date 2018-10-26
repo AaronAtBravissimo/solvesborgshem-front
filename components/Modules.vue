@@ -18,6 +18,10 @@
                 v-if="module.acf_fc_layout === 'buildingsArchive'"
                 :key="index"
             />
+            <Employees
+                v-if="module.acf_fc_layout === 'employees'"
+                :key="index"
+            />
         </template>
     </section>
 </template>
@@ -26,12 +30,14 @@
 import TwoColumn from './TwoColumn.vue';
 import Shortcuts from './Shortcuts.vue';
 import BuildingsArchive from './BuildingsArchive.vue';
+import Employees from './Employees.vue';
 
 export default {
     components: {
         TwoColumn,
         Shortcuts,
         BuildingsArchive,
+        Employees,
     },
     props: {
         modules: {
