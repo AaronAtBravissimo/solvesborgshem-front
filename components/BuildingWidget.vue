@@ -1,8 +1,11 @@
 <template>
     <div class="widget">
         <div class="inner">
-            <div class="iconHolder flex-no-shrink">
-
+            <div class="iconHolder flex justify-center items-center flex-no-shrink">
+                <img
+                    :src="icon"
+                    class="icon"
+                >
             </div>
             <div class="textHolder flex-grow flex-shrink">
                 <h4 class="heading">{{ heading }}</h4>
@@ -47,6 +50,10 @@ export default {
         },
         table: {
             type: Object,
+            default: null,
+        },
+        icon: {
+            type: String,
             default: null,
         },
     },
@@ -110,6 +117,10 @@ $tableGutter: 10px;
         height: 50px;
         border-width: 2px;
     }
+}
+.icon {
+    width: 30px;
+    height: 30px;
 }
 .textHolder {
     padding-left: 35px;

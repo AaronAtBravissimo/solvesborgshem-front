@@ -1,0 +1,6 @@
+<svg id="Lager_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 85">
+    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0%" y1="8%" x2="100%" y2="92%">
+        <stop offset="0" stop-color="#3ca4cb"/>
+        <stop offset="1" stop-color="#4fb77b"/>
+    </linearGradient>
+    <style>.st0{fill:url(#SVGID_1_)}</style><path class="st0" d="M85 85H69.4v-3.4h12.3V37.8H69.4v-3.4H85V85zm-19.6 0H18.9V0h46.5v85zm-16.5-3.4H62V3.4H22.4v78.2H36V66.5h12.9v15.1zm-9.5 0h6.1V69.9h-6.1v11.7zM15 85H0V21.5h15v3.4H3.4v56.7H15V85zm41.5-33h-3.4v-5.9h-4.2V52h-3.4v-9.3h11V52zm-17.1 0H36v-5.9h-4.2V52h-3.4v-9.3h11V52zm17.1-15.2h-3.4V31h-4.2v5.9h-3.4v-9.3h11v9.2zm-17.1 0H36V31h-4.2v5.9h-3.4v-9.3h11v9.2zm17.1-15.1h-3.4v-5.9h-4.2v5.9h-3.4v-9.3h11v9.3zm-17.1 0H36v-5.9h-4.2v5.9h-3.4v-9.3h11v9.3z"/><path class="st0" d="M16.9 56.7h-3.4v-5.9H9.3v5.9H5.9v-9.3h11v9.3zm0-15.2h-3.4v-5.9H9.3v5.9H5.9v-9.3h11v9.3zM79.3 68.8h-3.4v-5.9h-4.2v5.9h-3.4v-9.3h11v9.3zm0-15.2h-3.4v-5.9h-4.2v5.9h-3.4v-9.3h11v9.3z"/></svg>

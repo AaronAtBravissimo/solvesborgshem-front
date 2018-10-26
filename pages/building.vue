@@ -35,6 +35,7 @@
                         :address="fullAddress"
                     />
                     <BuildingWidget
+                        :icon="areaIcon"
                         :heading="areaInfo.heading"
                         :body="areaInfo.content"
                     />
@@ -42,18 +43,21 @@
                 <div class="rightColumn">
                     <div class="row">
                         <BuildingWidget
+                            :icon="propertyIcon"
                             :table="building.propertyInformation"
                             heading="Fastighetsinformation"
                         />
                     </div>
                     <div class="row">
                         <BuildingWidget
+                            :icon="apartmentIcon"
                             :table="building.apartmentInformation"
                             heading="Lägenhetsinformation"
                         />
                     </div>
                     <div class="row">
                         <BuildingWidget
+                            :icon="featuresIcon"
                             :table="building.features"
                             heading="Faciliteter"
                         />
@@ -75,6 +79,10 @@ import AddressBox from '../components/AddressBox.vue';
 import { getMeta } from '../utils/helpers';
 import expandIcon from '../assets/images/icon-expand.svg';
 import Photoswipe from '../components/Photoswipe.vue';
+import apartmentIcon from '../assets/images/icon-building-apartment.svg';
+import areaIcon from '../assets/images/icon-building-area.svg';
+import featuresIcon from '../assets/images/icon-building-features.svg';
+import propertyIcon from '../assets/images/icon-building-property.svg';
 
 const PhotoSwipe = require('photoswipe/dist/photoswipe.js');
 const PhotoSwipeUIDefault = require('photoswipe/dist/photoswipe-ui-default.js');
@@ -93,6 +101,10 @@ export default {
     data: () => ({
         buildings: false,
         expandIcon,
+        apartmentIcon,
+        areaIcon,
+        featuresIcon,
+        propertyIcon,
         lightboxOptions: {
             index: 0,
             history: false,
