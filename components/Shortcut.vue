@@ -72,6 +72,15 @@ export default {
     }
     &:hover {
         background-color: #f4f8fa;
+        .imageHolder::before {
+            opacity: 0;
+            transition-delay: 0.25s;
+        }
+        .image {
+            opacity: 1;
+            mix-blend-mode: normal;
+            transition-delay: 0s;
+        }
     }
 }
 .inner {
@@ -125,11 +134,13 @@ export default {
         width: 100%;
         height: 100%;
         background: linear-gradient(135deg, #8ac8df 0%,#94d3b3 100%);
+        transition: 0.25s;
     }
 }
 .image {
     mix-blend-mode: overlay;
     opacity: 0.6;
+    transition: 0.25s;
 }
 .infoHolder {
     flex-shrink: 1;
