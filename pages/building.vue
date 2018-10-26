@@ -64,6 +64,12 @@
                     </div>
                 </div>
             </div>
+            <div class="buttonHolder">
+                <AppButton
+                    label="Se alla bostäder"
+                    url="/bostader/"
+                />
+            </div>
         </section>
         <portal to="endOfPage">
             <Photoswipe/>
@@ -288,9 +294,21 @@ $columnsGutter: 25px;
     position: absolute;
     right: 0;
     bottom: 0;
-    background-color: transparentize(#000000, 0.5);
+    background-color: #232323;
     border-radius: 0;
     min-width: 0;
+    padding: 10px 20px;
+    /deep/ .label {
+        font-family: $secondaryFont;
+        font-size: 15px;
+        color: #fff;
+        letter-spacing: 0;
+        font-weight: 400;
+        text-transform: none;
+        @media ($mobile) {
+            font-size: 14px;
+        }
+    }
     @media ($laptop) {
         padding: 10px 15px;
     }
@@ -298,6 +316,10 @@ $columnsGutter: 25px;
         padding: 10px 15px;
         width: 100%;
     }
+    @media ($mobile) {
+        padding: 8px 14px;
+    }
+
 }
 .row {
     margin-bottom: 50px;

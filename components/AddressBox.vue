@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import apartmentsIcon from '../assets/images/icon-apartments.svg';
+import apartmentsIcon from '../assets/images/icon-apartments-white.svg';
 import markerIcon from '../assets/images/icon-marker.svg';
 
 export default {

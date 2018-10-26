@@ -30,7 +30,7 @@
 
 <script>
 import AppButton from './AppButton.vue';
-import searchIcon from '../assets/images/icon-search.svg';
+import searchIcon from '../assets/images/icon-search-white.svg';
 
 export default {
     components: {
