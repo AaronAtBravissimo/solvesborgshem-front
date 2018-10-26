@@ -1,6 +1,9 @@
 <template>
     <section class="employees">
-        <div class="filters flex justify-center mb-8">
+        <div
+            v-if="showAll"
+            class="filters flex justify-center mb-8"
+        >
             <div
                 v-for="(section, index) in sections"
                 :key="section.term_id"
@@ -37,9 +40,19 @@ export default {
         AppButton,
         Employee,
     },
+    props: {
+        showAll: {
+            type: Boolean,
+            default: false,
+        },
+        employeesIds: {
+            type: Array,
+            default: null,
+        },
+    },
     data: () => ({
         employees,
-        currentFilter: 0,
+        currentFilter: null,
     }),
     computed: {
         sections() {
@@ -73,8 +86,26 @@ export default {
                 });
             }
 
+            if (!this.showAll) {
+                const res = [];
+                for (let i = 0; i < this.employeesIds.length; i++) {
+                    const employee = employeesAll.find(
+                        item => item.id === this.employeesIds[i],
+                    );
+                    if (employee) {
+                        res.push(employee);
+                    }
+                }
+                employeesAll = res;
+            }
+
             return employeesAll;
         },
+    },
+    created() {
+        if (this.showAll) {
+            this.currentFilter = 0;
+        }
     },
     methods: {
         getTermId(employee) {
@@ -92,6 +123,8 @@ $gutter: 30px;
 .employees {
     padding: 50px 80px;
     background-color: #fff;
+    margin-bottom: 100px;
+    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
 }
 .columns {
     margin-left: -$gutter;

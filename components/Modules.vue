@@ -21,6 +21,8 @@
             <Employees
                 v-if="module.acf_fc_layout === 'employees'"
                 :key="index"
+                :show-all="module.showAll"
+                :employees-ids="module.employees"
             />
         </template>
     </section>
