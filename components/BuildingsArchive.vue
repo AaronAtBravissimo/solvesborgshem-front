@@ -85,7 +85,7 @@ export default {
 
             if (this.currentSearch && this.currentSearch.length > 0) {
                 const fuse = new Fuse(allBuildnings, {
-                    threshold: 0.7,
+                    threshold: 0.4,
                     shouldSort: true,
                     keys: [
                         {
