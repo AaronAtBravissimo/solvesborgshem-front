@@ -1,7 +1,6 @@
 <template>
     <div class="searchFilterBox flex justify-center">
         <form
-            v-if="showSearchForm"
             class="searchForm flex items-center"
             @submit.prevent="searchHandler"
         >
@@ -28,12 +27,6 @@ import searchIcon from '../assets/images/icon-search.svg';
 export default {
     components: {
         AppButton,
-    },
-    props: {
-        showSearchForm: {
-            type: Boolean,
-            default: false,
-        },
     },
     data: () => ({
         searchIcon,

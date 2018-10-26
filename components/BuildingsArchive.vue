@@ -1,6 +1,6 @@
 <template>
     <div class="buildingsArchive">
-        <SearchFilterBox show-search-form/>
+        <SearchFilterBox/>
         <div class="buildings">
             <div class="smallCardColumns flex flex-wrap">
                 <div
@@ -9,7 +9,7 @@
                     class="smallCardColumn flex"
                 >
                     <SmallCard
-                        :image="checkImage(building.topSection.image)"
+                        :image="getImage(building.topSection.image)"
                         :imagealt="building.topSection.image.alt"
                         :heading="building.topSection.heading"
                         :content="building.topSection.preamble"
@@ -34,15 +34,13 @@ export default {
     data: () => ({
         buildings,
     }),
-    computed: {
-        getFallbackImage() {
-            return this.$store.getters.options.defaultImage.sizes.large;
-        },
-    },
     methods: {
-        checkImage(image) {
-            return !image.sizes || image.sizes.length < 0
-                ? this.getFallbackImage : image.sizes.large;
+        getImage(image) {
+            if (!image) {
+                return this.$store.getters.options.defaultImage.sizes.medium;
+            }
+
+            return image.sizes.medium;
         },
     },
 };
