@@ -1,11 +1,15 @@
 <template>
     <div class="buildingsArchive">
-        <SearchFilterBox>
+        <SearchFilterBox
+            :keyword="currentSearch"
+            @search="searchChanged"
+        >
             <template slot="filter">
                 <Select
+                    ref="filter"
                     :items="filters"
                     class="ml-8"
-                    @changed="val => currentFilter = val"
+                    @changed="filterChanged"
                 />
             </template>
         </SearchFilterBox>
@@ -42,6 +46,7 @@ export default {
         SearchFilterBox,
     },
     data: () => ({
+        currentSearch: null,
         currentFilter: null,
         buildings,
     }),
@@ -92,6 +97,15 @@ export default {
             }
 
             return image.sizes.medium;
+        },
+        searchChanged(keyword) {
+            this.currentSearch = keyword;
+            this.currentFilter = null;
+            this.$refs.filter.selected = null;
+        },
+        filterChanged(value) {
+            this.currentFilter = value;
+            this.currentSearch = null;
         },
     },
 };
