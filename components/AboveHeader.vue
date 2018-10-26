@@ -22,8 +22,9 @@
                 />
                 <AppButton
                     :icon="customizeIcon"
-                    label="Anpassa"
+                    label="Tillgänglighet"
                     class="iconAndLabel customizeIcon"
+                    url="/tillganglighet/"
                 />
                 <SearchButton/>
             </div>

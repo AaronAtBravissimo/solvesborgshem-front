@@ -215,6 +215,7 @@ export default {
         font-size: 12px;
         letter-spacing: 2.1px;
         font-weight: bold;
+        color: #b9b9b9;
     }
     &.thinLabel .label {
         font-weight: 300;
