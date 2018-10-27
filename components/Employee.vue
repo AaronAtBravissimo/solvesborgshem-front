@@ -14,10 +14,10 @@
                 {{ employee.title }}
             </p>
             <p
-                v-if="employee.description"
+                v-if="description"
                 class="description"
+                v-html="description"
             >
-                {{ employee.description }}
             </p>
             <p
                 v-if="employee.phone"
@@ -68,6 +68,14 @@ export default {
             }
 
             return this.employee.image.sizes.medium;
+        },
+        description() {
+            if (!this.employee.description) {
+                return false;
+            }
+            const description = this.employee.description.split(':');
+            return !description[1]
+                ? description[0] : `<b>${description[0]}:</b>${description[1]}`;
         },
     },
 };
