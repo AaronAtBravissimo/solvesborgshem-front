@@ -129,7 +129,7 @@ $marginBottom: 50px;
 .employees {
     padding: 60px 80px;
     background-color: #fff;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
 }
 .columns {
