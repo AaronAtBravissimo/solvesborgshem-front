@@ -2,7 +2,7 @@
     <section class="employees">
         <div
             v-if="showAll"
-            class="filters flex justify-center mb-8"
+            class="filters flex justify-center"
         >
             <div
                 v-for="(section, index) in sections"
@@ -118,14 +118,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$marginBottom: 50px;
+
+.filters {
+    margin-bottom: 60px;
+}
+.filter {
+    margin: 0 10px;
+}
 .employees {
-    padding: 50px 80px;
+    padding: 60px 80px;
     background-color: #fff;
     margin-bottom: 100px;
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
 }
 .columns {
     padding: 35px 0;
+    margin-bottom: -#{$marginBottom};
     position: relative;
     &::after {
         content: '';
@@ -133,7 +142,7 @@ export default {
         top: 0;
         left: 50%;
         width: 1px;
-        height: 100%;
+        height: calc(100% - #{$marginBottom});
         background-color: #d2dde1;
         @media ($tablet) {
             display: none;
@@ -144,6 +153,7 @@ export default {
     width: 50%;
     position: relative;
     z-index: 1;
+    margin-bottom: #{$marginBottom};
     @media ($tablet) {
         width: 100%;
     }
