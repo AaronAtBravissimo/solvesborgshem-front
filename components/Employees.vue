@@ -7,7 +7,7 @@
             <div
                 v-for="(section, index) in sections"
                 :key="section.term_id"
-                class="filter mx-6"
+                class="filter"
             >
                 <AppButton
                     :class="{'notActive': currentFilter !== index}"
@@ -118,8 +118,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gutter: 30px;
-
 .employees {
     padding: 50px 80px;
     background-color: #fff;
@@ -127,12 +125,58 @@ $gutter: 30px;
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
 }
 .columns {
-    margin-left: -$gutter;
-    margin-right: -$gutter;
+    padding: 35px 0;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 100%;
+        background-color: #d2dde1;
+        @media ($tablet) {
+            display: none;
+        }
+    }
 }
 .column {
-    width: 33.3333%;
-    padding: $gutter;
+    width: 50%;
+    position: relative;
+    z-index: 1;
+    @media ($tablet) {
+        width: 100%;
+    }
+    &:nth-child(even) .employee {
+        padding-left: 68px;
+        @media ($largeDesktop) {
+            padding-left: 50px;
+        }
+        @media ($largeTablet) {
+            padding-left: 40px;
+        }
+        @media ($tablet) {
+            padding-left: 30px;
+        }
+        @media ($mobile) {
+            padding-left: 15px;
+        }
+    }
+    &:nth-child(odd) .employee {
+        padding-right: 68px;
+        @media ($largeDesktop) {
+            padding-right: 50px;
+        }
+        @media ($largeTablet) {
+            padding-right: 40px;
+        }
+        @media ($tablet) {
+            padding-right: 30px;
+        }
+        @media ($mobile) {
+            padding-right: 15px;
+        }
+    }
 }
 .button.notActive {
     background-color: #ddd;

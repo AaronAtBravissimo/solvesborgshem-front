@@ -48,8 +48,8 @@ export default {
 <style lang="scss" scoped>
 .shortcuts {
     background-color: #ffffff;
-     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
-     padding: 40px 0;
+    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+    padding: 40px 0;
 }
 
 .headingHolder {
