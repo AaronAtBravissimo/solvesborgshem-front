@@ -24,6 +24,11 @@
                 :show-all="module.showAll"
                 :employees-ids="module.employees"
             />
+            <CardsWithIcons
+                v-if="module.acf_fc_layout === 'infoCardsWithIcons'"
+                :key="index"
+                :columns="module.columns"
+            />
         </template>
     </section>
 </template>
@@ -33,6 +38,7 @@ import TwoColumn from './TwoColumn.vue';
 import Shortcuts from './Shortcuts.vue';
 import BuildingsArchive from './BuildingsArchive.vue';
 import Employees from './Employees.vue';
+import CardsWithIcons from './CardsWithIcons.vue';
 
 export default {
     components: {
@@ -40,6 +46,7 @@ export default {
         Shortcuts,
         BuildingsArchive,
         Employees,
+        CardsWithIcons,
     },
     props: {
         modules: {
