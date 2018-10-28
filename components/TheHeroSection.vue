@@ -27,11 +27,6 @@
                 </div>
             </div>
         </div>
-        <img
-            class="leafs"
-            src="../assets/images/leafs.png"
-            alt="Löv"
-        >
     </section>
 </template>
 
@@ -99,14 +94,6 @@ export default {
     justify-content: space-between;
     @media ($tablet) {
         flex-wrap: wrap;
-    }
-}
-.leafs {
-    position: absolute;
-    right: -50px;
-    top: -4px;
-    @media ($largeDesktop) {
-        display: none;
     }
 }
 .left {
