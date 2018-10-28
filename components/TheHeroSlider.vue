@@ -147,7 +147,6 @@ $gutterMobile: 15px;
     display: none;
 }
 .slide-fade-enter {
-    transform: translateX(10px);
     opacity: 0;
 }
 .heroSlider {
@@ -165,33 +164,31 @@ $gutterMobile: 15px;
 }
 .slideImage {
     position: absolute;
-    right: -142px;
+    right: 0;
     top: 13px;
     @media ($largeDesktop) {
-        right: -110px;
+        right: -50px;
         top: 0;
         width: 650px;
     }
     @media ($smallDesktop) {
-        right: -120px;
         top: 30px;
         width: 600px;
     }
     @media ($laptop) {
-        right: -50px;
         top: 50px;
         width: 520px;
     }
     @media ($largeTablet) {
-        right: -40px;
+        right: 0;
         width: 450px;
     }
     @media ($tablet) {
-        right: -30px;
         width: 425px;
     }
     @media ($mobile) {
-        right: -15px;
+        right: 50%;
+        margin-right: -140px;
         top: 30px;
         width: 280px;
     }
