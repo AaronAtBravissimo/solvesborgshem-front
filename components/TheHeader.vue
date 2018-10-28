@@ -8,7 +8,7 @@
                 <TheNavigation/>
                 <AppButton
                     :icon="userIcon"
-                    url="#minaSidor"
+                    url="/mina-sidor/"
                     label="Mina sidor"
                     class="loginButton"
                 />
