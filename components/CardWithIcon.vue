@@ -84,8 +84,8 @@ export default {
         height: 82px;
     }
     &.email {
-        width: 89px;
-        height: 65px;
+        width: 80px;
+        height: 80px;
     }
     &.house {
         width: 76px;
