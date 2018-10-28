@@ -241,6 +241,7 @@ $gutterMobile: 15px;
     height: 100%;
     background-color: #5a5450;
     opacity: 0.3;
+    display: none;
 }
 .backgroundImage,
 .background::after {
