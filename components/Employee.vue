@@ -67,7 +67,7 @@ export default {
                 return placeholderImage;
             }
 
-            return this.employee.image.sizes.medium;
+            return this.employee.image.url;
         },
         description() {
             if (!this.employee.description) {
