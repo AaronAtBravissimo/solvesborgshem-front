@@ -1,0 +1,10 @@
+<svg height="50" width="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0%" y1="8%" y2="92%">
+        <stop offset="0" stop-color="#3ca4cb"/><stop offset="1" stop-color="#4fb77b"/>
+    </linearGradient>
+    <style>.st0{stroke:url(#SVGID_1_)}</style>
+    <path class="st0" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M1 8h48v34H1z"/>
+    <path fill="none" d="M0 0h50v50H0z"/>
+    <path class="st0" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="2" d="M33.357 25.662L48.89 37.943M1.11 37.942l16.206-12.815"/>
+    <path class="st0" d="M1.11 12.053s18.4 16.037 19.899 17.342S24.069 31 25 31s2.492-.299 3.991-1.604S48.89 12.054 48.89 12.054" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1.996"/>
+</svg>

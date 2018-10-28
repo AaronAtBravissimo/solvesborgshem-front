@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import phone from '../assets/images/icon-person.svg';
-import email from '../assets/images/icon-thumbs-up.svg';
+import phone from '../assets/images/icon-phone.svg';
+import email from '../assets/images/icon-message.svg';
 import house from '../assets/images/icon-house.svg';
-import clock from '../assets/images/icon-checklist.svg';
+import clock from '../assets/images/icon-clock.svg';
 
 export default {
     props: {
@@ -79,28 +79,13 @@ export default {
     }
 }
 .icon {
-    &.person {
-        width: 37px;
-        height: 78px;
-        @media ($smallTablet) {
-            width: 27px;
-            height: 58px;
-        }
-        @media ($mobile) {
-
-        }
+    &.phone {
+        width: 82px;
+        height: 82px;
     }
-    &.thumbUp {
-        width: 66px;
-        height: 66px;
-        @media ($smallTablet) {
-            width: 56px;
-            height: 56px;
-        }
-        @media ($mobile) {
-            width: 46px;
-            height: 46px;
-        }
+    &.email {
+        width: 89px;
+        height: 65px;
     }
     &.house {
         width: 76px;
@@ -114,17 +99,9 @@ export default {
             height: 54px;
         }
     }
-    &.checklist {
-        width: 55px;
-        height: 79px;
-        @media ($smallTablet) {
-            width: 45px;
-            height: 64px;
-        }
-        @media ($mobile) {
-            width: 38px;
-            height: 54px;
-        }
+    &.clock {
+        width: 80px;
+        height: 80px;
     }
 }
 .heading {
