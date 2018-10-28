@@ -169,7 +169,7 @@ $columnsGutterTablet: 30px;
     }
 }
 .topRight {
-    width: 550px;
+    width: 530px;
     flex-shrink: 1;
     text-align: right;
     margin-top: 10px;
