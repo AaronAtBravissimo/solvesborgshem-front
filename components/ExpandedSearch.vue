@@ -221,6 +221,7 @@ $iconSizeMobile: 16px;
     /deep/ .icon {
         width: 12px;
         height: 12px;
+        opacity: 0.5;
     }
 }
 </style>
