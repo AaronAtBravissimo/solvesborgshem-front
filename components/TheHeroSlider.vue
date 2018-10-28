@@ -232,7 +232,18 @@ $gutterMobile: 15px;
     width: 100%;
     height: 100%;
 }
-.backgroundImage {
+.background::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #5a5450;
+    opacity: 0.3;
+}
+.backgroundImage,
+.background::after {
     left: -$gutter;
     top: -$gutter;
     position: absolute;
