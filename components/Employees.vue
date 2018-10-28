@@ -1,6 +1,14 @@
 <template>
     <section class="employees">
         <div
+            v-if="heading"
+            class="container"
+        >
+            <div class="headingHolder">
+                <h2>{{ heading }}</h2>
+            </div>
+        </div>
+        <div
             v-if="showAll"
             class="filters flex justify-center"
         >
@@ -41,6 +49,10 @@ export default {
         Employee,
     },
     props: {
+        heading: {
+            type: String,
+            default: null,
+        },
         showAll: {
             type: Boolean,
             default: false,
@@ -119,6 +131,18 @@ export default {
 
 <style lang="scss" scoped>
 $marginBottom: 50px;
+
+.headingHolder {
+    text-align: center;
+    margin-top: -9px;
+    margin-bottom: 67px;
+    @media ($tablet) {
+        margin-bottom: 30px;
+    }
+    @media ($smallTablet) {
+        margin-bottom: 0;
+    }
+}
 
 .filters {
     margin-bottom: 60px;
