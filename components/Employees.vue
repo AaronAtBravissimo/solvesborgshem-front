@@ -84,7 +84,7 @@ export default {
                 }
             }
 
-            return sections.sort((a, b) => a.name.localeCompare(b.name));
+            return sections.sort((a, b) => a.sort_order - b.sort_order);
         },
         employeesOut() {
             let employeesAll = this.employees;
