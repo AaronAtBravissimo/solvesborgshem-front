@@ -73,11 +73,14 @@ export default {
 
             for (let i = 0; i < this.employees.length; i++) {
                 const employee = this.employees[i];
-                const sectionId = this.getTermId(employee);
+                const sectionIds = this.getAllSections(employee);
 
-                if (sectionId && !added.includes(sectionId)) {
-                    added.push(sectionId);
-                    sections.push(employee.taxonomies.section[0]);
+                for (let j = 0; j < sectionIds.length; j++) {
+                    const sectionId = sectionIds[j];
+                    if (sectionId && !added.includes(sectionId)) {
+                        added.push(sectionId);
+                        sections.push(employee.taxonomies.section[j]);
+                    }
                 }
             }
 
@@ -89,9 +92,9 @@ export default {
             if (this.currentFilter !== null) {
                 const section = this.sections[this.currentFilter].term_id;
                 employeesAll = employeesAll.filter((employee) => {
-                    const termId = this.getTermId(employee);
-                    if (termId) {
-                        return termId === section;
+                    const sections = this.getAllSections(employee);
+                    if (sections) {
+                        return sections.includes(section);
                     }
 
                     return false;
@@ -124,6 +127,12 @@ export default {
             if (!employee.taxonomies.section) return false;
 
             return employee.taxonomies.section[0].term_id;
+        },
+        getAllSections(employee) {
+            if (!employee.taxonomies.section) return false;
+
+            return employee.taxonomies.section
+                .map(section => section.term_id);
         },
     },
 };
@@ -161,7 +170,7 @@ $marginBottom: 50px;
     margin-bottom: -#{$marginBottom};
     position: relative;
     &::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 50%;
