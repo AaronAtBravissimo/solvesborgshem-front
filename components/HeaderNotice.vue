@@ -11,6 +11,7 @@
             <div class="text flex flex-wrap items-center">
                 <p>{{ notice.content }}</p>
                 <AppButton
+                    v-if="notice.link.url"
                     :url="notice.link.url"
                     label="Läs mer"
                     class="readMore"
