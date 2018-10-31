@@ -153,20 +153,37 @@ $gutter: 40px;
 $gutterLaptop: 20px;
 $gutterMobile: 15px;
 
-.slide-fade-enter-active,
-.slide-fade-leave-active,
-.backgroundImage {
-    transition: 1s ease;
+.imageOverlay {
+    transition: 1s linear;
 }
+
 .slide-fade-enter {
-    .backgroundImage {
-        opacity: 0;
+    .imageOverlay {
+        width: 0;
     }
 }
-.slide-fade-leave-to {
-    .backgroundImage {
-        opacity: 1;
+
+.slide-fade-enter-active {
+    .imageOverlay {
+        width: 100%;
     }
+}
+
+.slide-fade-leave {
+    .imageOverlay {
+        width: 100%;
+    }
+}
+
+.slide-fade-leave-active {
+    .imageOverlay {
+        width: 100%;
+    }
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition: 1s;
 }
 
 .heroSlider {
@@ -278,7 +295,8 @@ $gutterMobile: 15px;
     top: 0;
 }
 .imageOverlay {
-    opacity: 0.5;
+    width: 0;
+    background-color: $primaryTextColor;
 }
 .buttons {
     position: absolute;
