@@ -142,7 +142,7 @@ export default {
             return false;
         },
         areaInfo() {
-            if (!this.building || !this.building.taxonomies.area) {
+            if (!this.building || !this.building.taxonomies || !this.building.taxonomies.area) {
                 return false;
             }
             const area = this.building.taxonomies.area[0];
