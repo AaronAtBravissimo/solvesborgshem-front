@@ -18,6 +18,7 @@
                                 :alt="slide.ordinaryImage.alt"
                                 class="backgroundImage objectFitCover"
                             >
+                            <div class="imageOverlay"></div>
                             <div class="buttons flex justify-center">
                                 <button
                                     class="flex items-center justify-center"
@@ -103,7 +104,7 @@ export default {
             }
         },
         start() {
-            this.interval = setInterval(() => this.nextSlide(), 4000);
+            this.interval = setInterval(() => this.nextSlide(), 6000);
         },
         stop() {
             clearInterval(this.interval);
@@ -140,14 +141,25 @@ $gutterLaptop: 20px;
 $gutterMobile: 15px;
 
 .slide-fade-enter-active {
-    transition: all 1s ease;
+    .slideImage {
+        transform: translateY(0);
+    }
 }
 .slide-fade-leave-active {
-    opacity: 0;
     display: none;
 }
-.slide-fade-enter {
-    opacity: 0;
+.slide-fade-enter,
+.slide-fade-leave-active {
+    .slideImage {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    .imageOverlay {
+        left: 0;
+    }
+    .backgroundImage {
+        opacity: 0;
+    }
 }
 .heroSlider {
     height: 700px;
@@ -166,6 +178,7 @@ $gutterMobile: 15px;
     position: absolute;
     right: 0;
     top: 13px;
+    transition: 0.5s 1s;
     @media ($largeDesktop) {
         right: -50px;
         top: 0;
@@ -199,6 +212,8 @@ $gutterMobile: 15px;
     height: 540px;
     position: relative;
     margin: $gutter;
+    transition: 0.5s 0.5s;
+    overflow: hidden;
     @media ($largeDesktop) {
         padding-right: 200px;
         height: 500px;
@@ -226,25 +241,26 @@ $gutterMobile: 15px;
 .background {
     background-color: #fff;
 }
+.backgroundImage {
+    opacity: 1;
+}
 .background,
 .backgroundImage {
     position: relative;
     width: 100%;
     height: 100%;
 }
-.background::after {
+.imageOverlay {
+    transition: 0.5s linear;
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     background-color: #5a5450;
-    opacity: 0.3;
-    display: none;
+    opacity: 1;
 }
 .backgroundImage,
-.background::after {
+.imageOverlay {
     left: -$gutter;
     top: -$gutter;
     position: absolute;
@@ -256,6 +272,9 @@ $gutterMobile: 15px;
         left: -$gutterMobile;
         top: -$gutterMobile;
     }
+}
+.imageOverlay {
+    left: -100%;
 }
 .buttons {
     position: absolute;
