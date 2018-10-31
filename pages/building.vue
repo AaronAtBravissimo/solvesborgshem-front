@@ -9,7 +9,7 @@
         />
         <section class="information">
             <div class="headingHolder w-full">
-                <h2>Bostadsinformation</h2>
+                <h2 class="heading">Bostadsinformation</h2>
             </div>
             <div class="columns flex">
                 <div class="leftColumn">
