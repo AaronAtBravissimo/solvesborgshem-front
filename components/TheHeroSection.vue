@@ -85,6 +85,7 @@ export default {
     position: relative;
     margin-top: 46px;
     margin-bottom: 20px;
+    overflow: hidden;
     @media ($tablet) {
         margin-top: 0;
         margin-bottom: 50px;

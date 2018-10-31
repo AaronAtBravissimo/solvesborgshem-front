@@ -159,25 +159,25 @@ $gutterMobile: 15px;
 
 .slide-fade-enter {
     .imageOverlay {
-        width: 0;
+        transform: translateX(-100%);
     }
 }
 
 .slide-fade-enter-active {
     .imageOverlay {
-        width: 100%;
+        transform: translateX(0);
     }
 }
 
 .slide-fade-leave {
     .imageOverlay {
-        width: 100%;
+        transform: translateX(-100%);
     }
 }
 
 .slide-fade-leave-active {
     .imageOverlay {
-        width: 100%;
+        transform: translateX(0);
     }
 }
 
@@ -295,7 +295,7 @@ $gutterMobile: 15px;
     top: 0;
 }
 .imageOverlay {
-    width: 0;
+    transform: translateX(-100%);
     background-color: $primaryTextColor;
 }
 .buttons {
