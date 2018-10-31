@@ -106,6 +106,7 @@ module.exports = {
     generate: {
         fallback: true,
         apiCacheDir: 'static/json/',
+        interval: 100,
         routes() {
             return getRoutes();
         },
