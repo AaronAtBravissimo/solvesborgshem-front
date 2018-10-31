@@ -4,6 +4,7 @@
             <div class="left">
                 <TheHeroSlider
                     :slides="heroSection.slider.ordinaryImages"
+                    :image-elements="heroSection.slider.transparentImages"
                 />
             </div>
             <div class="right">

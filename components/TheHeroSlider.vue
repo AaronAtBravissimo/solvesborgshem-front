@@ -1,6 +1,6 @@
 <template>
     <div class="heroSlider">
-        <div class="slides">
+        <div class="slides relative">
             <transition-group
                 name="slide-fade"
                 tag="div"
@@ -19,6 +19,11 @@
                     >
                 </div>
             </transition-group>
+            <img
+                v-if="getRandomImage"
+                :src="getRandomImage.sizes.large"
+                class="slideImage"
+            >
         </div>
         <div class="buttons flex justify-center">
             <button
@@ -69,12 +74,28 @@ export default {
             type: Array,
             required: true,
         },
+        imageElements: {
+            type: Array,
+            required: true,
+        },
     },
     data() {
         return {
             currentIndex: 0,
             interval: false,
         };
+    },
+    computed: {
+        getRandomImage() {
+            const allImages = this.imageElements;
+            if (allImages && allImages.length > 0) {
+                const randomImage = allImages[
+                    Math.floor(Math.random() * allImages.length)
+                ];
+                return randomImage;
+            }
+            return false;
+        },
     },
     mounted() {
         this.start();
@@ -139,6 +160,7 @@ $gutterMobile: 15px;
 .slide-fade-enter,
 .slide-fade-leave-active {
 }
+
 .heroSlider {
     height: 700px;
     @media ($laptop) {
@@ -150,6 +172,21 @@ $gutterMobile: 15px;
     @media ($tablet) {
         width: 100%;
         height: auto;
+    }
+}
+.slides {
+    padding-right: 305px;
+    @media ($largeDesktop) {
+        padding-right: 200px;
+    }
+    @media ($smallDesktop) {
+        padding-right: 100px;
+    }
+    @media ($mediumTablet) {
+        padding-right: $gutterLaptop;
+    }
+    @media ($mobile) {
+        padding-right: $gutterMobile;
     }
 }
 .slideImage {
@@ -186,17 +223,13 @@ $gutterMobile: 15px;
 }
 .backgroundHolder {
     width: 100%;
-    padding-right: 305px;
     height: 540px;
     position: relative;
-    margin: $gutter;
+    background-color: #fff;
     transition: 0.5s 0.5s;
+    margin: $gutter;
     @media ($largeDesktop) {
-        padding-right: 200px;
         height: 500px;
-    }
-    @media ($smallDesktop) {
-        padding-right: 100px;
     }
     @media ($laptop) {
         height: 450px;
@@ -207,27 +240,21 @@ $gutterMobile: 15px;
     }
     @media ($mediumTablet) {
         height: 375px;
-        padding-right: $gutterLaptop;
     }
     @media ($mobile) {
         height: 250px;
         margin: $gutterMobile;
-        padding-right: $gutterMobile;
     }
-}
-.backgroundImage {
-    opacity: 1;
 }
 .background,
 .backgroundImage {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
 }
-.backgroundImage {
+.background {
     left: -$gutter;
     top: -$gutter;
-    position: absolute;
     @media ($laptop) {
         left: -$gutterLaptop;
         top: -$gutterLaptop;
@@ -236,6 +263,10 @@ $gutterMobile: 15px;
         left: -$gutterMobile;
         top: -$gutterMobile;
     }
+}
+.backgroundImage {
+    left: 0;
+    top: 0;
 }
 .buttons {
     position: absolute;
