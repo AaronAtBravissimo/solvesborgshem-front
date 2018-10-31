@@ -80,6 +80,7 @@
 </template>
 
 <script>
+import buildingsJson from '../static/json/buildings.json';
 import TopSection from '../components/TopSection.vue';
 import BuildingWidget from '../components/BuildingWidget.vue';
 import AppButton from '../components/AppButton.vue';
@@ -107,7 +108,7 @@ export default {
         return getMeta(this.building.yoast);
     },
     data: () => ({
-        buildings: false,
+        buildings: buildingsJson,
         expandIcon,
         apartmentIcon,
         areaIcon,
@@ -122,10 +123,6 @@ export default {
             timeToIdle: false,
         },
     }),
-    async asyncData() {
-        const data = await import('../static/json/buildings.json');
-        return { buildings: data };
-    },
     computed: {
         slug() {
             return this.$route.params.slug;
