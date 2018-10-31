@@ -20,7 +20,7 @@ import TheHeroSection from '../components/TheHeroSection.vue';
 import Shortcuts from '../components/Shortcuts.vue';
 import StayWithUs from '../components/StayWithUs.vue';
 import SocialPosts from '../components/SocialPosts.vue';
-import { getMeta } from '../utils/helpers';
+import { getMeta, updatePage } from '../utils/helpers';
 
 export default {
     components: {
@@ -38,6 +38,12 @@ export default {
     async asyncData() {
         const data = await import('../static/json/-_-.json');
         return { page: data };
+    },
+    async mounted() {
+        const page = await updatePage(this.$route.path);
+        if (page) {
+            this.page = page;
+        }
     },
 };
 </script>

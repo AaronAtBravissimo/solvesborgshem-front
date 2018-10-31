@@ -17,7 +17,7 @@
 <script>
 import TopSection from '../components/TopSection.vue';
 import Modules from '../components/Modules.vue';
-import { getMeta } from '../utils/helpers';
+import { getMeta, updatePage } from '../utils/helpers';
 
 export default {
     components: {
@@ -39,6 +39,12 @@ export default {
         path = path.replace(/\\/g, '-_-');
         const data = await import(`../static/json/${path}.json`);
         return { page: data };
+    },
+    async mounted() {
+        const page = await updatePage(this.$route.path);
+        if (page) {
+            this.page = page;
+        }
     },
 };
 </script>

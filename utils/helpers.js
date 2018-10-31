@@ -1,4 +1,10 @@
-import { baseUrl } from './config';
+import axios from 'axios';
+import { baseUrl, apiUrl } from './config';
+
+export async function updatePage(path) {
+    const res = await axios.get(`${apiUrl}/api/page?path=${path}&timestamp=${new Date().getTime()}`);
+    return res.data;
+}
 
 export function makeUrlRelative(url) {
     return url.replace(baseUrl, '');

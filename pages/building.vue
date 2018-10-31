@@ -85,7 +85,7 @@ import TopSection from '../components/TopSection.vue';
 import BuildingWidget from '../components/BuildingWidget.vue';
 import AppButton from '../components/AppButton.vue';
 import AddressBox from '../components/AddressBox.vue';
-import { getMeta } from '../utils/helpers';
+import { getMeta, updatePage } from '../utils/helpers';
 import expandIcon from '../assets/images/icon-expand.svg';
 import Photoswipe from '../components/Photoswipe.vue';
 import apartmentIcon from '../assets/images/icon-building-apartment.svg';
@@ -168,6 +168,12 @@ export default {
         images() {
             return this.building.imageGallery;
         },
+    },
+    async mounted() {
+        const page = await updatePage(this.$route.path);
+        if (page) {
+            this.page = page;
+        }
     },
     methods: {
         openLightbox() {
