@@ -40,7 +40,7 @@ import markerIcon from '../assets/images/icon-marker.svg';
 
 export default {
     props: {
-        map: {
+        cords: {
             type: Object,
             default: null,
         },
@@ -70,8 +70,8 @@ export default {
     computed: {
         positon() {
             return {
-                lat: Number(this.map.lat),
-                lng: Number(this.map.lng),
+                lat: Number(this.cords.lat),
+                lng: Number(this.cords.lng),
             };
         },
     },

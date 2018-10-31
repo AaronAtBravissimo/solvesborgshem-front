@@ -31,7 +31,8 @@
                         />
                     </div>
                     <AddressBox
-                        :map="mapInfo"
+                        v-if="mapInfo"
+                        :cords="mapInfo"
                         :address="fullAddress"
                     />
                     <BuildingWidget
