@@ -40,7 +40,7 @@ export default {
         return { page: data };
     },
     async mounted() {
-        const page = await updatePage(this.$route.path);
+        const page = await updatePage('hem');
         if (page) {
             this.page = page;
         }
