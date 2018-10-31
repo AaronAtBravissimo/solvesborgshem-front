@@ -3,7 +3,7 @@
         <div class="inner">
             <div class="left">
                 <TheHeroSlider
-                    :slides="heroSection.slider"
+                    :slides="heroSection.slider.ordinaryImages"
                 />
             </div>
             <div class="right">

@@ -4,69 +4,60 @@
             <transition-group
                 name="slide-fade"
                 tag="div"
+                class="backgroundHolder"
             >
                 <div
                     v-for="(slide, index) in slides"
                     v-show="index === currentIndex"
                     :key="index"
-                    class="slide relative"
+                    class="background"
                 >
-                    <div class="backgroundHolder">
-                        <div class="background">
-                            <img
-                                :src="slide.ordinaryImage.sizes.large"
-                                :alt="slide.ordinaryImage.alt"
-                                class="backgroundImage objectFitCover"
-                            >
-                            <div class="imageOverlay"></div>
-                            <div class="buttons flex justify-center">
-                                <button
-                                    class="flex items-center justify-center"
-                                    @click="prevHandler"
-                                >
-                                    <img
-                                        class="buttonIcon prev"
-                                        src="../assets/images/icon-arrow-right.svg"
-                                        alt=""
-                                    >
-                                </button>
-                                <button
-                                    class="flex items-center justify-center"
-                                    @click="pause"
-                                >
-                                    <img
-                                        v-if="interval"
-                                        class="buttonIcon pause"
-                                        src="../assets/images/icon-pause.svg"
-                                        alt=""
-                                    >
-                                    <img
-                                        v-if="!interval"
-                                        class="buttonIcon play"
-                                        src="../assets/images/icon-play.svg"
-                                        alt=""
-                                    >
-                                </button>
-                                <button
-                                    class="flex items-center justify-center"
-                                    @click="nextHandler"
-                                >
-                                    <img
-                                        class="buttonIcon next"
-                                        src="../assets/images/icon-arrow-right.svg"
-                                        alt=""
-                                    >
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                     <img
-                        :src="slide.transparentImage.sizes.large"
-                        :alt="slide.transparentImage.alt"
-                        class="slideImage objectFitCovere"
+                        :src="slide.sizes.large"
+                        :alt="slide.alt"
+                        class="backgroundImage objectFitCover"
                     >
                 </div>
             </transition-group>
+        </div>
+        <div class="buttons flex justify-center">
+            <button
+                class="flex items-center justify-center"
+                @click="prevHandler"
+            >
+                <img
+                    class="buttonIcon prev"
+                    src="../assets/images/icon-arrow-right.svg"
+                    alt=""
+                >
+            </button>
+            <button
+                class="flex items-center justify-center"
+                @click="pause"
+            >
+                <img
+                    v-if="interval"
+                    class="buttonIcon pause"
+                    src="../assets/images/icon-pause.svg"
+                    alt=""
+                >
+                <img
+                    v-if="!interval"
+                    class="buttonIcon play"
+                    src="../assets/images/icon-play.svg"
+                    alt=""
+                >
+            </button>
+            <button
+                class="flex items-center justify-center"
+                @click="nextHandler"
+            >
+                <img
+                    class="buttonIcon next"
+                    src="../assets/images/icon-arrow-right.svg"
+                    alt=""
+                >
+            </button>
         </div>
     </div>
 </template>
@@ -141,25 +132,12 @@ $gutterLaptop: 20px;
 $gutterMobile: 15px;
 
 .slide-fade-enter-active {
-    .slideImage {
-        transform: translateY(0);
-    }
 }
 .slide-fade-leave-active {
     display: none;
 }
 .slide-fade-enter,
 .slide-fade-leave-active {
-    .slideImage {
-        transform: translateY(-10px);
-        opacity: 0;
-    }
-    .imageOverlay {
-        left: 0;
-    }
-    .backgroundImage {
-        opacity: 0;
-    }
 }
 .heroSlider {
     height: 700px;
@@ -213,7 +191,6 @@ $gutterMobile: 15px;
     position: relative;
     margin: $gutter;
     transition: 0.5s 0.5s;
-    overflow: hidden;
     @media ($largeDesktop) {
         padding-right: 200px;
         height: 500px;
@@ -238,9 +215,6 @@ $gutterMobile: 15px;
         padding-right: $gutterMobile;
     }
 }
-.background {
-    background-color: #fff;
-}
 .backgroundImage {
     opacity: 1;
 }
@@ -250,17 +224,7 @@ $gutterMobile: 15px;
     width: 100%;
     height: 100%;
 }
-.imageOverlay {
-    transition: 0.5s linear;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #5a5450;
-    opacity: 1;
-}
-.backgroundImage,
-.imageOverlay {
+.backgroundImage {
     left: -$gutter;
     top: -$gutter;
     position: absolute;
@@ -272,9 +236,6 @@ $gutterMobile: 15px;
         left: -$gutterMobile;
         top: -$gutterMobile;
     }
-}
-.imageOverlay {
-    left: -100%;
 }
 .buttons {
     position: absolute;
