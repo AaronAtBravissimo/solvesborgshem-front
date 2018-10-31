@@ -9,7 +9,7 @@
                 <div
                     v-for="(slide, index) in slides"
                     v-show="index === currentIndex"
-                    :key="index"
+                    :key="slide.id"
                     class="background"
                 >
                     <img
@@ -17,6 +17,7 @@
                         :alt="slide.alt"
                         class="backgroundImage objectFitCover"
                     >
+                    <div class="imageOverlay"></div>
                 </div>
             </transition-group>
             <img
@@ -116,7 +117,7 @@ export default {
             }
         },
         start() {
-            this.interval = setInterval(() => this.nextSlide(), 6000);
+            this.interval = setInterval(() => this.nextSlide(), 4000);
         },
         stop() {
             clearInterval(this.interval);
@@ -152,13 +153,20 @@ $gutter: 40px;
 $gutterLaptop: 20px;
 $gutterMobile: 15px;
 
-.slide-fade-enter-active {
+.slide-fade-enter-active,
+.slide-fade-leave-active,
+.backgroundImage {
+    transition: 1s ease;
 }
-.slide-fade-leave-active {
-    display: none;
+.slide-fade-enter {
+    .backgroundImage {
+        opacity: 0;
+    }
 }
-.slide-fade-enter,
-.slide-fade-leave-active {
+.slide-fade-leave-to {
+    .backgroundImage {
+        opacity: 1;
+    }
 }
 
 .heroSlider {
@@ -226,7 +234,6 @@ $gutterMobile: 15px;
     height: 540px;
     position: relative;
     background-color: #fff;
-    transition: 0.5s 0.5s;
     margin: $gutter;
     @media ($largeDesktop) {
         height: 500px;
@@ -247,12 +254,13 @@ $gutterMobile: 15px;
     }
 }
 .background,
-.backgroundImage {
+.backgroundImage,
+.imageOverlay {
     position: absolute;
     width: 100%;
     height: 100%;
 }
-.background {
+.background{
     left: -$gutter;
     top: -$gutter;
     @media ($laptop) {
@@ -264,9 +272,13 @@ $gutterMobile: 15px;
         top: -$gutterMobile;
     }
 }
-.backgroundImage {
+.backgroundImage,
+.imageOverlay {
     left: 0;
     top: 0;
+}
+.imageOverlay {
+    opacity: 0.5;
 }
 .buttons {
     position: absolute;
