@@ -155,7 +155,7 @@ export default {
             };
         },
         mapInfo() {
-            if (!this.building || !this.building.map) {
+            if (!this.building || !this.building.map || typeof this.building.map !== 'object') {
                 return false;
             }
 
