@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import buildingsJson from '../static/json/buildings.json';
+// import buildingsJson from '../static/json/buildings.json';
 import TopSection from '../components/TopSection.vue';
 import BuildingWidget from '../components/BuildingWidget.vue';
 import AppButton from '../components/AppButton.vue';
@@ -108,7 +108,8 @@ export default {
         return getMeta(this.building.yoast);
     },
     data: () => ({
-        buildings: buildingsJson,
+        buildings: false,
+        building: false,
         expandIcon,
         apartmentIcon,
         areaIcon,
@@ -127,6 +128,7 @@ export default {
         slug() {
             return this.$route.params.slug;
         },
+        /*
         building() {
             if (!this.buildings) return false;
 
@@ -140,6 +142,7 @@ export default {
             }
             return false;
         },
+        */
         areaInfo() {
             if (!this.building || !this.building.taxonomies || !this.building.taxonomies.area) {
                 return false;
@@ -170,9 +173,9 @@ export default {
         },
     },
     async mounted() {
-        const page = await updatePage(this.$route.path);
-        if (page) {
-            this.page = page;
+        const res = await updatePage(this.$route.params.slug, 'building');
+        if (res) {
+            this.building = res;
         }
     },
     methods: {
