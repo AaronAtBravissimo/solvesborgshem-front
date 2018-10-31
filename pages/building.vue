@@ -35,6 +35,7 @@
                         :address="fullAddress"
                     />
                     <BuildingWidget
+                        v-if="areaInfo"
                         :icon="areaIcon"
                         :heading="areaInfo.heading"
                         :body="areaInfo.content"
