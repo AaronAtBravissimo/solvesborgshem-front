@@ -1,9 +1,10 @@
 <template>
     <a
         :href="link"
-        class="socialIcon"
+        class="socialIcon relative"
         target="_blank"
     >
+        <AppCircle/>
         <img
             v-if="icon === 'facebook'"
             class="socialIcon__image"
@@ -20,7 +21,12 @@
 </template>
 
 <script>
+import AppCircle from './AppCircle.vue';
+
 export default {
+    components: {
+        AppCircle,
+    },
     props: {
         icon: {
             type: String,
@@ -38,7 +44,6 @@ export default {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    border: 2px solid $primaryColor;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,6 +60,14 @@ export default {
         margin-top: -2px;
         width: 16px;
         height: 16px;
+    }
+    &:hover {
+        .secondaryCircle {
+            stroke-dashoffset: 0;
+        }
+        .primaryCircle {
+            stroke-dashoffset: -227;
+        }
     }
 }
 </style>
