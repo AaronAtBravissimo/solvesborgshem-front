@@ -2,7 +2,7 @@
     <div class="heroSlider">
         <div class="slides relative">
             <transition-group
-                name="slide-fade"
+                name="fade"
                 tag="div"
                 class="backgroundHolder"
             >
@@ -164,20 +164,15 @@ $gutter: 40px;
 $gutterLaptop: 20px;
 $gutterMobile: 15px;
 
-.slide-fade-enter-active,
-.slide-fade-leave-active,
-.backgroundImage {
-    transition: 1s ease;
+.fade-enter-active, .fade-leave-active {
+  transition: all 1s ease;
+  visibility: visible;
+  opacity: 1;
 }
-.slide-fade-enter {
-    .backgroundImage {
-        opacity: 0;
-    }
-}
-.slide-fade-leave-to {
-    .backgroundImage {
-        opacity: 1;
-    }
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .heroSlider {
@@ -252,11 +247,6 @@ $gutterMobile: 15px;
     position: relative;
     background-color: #fff;
     margin: $gutter;
-    opacity: 0;
-    transition: 0.5s 1.5s ease;
-    .isLoaded & {
-        opacity: 1;
-    }
     @media ($largeDesktop) {
         height: 500px;
     }
@@ -315,7 +305,6 @@ $gutterMobile: 15px;
     left: 0;
     bottom: 0;
     width: calc(100% - #{$gutter});
-    display: none;
     @media ($smallDesktop) {
         justify-content: flex-start;
     }
