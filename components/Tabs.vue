@@ -2,7 +2,7 @@
     <div class="tabs flex justify-center">
         <div
             v-for="(tab, index) in tabs"
-            :key="tab.term_id"
+            :key="index"
             class="tab"
         >
             <AppButton
