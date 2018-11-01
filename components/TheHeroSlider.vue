@@ -1,11 +1,15 @@
 <template>
     <div class="heroSlider">
         <div class="slides relative">
-            <div class="backgroundHolder">
+            <transition-group
+                name="slide-fade"
+                tag="div"
+                class="backgroundHolder"
+            >
                 <div
                     v-for="(slide, index) in slides"
                     v-show="index === currentIndex"
-                    :key="slide.id"
+                    :key="index"
                     class="background"
                 >
                     <img
@@ -14,18 +18,17 @@
                         class="backgroundImage objectFitCover"
                     >
                 </div>
-                <div
-                    ref="imageOverlay"
-                    class="imageOverlay"></div>
+            </transition-group>
+            <div class="slideImageHolder">
+                <no-ssr>
+                    <img
+                        v-show="imageElement"
+                        :src="imageElement.sizes.large"
+                        :alt="imageElement.alt"
+                        class="slideImage"
+                    >
+                </no-ssr>
             </div>
-            <no-ssr>
-                <img
-                    v-if="imageElement"
-                    :src="imageElement.sizes.large"
-                    :alt="imageElement.alt"
-                    class="slideImage"
-                >
-            </no-ssr>
         </div>
         <div class="buttons flex justify-center">
             <button
@@ -111,9 +114,6 @@ export default {
             }
         },
         nextSlide() {
-            this.$refs.imageOverlay.classList.remove('in');
-            this.$refs.imageOverlay.classList.add('out');
-
             if (this.currentIndex >= (this.slides.length - 1)) {
                 this.currentIndex = 0;
             } else {
@@ -121,8 +121,6 @@ export default {
             }
         },
         start() {
-            this.$refs.imageOverlay.classList.add('out');
-
             this.interval = setInterval(() => {
                 this.beforeNext();
             }, this.duration);
@@ -153,9 +151,6 @@ export default {
             this.nextSlide();
         },
         beforeNext() {
-            this.$refs.imageOverlay.classList.remove('out');
-            this.$refs.imageOverlay.classList.add('in');
-
             setTimeout(() => {
                 this.nextSlide();
             }, this.transDuration);
@@ -168,6 +163,22 @@ export default {
 $gutter: 40px;
 $gutterLaptop: 20px;
 $gutterMobile: 15px;
+
+.slide-fade-enter-active,
+.slide-fade-leave-active,
+.backgroundImage {
+    transition: 1s ease;
+}
+.slide-fade-enter {
+    .backgroundImage {
+        opacity: 0;
+    }
+}
+.slide-fade-leave-to {
+    .backgroundImage {
+        opacity: 1;
+    }
+}
 
 .heroSlider {
     height: 700px;
@@ -197,11 +208,17 @@ $gutterMobile: 15px;
         padding-right: $gutterMobile;
     }
 }
-.slideImage {
+.slideImageHolder {
     position: absolute;
     right: 0;
     top: 13px;
-    transition: 0.5s 1s;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: 0.75s 2s ease;
+    .isLoaded & {
+        opacity: 1;
+        transform: translateY(0);
+    }
     @media ($largeDesktop) {
         right: -50px;
         top: 0;
@@ -235,6 +252,11 @@ $gutterMobile: 15px;
     position: relative;
     background-color: #fff;
     margin: $gutter;
+    opacity: 0;
+    transition: 0.5s 1.5s ease;
+    .isLoaded & {
+        opacity: 1;
+    }
     @media ($largeDesktop) {
         height: 500px;
     }
@@ -280,6 +302,7 @@ $gutterMobile: 15px;
 .imageOverlay {
     background-color: $primaryTextColor;
     transition: 1s linear;
+    display: none;
     &.out {
         transform: translateX(-100%);
     }

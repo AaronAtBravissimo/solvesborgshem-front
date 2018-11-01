@@ -1,5 +1,8 @@
 <template>
-    <section class="heroSection">
+    <section
+        :class="{'isLoaded': loaded}"
+        class="heroSection"
+    >
         <div class="inner">
             <div class="left">
                 <TheHeroSlider
@@ -8,10 +11,7 @@
                 />
             </div>
             <div class="right">
-                <div
-                    :class="{'animateIn': loaded}"
-                    class="textHolder"
-                >
+                <div class="textHolder">
                     <h1 class="heading">
                         <div class="firstRow">{{ heroSection.heading.firstRow }}</div>
                         <div class="secondRow">{{ heroSection.heading.secondRow }}</div>
@@ -95,11 +95,11 @@ export default {
 .heroSection {
     position: relative;
     margin-top: 46px;
-    margin-bottom: 20px;
     overflow: hidden;
+    padding-bottom: 20px;
     @media ($tablet) {
         margin-top: 0;
-        margin-bottom: 50px;
+        padding-bottom: 50px;
     }
 }
 .inner {
@@ -128,13 +128,6 @@ export default {
     width: 550px;
     margin-top: 118px;
     margin-bottom: 47px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.35s;
-    &.animateIn {
-        opacity: 1;
-        transform: translateY(0)
-    }
     @media ($largeDesktop) {
         width: 500px;
     }
@@ -178,11 +171,32 @@ export default {
         width: 300px;
     }
 }
+.firstRow {
+    transition: 0.5s ease;
+    transform: translateX(-150px);
+    opacity: 0;
+    .isLoaded & {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 .secondRow {
+    transition: 0.5s 0.5s ease;
+    transform: translateX(150px);
+    opacity: 0;
     text-align: right;
+    .isLoaded & {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 .preamble {
     text-align: center;
+    opacity: 0;
+    transition: 0.5s 1s ease;
+    .isLoaded & {
+        opacity: 1;
+    }
     @media ($largeDesktop) {
         font-size: 18px;
     }
@@ -202,6 +216,11 @@ export default {
 .linkSelect {
     width: 330px;
     margin: 0 auto;
+    transition: 0.5s 1.5s ease;
+    transform: scale(0);
+    .isLoaded & {
+        transform: scale(1);
+    }
     @media ($smallDesktop) {
         width: 300px;
     }
