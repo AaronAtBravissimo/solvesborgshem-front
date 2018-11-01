@@ -47,10 +47,20 @@ async function generateEmployees(dir) {
     });
 }
 
+async function generateToggles(dir) {
+    const res = await axios.get(`${apiUrl}/api/toggle`);
+
+    const path = `${dir}/toggles.json`;
+    fs.writeFile(path, JSON.stringify(res.data), (err) => {
+        if (err) throw err;
+    });
+}
+
 export default async function generateJsonFiles(dir) {
     await generatePages(dir);
     await generateBuildings(dir);
     await generateEmployees(dir);
+    await generateToggles(dir);
 }
 
 async function init(dir) {
