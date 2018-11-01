@@ -1,47 +1,25 @@
 <template>
     <div class="myPages">
-        <div class="filters flex justify-center">
-            <AppButton
-                :class="{'notActive': currentTab !== loginTab}"
-                class="filter"
-                label="Logga in"
-                @clicked="currentTab = loginTab"
-            />
-            <AppButton
-                :class="{'notActive': currentTab !== registerTab}"
-                class="filter"
-                label="Registrera dig"
-                @clicked="currentTab = registerTab"
-            />
-        </div>
+        <Tabs
+            :active="currentTab"
+            :tabs="tabs"
+            @changed="val => currentTab = val"
+        />
         <div class="frames">
             <div class="container">
                 <div
-                    v-show="currentTab === loginTab"
-                    class="login"
+                    v-for="(tab, index) in tabs"
+                    v-show="index === currentTab"
+                    :key="index"
+                    :class="tab.class"
                 >
                     <div class="momentum-container">
                         <iframe
                             id="momentum"
-                            src="https://marknad.solvesborgshem.se/pgLogin.aspx"
+                            :src="tab.src"
                             width="100%"
-                            scrolling="no"
-                        >
-                        </iframe>
-                    </div>
-                </div>
-
-                <div
-                    v-show="currentTab === registerTab"
-                    class="register"
-                >
-                    <div class="momentum-container">
-                        <iframe
-                            id="momentum"
-                            src="https://marknad.solvesborgshem.se/pgClientRegister_ClientInfo.aspx"
                             scrolling="no"
                             frameBorder="0"
-                            width="100%"
                         >
                         </iframe>
                     </div>
@@ -52,20 +30,27 @@
 </template>
 
 <script>
-import AppButton from './AppButton.vue';
+import Tabs from './Tabs.vue';
 
 export default {
     components: {
-        AppButton,
+        Tabs,
     },
     data: () => ({
-        currentTab: null,
-        loginTab: true,
-        registerTab: false,
+        currentTab: 0,
+        tabs: [
+            {
+                name: 'Logga in',
+                src: 'https://marknad.solvesborgshem.se/pgLogin.aspx',
+                class: 'login',
+            },
+            {
+                name: 'Registrera dig',
+                src: 'https://marknad.solvesborgshem.se/pgClientRegister_ClientInfo.aspx',
+                class: 'register',
+            },
+        ],
     }),
-    created() {
-        this.currentTab = this.loginTab;
-    },
 };
 </script>
 
@@ -75,12 +60,6 @@ export default {
     background-color: #fff;
     margin-bottom: 50px;
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
-}
-.filters {
-    margin-bottom: 60px;
-}
-.filter {
-    margin: 0 10px;
 }
 .login {
     height: 380px;

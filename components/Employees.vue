@@ -8,22 +8,12 @@
                 <h2>{{ heading }}</h2>
             </div>
         </div>
-        <div
+        <Tabs
             v-if="showAll"
-            class="filters flex justify-center"
-        >
-            <div
-                v-for="(section, index) in sections"
-                :key="section.term_id"
-                class="filter"
-            >
-                <AppButton
-                    :class="{'notActive': currentFilter !== index}"
-                    :label="section.name"
-                    @clicked="currentFilter = index"
-                />
-            </div>
-        </div>
+            :tabs="sections"
+            :active="currentFilter"
+            @changed="val => currentFilter = val"
+        />
         <div class="columns flex flex-wrap">
             <div
                 v-for="employee in employeesOut"
@@ -40,12 +30,12 @@
 
 <script>
 import employees from '../static/json/employees.json';
-import AppButton from './AppButton.vue';
+import Tabs from './Tabs.vue';
 import Employee from './Employee.vue';
 
 export default {
     components: {
-        AppButton,
+        Tabs,
         Employee,
     },
     props: {
@@ -153,12 +143,6 @@ $marginBottom: 50px;
     }
 }
 
-.filters {
-    margin-bottom: 60px;
-}
-.filter {
-    margin: 0 10px;
-}
 .employees {
     padding: 60px 80px;
     background-color: #fff;
@@ -220,8 +204,5 @@ $marginBottom: 50px;
             padding-right: 15px;
         }
     }
-}
-.button.notActive {
-    background-color: #ddd;
 }
 </style>
