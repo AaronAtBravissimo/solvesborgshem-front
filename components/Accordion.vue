@@ -100,6 +100,7 @@ $buttonSize: 28px;
 }
 .heading {
     font-size: 22px;
+    margin-bottom: 0;
 }
 .button {
     position: absolute;
