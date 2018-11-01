@@ -128,9 +128,12 @@ export default {
             this.currentFilter = null;
             this.$refs.filter.selected = null;
         },
-        filterChanged(value) {
+        filterChanged(value, index = null) {
             this.currentFilter = value;
             this.currentSearch = null;
+            if (index) {
+                this.$refs.filter.selected = index;
+            }
         },
     },
 };
