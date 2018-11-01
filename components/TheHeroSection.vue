@@ -8,7 +8,10 @@
                 />
             </div>
             <div class="right">
-                <div class="textHolder">
+                <div
+                    :class="{'animateIn': loaded}"
+                    class="textHolder"
+                >
                     <h1 class="heading">
                         <div class="firstRow">{{ heroSection.heading.firstRow }}</div>
                         <div class="secondRow">{{ heroSection.heading.secondRow }}</div>
@@ -48,6 +51,9 @@ export default {
             default: null,
         },
     },
+    data: () => ({
+        loaded: false,
+    }),
     computed: {
         linkSelect() {
             const initial = [
@@ -64,6 +70,11 @@ export default {
 
             return [...initial, ...items];
         },
+    },
+    mounted() {
+        if (process.client) {
+            this.loaded = true;
+        }
     },
     methods: {
         linkSelectChanged(value) {
@@ -117,6 +128,13 @@ export default {
     width: 550px;
     margin-top: 118px;
     margin-bottom: 47px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.35s;
+    &.animateIn {
+        opacity: 1;
+        transform: translateY(0)
+    }
     @media ($largeDesktop) {
         width: 500px;
     }
