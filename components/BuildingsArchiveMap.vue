@@ -2,6 +2,7 @@
     <div class="buildingsArchiveMap">
         <no-ssr>
             <gmap-map
+                ref="gmap"
                 :zoom="10"
                 :center="positon"
                 :options="{
@@ -59,6 +60,21 @@ export default {
             };
         },
     },
+    mounted() {
+        if (!process.client) return;
+
+        this.$nextTick(() => {
+            this.$refs.gmap.$mapPromise.then((map) => {
+                const bounds = new window.google.maps.LatLngBounds();
+
+                for (let i = 0; i < this.areas.length; i++) {
+                    bounds.extend(this.getPosition(this.areas[i].address));
+                }
+
+                map.fitBounds(bounds);
+            });
+        });
+    },
     methods: {
         getPosition(cords) {
             return {
@@ -76,7 +92,7 @@ export default {
 <style lang="scss" scoped>
 .vue-map-container {
     width: 100%;
-    height: 600px;
+    height: 650px;
     margin-bottom: 30px;
 }
 </style>
