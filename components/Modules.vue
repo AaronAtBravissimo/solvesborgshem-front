@@ -34,6 +34,13 @@
                 v-if="module.acf_fc_layout === 'myPages'"
                 :key="index"
             />
+            <Toggles
+                v-if="module.acf_fc_layout === 'toggle'"
+                :key="index"
+                :heading="module.heading"
+                :show-all="module.showAll"
+                :toggle-ids="module.toggles"
+            />
         </template>
     </section>
 </template>
@@ -45,6 +52,7 @@ import BuildingsArchive from './BuildingsArchive.vue';
 import Employees from './Employees.vue';
 import CardsWithIcons from './CardsWithIcons.vue';
 import MyPages from './MyPages.vue';
+import Toggles from './Toggles.vue';
 
 export default {
     components: {
@@ -54,6 +62,7 @@ export default {
         Employees,
         CardsWithIcons,
         MyPages,
+        Toggles,
     },
     props: {
         modules: {
