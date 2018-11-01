@@ -47,6 +47,10 @@ export default {
 }
 .tab {
     margin: 0 10px;
+    /deep/ .button:focus {
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 3px;
+    }
 }
 .button.notActive {
     background-color: #ddd;
