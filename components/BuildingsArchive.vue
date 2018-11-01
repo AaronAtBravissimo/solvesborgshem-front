@@ -14,9 +14,17 @@
                         @changed="filterChanged"
                     />
                 </div>
+                <div class="mapFilter">
+                    <AppButton
+                        label="Kartfiltrering"
+                        class="ml-8"
+                        @clicked="showMap = !showMap"
+                    />
+                </div>
             </template>
         </SearchFilterBox>
         <BuildingsArchiveMap
+            v-show="showMap"
             :areas="areas"
             @changed="filterChanged"
         />
@@ -47,6 +55,7 @@ import Select from './Select.vue';
 import SmallCard from './SmallCard.vue';
 import SearchFilterBox from './SearchFilterBox.vue';
 import BuildingsArchiveMap from './BuildingsArchiveMap.vue';
+import AppButton from './AppButton.vue';
 
 export default {
     components: {
@@ -54,10 +63,12 @@ export default {
         SmallCard,
         SearchFilterBox,
         BuildingsArchiveMap,
+        AppButton,
     },
     data: () => ({
         currentSearch: null,
         currentFilter: null,
+        showMap: false,
         buildings,
     }),
     computed: {
@@ -128,9 +139,12 @@ export default {
             this.currentFilter = null;
             this.$refs.filter.selected = null;
         },
-        filterChanged(value) {
+        filterChanged(value, index = null) {
             this.currentFilter = value;
             this.currentSearch = null;
+            if (index) {
+                this.$refs.filter.selected = index;
+            }
         },
     },
 };

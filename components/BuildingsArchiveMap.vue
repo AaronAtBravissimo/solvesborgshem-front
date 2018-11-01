@@ -12,12 +12,12 @@
                 map-type-id="roadmap"
             >
                 <gmap-marker
-                    v-for="area in areas"
+                    v-for="(area, index) in areas"
                     :key="area.id"
                     :icon="icon"
                     :position="getPosition(area.address)"
                     :draggable="false"
-                    @click="changeFilter(area.term_id)"
+                    @click="changeFilter(area.term_id, index)"
                 />
             </gmap-map>
         </no-ssr>
@@ -66,8 +66,8 @@ export default {
                 lng: Number(cords.lng),
             };
         },
-        changeFilter(areaId) {
-            this.$emit('changed', areaId);
+        changeFilter(areaId, index) {
+            this.$emit('changed', areaId, index);
         },
     },
 };
