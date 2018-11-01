@@ -34,6 +34,10 @@
                 v-if="module.acf_fc_layout === 'myPages'"
                 :key="index"
             />
+            <SearchPlace
+                v-if="module.acf_fc_layout === 'searchPlace'"
+                :key="index"
+            />
             <Toggles
                 v-if="module.acf_fc_layout === 'toggle'"
                 :key="index"
@@ -52,6 +56,7 @@ import BuildingsArchive from './BuildingsArchive.vue';
 import Employees from './Employees.vue';
 import CardsWithIcons from './CardsWithIcons.vue';
 import MyPages from './MyPages.vue';
+import SearchPlace from './SearchPlace.vue';
 import Toggles from './Toggles.vue';
 
 export default {
@@ -62,6 +67,7 @@ export default {
         Employees,
         CardsWithIcons,
         MyPages,
+        SearchPlace,
         Toggles,
     },
     props: {
