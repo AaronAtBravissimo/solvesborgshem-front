@@ -61,12 +61,14 @@ export default async function generateJsonFiles(dir) {
     await generateBuildings(dir);
     await generateEmployees(dir);
     await generateToggles(dir);
+
+    console.log('Done generating JSON files');
 }
 
 async function init(dir) {
     ef(dir, false, (feedback) => {
         if (!feedback.error) {
-            console.log('Stale API cache removed');
+            console.log('Starting generating JSON files');
         }
     });
 
