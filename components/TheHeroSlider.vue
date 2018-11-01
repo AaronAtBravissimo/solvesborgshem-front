@@ -18,11 +18,14 @@
                     ref="imageOverlay"
                     class="imageOverlay"></div>
             </div>
-            <img
-                v-if="getRandomImage"
-                :src="getRandomImage.sizes.large"
-                class="slideImage"
-            >
+            <no-ssr>
+                <img
+                    v-if="imageElement"
+                    :src="imageElement.sizes.large"
+                    :alt="imageElement.alt"
+                    class="slideImage"
+                >
+            </no-ssr>
         </div>
         <div class="buttons flex justify-center">
             <button
@@ -80,28 +83,26 @@ export default {
     },
     data() {
         return {
+            imageElement: false,
             currentIndex: 0,
             interval: false,
             duration: 6000,
             transDuration: 1000,
         };
     },
-    computed: {
-        getRandomImage() {
-            const allImages = this.imageElements;
-            if (allImages && allImages.length > 0) {
-                const randomImage = allImages[
-                    Math.floor(Math.random() * allImages.length)
-                ];
-                return randomImage;
-            }
-            return false;
-        },
-    },
     mounted() {
         this.start();
     },
+    created() {
+        this.setImageElement();
+    },
     methods: {
+        setImageElement() {
+            if (this.imageElements && this.imageElements.length > 1) {
+                const rand = Math.floor(Math.random() * this.imageElements.length);
+                this.imageElement = this.imageElements[rand];
+            }
+        },
         prevSlide() {
             if (this.currentIndex !== 0) {
                 this.currentIndex--;
