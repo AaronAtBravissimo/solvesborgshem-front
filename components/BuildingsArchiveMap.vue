@@ -18,7 +18,7 @@
                     :icon="icon"
                     :position="getPosition(area.address)"
                     :draggable="false"
-                    @click="changeFilter(area.term_id, index)"
+                    @click="changeFilter(area.term_id, index + 1)"
                 />
             </gmap-map>
         </no-ssr>
