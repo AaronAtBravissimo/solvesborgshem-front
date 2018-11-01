@@ -15,7 +15,11 @@
             @changed="val => currentFilter = val"
         />
         <div class="columns flex flex-wrap">
-            <div class="column">
+            <transition-group
+                class="column"
+                name="fade-in"
+                tag="div"
+            >
                 <Accordion
                     v-for="(toggle, index) in togglesOut"
                     v-if="index % 2 == 0"
@@ -24,8 +28,12 @@
                 >
                     <div v-html="toggle.body"></div>
                 </Accordion>
-            </div>
-            <div class="column">
+            </transition-group>
+            <transition-group
+                class="column"
+                name="fade-in"
+                tag="div"
+            >
                 <Accordion
                     v-for="(toggle, index) in togglesOut"
                     v-if="index % 2 == 1"
@@ -34,7 +42,7 @@
                 >
                     <div v-html="toggle.body"></div>
                 </Accordion>
-            </div>
+            </transition-group>
         </div>
     </div>
 </template>
@@ -142,6 +150,17 @@ export default {
 <style lang="scss" scoped>
 $gutter: 30px;
 $gutterTablet: 25px;
+
+.fade-in-enter-active {
+    transition: all 0.5s ease;
+}
+.fade-in-leave-active {
+    opacity: 0;
+}
+.fade-in-enter {
+    transform: translateY($gutter);
+    opacity: 0;
+}
 
 .headingHolder {
     text-align: center;

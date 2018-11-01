@@ -14,7 +14,11 @@
             :active="currentFilter"
             @changed="val => currentFilter = val"
         />
-        <div class="columns flex flex-wrap">
+        <transition-group
+            class="columns flex flex-wrap"
+            name="fade-in"
+            tag="div"
+        >
             <div
                 v-for="employee in employeesOut"
                 :key="employee.id"
@@ -24,7 +28,7 @@
                     :employee="employee"
                 />
             </div>
-        </div>
+        </transition-group>
     </section>
 </template>
 
@@ -130,6 +134,17 @@ export default {
 
 <style lang="scss" scoped>
 $marginBottom: 50px;
+
+.fade-in-enter-active {
+    transition: all 0.5s ease;
+}
+.fade-in-leave-active {
+    opacity: 0;
+}
+.fade-in-enter {
+    transform: translateY(30px);
+    opacity: 0;
+}
 
 .headingHolder {
     text-align: center;
