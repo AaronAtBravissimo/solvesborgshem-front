@@ -18,14 +18,16 @@
                     ref="imageOverlay"
                     class="imageOverlay"></div>
             </div>
-            <no-ssr>
-                <img
-                    v-if="imageElement"
-                    :src="imageElement.sizes.large"
-                    :alt="imageElement.alt"
-                    class="slideImage"
-                >
-            </no-ssr>
+            <div class="slideImageHolder">
+                <no-ssr>
+                    <img
+                        v-show="imageElement"
+                        :src="imageElement.sizes.large"
+                        :alt="imageElement.alt"
+                        class="slideImage"
+                    >
+                </no-ssr>
+            </div>
         </div>
         <div class="buttons flex justify-center">
             <button
@@ -197,11 +199,17 @@ $gutterMobile: 15px;
         padding-right: $gutterMobile;
     }
 }
-.slideImage {
+.slideImageHolder {
     position: absolute;
     right: 0;
     top: 13px;
-    transition: 0.5s 1s;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: 0.75s 2s ease;
+    .isLoaded & {
+        opacity: 1;
+        transform: translateY(0);
+    }
     @media ($largeDesktop) {
         right: -50px;
         top: 0;
@@ -235,6 +243,11 @@ $gutterMobile: 15px;
     position: relative;
     background-color: #fff;
     margin: $gutter;
+    opacity: 0;
+    transition: 0.5s 1.5s ease;
+    .isLoaded & {
+        opacity: 1;
+    }
     @media ($largeDesktop) {
         height: 500px;
     }
