@@ -12,13 +12,10 @@
                 type="button"
                 class="button"
             >
-                <span class="buttonInner">
-                    <span class="buttonTextHolder">
-                        <span class="buttonText buttonText--open">Öppna</span>
-                        <span class="buttonText buttonText--close">Stäng</span>
-                    </span>
-                    <span class="buttonIcon"></span>
-                </span>
+                <img
+                    :src="arrow"
+                    class="buttonIcon"
+                >
             </button>
         </div>
         <transition
@@ -38,6 +35,8 @@
 </template>
 
 <script>
+import arrow from '../assets/images/icon-arrow-down.svg';
+
 /* eslint-disable no-param-reassign */
 export default {
     props: {
@@ -49,6 +48,7 @@ export default {
     data: () => ({
         open: false,
         transition: 350,
+        arrow,
     }),
     methods: {
         slideDown(el, done) {
@@ -88,86 +88,58 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$buttonSize: 28px;
-
 .header {
     cursor: pointer;
     position: relative;
     padding-right: 125px;
-    border-bottom: 2px solid #e8e8e8;
-    padding-bottom: 13px;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
     transition: 0.35s;
+    &:hover .heading {
+        color: $primaryColor;
+    }
 }
 .heading {
-    font-size: 22px;
+    font-family: $secondaryFont;
+    text-transform: none;
+    font-weight: 500;
+    letter-spacing: 0;
+    font-size: 20px;
     margin-bottom: 0;
+    transition: 0.35s;
 }
 .button {
-    position: absolute;
-    width: auto;
-    right: 0;
-    top: 1px;
-}
-.buttonInner {
     display: flex;
     align-items: center;
-}
-.buttonTextHolder {
-    position: relative;
-    width: 80px;
-    height: 24px;
-    color: #8b8b8b;
-    font-size: 16px;
-    line-height: 1.5;
-}
-.buttonText {
+    justify-content: center;
     position: absolute;
-    right: 20px;
+    width: 28px;
+    height: 28px;
+    right: 0;
     top: 0;
-    transition: 0.35s;
-    &--close {
-        opacity: 0;
-    }
 }
 .buttonIcon {
-    display: block;
+    width: 20px;
+    height: 20px;
     position: relative;
-    width: $buttonSize;
-    height: $buttonSize;
-    border: 2px solid $primaryColor;
-    border-radius: 100%;
     transition: 0.35s;
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        width: 12px;
-        height: 2px;
-        left: 50%;
-        top: 50%;
-        background-color: $primaryColor;
-        margin: -1px 0 0 -6px;
-    }
-    &::after {
-        transform: rotate(90deg);
-    }
 }
 .content {
-    padding-top: 30px;
+    padding-top: 20px;
+    /deep/ p {
+        font-size: 16px;
+    }
 }
 
 .accordion.isOpen {
     .header {
         border-color: $primaryColor;
     }
+    .heading {
+        color: $primaryColor;
+    }
     .buttonIcon {
-        transform: rotate(45deg);
-    }
-    .buttonText--close {
-        opacity: 1;
-    }
-    .buttonText--open {
-        opacity: 0;
+        transform: rotate(180deg);
     }
 }
 </style>
