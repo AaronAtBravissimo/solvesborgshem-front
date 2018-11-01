@@ -14,14 +14,27 @@
             :active="currentFilter"
             @changed="val => currentFilter = val"
         />
-        <div class="">
-            <Accordion
-                v-for="toggle in togglesOut"
-                :key="toggle.id"
-                :heading="toggle.heading"
-            >
-                <div v-html="toggle.body"></div>
-            </Accordion>
+        <div class="columns flex flex-wrap">
+            <div class="column">
+                <Accordion
+                    v-for="(toggle, index) in togglesOut"
+                    v-if="index % 2 == 0"
+                    :key="toggle.id"
+                    :heading="toggle.heading"
+                >
+                    <div v-html="toggle.body"></div>
+                </Accordion>
+            </div>
+            <div class="column">
+                <Accordion
+                    v-for="(toggle, index) in togglesOut"
+                    v-if="index % 2 == 1"
+                    :key="toggle.id"
+                    :heading="toggle.heading"
+                >
+                    <div v-html="toggle.body"></div>
+                </Accordion>
+            </div>
         </div>
     </div>
 </template>
@@ -127,8 +140,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$gutter: 30px;
+$gutterTablet: 25px;
+
+.headingHolder {
+    text-align: center;
+    margin-top: -9px;
+    margin-bottom: 67px;
+    @media ($tablet) {
+        margin-bottom: 30px;
+    }
+    @media ($smallTablet) {
+        margin-bottom: 0;
+    }
+}
+.toggles {
+    padding: 60px 80px;
+    background-color: #fff;
+    margin-bottom: 50px;
+    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+}
+.columns {
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+    @media($tablet) {
+        margin-left: -$gutterTablet;
+        margin-right: -$gutterTablet;
+    }
+    @media ($smallTablet) {
+        margin: 0 0 -30px;
+    }
+}
+.column {
+    padding: 0 $gutter;
+    width: 50%;
+    @media($tablet) {
+        padding: 0 $gutterTablet;
+    }
+    @media ($smallTablet) {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+}
 .accordion {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     &:last-child {
         margin-bottom: 0;
     }

@@ -26,19 +26,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gutter: 31.5px;
+$gutter: 30px;
 $gutterTablet: 25px;
 
 .twoColumn {
     padding-bottom: 62px;
 }
-
 .container {
     @media ($tablet) {
         padding: 0;
     }
 }
-
 .columns {
     margin-left: -$gutter;
     margin-right: -$gutter;
