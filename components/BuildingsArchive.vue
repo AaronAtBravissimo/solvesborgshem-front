@@ -24,7 +24,7 @@
             </template>
         </SearchFilterBox>
         <BuildingsArchiveMap
-            v-show="showMap"
+            v-show="!showMap"
             :areas="areas"
             @changed="filterChanged"
         />
