@@ -16,6 +16,10 @@
                 </div>
             </template>
         </SearchFilterBox>
+        <BuildingsArchiveMap
+            :areas="areas"
+            @changed="filterChanged"
+        />
         <div class="buildings">
             <div class="smallCardColumns flex flex-wrap">
                 <div
@@ -42,12 +46,14 @@ import buildings from '../static/json/buildings.json';
 import Select from './Select.vue';
 import SmallCard from './SmallCard.vue';
 import SearchFilterBox from './SearchFilterBox.vue';
+import BuildingsArchiveMap from './BuildingsArchiveMap.vue';
 
 export default {
     components: {
         Select,
         SmallCard,
         SearchFilterBox,
+        BuildingsArchiveMap,
     },
     data: () => ({
         currentSearch: null,
