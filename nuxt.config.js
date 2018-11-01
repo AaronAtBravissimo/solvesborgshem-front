@@ -122,7 +122,7 @@ module.exports = {
             routes.push({
                 name: 'buildingSingle',
                 path: '/bostader/:slug',
-                component: resolve(__dirname, 'pages/building.vue'),
+                component: resolve(__dirname, 'pages/_building.vue'),
             });
             routes.push({
                 name: 'searchEmpty',
