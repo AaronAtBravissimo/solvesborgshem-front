@@ -129,7 +129,6 @@ export default {
 
         path = path.replace(/\//g, '-_-');
         path = path.replace(/\\/g, '-_-');
-        console.log(path);
         const data = await import(`../static/json/${path}.json`);
         return { building: data };
     },
