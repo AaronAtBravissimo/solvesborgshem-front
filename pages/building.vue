@@ -80,7 +80,6 @@
 </template>
 
 <script>
-// import buildingsJson from '../static/json/buildings.json';
 import TopSection from '../components/TopSection.vue';
 import BuildingWidget from '../components/BuildingWidget.vue';
 import AppButton from '../components/AppButton.vue';
@@ -108,7 +107,6 @@ export default {
         return getMeta(this.building.yoast);
     },
     data: () => ({
-        buildings: false,
         building: false,
         expandIcon,
         apartmentIcon,
@@ -124,25 +122,21 @@ export default {
             timeToIdle: false,
         },
     }),
+    async asyncData({ route }) {
+        let { path } = route;
+
+        if (path.includes('.')) return false;
+
+        path = path.replace(/\//g, '-_-');
+        path = path.replace(/\\/g, '-_-');
+        console.log(path);
+        const data = await import(`../static/json/${path}.json`);
+        return { building: data };
+    },
     computed: {
         slug() {
             return this.$route.params.slug;
         },
-        /*
-        building() {
-            if (!this.buildings) return false;
-
-            const buildings = Object.values(this.buildings);
-
-            for (let i = 0; i < buildings.length; i++) {
-                const building = buildings[i];
-                if (building.post_slug === this.slug) {
-                    return building;
-                }
-            }
-            return false;
-        },
-        */
         areaInfo() {
             if (!this.building || !this.building.taxonomies || !this.building.taxonomies.area) {
                 return false;

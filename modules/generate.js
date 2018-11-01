@@ -26,6 +26,16 @@ async function generateBuildings(dir) {
     fs.writeFile(path, JSON.stringify(res.data), (err) => {
         if (err) throw err;
     });
+
+    res.data.forEach((page) => {
+        let name = page.post_link.replace(baseUrl, '');
+        name = name.replace(/\//g, '-_-');
+        name = name.replace(/\\/g, '-_-');
+        const path = `${dir}/${name}.json`;
+        fs.writeFile(path, JSON.stringify(page), (err) => {
+            if (err) throw err;
+        });
+    });
 }
 
 async function generateEmployees(dir) {
