@@ -183,7 +183,7 @@ module.exports = {
                                 extensions: ['vue'],
                             },
                         ],
-                        whitelistPatterns: [/^pswp/],
+                        whitelistPatterns: [/^pswp/, /^appearDelay/],
                         whitelist: [
                             'html',
                             'body',
