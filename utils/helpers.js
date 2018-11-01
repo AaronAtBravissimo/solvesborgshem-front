@@ -2,6 +2,8 @@ import axios from 'axios';
 import { baseUrl, apiUrl } from './config';
 
 export async function updatePage(path, type = 'page') {
+    if (!process.client) return false;
+
     const res = await axios.get(`${apiUrl}/api/${type}?path=${path}&timestamp=${new Date().getTime()}`);
     return res.data;
 }
