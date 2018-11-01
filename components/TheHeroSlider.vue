@@ -30,45 +30,45 @@
                     >
                 </no-ssr>
             </div>
-        </div>
-        <div class="buttons flex justify-center">
-            <button
-                class="flex items-center justify-center"
-                @click="prevHandler"
-            >
-                <img
-                    class="buttonIcon prev"
-                    src="../assets/images/icon-arrow-right.svg"
-                    alt=""
+            <div class="buttons flex justify-center">
+                <button
+                    class="flex items-center justify-center"
+                    @click="prevHandler"
                 >
-            </button>
-            <button
-                class="flex items-center justify-center"
-                @click="pause"
-            >
-                <img
-                    v-if="interval"
-                    class="buttonIcon pause"
-                    src="../assets/images/icon-pause.svg"
-                    alt=""
+                    <img
+                        class="buttonIcon prev"
+                        src="../assets/images/icon-arrow-right.svg"
+                        alt=""
+                    >
+                </button>
+                <button
+                    class="flex items-center justify-center"
+                    @click="pause"
                 >
-                <img
-                    v-if="!interval"
-                    class="buttonIcon play"
-                    src="../assets/images/icon-play.svg"
-                    alt=""
+                    <img
+                        v-if="interval"
+                        class="buttonIcon pause"
+                        src="../assets/images/icon-pause.svg"
+                        alt=""
+                    >
+                    <img
+                        v-if="!interval"
+                        class="buttonIcon play"
+                        src="../assets/images/icon-play.svg"
+                        alt=""
+                    >
+                </button>
+                <button
+                    class="flex items-center justify-center"
+                    @click="nextHandler"
                 >
-            </button>
-            <button
-                class="flex items-center justify-center"
-                @click="nextHandler"
-            >
-                <img
-                    class="buttonIcon next"
-                    src="../assets/images/icon-arrow-right.svg"
-                    alt=""
-                >
-            </button>
+                    <img
+                        class="buttonIcon next"
+                        src="../assets/images/icon-arrow-right.svg"
+                        alt=""
+                    >
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -210,7 +210,7 @@ $gutterMobile: 15px;
     top: 13px;
     opacity: 0;
     transform: translateY(-50px);
-    transition: 0.75s 2.5s ease;
+    transition: 0.75s 1.5s ease;
     .isLoaded & {
         opacity: 1;
         transform: translateY(0);
@@ -249,7 +249,7 @@ $gutterMobile: 15px;
     background-color: transparentize(#ffffff, 1);
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0);
     margin: $gutter;
-    transition: 0.75s 2.5s ease;
+    transition: 0.75s 1.5s ease;
     .isLoaded & {
         background-color: transparentize(#ffffff, 0);
         box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
@@ -301,31 +301,31 @@ $gutterMobile: 15px;
     left: 0;
     top: -40px;
     background-color: #f4f8fa;
-    transition: .75s 2s cubic-bezier(0.77, 0.02, 0.58, 1);
+    transition: .75s 1.2s cubic-bezier(0.77, 0.02, 0.58, 1);
     .isLoaded & {
         transform: translateX(-100%);
     }
 }
 .buttons {
     position: absolute;
-    left: 0;
-    bottom: 15px;
-    width: 100%;
+    left: 40px;
+    bottom: 0px;
+    height: 40px;
     opacity: 0;
-    transition: .5s 2.75s ease;
+    transition: .5s 1.8s ease;
     .isLoaded & {
         opacity: 1;
     }
 }
 .buttonIcon {
-    width: 40px;
+    width: 24px;
 }
 .prev {
     transform: rotate(0.5turn);
 }
 .pause,
 .play {
-    width: 32px;
+    width: 22px;
 }
 
 </style>
