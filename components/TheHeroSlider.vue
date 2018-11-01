@@ -314,4 +314,5 @@ $gutterMobile: 15px;
 .play {
     width: 32px;
 }
+
 </style>

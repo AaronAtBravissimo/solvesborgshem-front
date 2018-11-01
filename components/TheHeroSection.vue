@@ -1,34 +1,39 @@
 <template>
-    <section class="heroSection">
-        <div class="inner">
-            <div class="left">
-                <TheHeroSlider
-                    :slides="heroSection.slider.ordinaryImages"
-                    :image-elements="heroSection.slider.transparentImages"
-                />
-            </div>
-            <div class="right">
-                <div class="textHolder">
-                    <h1 class="heading">
-                        <div class="firstRow">{{ heroSection.heading.firstRow }}</div>
-                        <div class="secondRow">{{ heroSection.heading.secondRow }}</div>
-                    </h1>
-                    <p
-                        class="preamble"
-                        v-html="heroSection.preamble"
-                    >
-                    </p>
-                </div>
-                <div class="linkSelect">
-                    <Select
-                        :items="linkSelect"
-                        :show-first-item="false"
-                        @changed="linkSelectChanged"
+    <transition
+        appear
+        name="loaded"
+    >
+        <section class="heroSection">
+            <div class="inner">
+                <div class="left">
+                    <TheHeroSlider
+                        :slides="heroSection.slider.ordinaryImages"
+                        :image-elements="heroSection.slider.transparentImages"
                     />
                 </div>
+                <div class="right">
+                    <div class="textHolder">
+                        <h1 class="heading">
+                            <div class="firstRow">{{ heroSection.heading.firstRow }}</div>
+                            <div class="secondRow">{{ heroSection.heading.secondRow }}</div>
+                        </h1>
+                        <p
+                            class="preamble"
+                            v-html="heroSection.preamble"
+                        >
+                        </p>
+                    </div>
+                    <div class="linkSelect">
+                        <Select
+                            :items="linkSelect"
+                            :show-first-item="false"
+                            @changed="linkSelectChanged"
+                        />
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </transition>
 </template>
 
 <script>
@@ -81,6 +86,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.loaded-enter,
+.loaded-enter-active {
+    transition: all 1s ease;
+    opacity: 0;
+}
+
 .heroSection {
     position: relative;
     margin-top: 46px;
