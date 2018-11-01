@@ -6,6 +6,12 @@
                 :class="`${card.icon}`"
                 class="icon"
             >
+            <div
+                v-if="counter !== null"
+                class="number"
+            >
+                {{ counter + 1 }}
+            </div>
         </div>
         <h4 class="heading">{{ card.heading }}</h4>
         <div
@@ -22,12 +28,19 @@ import phone from '../assets/images/icon-phone.svg';
 import email from '../assets/images/icon-message.svg';
 import house from '../assets/images/icon-house.svg';
 import clock from '../assets/images/icon-clock.svg';
+import person from '../assets/images/icon-person.svg';
+import thumbUp from '../assets/images/icon-thumbs-up.svg';
+import checklist from '../assets/images/icon-checklist.svg';
 
 export default {
     props: {
         card: {
             type: Object,
             required: true,
+        },
+        counter: {
+            type: Number,
+            default: null,
         },
     },
     methods: {
@@ -37,6 +50,9 @@ export default {
                 email,
                 house,
                 clock,
+                person,
+                thumbUp,
+                checklist,
             };
             return icons[icon];
         },
@@ -103,6 +119,53 @@ export default {
         width: 80px;
         height: 80px;
     }
+    &.person {
+        width: 37px;
+        height: 78px;
+        @media ($smallTablet) {
+            width: 27px;
+            height: 58px;
+        }
+        @media ($mobile) {
+
+        }
+    }
+    &.thumbUp {
+        width: 66px;
+        height: 66px;
+        @media ($smallTablet) {
+            width: 56px;
+            height: 56px;
+        }
+        @media ($mobile) {
+            width: 46px;
+            height: 46px;
+        }
+    }
+    &.house {
+        width: 76px;
+        height: 82px;
+        @media ($smallTablet) {
+            width: 58px;
+            height: 62px;
+        }
+        @media ($mobile) {
+            width: 50px;
+            height: 54px;
+        }
+    }
+    &.checklist {
+        width: 55px;
+        height: 79px;
+        @media ($smallTablet) {
+            width: 45px;
+            height: 64px;
+        }
+        @media ($mobile) {
+            width: 38px;
+            height: 54px;
+        }
+    }
 }
 .heading {
     margin-bottom: 16px;
@@ -119,6 +182,30 @@ export default {
     text-decoration: underline;
     &:hover {
         color: $primaryTextColor;
+    }
+}
+.number {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -18px;
+    background-color: $primaryColor;
+    color: #ffffff;
+    border-radius: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media ($mobile) {
+        width: 30px;
+        height: 30px;
+        margin-left: -15px;
+        margin-top: -13px;
+        font-size: 15px;
     }
 }
 </style>

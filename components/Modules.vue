@@ -30,6 +30,10 @@
                 :key="index"
                 :columns="module.columns"
             />
+            <MyPages
+                v-if="module.acf_fc_layout === 'myPages'"
+                :key="index"
+            />
         </template>
     </section>
 </template>
@@ -40,6 +44,7 @@ import Shortcuts from './Shortcuts.vue';
 import BuildingsArchive from './BuildingsArchive.vue';
 import Employees from './Employees.vue';
 import CardsWithIcons from './CardsWithIcons.vue';
+import MyPages from './MyPages.vue';
 
 export default {
     components: {
@@ -48,6 +53,7 @@ export default {
         BuildingsArchive,
         Employees,
         CardsWithIcons,
+        MyPages,
     },
     props: {
         modules: {

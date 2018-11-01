@@ -8,60 +8,39 @@
         </div>
         <div class="columns">
             <div
-                v-for="(step, index) in stayWithUs.columns"
+                v-for="(card, index) in getCards"
                 :key="index"
                 class="column"
             >
-                <div class="step">
-                    <div class="iconHolder">
-                        <img
-                            :src="getIcon(step.icon)"
-                            :class="`${step.icon}`"
-                            class="icon"
-                        >
-                        <div class="stepNumber">
-                            {{ index + 1 }}
-                        </div>
-                    </div>
-                    <h4 class="stepHeading">{{ step.heading }}</h4>
-                    <p class="stepText">{{ step.content }}</p>
-                </div>
+                <CardWithIcon
+                    :card="card"
+                    :counter="index"
+                />
             </div>
         </div>
     </section>
 </template>
 
 <script>
-import person from '../assets/images/icon-person.svg';
-import thumbUp from '../assets/images/icon-thumbs-up.svg';
-import house from '../assets/images/icon-house.svg';
-import checklist from '../assets/images/icon-checklist.svg';
+import CardWithIcon from './CardWithIcon.vue';
 
 export default {
-    props: {
-        heading: {
-            type: String,
-            default: null,
-        },
-        steps: {
-            type: Array,
-            default: null,
-        },
+    components: {
+        CardWithIcon,
     },
     computed: {
         stayWithUs() {
             return this.$store.getters.options.stayWithUs;
         },
-    },
-    methods: {
-        getIcon(icon) {
-            const icons = {
-                person,
-                thumbUp,
-                house,
-                checklist,
-            };
-            return icons[icon];
+        getCards() {
+            if (this.stayWithUs) {
+                const { columns } = this.stayWithUs;
+                for (let i = 0; i < columns.length; i++) {
+                    columns[i].text = columns[i].content;
+                }
+                return columns;
+            }
+            return false;
         },
     },
 };
@@ -155,118 +134,4 @@ $gutterSmallTablet: 25px;
         margin-bottom: 30px;
     }
 }
-.iconHolder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin: 0 auto 52px;
-    width: 220px;
-    height: 220px;
-    padding-bottom: 10px;
-    border-radius: 100%;
-    border: 8px solid #f4f8fa;
-    @media ($laptop) {
-        width: 200px;
-        height: 200px;
-    }
-    @media ($smallTablet) {
-        width: 180px;
-        height: 180px;
-        border-width: 5px;
-    }
-    @media ($smallerTablet) {
-        width: 160px;
-        height: 160px;
-        margin-bottom: 30px;
-    }
-    @media ($mobile) {
-        width: 140px;
-        height: 140px;
-    }
-}
-.icon {
-    &.person {
-        width: 37px;
-        height: 78px;
-        @media ($smallTablet) {
-            width: 27px;
-            height: 58px;
-        }
-        @media ($mobile) {
-
-        }
-    }
-    &.thumbUp {
-        width: 66px;
-        height: 66px;
-        @media ($smallTablet) {
-            width: 56px;
-            height: 56px;
-        }
-        @media ($mobile) {
-            width: 46px;
-            height: 46px;
-        }
-    }
-    &.house {
-        width: 76px;
-        height: 82px;
-        @media ($smallTablet) {
-            width: 58px;
-            height: 62px;
-        }
-        @media ($mobile) {
-            width: 50px;
-            height: 54px;
-        }
-    }
-    &.checklist {
-        width: 55px;
-        height: 79px;
-        @media ($smallTablet) {
-            width: 45px;
-            height: 64px;
-        }
-        @media ($mobile) {
-            width: 38px;
-            height: 54px;
-        }
-    }
-}
-.stepHeading {
-    margin-bottom: 16px;
-}
-.stepText {
-    font-size: 16px;
-    line-height: 1.65;
-    @media ($mobile) {
-        font-size: 14px;
-    }
-}
-.stepNumber {
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    width: 40px;
-    height: 40px;
-    margin-left: -20px;
-    margin-top: -18px;
-    background-color: $primaryColor;
-    color: #ffffff;
-    border-radius: 100%;
-    font-size: 18px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @media ($mobile) {
-        width: 30px;
-        height: 30px;
-        margin-left: -15px;
-        margin-top: -13px;
-        font-size: 15px;
-    }
-}
-
 </style>

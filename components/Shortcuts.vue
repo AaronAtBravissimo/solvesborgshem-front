@@ -92,8 +92,6 @@ export default {
 
 .column {
     width: 50%;
-    position: relative;
-    z-index: 1;
     @media ($tablet) {
         width: 100%;
     }

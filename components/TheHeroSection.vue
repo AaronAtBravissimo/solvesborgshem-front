@@ -3,7 +3,8 @@
         <div class="inner">
             <div class="left">
                 <TheHeroSlider
-                    :slides="heroSection.slider"
+                    :slides="heroSection.slider.ordinaryImages"
+                    :image-elements="heroSection.slider.transparentImages"
                 />
             </div>
             <div class="right">
@@ -84,6 +85,7 @@ export default {
     position: relative;
     margin-top: 46px;
     margin-bottom: 20px;
+    overflow: hidden;
     @media ($tablet) {
         margin-top: 0;
         margin-bottom: 50px;
