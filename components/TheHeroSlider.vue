@@ -153,37 +153,16 @@ $gutter: 40px;
 $gutterLaptop: 20px;
 $gutterMobile: 15px;
 
-.imageOverlay {
+.slide-fade-enter-active {
+  transition: 1s linear;
+}
+
+.slide-fade-enter-active .imageOverlay {
     transition: 1s linear;
 }
 
-.slide-fade-enter {
-    .imageOverlay {
-        transform: translateX(-100%);
-    }
-}
-
-.slide-fade-enter-active {
-    .imageOverlay {
-        transform: translateX(0);
-    }
-}
-
-.slide-fade-leave {
-    .imageOverlay {
-        transform: translateX(-100%);
-    }
-}
-
-.slide-fade-leave-active {
-    .imageOverlay {
-        transform: translateX(0);
-    }
-}
-
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-    transition: 1s;
+.slide-fade-enter .imageOverlay {
+    transform: translateX(0);
 }
 
 .heroSlider {
