@@ -1,11 +1,15 @@
 <template>
     <div class="heroSlider">
         <div class="slides relative">
-            <div class="backgroundHolder">
+            <transition-group
+                name="slide-fade"
+                tag="div"
+                class="backgroundHolder"
+            >
                 <div
                     v-for="(slide, index) in slides"
                     v-show="index === currentIndex"
-                    :key="slide.id"
+                    :key="index"
                     class="background"
                 >
                     <img
@@ -14,10 +18,7 @@
                         class="backgroundImage objectFitCover"
                     >
                 </div>
-                <div
-                    ref="imageOverlay"
-                    class="imageOverlay"></div>
-            </div>
+            </transition-group>
             <div class="slideImageHolder">
                 <no-ssr>
                     <img
@@ -113,9 +114,6 @@ export default {
             }
         },
         nextSlide() {
-            this.$refs.imageOverlay.classList.remove('in');
-            this.$refs.imageOverlay.classList.add('out');
-
             if (this.currentIndex >= (this.slides.length - 1)) {
                 this.currentIndex = 0;
             } else {
@@ -123,8 +121,6 @@ export default {
             }
         },
         start() {
-            this.$refs.imageOverlay.classList.add('out');
-
             this.interval = setInterval(() => {
                 this.beforeNext();
             }, this.duration);
@@ -155,9 +151,6 @@ export default {
             this.nextSlide();
         },
         beforeNext() {
-            this.$refs.imageOverlay.classList.remove('out');
-            this.$refs.imageOverlay.classList.add('in');
-
             setTimeout(() => {
                 this.nextSlide();
             }, this.transDuration);
@@ -170,6 +163,22 @@ export default {
 $gutter: 40px;
 $gutterLaptop: 20px;
 $gutterMobile: 15px;
+
+.slide-fade-enter-active,
+.slide-fade-leave-active,
+.backgroundImage {
+    transition: 1s ease;
+}
+.slide-fade-enter {
+    .backgroundImage {
+        opacity: 0;
+    }
+}
+.slide-fade-leave-to {
+    .backgroundImage {
+        opacity: 1;
+    }
+}
 
 .heroSlider {
     height: 700px;
@@ -293,6 +302,7 @@ $gutterMobile: 15px;
 .imageOverlay {
     background-color: $primaryTextColor;
     transition: 1s linear;
+    display: none;
     &.out {
         transform: translateX(-100%);
     }
