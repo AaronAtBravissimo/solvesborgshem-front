@@ -154,7 +154,7 @@ $gutterLaptop: 20px;
 $gutterMobile: 15px;
 
 .slide-fade-enter-active {
-  transition: 1s linear;
+    transition: 1s linear;
 }
 
 .slide-fade-enter-active .imageOverlay {
