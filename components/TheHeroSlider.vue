@@ -19,6 +19,7 @@
                     >
                 </div>
             </transition-group>
+            <div class="imageOverlay"></div>
             <div class="slideImageHolder">
                 <no-ssr>
                     <img
@@ -209,7 +210,7 @@ $gutterMobile: 15px;
     top: 13px;
     opacity: 0;
     transform: translateY(-50px);
-    transition: 0.75s 2s ease;
+    transition: 0.75s 2.5s ease;
     .isLoaded & {
         opacity: 1;
         transform: translateY(0);
@@ -245,8 +246,14 @@ $gutterMobile: 15px;
     width: 100%;
     height: 540px;
     position: relative;
-    background-color: #fff;
+    background-color: transparentize(#ffffff, 1);
+    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0);
     margin: $gutter;
+    transition: 0.75s 2.5s ease;
+    .isLoaded & {
+        background-color: transparentize(#ffffff, 0);
+        box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+    }
     @media ($largeDesktop) {
         height: 500px;
     }
@@ -290,30 +297,24 @@ $gutterMobile: 15px;
     top: 0;
 }
 .imageOverlay {
-    background-color: $primaryTextColor;
-    transition: 1s linear;
-    display: none;
-    &.out {
+    width: calc(100% - 305px);
+    left: 0;
+    top: -40px;
+    background-color: #f4f8fa;
+    transition: .75s 2s cubic-bezier(0.77, 0.02, 0.58, 1);
+    .isLoaded & {
         transform: translateX(-100%);
-    }
-    &.in {
-        transform: translateX(0);
     }
 }
 .buttons {
     position: absolute;
     left: 0;
-    bottom: 0;
-    width: calc(100% - #{$gutter});
-    @media ($smallDesktop) {
-        justify-content: flex-start;
-    }
-    @media ($laptop) {
-        width: calc(100% - #{$gutterLaptop});
-        display: none; // NOTE: Plocka fram sedan och lägg där det passar bäst
-    }
-    @media ($mobile) {
-        width: calc(100% - #{$gutterMobile});
+    bottom: 15px;
+    width: 100%;
+    opacity: 0;
+    transition: .5s 2.75s ease;
+    .isLoaded & {
+        opacity: 1;
     }
 }
 .buttonIcon {
