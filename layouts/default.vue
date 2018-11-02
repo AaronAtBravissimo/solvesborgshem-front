@@ -71,7 +71,9 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch('nuxtServerInit');
+        if (process.client) {
+            this.$store.dispatch('nuxtServerInit');
+        }
     },
 };
 </script>
