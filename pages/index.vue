@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import page from '../static/json/-_-.json';
 import TheHeroSection from '../components/TheHeroSection.vue';
 import Shortcuts from '../components/Shortcuts.vue';
 import StayWithUs from '../components/StayWithUs.vue';
@@ -33,16 +34,12 @@ export default {
         return getMeta(this.page.yoast);
     },
     data: () => ({
-        page: false,
+        page,
     }),
-    async asyncData() {
-        const data = await import('../static/json/-_-.json');
-        return { page: data };
-    },
     async mounted() {
-        const page = await updatePage('hem');
-        if (page) {
-            this.page = page;
+        const res = await updatePage('hem');
+        if (res) {
+            this.page = res;
         }
     },
 };
