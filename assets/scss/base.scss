@@ -96,3 +96,7 @@ textarea {
     background-color: $primaryColor;
     color: #ffffff;
 }
+
+.using-mouse :focus {
+    outline: 0 !important;
+}
