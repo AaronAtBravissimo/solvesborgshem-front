@@ -9,8 +9,14 @@
                 <AppImage
                     :image="image.sizes.large"
                     :alt="image.alt"
-                    class="image"
+                    class="image ab100"
                 />
+                <AppImage
+                    :image="image.sizes.large"
+                    :alt="image.alt"
+                    class="imageNotMixed ab100"
+                />
+                <div class="imageOverlay ab100"></div>
             </div>
             <div class="infoHolder">
                 <h3 class="heading">{{ heading }}</h3>
@@ -73,17 +79,11 @@ export default {
     }
     &:hover {
         background-color: #f4f8fa;
-        .imageHolder::before {
-            opacity: 0;
-            transition-delay: 0.25s;
-        }
-        .image {
+        .imageNotMixed {
             opacity: 1;
-            mix-blend-mode: normal;
-            transition-delay: 0s;
         }
         @media ($mobile) {
-            background-color: #fff;
+            background-color: transparent;
         }
     }
 }
@@ -131,21 +131,22 @@ export default {
         width: 120px;
         height: 120px;
     }
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #8ac8df 0%,#94d3b3 100%);
-        transition: 0.25s;
-    }
 }
 .image {
-    mix-blend-mode: overlay;
+    z-index: 10;
     opacity: 0.6;
-    transition: 0.25s;
+    mix-blend-mode: overlay;
+    transition: 0.35s;
+}
+.imageNotMixed {
+    z-index: 15;
+    opacity: 0;
+    transition: 0.35s;
+}
+.imageOverlay {
+    z-index: 5;
+    background: linear-gradient(135deg, #8ac8df 0%,#94d3b3 100%);
+    transition: 0.35s;
 }
 .infoHolder {
     flex-shrink: 1;
