@@ -99,6 +99,7 @@ export default {
     padding-bottom: 20px;
     @media ($tablet) {
         margin-top: 0;
+        overflow: visible;
         padding-bottom: 50px;
     }
 }
@@ -111,8 +112,9 @@ export default {
 }
 .left {
     flex-grow: 1;
+    overflow: hidden;
     @media ($tablet) {
-        margin-bottom: 50px;
+        padding-bottom: 50px;
     }
 }
 .right {

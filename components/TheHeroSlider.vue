@@ -178,11 +178,16 @@ $gutterMobile: 15px;
 
 .heroSlider {
     height: 700px;
+    @media ($largeDesktop) {
+        height: 650px;
+    }
     @media ($laptop) {
         width: calc(100% + 30px);
+        height: 550px;
     }
     @media ($largeTablet) {
         width: calc(100% + 50px);
+        height: 500px;
     }
     @media ($tablet) {
         width: 100%;
@@ -213,7 +218,6 @@ $gutterMobile: 15px;
         transform: translateY(0);
     }
     @media ($largeDesktop) {
-        right: -50px;
         top: 0;
         width: 650px;
     }
@@ -222,15 +226,21 @@ $gutterMobile: 15px;
         width: 600px;
     }
     @media ($laptop) {
+        right: 30px;
         top: 50px;
         width: 520px;
     }
     @media ($largeTablet) {
-        right: 0;
         width: 450px;
     }
     @media ($tablet) {
+        right: 0;
         width: 425px;
+    }
+    @media ($smallTablet) {
+        right: -30px;
+        top: 75px;
+        width: 350px;
     }
     @media ($mobile) {
         right: 50%;
@@ -296,20 +306,40 @@ $gutterMobile: 15px;
 .imageOverlay {
     width: calc(100% - 200px);
     left: 0;
-    top: -40px;
+    top: -$gutter;
     background-color: #f4f8fa;
     transition: 0.75s 0s cubic-bezier(0.77, 0.02, 0.58, 1);
     .isLoaded & {
         transform: translateX(-100%);
     }
+    @media ($smallDesktop) {
+        width: calc(100% - 100px);
+    }
+    @media ($laptop) {
+        top: -$gutterLaptop;
+    }
+    @media ($mediumTablet) {
+        width: calc(100% - 20px);
+    }
+    @media ($mobile) {
+        top: -15px;
+        width: calc(100% - 15px);
+    }
 }
 .buttons {
     position: absolute;
-    left: 40px;
+    left: $gutter;
     bottom: 0px;
     height: 40px;
     opacity: 0;
     transition: 0.5s 0.9s ease;
+    @media ($laptop) {
+        left: $gutterLaptop;
+        bottom: -40px;
+    }
+    @media ($mobile) {
+        display: none;
+    }
     .isLoaded & {
         opacity: 1;
     }
