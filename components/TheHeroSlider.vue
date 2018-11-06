@@ -190,10 +190,7 @@ $gutterMobile: 15px;
     }
 }
 .slides {
-    padding-right: 305px;
-    @media ($largeDesktop) {
-        padding-right: 200px;
-    }
+    padding-right: 200px;
     @media ($smallDesktop) {
         padding-right: 100px;
     }
@@ -297,7 +294,7 @@ $gutterMobile: 15px;
     top: 0;
 }
 .imageOverlay {
-    width: calc(100% - 305px);
+    width: calc(100% - 200px);
     left: 0;
     top: -40px;
     background-color: #f4f8fa;
