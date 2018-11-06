@@ -210,7 +210,7 @@ $gutterMobile: 15px;
     top: 13px;
     opacity: 0;
     transform: translateY(-50px);
-    transition: 0.75s 1.5s ease;
+    transition: 0.75s 2.1s ease;
     .isLoaded & {
         opacity: 1;
         transform: translateY(0);
@@ -249,7 +249,7 @@ $gutterMobile: 15px;
     background-color: transparentize(#ffffff, 1);
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0);
     margin: $gutter;
-    transition: 0.75s 1.5s ease;
+    transition: 0.75s 0.6s ease;
     .isLoaded & {
         background-color: transparentize(#ffffff, 0);
         box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
@@ -301,7 +301,7 @@ $gutterMobile: 15px;
     left: 0;
     top: -40px;
     background-color: #f4f8fa;
-    transition: .75s 1.2s cubic-bezier(0.77, 0.02, 0.58, 1);
+    transition: 0.75s 0s cubic-bezier(0.77, 0.02, 0.58, 1);
     .isLoaded & {
         transform: translateX(-100%);
     }
@@ -312,7 +312,7 @@ $gutterMobile: 15px;
     bottom: 0px;
     height: 40px;
     opacity: 0;
-    transition: .5s 1.8s ease;
+    transition: 0.5s 0.9s ease;
     .isLoaded & {
         opacity: 1;
     }

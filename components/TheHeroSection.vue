@@ -172,7 +172,7 @@ export default {
     }
 }
 .firstRow {
-    transition: 0.5s ease;
+    transition: 0.5s 0.9s ease;
     transform: translateX(-150px);
     opacity: 0;
     .isLoaded & {
@@ -181,7 +181,7 @@ export default {
     }
 }
 .secondRow {
-    transition: 0.5s 0.3s ease;
+    transition: 0.5s 1.2s ease;
     transform: translateX(150px);
     opacity: 0;
     text-align: right;
@@ -193,7 +193,7 @@ export default {
 .preamble {
     text-align: center;
     opacity: 0;
-    transition: 0.5s 0.6s ease;
+    transition: 0.5s 1.5s ease;
     .isLoaded & {
         opacity: 1;
     }
@@ -216,7 +216,7 @@ export default {
 .linkSelect {
     width: 330px;
     margin: 0 auto;
-    transition: 0.5s 0.9s ease;
+    transition: 0.5s 1.8s ease;
     transform: scale(0);
     .isLoaded & {
         transform: scale(1);
