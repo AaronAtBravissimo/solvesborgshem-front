@@ -12,7 +12,7 @@
             <div
                 v-for="shortcut in shortcuts"
                 :key="shortcut.id"
-                class="column"
+                class="column flex"
             >
                 <Shortcut
                     :image="shortcut.image"
@@ -51,6 +51,9 @@ export default {
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
     padding: 40px 0;
     margin-bottom: 50px;
+    @media ($mobile) {
+        padding: 30px 0;
+    }
 }
 
 .headingHolder {
@@ -74,7 +77,7 @@ export default {
         padding: 30px;
     }
     @media ($mobile) {
-        padding: 30px 15px;
+        padding: 30px 15px 0;
     }
     &::after {
         content: '';
@@ -107,7 +110,7 @@ export default {
             padding-left: 30px;
         }
         @media ($mobile) {
-            padding-left: 15px;
+            padding-left: 0;
         }
     }
     &:nth-child(odd) .shortcut {
@@ -122,7 +125,7 @@ export default {
             padding-right: 30px;
         }
         @media ($mobile) {
-            padding-right: 15px;
+            padding-right: 0;
         }
     }
 }

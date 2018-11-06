@@ -2,7 +2,7 @@
     <AppLink
         :url="link.url"
         :target="link.target"
-        class="shortcut"
+        class="shortcut flex"
     >
         <div class="inner">
             <div class="imageHolder">
@@ -59,6 +59,7 @@ export default {
 <style lang="scss" scoped>
 .shortcut {
     display: block;
+    width: 100%;
     padding: 36px 40px;
     transition: 0.25s;
     &:focus {
@@ -68,7 +69,7 @@ export default {
         padding: 30px;
     }
     @media ($mobile) {
-        padding: 25px 15px;
+        padding: 0 0 30px;
     }
     &:hover {
         background-color: #f4f8fa;
@@ -81,10 +82,14 @@ export default {
             mix-blend-mode: normal;
             transition-delay: 0s;
         }
+        @media ($mobile) {
+            background-color: #fff;
+        }
     }
 }
 .inner {
     display: flex;
+    height: 100%;
     @media ($smallDesktop) {
         flex-wrap: wrap;
     }
