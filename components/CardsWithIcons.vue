@@ -37,7 +37,16 @@ $gutterSmallTablet: 25px;
     padding: 60px 80px;
     background-color: #fff;
     margin-bottom: 50px;
-    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+    box-shadow: $primaryShadow;
+    @media ($laptop) {
+        padding: 60px 30px;
+    }
+    @media ($tablet) {
+        padding: 50px 30px;
+    }
+    @media ($mobile) {
+        padding: 40px 15px;
+    }
 }
 .columns {
     display: flex;
@@ -45,9 +54,6 @@ $gutterSmallTablet: 25px;
     position: relative;
     margin-left: -$gutter;
     margin-right: -$gutter;
-    @media ($largeDesktop) {
-        padding: 0 50px;
-    }
     @media ($laptop) {
         margin-left: -$gutterLaptop;
         margin-right: -$gutterLaptop;
@@ -56,12 +62,10 @@ $gutterSmallTablet: 25px;
         margin-bottom: -50px;
     }
     @media ($smallTablet) {
-        margin-left: -$gutterSmallTablet;
-        margin-right: -$gutterSmallTablet;
-    }
-    @media ($smallerTablet) {
         margin-left: auto;
         margin-right: auto;
+    }
+    @media ($smallerTablet) {
         width: 360px;
         max-width: 100%;
     }
@@ -80,9 +84,6 @@ $gutterSmallTablet: 25px;
         margin-bottom: 50px;
     }
     @media ($smallTablet) {
-        padding: 0 $gutterSmallTablet;
-    }
-    @media ($smallerTablet) {
         width: 100%;
         padding: 0;
     }

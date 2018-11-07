@@ -72,7 +72,6 @@ export default {
     margin: 0 auto 52px;
     width: 220px;
     height: 220px;
-    padding-bottom: 10px;
     border-radius: 100%;
     border: 8px solid #f4f8fa;
     @media ($laptop) {
@@ -98,10 +97,26 @@ export default {
     &.phone {
         width: 82px;
         height: 82px;
+        @media ($smallTablet) {
+            width: 60px;
+            height: 60px;
+        }
+        @media ($mobile) {
+            width: 50px;
+            height: 50px;
+        }
     }
     &.email {
         width: 80px;
         height: 80px;
+        @media ($smallTablet) {
+            width: 60px;
+            height: 60px;
+        }
+        @media ($mobile) {
+            width: 50px;
+            height: 50px;
+        }
     }
     &.house {
         width: 76px;
@@ -118,6 +133,14 @@ export default {
     &.clock {
         width: 80px;
         height: 80px;
+        @media ($smallTablet) {
+            width: 60px;
+            height: 60px;
+        }
+        @media ($mobile) {
+            width: 50px;
+            height: 50px;
+        }
     }
     &.person {
         width: 37px;
@@ -125,9 +148,6 @@ export default {
         @media ($smallTablet) {
             width: 27px;
             height: 58px;
-        }
-        @media ($mobile) {
-
         }
     }
     &.thumbUp {
