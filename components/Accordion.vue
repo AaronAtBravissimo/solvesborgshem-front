@@ -88,13 +88,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$buttonSize: 24px;
+$buttonSizeSmallTablet: 20px;
+$buttonSizeMobile: 16px;
+
 .header {
     cursor: pointer;
     position: relative;
-    padding-right: 125px;
+    padding-right: #{$buttonSize * 2};
     border-bottom: 1px solid #e8e8e8;
     padding-bottom: 15px;
     transition: 0.35s;
+    @media ($smallTablet) {
+        padding-bottom: 12px;
+        padding-right: #{$buttonSizeSmallTablet * 2};
+    }
+    @media ($mobile) {
+        padding-bottom: 10px;
+        padding-right: #{$buttonSizeMobile * 2};
+    }
     &:hover .heading {
         color: $primaryColor;
     }
@@ -107,6 +119,16 @@ export default {
     font-size: 20px;
     margin-bottom: 0;
     transition: 0.35s;
+    line-height: 1.65;
+    @media ($laptop) {
+        font-size: 18px;
+    }
+    @media ($smallTablet) {
+        font-size: 16px;
+    }
+    @media ($mobile) {
+        font-size: 14px;
+    }
 }
 .button {
     display: flex;
@@ -119,15 +141,38 @@ export default {
     top: 0;
 }
 .buttonIcon {
-    width: 20px;
-    height: 20px;
+    width: $buttonSize;
+    height: $buttonSize;
     position: relative;
     transition: 0.35s;
+    @media ($smallTablet) {
+        width: $buttonSizeSmallTablet;
+        height: $buttonSizeSmallTablet;
+    }
+    @media ($mobile) {
+        width: $buttonSizeMobile;
+        height: $buttonSizeMobile;
+    }
 }
 .content {
     padding-top: 20px;
+    @media ($smallTablet) {
+        padding-top: 18px;
+    }
+    @media ($mobile) {
+        padding-top: 15px;
+    }
     /deep/ p {
         font-size: 16px;
+        @media ($laptop) {
+            font-size: 15px;
+        }
+        @media ($smallTablet) {
+            font-size: 14px;
+        }
+        @media ($mobile) {
+            font-size: 13px;
+        }
     }
 }
 

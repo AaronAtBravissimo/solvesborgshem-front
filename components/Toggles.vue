@@ -172,24 +172,27 @@ $gutterTablet: 25px;
         margin-left: -$gutterTablet;
         margin-right: -$gutterTablet;
     }
-    @media ($smallTablet) {
-        margin: 0 0 -30px;
-    }
 }
 .column {
     padding: 0 $gutter;
     width: 50%;
     @media($tablet) {
-        padding: 0 $gutterTablet;
-    }
-    @media ($smallTablet) {
         width: 100%;
-        padding: 0;
+        padding: 0 $gutterTablet;
         margin-bottom: 30px;
+    }
+    @media ($mobile) {
+        margin-bottom: 20px;
     }
 }
 .accordion {
     margin-bottom: 40px;
+    @media($tablet) {
+        margin-bottom: 30px;
+    }
+    @media ($mobile) {
+        margin-bottom: 20px;
+    }
     &:last-child {
         margin-bottom: 0;
     }
