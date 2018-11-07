@@ -1,5 +1,5 @@
 <template>
-    <section class="employees">
+    <section class="employees box">
         <div
             v-if="heading"
             class="container"
@@ -156,13 +156,6 @@ $marginBottom: 50px;
     @media ($smallTablet) {
         margin-bottom: 0;
     }
-}
-
-.employees {
-    padding: 60px 80px;
-    background-color: #fff;
-    margin-bottom: 50px;
-    box-shadow: $primaryShadow;
 }
 .columns {
     padding: 35px 0;

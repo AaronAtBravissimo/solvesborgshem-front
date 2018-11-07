@@ -1,5 +1,5 @@
 <template>
-    <div class="searchPlace">
+    <div class="searchPlace box">
         <div class="container">
             <div class="momentum-container">
                 <iframe
@@ -21,12 +21,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.searchPlace {
-    padding: 60px 80px;
-    background-color: #fff;
-    margin-bottom: 50px;
-    box-shadow: $primaryShadow;
-}
 .searchPlace iframe {
     height: 700px;
 }

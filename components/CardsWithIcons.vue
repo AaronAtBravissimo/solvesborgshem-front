@@ -1,5 +1,5 @@
 <template>
-    <section class="cardsWithIcons">
+    <section class="cardsWithIcons box">
         <div class="columns flex">
             <div
                 v-for="(card, index) in columns"
@@ -32,22 +32,6 @@ export default {
 $gutter: 35px;
 $gutterLaptop: 30px;
 $gutterSmallTablet: 25px;
-
-.cardsWithIcons {
-    padding: 60px 80px;
-    background-color: #fff;
-    margin-bottom: 50px;
-    box-shadow: $primaryShadow;
-    @media ($laptop) {
-        padding: 60px 30px;
-    }
-    @media ($tablet) {
-        padding: 50px 30px;
-    }
-    @media ($mobile) {
-        padding: 40px 15px;
-    }
-}
 .columns {
     display: flex;
     flex-wrap: wrap;

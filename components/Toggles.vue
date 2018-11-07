@@ -1,5 +1,5 @@
 <template>
-    <div class="toggles">
+    <div class="toggles box">
         <div
             v-if="heading"
             class="container"
@@ -172,12 +172,6 @@ $gutterTablet: 25px;
     @media ($smallTablet) {
         margin-bottom: 0;
     }
-}
-.toggles {
-    padding: 60px 80px;
-    background-color: #fff;
-    margin-bottom: 50px;
-    box-shadow: $primaryShadow;
 }
 .columns {
     margin-left: -$gutter;

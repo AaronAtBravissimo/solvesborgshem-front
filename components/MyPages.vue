@@ -1,5 +1,5 @@
 <template>
-    <div class="myPages">
+    <div class="myPages box">
         <Tabs
             :active="currentTab"
             :tabs="tabs"
@@ -55,12 +55,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.myPages {
-    padding: 60px 80px;
-    background-color: #fff;
-    margin-bottom: 50px;
-    box-shadow: $primaryShadow;
-}
 .login {
     height: 380px;
     overflow: hidden;
