@@ -196,7 +196,7 @@ $columnsGutter: 25px;
 
 .information {
     background-color: #ffffff;
-     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+     box-shadow: $primaryShadow;
      padding: 40px 50px;
      display: flex;
      flex-wrap: wrap;

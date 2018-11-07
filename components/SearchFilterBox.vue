@@ -62,7 +62,7 @@ export default {
 .searchFilterBox {
     background-color: #ffffff;
     padding: 50px;
-    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+    box-shadow: $primaryShadow;
     margin-bottom: 30px;
     @media ($largeDesktop) {
         padding: 50px 30px;

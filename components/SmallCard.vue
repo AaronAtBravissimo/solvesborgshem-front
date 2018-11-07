@@ -60,7 +60,7 @@ export default {
     transition: 0.25s;
     background-color: #fff;
     padding: 30px 50px;
-    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+    box-shadow: $primaryShadow;
     @media ($laptop) {
         padding: 30px 30px;
     }

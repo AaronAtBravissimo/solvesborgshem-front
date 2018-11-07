@@ -91,7 +91,7 @@ export default {
     width: 100%;
     background-color: #ffffff;
     padding: 20px;
-    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+    box-shadow: $primaryShadow;
     text-align: center;
     display: flex;
     flex-direction: column;

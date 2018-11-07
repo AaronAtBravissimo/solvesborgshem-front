@@ -48,7 +48,7 @@ export default {
 <style lang="scss" scoped>
 .shortcuts {
     background-color: #ffffff;
-    box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0.1);
+    box-shadow: $primaryShadow;
     padding: 40px 0;
     margin-bottom: 50px;
     @media ($mobile) {
