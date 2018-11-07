@@ -77,12 +77,14 @@
     }
     @media ($tablet) {
         padding: 50px 30px;
+        margin-bottom: 40px;
     }
     @media ($smallTablet) {
         padding: 40px 30px;
     }
     @media ($mobile) {
         padding: 30px 15px;
+        margin-bottom: 30px;
     }
 }
 

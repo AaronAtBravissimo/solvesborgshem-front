@@ -48,7 +48,6 @@ export default {
 <style lang="scss" scoped>
 .shortcuts {
     padding: 40px 0;
-    margin-bottom: 50px;
     @media ($mobile) {
         padding: 30px 0;
     }
