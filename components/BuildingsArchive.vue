@@ -17,7 +17,7 @@
                 <div class="mapFilter">
                     <AppButton
                         label="Kartfiltrering"
-                        class="ml-8"
+                        class="mapFilterButton"
                         @clicked="showMap = !showMap"
                     />
                 </div>
@@ -153,16 +153,81 @@ export default {
 <style lang="scss" scoped>
 $columnGutter: 15px;
 
-.buildingsArchive /deep/ .searchInput {
-    @media ($largeTablet) {
-        width: 400px;
+.buildingsArchive /deep/ {
+    .searchFilterBox {
+        @media ($smallTablet) {
+            flex-wrap: wrap;
+        }
     }
-    @media ($tablet) {
-        width: 300px;
+    .searchForm {
+        @media ($mediumTablet) {
+            width: calc(100% - 185px);
+        }
+        @media ($smallTablet) {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+        }
+    }
+    .searchForm .text {
+        @media ($largeTablet) {
+            display: none;
+        }
+    }
+    .searchInput {
+        @media ($largeDesktop) {
+            width: 400px;
+        }
+        @media ($smallDesktop) {
+            width: 350px;
+        }
+        @media ($largeTablet) {
+            width: 300px;
+        }
+        @media ($tablet) {
+            width: 200px;
+        }
+        @media ($mediumTablet) {
+            width: 100%;
+        }
+    }
+    .filterHolder {
+        @media ($laptop) {
+            width: auto;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+        @media ($mediumTablet) {
+            margin-right: 0;
+        }
+        @media ($smallTablet) {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+    .filterHolder .text {
+        @media ($laptop) {
+            display: none;
+        }
+    }
+    .select {
+        @media ($largeDesktop) {
+            width: 250px;
+        }
+        @media ($smallDesktop) {
+            width: 200px;
+        }
+        @media ($tablet) {
+            width: 170px;
+        }
+        @media ($smallTablet) {
+            width: 100%;
+        }
     }
 }
-.buildingsArchive /deep/ .searchForm .text {
-    @media ($tablet) {
+.mapFilter {
+    @media ($mediumTablet) {
         display: none;
     }
 }

@@ -19,7 +19,7 @@
             <AppButton
                 :icon="searchIcon"
                 class="searchButton flex-no-shrink"
-                label="Sök här"
+                label="Sök"
                 type="submit"
             />
         </form>
@@ -79,6 +79,7 @@ export default {
 }
 .searchInput {
     width: 500px;
+    max-width: 100%;
     border-radius: 6px;
     padding: 12px 20px;
     border: solid 1px #cfcfcf;
@@ -88,28 +89,32 @@ export default {
     line-height: normal;
     color: $primaryTextColor;
     margin-right: 15px;
+    @media ($tablet) {
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+    @media ($mobile) {
+        width: calc(100% - 30px);
+        padding: 12px 15px;
+        font-size: 14px;
+    }
 }
-.searchButton:focus {
-    outline-color: $primaryTextColor;
+.searchButton {
+    @media ($tablet) {
+        min-width: 0;
+    }
+    &:focus {
+        outline-color: $primaryTextColor;
+    }
 }
 .filterHolder {
     flex-shrink: 0;
     margin-left: 30px;
-    @media ($laptop) {
-        width: 200px;
-        margin-left: 15px;
-    }
-    .text {
-        @media ($laptop) {
-            display: none;
-        }
-    }
+    margin-right: 30px;
 }
 .select {
     width: 300px;
-    @media ($laptop) {
-        width: 100%;
-    }
+    max-width: 100%;
 }
 .text {
     margin-bottom: 0;

@@ -124,9 +124,12 @@ export default {
 
 <style lang="scss" scoped>
 $borderColor: #ffffff;
+
 $arrowSize: 16px;
 $arrowSizeMobile: 14px;
+
 $verticalPadding: 25px;
+$verticalPaddingTablet: 18px;
 $verticalPaddingMobile: 15px;
 
 .select {
@@ -149,6 +152,9 @@ $verticalPaddingMobile: 15px;
     }
     &.isOpen .dropDownToggle {
         padding: 16px $verticalPadding 21px;
+        @media ($tablet) {
+            padding: 16px $verticalPaddingTablet 21px;
+        }
         @media ($mobile) {
             padding: 16px $verticalPaddingMobile 21px;
         }
@@ -171,13 +177,16 @@ $verticalPaddingMobile: 15px;
     border-radius: 6px;
     box-shadow: 7.5px 13px 30px 0 rgba(13, 42, 56, 0.1);
     outline: 0 !important;
+    @media ($tablet) {
+        padding: 16px $verticalPaddingTablet;
+    }
     @media ($mobile) {
         padding: 16px $verticalPaddingMobile;
     }
     &::after {
         content: "";
         position: absolute;
-        right: 24px;
+        right: $verticalPadding;
         top: 50%;
         margin-top: (-$arrowSize / 2);
         width: $arrowSize;
@@ -185,8 +194,11 @@ $verticalPaddingMobile: 15px;
         background: url("../assets/images/icon-arrow.svg") no-repeat center;
         background-size: 100%;
         transition: 0.25s;
+        @media ($tablet) {
+            right: $verticalPaddingTablet;
+        }
         @media ($mobile) {
-            right: 16px;
+            right: $verticalPaddingMobile;
             margin-top: (-$arrowSizeMobile / 2);
             width: $arrowSizeMobile;
             height: $arrowSizeMobile;
@@ -236,6 +248,9 @@ $verticalPaddingMobile: 15px;
     align-items: center;
     font-weight: 400;
     padding: 12px $verticalPadding;
+    @media ($tablet) {
+        padding: 12px $verticalPaddingTablet;
+    }
     @media ($mobile) {
         padding: 12px $verticalPaddingMobile;
     }
