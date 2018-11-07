@@ -163,15 +163,7 @@ $gutterTablet: 25px;
 }
 
 .headingHolder {
-    text-align: center;
     margin-top: -9px;
-    margin-bottom: 67px;
-    @media ($tablet) {
-        margin-bottom: 30px;
-    }
-    @media ($smallTablet) {
-        margin-bottom: 0;
-    }
 }
 .columns {
     margin-left: -$gutter;

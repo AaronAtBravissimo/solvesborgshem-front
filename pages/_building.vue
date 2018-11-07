@@ -208,14 +208,6 @@ $columnsGutter: 25px;
          padding: 30px 15px;
      }
 }
-.headingHolder {
-    text-align: center;
-    margin-top: 11px;
-    margin-bottom: 67px;
-    @media ($tablet) {
-        margin-bottom: 30px;
-    }
-}
 .heading {
     @media ($smallerTablet) {
         word-break: break-all;

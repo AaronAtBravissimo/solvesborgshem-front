@@ -1,5 +1,5 @@
 <template>
-    <section class="shortcuts">
+    <section class="shortcuts box">
         <div
             v-if="heading"
             class="container"
@@ -47,27 +47,12 @@ export default {
 
 <style lang="scss" scoped>
 .shortcuts {
-    background-color: #ffffff;
-    box-shadow: $primaryShadow;
     padding: 40px 0;
     margin-bottom: 50px;
     @media ($mobile) {
         padding: 30px 0;
     }
 }
-
-.headingHolder {
-    text-align: center;
-    margin-top: 11px;
-    margin-bottom: 67px;
-    @media ($tablet) {
-        margin-bottom: 30px;
-    }
-    @media ($smallTablet) {
-        margin-bottom: 0;
-    }
-}
-
 .columns {
     display: flex;
     flex-wrap: wrap;
