@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs flex justify-center">
+    <div class="tabs flex flex-wrap justify-center">
         <div
             v-for="(tab, index) in tabs"
             :key="index"
@@ -43,10 +43,33 @@ export default {
 
 <style lang="scss" scoped>
 .tabs {
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    @media ($tablet) {
+        margin-bottom: 35px;
+    }
+    @media ($smallTablet) {
+        margin-bottom: 25px;
+    }
+    @media ($mobile) {
+        margin-bottom: 15px;
+    }
 }
 .tab {
-    margin: 0 10px;
+    margin: 0 10px 20px;
+    @media ($tablet) {
+        margin: 0 8px 16px;
+    }
+    @media ($smallTablet) {
+        margin: 0 6px 12px;
+    }
+    @media ($mobile) {
+        margin: 0 4px 8px;
+    }
+    /deep/ .button {
+        @media ($smallTablet) {
+            min-width: 0;
+        }
+    }
     /deep/ .button:focus {
         outline: 2px solid $primaryTextColor;
         outline-offset: 3px;

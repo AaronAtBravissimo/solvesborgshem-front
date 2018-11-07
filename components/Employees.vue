@@ -159,6 +159,9 @@ $marginBottom: 50px;
     @media ($smallTablet) {
         padding: 30px 0;
     }
+    @media ($mobile) {
+        margin-bottom: -30px;
+    }
     &::after {
         content: "";
         position: absolute;
