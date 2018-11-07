@@ -26,8 +26,8 @@
                 <b>
                     Tel:
                     <a
+                        :href="`tel:${employee.phone}`"
                         class="link"
-                        href="`tel:${employee.phone}`"
                     >
                         {{ employee.phone }}
                     </a>
@@ -40,8 +40,8 @@
                 <b>
                     E-post:
                     <a
+                        :href="`mailto:${employee.mail}`"
                         class="link"
-                        href="`mailto:${employee.mail}`"
                     >
                         {{ employee.mail }}
                     </a>
