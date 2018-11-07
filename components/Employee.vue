@@ -82,6 +82,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.employee {
+    @media ($largeDesktop) {
+        flex-wrap: wrap;
+    }
+    @media ($smallTablet) {
+        justify-content: center;
+    }
+}
 .image {
     flex-shrink: 0;
     width: 236px;
@@ -92,21 +100,17 @@ export default {
     @media ($largeDesktop) {
         width: 200px;
         height: 200px;
-    }
-    @media ($smallDesktop) {
-        margin-bottom: 30px;
+        margin: 0 auto 30px;
     }
     @media ($tablet) {
-        margin-bottom: 0;
+        margin-bottom: 20px;
         width: 180px;
         height: 180px;
     }
     @media ($mediumTablet) {
         width: 160px;
         height: 160px;
-    }
-    @media ($smallTablet) {
-        margin-bottom: 30px;
+        margin: 0 0 20px;
     }
     @media ($mobile) {
         width: 120px;
@@ -116,9 +120,31 @@ export default {
 .infoHolder {
     flex-shrink: 1;
     padding-left: 60px;
+    @media ($largeDesktop) {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+    @media ($mediumTablet) {
+        width: auto;
+        padding-left: 30px;
+        text-align: left;
+    }
+    @media ($smallTablet) {
+        width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
 }
 .heading {
     margin-bottom: 5px;
+    @media ($tablet) {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+    @media ($mobile) {
+        letter-spacing: 2px;
+    }
 }
 .title {
     font-family: $secondaryFont;
@@ -127,6 +153,15 @@ export default {
     font-weight: 300;
     line-height: 1.3;
     margin-bottom: 15px;
+    @media ($tablet) {
+        font-size: 18px;
+    }
+    @media ($smallTablet) {
+        font-size: 17px;
+    }
+    @media ($mobile) {
+        font-size: 16px;
+    }
 }
 .description {
     margin-bottom: 15px;
@@ -140,5 +175,14 @@ export default {
 p {
     font-size: 16px;
     margin-bottom: 0;
+    @media ($tablet) {
+        font-size: 15px;
+    }
+    @media ($smallTablet) {
+        font-size: 14px;
+    }
+    @media ($mobile) {
+        font-size: 13px;
+    }
 }
 </style>

@@ -153,6 +153,12 @@ $marginBottom: 50px;
     padding: 35px 0;
     margin-bottom: -#{$marginBottom};
     position: relative;
+    @media ($mediumTablet) {
+        padding: 35px 30px;
+    }
+    @media ($smallTablet) {
+        padding: 30px 0;
+    }
     &::after {
         content: "";
         position: absolute;
@@ -171,8 +177,11 @@ $marginBottom: 50px;
     position: relative;
     z-index: 1;
     margin-bottom: #{$marginBottom};
-    @media ($tablet) {
+    @media ($mediumTablet) {
         width: 100%;
+    }
+    @media ($mobile) {
+        margin-bottom: 30px;
     }
     &:nth-child(even) .employee {
         padding-left: 68px;
@@ -185,8 +194,8 @@ $marginBottom: 50px;
         @media ($tablet) {
             padding-left: 30px;
         }
-        @media ($mobile) {
-            padding-left: 15px;
+        @media ($mediumTablet) {
+            padding: 0;
         }
     }
     &:nth-child(odd) .employee {
@@ -200,8 +209,8 @@ $marginBottom: 50px;
         @media ($tablet) {
             padding-right: 30px;
         }
-        @media ($mobile) {
-            padding-right: 15px;
+        @media ($mediumTablet) {
+            padding: 0;
         }
     }
 }
