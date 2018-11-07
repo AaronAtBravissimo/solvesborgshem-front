@@ -90,9 +90,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.buildingsArchiveMap {
+    @media ($mediumTablet) {
+        display: none;
+    }
+}
 .vue-map-container {
     width: 100%;
-    height: 650px;
+    height: 500px;
     margin-bottom: 30px;
+    @media ($tablet) {
+        height: 400px;
+    }
 }
 </style>
