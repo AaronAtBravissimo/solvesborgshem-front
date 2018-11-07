@@ -137,11 +137,15 @@ export default {
     opacity: 0.6;
     mix-blend-mode: overlay;
     transition: 0.35s;
+    border-radius: 100%;
+    overflow: hidden;
 }
 .imageNotMixed {
     z-index: 15;
     opacity: 0;
     transition: 0.35s;
+    border-radius: 100%;
+    overflow: hidden;
 }
 .imageOverlay {
     z-index: 5;
