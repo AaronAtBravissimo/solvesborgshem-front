@@ -14,7 +14,12 @@
             :active="currentFilter"
             @changed="val => currentFilter = val"
         />
-        <div class="columns flex flex-wrap">
+        <div
+            :id="`tabGroup-${currentFilter}`"
+            :aria-labelledby="`tab-${currentFilter}`"
+            aria-hidden="false"
+            class="columns flex flex-wrap"
+        >
             <transition-group
                 class="column"
                 name="fade-in"

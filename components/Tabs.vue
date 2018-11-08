@@ -6,8 +6,11 @@
             class="tab"
         >
             <AppButton
+                :id="`tab-${index}`"
                 :class="{'notActive': active !== index}"
                 :label="tab.name"
+                :aria-expanded="active === index ? 'true' : 'false'"
+                :aria-controls="`tabGroup-${index}`"
                 @clicked="changeTab(index)"
             />
         </div>
