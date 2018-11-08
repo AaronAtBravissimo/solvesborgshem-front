@@ -13,7 +13,7 @@
                 />
                 <AppImage
                     :image="image.sizes.large"
-                    :alt="image.alt"
+                    alt=""
                     class="imageNotMixed ab100"
                 />
                 <div class="imageOverlay ab100"></div>
