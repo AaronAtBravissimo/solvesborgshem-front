@@ -22,6 +22,7 @@
                 v-for="(item, index) in itemsFixed"
                 :key="index"
                 :class="{'isFocused': focusedItem === index, 'isSelected': selected === index}"
+                :aria-selected="selected === index ? 'true' : 'false'"
                 class="dropdownItem"
                 @click="changeActive(index)"
             >
