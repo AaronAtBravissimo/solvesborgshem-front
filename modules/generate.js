@@ -56,11 +56,31 @@ async function generateToggles(dir) {
     });
 }
 
+async function generateMenu(dir) {
+    const res = await axios.get(`${apiUrl}/menus/v1/menus/primary`);
+
+    const path = `${dir}/menu.json`;
+    fs.writeFile(path, JSON.stringify(res.data), (err) => {
+        if (err) throw err;
+    });
+}
+
+async function generateOptions(dir) {
+    const res = await axios.get(`${apiUrl}/acf/v3/options/options`);
+
+    const path = `${dir}/options.json`;
+    fs.writeFile(path, JSON.stringify(res.data.acf), (err) => {
+        if (err) throw err;
+    });
+}
+
 export default async function generateJsonFiles(dir) {
     await generatePages(dir);
     await generateBuildings(dir);
     await generateEmployees(dir);
     await generateToggles(dir);
+    await generateMenu(dir);
+    await generateOptions(dir);
 
     console.log('Done generating JSON files');
 }
