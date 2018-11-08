@@ -22,28 +22,14 @@
             class="columns flex flex-wrap"
         >
             <transition-group
+                v-for="(toggleGroup, index) in toggleGroups"
+                :key="index"
                 class="column"
                 name="fade-in"
                 tag="div"
             >
                 <Accordion
-                    v-for="(toggle, index) in togglesOut"
-                    v-if="index % 2 == 0"
-                    :key="toggle.id"
-                    :accordion-number="toggle.id"
-                    :heading="toggle.heading"
-                >
-                    <div v-html="toggle.body"></div>
-                </Accordion>
-            </transition-group>
-            <transition-group
-                class="column"
-                name="fade-in"
-                tag="div"
-            >
-                <Accordion
-                    v-for="(toggle, index) in togglesOut"
-                    v-if="index % 2 == 1"
+                    v-for="toggle in toggleGroup"
                     :key="toggle.id"
                     :accordion-number="toggle.id"
                     :heading="toggle.heading"
@@ -107,7 +93,7 @@ export default {
 
             return categories.sort((a, b) => a.sort_order - b.sort_order);
         },
-        togglesOut() {
+        toggleGroups() {
             let togglesAll = this.toggles;
 
             if (this.currentFilter !== null) {
@@ -135,7 +121,21 @@ export default {
                 togglesAll = res;
             }
 
-            return togglesAll;
+            const fixedOrder = {
+                left: [],
+                right: [],
+            };
+
+            for (let i = 0; i < togglesAll.length; i++) {
+                if (i % 2 === 0) {
+                    fixedOrder.left.push(togglesAll[i]);
+                }
+                if (i % 2 === 1) {
+                    fixedOrder.right.push(togglesAll[i]);
+                }
+            }
+
+            return fixedOrder;
         },
     },
     created() {
