@@ -5,6 +5,7 @@
     >
         <div
             v-if="active"
+            role="alert"
             class="cookieNotice"
             tabindex="2"
         >
