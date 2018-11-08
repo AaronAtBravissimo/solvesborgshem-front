@@ -38,7 +38,7 @@ export default {
         path = path.replace(/\//g, '-_-');
         path = path.replace(/\\/g, '-_-');
         const data = await import(`../static/json/${path}.json`);
-        return { page: data };
+        return { page: Object.assign({}, data) };
     },
     async mounted() {
         const page = await updatePage(this.$route.path);
