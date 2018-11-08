@@ -7,30 +7,30 @@
         class="button"
         @click="$emit('clicked')"
     >
-        <div class="flex">
-            <div class="inner">
+        <span class="flex">
+            <span class="inner">
                 <img
                     v-if="icon"
                     :src="icon"
                     :alt="imageAlt"
                     class="icon"
                 >
-                <div
+                <span
                     v-if="counter"
                     class="counter flex items-center justify-center"
                 >
                     {{ counter }}
-                </div>
-                <div class="label">{{ label }}</div>
-            </div>
-        </div>
-        <div class="loading">
+                </span>
+                <span class="label">{{ label }}</span>
+            </span>
+        </span>
+        <span class="loading">
             <img
                 class="loadingIcon"
                 src="../assets/images/spinner.svg"
                 alt=""
             >
-        </div>
+        </span>
     </component>
 </template>
 
