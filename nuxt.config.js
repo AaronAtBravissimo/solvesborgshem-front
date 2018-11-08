@@ -108,6 +108,7 @@ module.exports = {
         fallback: true,
         apiCacheDir: 'static/json/',
         interval: 500,
+        concurrency: 10,
         routes() {
             return getRoutes();
         },
