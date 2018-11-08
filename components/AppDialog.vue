@@ -40,11 +40,9 @@
                                         ref="innerClose"
                                         type="button"
                                         class="innerClose"
+                                        @click="close()"
                                     >
-                                        <div
-                                            class="innerCloseText"
-                                            @click="close()"
-                                        >
+                                        <div class="innerCloseText">
                                             Stäng denna rutan
                                         </div>
                                     </button>
@@ -88,15 +86,22 @@ export default {
         };
     },
     mounted() {
-        document.addEventListener('focus', this.trapFocus, true);
         document.body.classList.add('overflow-hidden');
+        document.addEventListener('focus', this.trapFocus, true);
+        document.addEventListener('keydown', this.keyListener);
         this.$refs.dialog.focus();
     },
     destroyed() {
         document.body.classList.remove('overflow-hidden');
         document.removeEventListener('focus', this.trapFocus, true);
+        document.addEventListener('keydown', this.keyListener);
     },
     methods: {
+        keyListener(event) {
+            if (event.keyCode === 27) { // escape
+                this.close();
+            }
+        },
         trapFocus(event) {
             if (event.target === this.$refs.last) {
                 this.$refs.close.focus();
