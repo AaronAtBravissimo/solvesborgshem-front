@@ -67,6 +67,7 @@ module.exports = {
     ** Plugins to load before mounting the App
     */
     plugins: [
+        '~/plugins/axios-middleware.js',
         { src: '~/plugins/vue2-google-maps', ssr: false},
         { src: '~/plugins/polyfills', ssr: false },
         '~/plugins/app-link',

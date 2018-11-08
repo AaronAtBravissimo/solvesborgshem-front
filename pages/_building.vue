@@ -130,7 +130,7 @@ export default {
         path = path.replace(/\//g, '-_-');
         path = path.replace(/\\/g, '-_-');
         const data = await import(`../static/json/${path}.json`);
-        return { building: data };
+        return { building: Object.assign({}, data) };
     },
     computed: {
         slug() {
