@@ -2,6 +2,7 @@
     <div class="buildingsArchive">
         <SearchFilterBox
             :keyword="currentSearch"
+            aria-label-for-search="Sök efter bostäder på webbplatsen"
             search-label="Sök efter bostad:"
             @search="searchChanged"
         >
@@ -11,11 +12,15 @@
                     <Select
                         ref="filter"
                         :items="filters"
+                        name="areaFilter"
                         @changed="filterChanged"
                     />
                 </div>
                 <div class="mapFilter">
                     <AppButton
+                        :aria-expanded="showMap.toString()"
+                        aria-controls="buildingsArchiveMap"
+                        aria-label="Öppnar sektion med karta"
                         label="Kartfiltrering"
                         class="mapFilterButton"
                         @clicked="showMap = !showMap"

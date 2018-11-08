@@ -119,16 +119,6 @@ $iconSize: 22px;
 $iconSizeSmallTablet: 18px;
 $iconSizeMobile: 16px;
 
-.fade-in-enter-active {
-    transition: all 0.5s ease;
-}
-.fade-in-leave-active {
-    opacity: 0;
-}
-.fade-in-enter {
-    opacity: 0;
-}
-
 .expandedSearch {
     background-color: $primaryTextColor;
     margin-left: -50px;

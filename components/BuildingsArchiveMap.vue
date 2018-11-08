@@ -1,5 +1,8 @@
 <template>
-    <div class="buildingsArchiveMap">
+    <div
+        id="buildingsArchiveMap"
+        class="buildingsArchiveMap"
+    >
         <no-ssr>
             <gmap-map
                 ref="gmap"

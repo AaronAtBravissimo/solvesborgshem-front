@@ -1,6 +1,7 @@
 <template>
     <div class="searchFilterBox flex justify-center items-center">
         <form
+            role="search"
             class="searchForm flex items-center"
             @submit.prevent="searchHandler"
         >
@@ -12,9 +13,11 @@
             </p>
             <input
                 :value="keyword"
+                :aria-label="ariaLabelForSearch"
                 type="search"
                 class="searchInput"
                 placeholder="Ange önskat sökord..."
+
             >
             <AppButton
                 :icon="searchIcon"
@@ -42,6 +45,10 @@ export default {
             default: null,
         },
         searchLabel: {
+            type: String,
+            default: null,
+        },
+        ariaLabelForSearch: {
             type: String,
             default: null,
         },
@@ -120,5 +127,8 @@ export default {
     margin-bottom: 0;
     margin-right: 15px;
     flex-shrink: 0;
+}
+.mapFilterButton:focus {
+    outline-color: #404040;
 }
 </style>

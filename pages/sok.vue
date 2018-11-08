@@ -3,6 +3,7 @@
         <TopSection :top-section="topSection"/>
         <SearchFilterBox
             :keyword="keyword"
+            aria-label-for-search="Sök igenom innehåll på webbplatsen"
             @search="searchHandler"
         />
         <Spinner v-if="loading"/>
