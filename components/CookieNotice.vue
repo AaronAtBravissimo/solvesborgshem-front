@@ -13,6 +13,7 @@
                 Vi använder cookies för att ge dig den bästa upplevelsen av vår webbplats.
                 Genom att fortsätta använda webbplatsen godkänner du detta.
                 <button
+                    id="CookeNotice__ReadMore"
                     class="readMore"
                     tabindex="2"
                     @click="termsOpen = true"
@@ -33,6 +34,7 @@
                     :aria-hidden="termsOpen ? 'false' : 'true'"
                     :content="termsText.content"
                     :heading="termsText.heading"
+                    :focus-on-close="'#CookeNotice__ReadMore'"
                     dialog-id="cookieinformation"
                     @close="termsOpen = false"
                 />
