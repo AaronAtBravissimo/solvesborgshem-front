@@ -77,6 +77,10 @@ export default {
             type: String,
             required: true,
         },
+        focusOnClose: {
+            type: String,
+            default: null,
+        },
     },
     data() {
         return {
@@ -89,8 +93,8 @@ export default {
         this.$refs.dialog.focus();
     },
     destroyed() {
-        document.removeEventListener('focus', this.trapFocus, true);
         document.body.classList.remove('overflow-hidden');
+        document.removeEventListener('focus', this.trapFocus, true);
     },
     methods: {
         trapFocus(event) {
@@ -110,6 +114,10 @@ export default {
             }
         },
         close() {
+            if (this.focusOnClose) {
+                document.querySelector(this.focusOnClose).focus();
+            }
+
             this.$emit('close');
         },
     },
