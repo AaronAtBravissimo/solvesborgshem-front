@@ -31,7 +31,6 @@
                 alt=""
             >
         </div>
-
     </component>
 </template>
 

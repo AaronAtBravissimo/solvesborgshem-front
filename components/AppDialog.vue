@@ -40,10 +40,10 @@
                                         ref="innerClose"
                                         type="button"
                                         class="innerClose"
+                                        @click="close()"
                                     >
                                         <div
                                             class="innerCloseText"
-                                            @click="close()"
                                         >
                                             Stäng denna rutan
                                         </div>
