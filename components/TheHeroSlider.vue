@@ -32,6 +32,7 @@
             </div>
             <div class="buttons flex justify-center">
                 <button
+                    aria-label="Bläddra vänster i bildspelet"
                     class="flex items-center justify-center"
                     @click="prevHandler"
                 >
@@ -42,6 +43,7 @@
                     >
                 </button>
                 <button
+                    :aria-label="interval ? 'Pausa bildspelet' : 'Spela bildspelet'"
                     class="flex items-center justify-center"
                     @click="pause"
                 >
@@ -59,6 +61,7 @@
                     >
                 </button>
                 <button
+                    aria-label="Bläddra höger i bildspelet"
                     class="flex items-center justify-center"
                     @click="nextHandler"
                 >
