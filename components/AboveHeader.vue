@@ -20,6 +20,7 @@
                     label="Felanmälan"
                     class="iconAndLabel"
                     url="/kundtjanst/"
+                    image-alt="Ikon med verktyg"
                 />
                 <AppButton
                     :icon="customizeIcon"

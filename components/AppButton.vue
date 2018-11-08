@@ -12,6 +12,7 @@
                 <img
                     v-if="icon"
                     :src="icon"
+                    :alt="imageAlt"
                     class="icon"
                 >
                 <div
@@ -77,6 +78,10 @@ export default {
             default: null,
         },
         ariaExpanded: {
+            type: String,
+            default: '',
+        },
+        imageAlt: {
             type: String,
             default: '',
         },
