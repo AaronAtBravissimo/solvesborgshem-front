@@ -16,9 +16,9 @@
             @changed="val => currentFilter = val"
         />
         <transition-group
-            :id="`tabGroup-${currentFilter}-${moduleNumber}`"
-            :aria-labelledby="`tab-${currentFilter}`"
-            role="tabpanel"
+            :id="showAll ? `tabGroup-${currentFilter}-${moduleNumber}` : false"
+            :aria-labelledby="showAll ? `tab-${currentFilter}` : false"
+            :role="showAll ? 'tabpanel' : false"
             class="columns flex flex-wrap"
             name="fade-in"
             tag="div"
