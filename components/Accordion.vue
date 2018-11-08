@@ -4,23 +4,24 @@
         class="accordion"
         role="presentation"
     >
-        <button
-            :id="`accordionButton-${accordionNumber}`"
-            :aria-controls="`accordionBody-${accordionNumber}`"
-            :aria-expanded="open.toString()"
-            role="heading"
-            type="button"
-            class="header w-full"
-            @click="toggle()"
-        >
-            <span class="inner flex">
-                <h3 class="heading">{{ heading }}</h3>
-                <img
-                    :src="arrow"
-                    class="buttonIcon"
+        <div role="heading">
+            <h3 class="mb-0">
+                <button
+                    :id="`accordionButton-${accordionNumber}`"
+                    :aria-controls="`accordionBody-${accordionNumber}`"
+                    :aria-expanded="open.toString()"
+                    type="button"
+                    class="inner flex w-full"
+                    @click="toggle()"
                 >
-            </span>
-        </button>
+                    <span class="h3 heading">{{ heading }}</span>
+                    <img
+                        :src="arrow"
+                        class="buttonIcon"
+                    >
+                </button>
+            </h3>
+        </div>
         <transition
             @enter="slideDown"
             @leave="slideUp"
@@ -102,29 +103,23 @@ $buttonSize: 24px;
 $buttonSizeSmallTablet: 20px;
 $buttonSizeMobile: 16px;
 
-.header {
+.accordion .inner {
     cursor: pointer;
     border-bottom: 1px solid #e8e8e8;
     padding-bottom: 15px;
+    position: relative;
+    padding-right: #{$buttonSize * 2};
     transition: 0.35s;
     @media ($smallTablet) {
+        padding-right: #{$buttonSizeSmallTablet * 2};
         padding-bottom: 12px;
     }
     @media ($mobile) {
+        padding-right: #{$buttonSizeMobile * 2};
         padding-bottom: 10px;
     }
     &:hover .heading {
         color: $primaryColor;
-    }
-}
-.inner {
-    position: relative;
-    padding-right: #{$buttonSize * 2};
-    @media ($smallTablet) {
-        padding-right: #{$buttonSizeSmallTablet * 2};
-    }
-    @media ($mobile) {
-        padding-right: #{$buttonSizeMobile * 2};
     }
 }
 .heading {
@@ -150,11 +145,13 @@ $buttonSizeMobile: 16px;
 .buttonIcon {
     position: absolute;
     right: 0;
-    top: 50%;
-    margin-top: -#{$buttonSize / 2};
+    top: 7px;
     width: $buttonSize;
     height: $buttonSize;
     transition: 0.35s;
+    @media ($laptop) {
+        top: 4px;
+    }
     @media ($smallTablet) {
         width: $buttonSizeSmallTablet;
         height: $buttonSizeSmallTablet;
@@ -187,7 +184,7 @@ $buttonSizeMobile: 16px;
 }
 
 .accordion.isOpen {
-    .header {
+    .inner {
         border-color: $primaryColor;
     }
     .heading {
