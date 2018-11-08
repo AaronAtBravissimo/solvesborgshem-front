@@ -6,12 +6,14 @@
         <div
             v-if="active"
             class="cookieNotice"
+            tabindex="2"
         >
             <p class="inner">
                 Vi använder cookies för att ge dig den bästa upplevelsen av vår webbplats.
                 Genom att fortsätta använda webbplatsen godkänner du detta.
                 <button
                     class="readMore"
+                    tabindex="2"
                     @click="termsOpen = true"
                 >
                     Läs mer
@@ -20,6 +22,7 @@
             <button
                 class="close"
                 aria-label="Stäng notisen som visar information om cookies"
+                tabindex="2"
                 @click="close()"
             >
             </button>
