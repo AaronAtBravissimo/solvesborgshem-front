@@ -7,8 +7,8 @@
             v-show="searchOpen"
             id="expandedSearch"
             :aria-hidden="!searchOpen ? 'true' : 'false'"
-            class="expandedSearch relative"
             aria-labelledby="searchButton"
+            class="expandedSearch relative"
         >
             <div class="container">
                 <div class="inner flex items-center justify-center">

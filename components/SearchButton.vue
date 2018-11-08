@@ -5,8 +5,8 @@
         :aria-expanded="searchOpen.toString()"
         aria-controls="expandedSearch"
         aria-label="Öppna sektion för att kunna söka"
-        label="Sök"
         class="searchButton iconAndLabel"
+        label="Sök"
         @clicked="toggleSearch()"
     />
 </template>

@@ -113,8 +113,14 @@ export default {
     @media ($smallDesktop) {
         padding: 0 $frameSizeSmallDesktop 90px;
     }
+    @media ($tablet) {
+        padding: 0 $frameSizeSmallDesktop 70px;
+    }
+    @media ($smallTablet) {
+        padding: 0 $frameSizeSmallDesktop 50px;
+    }
     @media ($mobile) {
-        padding: 0 15px 90px;
+        padding: 0 15px 30px;
     }
 }
 </style>

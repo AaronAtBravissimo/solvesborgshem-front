@@ -7,13 +7,13 @@
             v-if="!whiteColor"
             class="block w-full h-full"
             src="../assets/images/logo.svg"
-            alt=""
+            alt="Sölvesborgshems logotyp i svart färg"
         >
         <img
             v-if="whiteColor"
             class="block w-full h-full"
             src="../assets/images/logo-white.svg"
-            alt=""
+            alt="Sölvesborgshems logotyp i vit färg"
         >
     </nuxt-link>
 </template>
