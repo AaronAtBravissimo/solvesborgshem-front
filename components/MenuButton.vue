@@ -1,6 +1,10 @@
 <template>
     <button
+        id="menuButton"
         :class="{'isActive': open}"
+        :aria-expanded="open.toString()"
+        aria-controls="expandedMenu"
+        aria-label="Öppna menyn"
         class="menuButton"
         type="button"
         @click="toggleMenu()"

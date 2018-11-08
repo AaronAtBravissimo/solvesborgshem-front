@@ -1,6 +1,9 @@
 <template>
     <aside
+        id="expandedMenu"
         :class="{'isOpen': open}"
+        :aria-hidden="!open ? 'true' : 'false'"
+        aria-labelledby="menuButton"
         class="expandedMenu"
     >
         <nav class="inner">
