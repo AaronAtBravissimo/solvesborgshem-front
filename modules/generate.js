@@ -76,12 +76,12 @@ async function generateOptions(dir) {
 
 export default async function generateJsonFiles(dir) {
     return Promise.all([
-        await generatePages(dir),
-        await generateBuildings(dir),
-        await generateEmployees(dir),
-        await generateToggles(dir),
-        await generateMenu(dir),
-        await generateOptions(dir),
+        generatePages(dir),
+        generateBuildings(dir),
+        generateEmployees(dir),
+        generateToggles(dir),
+        generateMenu(dir),
+        generateOptions(dir),
     ]);
 }
 
