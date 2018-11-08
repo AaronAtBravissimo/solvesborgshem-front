@@ -2,7 +2,7 @@
     <component
         :is="typeOfElement(url)"
         :class="[{'isLoading': loading, 'isDisabled': disabled}, color]"
-        :aria-expanded="ariaExpanded"
+        :aria-expanded="setAriaExpanded(ariaExpanded)"
         v-bind="setUrlAttr(url)"
         class="button"
         @click="$emit('clicked')"
@@ -78,7 +78,7 @@ export default {
         },
         ariaExpanded: {
             type: String,
-            default: 'false',
+            default: '',
         },
     },
     computed: {
@@ -111,6 +111,9 @@ export default {
             }
 
             return 'a';
+        },
+        setAriaExpanded(ariaExpanded) {
+            return ariaExpanded.length > 0 ? ariaExpanded : false;
         },
     },
 };
