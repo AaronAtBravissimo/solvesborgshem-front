@@ -14,7 +14,7 @@
                 :label="tab.name"
                 :aria-selected="active === index ? 'true' : 'false'"
                 :aria-controls="active === index ? `tabGroup-${index}-${moduleNumber}` : false"
-                :role="active === index ? 'tab' : false"
+                role="tab"
                 @clicked="changeTab(index)"
             />
         </div>
