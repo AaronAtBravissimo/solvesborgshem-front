@@ -30,6 +30,7 @@
                     v-for="(toggle, index) in togglesOut"
                     v-if="index % 2 == 0"
                     :key="toggle.id"
+                    :accordion-number="toggle.id"
                     :heading="toggle.heading"
                 >
                     <div v-html="toggle.body"></div>
@@ -44,6 +45,7 @@
                     v-for="(toggle, index) in togglesOut"
                     v-if="index % 2 == 1"
                     :key="toggle.id"
+                    :accordion-number="toggle.id"
                     :heading="toggle.heading"
                 >
                     <div v-html="toggle.body"></div>

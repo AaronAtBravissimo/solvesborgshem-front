@@ -9,6 +9,9 @@
         >
             <h3 class="heading">{{ heading }}</h3>
             <button
+                :id="`accordionButton-${accordionNumber}`"
+                :aria-controls="`accordionBody-${accordionNumber}`"
+                :aria-expanded="open.toString()"
                 type="button"
                 class="button"
             >
@@ -24,6 +27,8 @@
         >
             <div
                 v-show="open"
+                :id="`accordionBody-${accordionNumber}`"
+                :aria-labelledby="`accordionButton-${accordionNumber}`"
                 class="body"
             >
                 <div class="content">
@@ -43,6 +48,10 @@ export default {
         heading: {
             type: String,
             required: true,
+        },
+        accordionNumber: {
+            type: Number,
+            default: null,
         },
     },
     data: () => ({
