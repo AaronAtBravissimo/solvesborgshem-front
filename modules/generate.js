@@ -75,14 +75,14 @@ async function generateOptions(dir) {
 }
 
 export default async function generateJsonFiles(dir) {
-    await generatePages(dir);
-    await generateBuildings(dir);
-    await generateEmployees(dir);
-    await generateToggles(dir);
-    await generateMenu(dir);
-    await generateOptions(dir);
-
-    console.log('Done generating JSON files');
+    return Promise.all([
+        await generatePages(dir),
+        await generateBuildings(dir),
+        await generateEmployees(dir),
+        await generateToggles(dir),
+        await generateMenu(dir),
+        await generateOptions(dir),
+    ]);
 }
 
 async function init(dir) {
@@ -92,7 +92,11 @@ async function init(dir) {
         }
     });
 
-    return generateJsonFiles(dir);
+    await generateJsonFiles(dir);
+
+    console.log('Done generating JSON files');
+
+    return true;
 }
 
 module.exports = function () {
