@@ -1,7 +1,8 @@
 <template>
     <div
+        :id="name"
         :class="{'isOpen': isOpen, 'isDisabled': disabled}"
-        :aria-expanded="isOpen"
+        :aria-expanded="isOpen.toString()"
         aria-haspopup="true"
         role="menu"
         class="select"
@@ -13,7 +14,10 @@
         >
             {{ activeItem.label }}
         </button>
-        <ul class="dropdown">
+        <ul
+            :aria-labelledby="name"
+            class="dropdown"
+        >
             <li
                 v-for="(item, index) in itemsFixed"
                 :key="index"
@@ -30,6 +34,10 @@
 <script>
 export default {
     props: {
+        name: {
+            type: String,
+            default: null,
+        },
         items: {
             type: Array,
             required: true,

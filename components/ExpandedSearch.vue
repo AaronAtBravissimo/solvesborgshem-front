@@ -6,6 +6,7 @@
         <div
             v-show="searchOpen"
             id="expandedSearch"
+            :aria-hidden="!searchOpen ? 'true' : 'false'"
             class="expandedSearch relative"
             aria-labelledby="searchButton"
         >

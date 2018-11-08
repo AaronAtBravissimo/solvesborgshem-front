@@ -2,7 +2,7 @@
     <AppButton
         id="searchButton"
         :icon="darkStyle ? searchIconDark : searchIcon"
-        :aria-expanded="searchOpen"
+        :aria-expanded="searchOpen.toString()"
         aria-controls="expandedSearch"
         aria-label="Öppna sektion för att kunna söka"
         label="Sök"
@@ -32,11 +32,7 @@ export default {
     }),
     computed: {
         searchOpen() {
-            const open = this.$store.getters.expandedSearchOpen;
-            if (open) {
-                return true;
-            }
-            return false;
+            return this.$store.getters.expandedSearchOpen;
         },
     },
     methods: {

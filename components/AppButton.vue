@@ -77,8 +77,8 @@ export default {
             default: null,
         },
         ariaExpanded: {
-            type: Boolean,
-            default: false,
+            type: String,
+            default: 'false',
         },
     },
     computed: {

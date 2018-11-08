@@ -26,6 +26,7 @@
                     <Select
                         :items="linkSelect"
                         :show-first-item="false"
+                        name="heroSelect"
                         @changed="linkSelectChanged"
                     />
                 </div>
