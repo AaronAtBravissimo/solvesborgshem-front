@@ -15,7 +15,7 @@
                     <AppLink
                         :url="item.url"
                         :target="item.target"
-                        classes="link font-semibold"
+                        class="link font-semibold"
                     >
                         <span v-html="item.title"></span>
                     </AppLink>

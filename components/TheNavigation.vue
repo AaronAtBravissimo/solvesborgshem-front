@@ -9,7 +9,7 @@
                 <AppLink
                     :url="item.url"
                     :target="item.target"
-                    classes="link"
+                    class="link"
                 >
                     <span v-html="item.title"></span>
                 </Applink>

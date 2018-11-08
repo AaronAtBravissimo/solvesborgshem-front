@@ -1,8 +1,7 @@
 <template>
     <component
         :is="typeOfElement(url)"
-        :class="classes"
-        :target="target"
+        :target="fixedTarget"
         v-bind="setUrlAttr(url)"
     >
         <slot></slot>
@@ -21,11 +20,16 @@ export default {
         },
         target: {
             type: String,
-            default: '',
+            default: null,
         },
-        classes: {
-            type: String,
-            default: '',
+    },
+    computed: {
+        fixedTarget() {
+            if (!this.target || this.target === '') {
+                return null;
+            }
+
+            return this.target;
         },
     },
     methods: {
