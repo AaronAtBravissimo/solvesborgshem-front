@@ -72,7 +72,7 @@ export default {
     },
     mounted() {
         if (process.client) {
-            this.$store.dispatch('nuxtServerInit');
+            this.$store.dispatch('refreshData');
         }
     },
 };

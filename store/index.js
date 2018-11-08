@@ -1,12 +1,14 @@
 /* eslint-disable no-param-reassign, import/no-extraneous-dependencies */
 import Vuex from 'vuex';
 import axios from 'axios';
+import menuJson from '../static/json/menu.json';
+import optionsJson from '../static/json/options.json';
 import { apiUrl } from '../utils/config';
 
 const createStore = () => new Vuex.Store({
     state: {
-        menu: {},
-        options: [],
+        menu: menuJson,
+        options: optionsJson,
         expandedMenuOpen: false,
         expandedSearchOpen: false,
     },
@@ -55,7 +57,7 @@ const createStore = () => new Vuex.Store({
             );
             commit('setOptions', { options: res.data.acf });
         },
-        async nuxtServerInit({ dispatch }) {
+        async refreshData({ dispatch }) {
             return Promise.all([
                 dispatch('loadMenu'),
                 dispatch('loadOptions'),
