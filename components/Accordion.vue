@@ -2,25 +2,25 @@
     <div
         :class="{'isOpen': open}"
         class="accordion"
+        role="presentation"
     >
-        <div
-            class="header"
+        <button
+            :id="`accordionButton-${accordionNumber}`"
+            :aria-controls="`accordionBody-${accordionNumber}`"
+            :aria-expanded="open.toString()"
+            role="heading"
+            type="button"
+            class="header w-full"
             @click="toggle()"
         >
-            <h3 class="heading">{{ heading }}</h3>
-            <button
-                :id="`accordionButton-${accordionNumber}`"
-                :aria-controls="`accordionBody-${accordionNumber}`"
-                :aria-expanded="open.toString()"
-                type="button"
-                class="button"
-            >
+            <span class="inner flex">
+                <h3 class="heading">{{ heading }}</h3>
                 <img
                     :src="arrow"
                     class="buttonIcon"
                 >
-            </button>
-        </div>
+            </span>
+        </button>
         <transition
             @enter="slideDown"
             @leave="slideUp"
@@ -29,6 +29,7 @@
                 v-show="open"
                 :id="`accordionBody-${accordionNumber}`"
                 :aria-labelledby="`accordionButton-${accordionNumber}`"
+                role="region"
                 class="body"
             >
                 <div class="content">
@@ -103,21 +104,27 @@ $buttonSizeMobile: 16px;
 
 .header {
     cursor: pointer;
-    position: relative;
-    padding-right: #{$buttonSize * 2};
     border-bottom: 1px solid #e8e8e8;
     padding-bottom: 15px;
-    transition: 0.35s;
     @media ($smallTablet) {
         padding-bottom: 12px;
-        padding-right: #{$buttonSizeSmallTablet * 2};
     }
     @media ($mobile) {
         padding-bottom: 10px;
-        padding-right: #{$buttonSizeMobile * 2};
     }
     &:hover .heading {
         color: $primaryColor;
+    }
+}
+
+.inner {
+    position: relative;
+    padding-right: #{$buttonSize * 2};
+    @media ($smallTablet) {
+        padding-right: #{$buttonSizeSmallTablet * 2};
+    }
+    @media ($mobile) {
+        padding-right: #{$buttonSizeMobile * 2};
     }
 }
 .heading {
@@ -127,8 +134,9 @@ $buttonSizeMobile: 16px;
     letter-spacing: 0;
     font-size: 20px;
     margin-bottom: 0;
-    transition: 0.35s;
+    text-align: left;
     line-height: 1.65;
+    transition: 0.35s;
     @media ($laptop) {
         font-size: 18px;
     }
@@ -139,20 +147,13 @@ $buttonSizeMobile: 16px;
         font-size: 14px;
     }
 }
-.button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    right: 0;
-    top: 0;
-}
 .buttonIcon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -#{$buttonSize / 2};
     width: $buttonSize;
     height: $buttonSize;
-    position: relative;
     transition: 0.35s;
     @media ($smallTablet) {
         width: $buttonSizeSmallTablet;
