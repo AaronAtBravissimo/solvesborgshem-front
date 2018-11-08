@@ -106,6 +106,7 @@ $buttonSizeMobile: 16px;
     cursor: pointer;
     border-bottom: 1px solid #e8e8e8;
     padding-bottom: 15px;
+    transition: 0.35s;
     @media ($smallTablet) {
         padding-bottom: 12px;
     }
@@ -116,7 +117,6 @@ $buttonSizeMobile: 16px;
         color: $primaryColor;
     }
 }
-
 .inner {
     position: relative;
     padding-right: #{$buttonSize * 2};
