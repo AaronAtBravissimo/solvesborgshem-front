@@ -19,14 +19,17 @@
             </p>
             <button
                 class="close"
+                aria-label="Stäng notisen som visar information om cookies"
                 @click="close()"
             >
             </button>
             <portal to="endOfPage">
                 <AppDialog
                     v-if="termsOpen"
+                    :aria-hidden="termsOpen ? 'false' : 'true'"
                     :content="termsText.content"
                     :heading="termsText.heading"
+                    dialog-id="cookieinformation"
                     @close="termsOpen = false"
                 />
             </portal>

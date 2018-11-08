@@ -1,7 +1,10 @@
 <template>
     <transition name="dialog">
         <div
+            :aria-labelledby="dialogId"
             class="dialog"
+            role="dialog"
+            tabindex="-1"
             @click="clickOutSide"
         >
             <div class="wrapper">
@@ -10,22 +13,32 @@
                         <div class="inner">
                             <div class="overflow-hidden mb-8">
                                 <div class="header">
-                                    <h3 class="heading">{{ heading }}</h3>
-                                    <span
+                                    <h3
+                                        :id="dialogId"
+                                        class="heading"
+                                    >
+                                        {{ heading }}
+                                    </h3>
+                                    <button
+                                        type="button"
                                         class="close"
+                                        aria-label="Stäng denna rutan"
                                         @click="close()">
-                                    </span>
+                                    </button>
                                 </div>
                                 <div class="body content">
                                     <div v-html="content"></div>
-                                    <div class="innerClose">
+                                    <button
+                                        type="button"
+                                        class="innerClose"
+                                    >
                                         <div
                                             class="innerCloseText"
                                             @click="close()"
                                         >
                                             Stäng denna rutan
                                         </div>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -44,6 +57,10 @@ export default {
             required: true,
         },
         content: {
+            type: String,
+            required: true,
+        },
+        dialogId: {
             type: String,
             required: true,
         },
@@ -172,7 +189,7 @@ export default {
     display: flex;
     justify-content: center;
     line-height: 1.6;
-    margin-top: 25px;
+    margin: 25px auto 0;
 }
 .innerCloseText {
     position: relative;
