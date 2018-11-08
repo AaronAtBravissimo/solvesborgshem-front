@@ -78,8 +78,10 @@ export default {
         margin-bottom: 35px;
     }
     @media ($mobile) {
-        height: 250px;
+        height: 240px;
         margin-bottom: 30px;
+        width: calc(100% + 30px);
+        margin-left: -15px;
     }
 }
 .preamble {
