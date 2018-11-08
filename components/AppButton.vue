@@ -2,6 +2,7 @@
     <component
         :is="typeOfElement(url)"
         :class="[{'isLoading': loading, 'isDisabled': disabled}, color]"
+        :aria-expanded="ariaExpanded"
         v-bind="setUrlAttr(url)"
         class="button"
         @click="$emit('clicked')"
@@ -74,6 +75,10 @@ export default {
         counter: {
             type: Number,
             default: null,
+        },
+        ariaExpanded: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {

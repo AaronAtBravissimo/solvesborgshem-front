@@ -6,6 +6,7 @@
                     :icon="apartmentsIcon"
                     label="Lediga lägenheter just nu"
                     class="iconAndLabel thinLabel apartmentsIcon noMarginRight"
+                    tabindex="-1"
                 />
                 <AppButton
                     :counter="number"

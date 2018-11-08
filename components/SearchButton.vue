@@ -1,6 +1,10 @@
 <template>
     <AppButton
+        id="searchButton"
         :icon="darkStyle ? searchIconDark : searchIcon"
+        :aria-expanded="searchOpen"
+        aria-controls="expandedSearch"
+        aria-label="Öppna sektion för att kunna söka"
         label="Sök"
         class="searchButton iconAndLabel"
         @clicked="toggleSearch()"
@@ -26,6 +30,15 @@ export default {
         searchIcon,
         searchIconDark,
     }),
+    computed: {
+        searchOpen() {
+            const open = this.$store.getters.expandedSearchOpen;
+            if (open) {
+                return true;
+            }
+            return false;
+        },
+    },
     methods: {
         toggleSearch() {
             this.$store.commit('toggleSearch');

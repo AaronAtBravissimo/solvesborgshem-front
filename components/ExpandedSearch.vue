@@ -5,11 +5,14 @@
     >
         <div
             v-show="searchOpen"
+            id="expandedSearch"
             class="expandedSearch relative"
+            aria-labelledby="searchButton"
         >
             <div class="container">
                 <div class="inner flex items-center justify-center">
                     <form
+                        role="search"
                         class="form w-full relative"
                         @submit.prevent="searchHandler"
                     >
@@ -23,6 +26,7 @@
                             type="search"
                             class="searchField w-full"
                             placeholder="Ange din sökning här..."
+                            aria-label="Sök igenom innehåll på webbplatsen"
                         >
                     </form>
                 </div>
@@ -30,6 +34,7 @@
                     :icon="closeIcon"
                     label="Stäng"
                     class="closeButton iconAndLabel"
+                    aria-label="Stäng sektion för att kunna söka"
                     @clicked="closeSearch()"
                 />
             </div>
