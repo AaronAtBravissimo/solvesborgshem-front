@@ -8,14 +8,14 @@
             class="filter"
             @click="changeFilter(filter.value)"
         >
-            <div class="inner flex items-center">
-                <div class="icon">
+            <span class="inner flex items-center">
+                <span class="icon">
 
-                </div>
-                <div class="label">
+                </span>
+                <span class="label">
                     {{ filter.label }}
-                </div>
-            </div>
+                </span>
+            </span>
         </button>
     </div>
 </template>
