@@ -4,13 +4,20 @@
             :aria-labelledby="dialogId"
             class="dialog"
             role="dialog"
-            tabindex="-1"
             @click="clickOutSide"
         >
+            <div
+                ref="first"
+                tabindex="0">
+            </div>
             <div class="wrapper">
                 <div class="outer">
                     <div class="holder">
-                        <div class="inner">
+                        <div
+                            ref="dialog"
+                            class="inner"
+                            tabindex="-1"
+                        >
                             <div class="overflow-hidden mb-8">
                                 <div class="header">
                                     <h3
@@ -20,6 +27,7 @@
                                         {{ heading }}
                                     </h3>
                                     <button
+                                        ref="close"
                                         type="button"
                                         class="close"
                                         aria-label="Stäng denna rutan"
@@ -29,6 +37,7 @@
                                 <div class="body content">
                                     <div v-html="content"></div>
                                     <button
+                                        ref="innerClose"
                                         type="button"
                                         class="innerClose"
                                     >
@@ -44,6 +53,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div
+                ref="last"
+                tabindex="0">
             </div>
         </div>
     </transition>
@@ -71,12 +84,22 @@ export default {
         };
     },
     mounted() {
+        document.addEventListener('focus', this.trapFocus, true);
         document.body.classList.add('overflow-hidden');
+        this.$refs.dialog.focus();
     },
     destroyed() {
+        document.removeEventListener('focus', this.trapFocus, true);
         document.body.classList.remove('overflow-hidden');
     },
     methods: {
+        trapFocus(event) {
+            if (event.target === this.$refs.last) {
+                this.$refs.close.focus();
+            } else if (event.target === this.$refs.first) {
+                this.$refs.innerClose.focus();
+            }
+        },
         clickOutSide(event) {
             if (
                 event.target.classList.contains('dialog')
@@ -138,6 +161,7 @@ export default {
     max-width: 100%;
     margin: 0 auto;
     padding-bottom: 30px;
+    outline: 0;
 }
 .header {
     background-color: $primaryColor;
