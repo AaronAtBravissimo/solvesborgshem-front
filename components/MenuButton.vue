@@ -9,19 +9,19 @@
         type="button"
         @click="toggleMenu()"
     >
-        <div class="inner">
-            <div
+        <span class="inner">
+            <span
                 v-if="labels"
                 class="labels"
             >
                 <span class="label">{{ label }}</span>
-            </div>
-            <div class="hamburger">
+            </span>
+            <span class="hamburger">
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
-            </div>
-        </div>
+            </span>
+        </span>
     </button>
 </template>
 

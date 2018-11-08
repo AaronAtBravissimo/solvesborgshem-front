@@ -13,8 +13,8 @@
             <div class="right">
                 <div class="textHolder">
                     <h1 class="heading">
-                        <div class="firstRow">{{ heroSection.heading.firstRow }}</div>
-                        <div class="secondRow">{{ heroSection.heading.secondRow }}</div>
+                        <span class="firstRow block">{{ heroSection.heading.firstRow }}</span>
+                        <span class="secondRow block">{{ heroSection.heading.secondRow }}</span>
                     </h1>
                     <p
                         class="preamble"

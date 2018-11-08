@@ -21,10 +21,13 @@
             <div class="infoHolder">
                 <h3 class="heading">{{ heading }}</h3>
                 <p class="text">{{ content }}</p>
-                <AppButton
-                    label="Läs mer"
-                    tabindex="-1"
-                />
+                <div class="button">
+                    <span class="flex">
+                        <span class="inner">
+                            <span class="label">Läs mer</span>
+                        </span>
+                    </span>
+                </div>
             </div>
         </div>
     </Applink>
@@ -85,6 +88,9 @@ export default {
         @media ($mobile) {
             background-color: transparent;
         }
+    }
+    .button {
+        transition: 0.25s;
     }
 }
 .inner {
