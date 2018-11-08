@@ -15,6 +15,9 @@
             @changed="val => currentFilter = val"
         />
         <transition-group
+            :id="`tabGroup-${currentFilter}`"
+            :aria-labelledby="`tab-${currentFilter}`"
+            role="tabpanel"
             class="columns flex flex-wrap"
             name="fade-in"
             tag="div"

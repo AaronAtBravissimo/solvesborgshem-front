@@ -9,8 +9,9 @@
                 :id="`tab-${index}`"
                 :class="{'notActive': active !== index}"
                 :label="tab.name"
-                :aria-expanded="active === index ? 'true' : 'false'"
+                :aria-selected="active === index ? 'true' : 'false'"
                 :aria-controls="`tabGroup-${index}`"
+                role="tab"
                 @clicked="changeTab(index)"
             />
         </div>

@@ -17,7 +17,7 @@
         <div
             :id="`tabGroup-${currentFilter}`"
             :aria-labelledby="`tab-${currentFilter}`"
-            aria-hidden="false"
+            role="tabpanel"
             class="columns flex flex-wrap"
         >
             <transition-group
