@@ -10,7 +10,7 @@
                 :class="{'notActive': active !== index}"
                 :label="tab.name"
                 :aria-selected="active === index ? 'true' : 'false'"
-                :aria-controls="`tabGroup-${index}`"
+                :aria-controls="`tabGroup-${index}-${moduleNumber}`"
                 role="tab"
                 @clicked="changeTab(index)"
             />
@@ -33,6 +33,10 @@ export default {
         active: {
             type: Number,
             required: true,
+        },
+        moduleNumber: {
+            type: Number,
+            default: null,
         },
     },
     methods: {

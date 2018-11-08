@@ -20,6 +20,7 @@
             />
             <Employees
                 v-if="module.acf_fc_layout === 'employees'"
+                :module-number="index"
                 :key="index"
                 :heading="module.heading"
                 :show-all="module.showAll"
@@ -40,6 +41,7 @@
             />
             <Toggles
                 v-if="module.acf_fc_layout === 'toggle'"
+                :module-number="index"
                 :key="index"
                 :heading="module.heading"
                 :show-all="module.showAll"

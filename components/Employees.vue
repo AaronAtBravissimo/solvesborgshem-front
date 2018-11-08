@@ -12,10 +12,11 @@
             v-if="showAll"
             :tabs="sections"
             :active="currentFilter"
+            :module-number="moduleNumber"
             @changed="val => currentFilter = val"
         />
         <transition-group
-            :id="`tabGroup-${currentFilter}`"
+            :id="`tabGroup-${currentFilter}-${moduleNumber}`"
             :aria-labelledby="`tab-${currentFilter}`"
             role="tabpanel"
             class="columns flex flex-wrap"
@@ -56,6 +57,10 @@ export default {
         },
         employeesIds: {
             type: Array,
+            default: null,
+        },
+        moduleNumber: {
+            type: Number,
             default: null,
         },
     },
