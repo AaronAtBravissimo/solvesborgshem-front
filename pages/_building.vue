@@ -208,6 +208,11 @@ $columnsGutter: 25px;
          padding: 30px 15px;
      }
 }
+.headingHolder {
+    @media($smallTablet) {
+        margin-bottom: 30px;
+    }
+}
 .heading {
     @media ($smallerTablet) {
         word-break: break-all;
