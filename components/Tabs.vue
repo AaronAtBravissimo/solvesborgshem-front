@@ -1,5 +1,8 @@
 <template>
-    <div class="tabs flex flex-wrap justify-center">
+    <div
+        role="tablist"
+        class="tabs flex flex-wrap justify-center"
+    >
         <div
             v-for="(tab, index) in tabs"
             :key="index"
