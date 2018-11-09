@@ -15,6 +15,7 @@
             {{ activeItem.label }}
         </button>
         <ul
+            ref="listboxNode"
             :id="`${name}_list`"
             :aria-labelledby="name"
             :aria-activedescendant="`${name}__item__0`"
@@ -23,6 +24,7 @@
         >
             <li
                 v-for="(item, index) in itemsFixed"
+                :ref="`${name}__item__${index}`"
                 :id="`${name}__item__${index}`"
                 :key="index"
                 :class="{'isFocused': focusedItem === index, 'isSelected': selected === index}"
@@ -74,6 +76,22 @@ export default {
             }
 
             return this.items.slice(1);
+        },
+    },
+    watch: {
+        focusedItem(val) {
+            const { listboxNode } = this.$refs;
+            const item = this.$refs[`${this.name}__item__${val}`][0];
+
+            if (listboxNode.scrollHeight > listboxNode.clientHeight) {
+                const scrollBottom = listboxNode.clientHeight + listboxNode.scrollTop;
+                const elementBottom = item.offsetTop + item.offsetHeight;
+                if (elementBottom > scrollBottom) {
+                    listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
+                } else if (item.offsetTop < listboxNode.scrollTop) {
+                    listboxNode.scrollTop = item.offsetTop;
+                }
+            }
         },
     },
     created() {
