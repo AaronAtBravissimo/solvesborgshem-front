@@ -1,36 +1,38 @@
 <template>
-    <AppLink
-        :url="link.url"
-        :target="link.target"
-        class="shortcut flex"
-    >
-        <div class="inner">
-            <div class="imageHolder">
-                <AppImage
-                    :image="image.sizes.large"
-                    :alt="image.alt"
-                    class="image ab100"
-                />
-                <AppImage
-                    :image="image.sizes.large"
-                    alt=""
-                    class="imageNotMixed ab100"
-                />
-                <div class="imageOverlay ab100"></div>
-            </div>
-            <div class="infoHolder">
-                <h3 class="heading">{{ heading }}</h3>
-                <p class="text">{{ content }}</p>
-                <div class="button">
-                    <span class="flex">
-                        <span class="inner">
-                            <span class="label">Läs mer</span>
+    <article>
+        <AppLink
+            :url="link.url"
+            :target="link.target"
+            class="shortcut flex"
+        >
+            <div class="inner">
+                <div class="imageHolder">
+                    <AppImage
+                        :image="image.sizes.large"
+                        :alt="image.alt"
+                        class="image ab100"
+                    />
+                    <AppImage
+                        :image="image.sizes.large"
+                        alt=""
+                        class="imageNotMixed ab100"
+                    />
+                    <div class="imageOverlay ab100"></div>
+                </div>
+                <div class="infoHolder">
+                    <h3 class="heading">{{ heading }}</h3>
+                    <p class="text">{{ content }}</p>
+                    <div class="button">
+                        <span class="flex">
+                            <span class="inner">
+                                <span class="label">Läs mer</span>
+                            </span>
                         </span>
-                    </span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </Applink>
+        </Applink>
+    </article>
 </template>
 
 <script>
@@ -67,8 +69,6 @@ export default {
 
 <style lang="scss" scoped>
 .shortcut {
-    display: block;
-    width: 100%;
     padding: 36px 40px;
     transition: 0.25s;
     &:focus {
