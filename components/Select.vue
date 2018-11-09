@@ -2,28 +2,33 @@
     <div
         :id="name"
         :class="{'isOpen': isOpen, 'isDisabled': disabled}"
-        :aria-expanded="isOpen.toString()"
-        aria-haspopup="true"
-        role="menu"
         class="select"
     >
         <button
+            :aria-expanded="isOpen.toString()"
+            :aria-labelledby="`${name}_button`"
             class="dropdownToggle"
             type="button"
+            aria-haspopup="listbox"
             @click="toggle"
         >
             {{ activeItem.label }}
         </button>
         <ul
+            :id="`${name}_list`"
             :aria-labelledby="name"
+            :aria-activedescendant="`${name}__item__0`"
+            role="listbox"
             class="dropdown"
         >
             <li
                 v-for="(item, index) in itemsFixed"
+                :id="`${name}__item__${index}`"
                 :key="index"
                 :class="{'isFocused': focusedItem === index, 'isSelected': selected === index}"
                 :aria-selected="selected === index ? 'true' : 'false'"
                 class="dropdownItem"
+                role="option"
                 @click="changeActive(index)"
             >
                 {{ item.label }}
