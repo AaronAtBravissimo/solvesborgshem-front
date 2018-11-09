@@ -72,7 +72,6 @@ export default {
     },
     methods: {
         searchHandler() {
-            if (this.keyword.length < 0) return;
             this.$router.push(`/sok/?sokord=${this.keyword}`);
         },
         closeSearch() {
