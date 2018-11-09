@@ -12,24 +12,29 @@
             </div>
         </div>
         <div class="right flex">
-            <no-ssr>
-                <gmap-map
-                    :zoom="16"
-                    :center="positon"
-                    :options="{
-                        streetViewControl: false,
-                        mapTypeControl: false,
-                        fullscreenControl: false,
-                    }"
-                    map-type-id="roadmap"
-                >
-                    <gmap-marker
-                        :icon="icon"
-                        :position="positon"
-                        :draggable="false"
-                    />
-                </gmap-map>
-            </no-ssr>
+            <div
+                class="map-focus flex w-full h-full"
+                tabindex="0"
+            >
+                <no-ssr>
+                    <gmap-map
+                        :zoom="16"
+                        :center="positon"
+                        :options="{
+                            streetViewControl: false,
+                            mapTypeControl: false,
+                            fullscreenControl: false,
+                        }"
+                        map-type-id="roadmap"
+                    >
+                        <gmap-marker
+                            :icon="icon"
+                            :position="positon"
+                            :draggable="false"
+                        />
+                    </gmap-map>
+                </no-ssr>
+            </div>
         </div>
     </div>
 </template>
@@ -141,6 +146,11 @@ export default {
         padding-left: 0;
         padding-top: 10px;
     }
+}
+.map-focus:focus {
+    outline: 2px solid $primaryTextColor;
+    outline-offset: 5px;
+    transition: .125s;
 }
 .vue-map-container {
     width: 100%;
