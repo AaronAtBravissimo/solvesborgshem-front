@@ -67,8 +67,9 @@
                     </div>
                 </div>
             </div>
-            <div class="buttonHolder">
+            <div class="buttonHolder w-full text-center">
                 <AppButton
+                    class="allBuildingsButton"
                     label="Se alla bostäder"
                     url="/bostader/"
                 />
@@ -301,6 +302,13 @@ $columnsGutter: 25px;
     border-radius: 0;
     min-width: 0;
     padding: 10px 20px;
+    &:hover {
+        background-color: $primaryColor;
+    }
+    &:focus {
+        outline-color: $primaryTextColor;
+        background-color: $primaryColor;
+    }
     /deep/ .label {
         font-family: $secondaryFont;
         font-size: 15px;
@@ -350,5 +358,10 @@ $columnsGutter: 25px;
         padding-bottom: 0;
         border-bottom: 0;
     }
+}
+.allBuildingsButton:focus {
+    outline: 2px solid #404040;
+    outline-offset: 3px;
+    transition: .125s;
 }
 </style>
