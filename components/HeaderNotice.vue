@@ -1,6 +1,7 @@
 <template>
     <div
         :class="{ 'isDanger': notice.important }"
+        role="alert"
         class="headerNotice"
     >
         <div class="container flex items-center justify-center">
