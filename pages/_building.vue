@@ -24,6 +24,7 @@
                         >
                         <AppButton
                             v-if="building.imageGallery.length > 1"
+                            ref="triggerGallery"
                             :icon="expandIcon"
                             :label="`Se alla ${building.imageGallery.length} bilder`"
                             class="triggerGallery"
@@ -186,6 +187,10 @@ export default {
 
             const gallery = new PhotoSwipe(el, PhotoSwipeUIDefault, items, this.lightboxOptions);
             gallery.init();
+
+            gallery.listen('close', () => {
+                this.$refs.triggerGallery.$el.focus();
+            });
         },
     },
 };
@@ -196,20 +201,20 @@ $columnsGutter: 25px;
 
 .information {
     background-color: #ffffff;
-     box-shadow: $primaryShadow;
-     padding: 40px 50px;
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     @media ($largeDesktop) {
-         padding: 40px 30px;
-     }
-     @media ($smallerTablet) {
-         padding: 30px 15px;
-     }
+    box-shadow: $primaryShadow;
+    padding: 40px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media ($largeDesktop) {
+        padding: 40px 30px;
+    }
+    @media ($smallerTablet) {
+        padding: 30px 15px;
+    }
 }
 .headingHolder {
-    @media($smallTablet) {
+    @media ($smallTablet) {
         margin-bottom: 30px;
     }
 }
@@ -236,7 +241,7 @@ $columnsGutter: 25px;
         max-width: 100%;
     }
     &::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 50%;
         top: 0;
@@ -317,7 +322,6 @@ $columnsGutter: 25px;
     @media ($mobile) {
         padding: 8px 14px;
     }
-
 }
 .row {
     margin-bottom: 50px;
