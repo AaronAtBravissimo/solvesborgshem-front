@@ -8,11 +8,15 @@
         >
             <div class="app__inner">
                 <div class="wrapper__inner">
+                    <AccessibilityLinks/>
                     <ExpandedSearch/>
                     <AboveHeader/>
                     <HeaderNotice v-if="activeNotice"/>
                     <TheHeader/>
-                    <main class="inner">
+                    <main
+                        id="main"
+                        class="inner"
+                    >
                         <nuxt/>
                     </main>
                 </div>
@@ -35,6 +39,8 @@ import ExpandedSearch from '../components/ExpandedSearch.vue';
 import TheHeader from '../components/TheHeader.vue';
 import TheFooter from '../components/TheFooter.vue';
 import HeaderNotice from '../components/HeaderNotice.vue';
+import AccessibilityLinks from '../components/AccessibilityLinks.vue';
+
 
 export default {
     components: {
@@ -45,6 +51,7 @@ export default {
         TheHeader,
         TheFooter,
         HeaderNotice,
+        AccessibilityLinks,
     },
     computed: {
         activeNotice() {
