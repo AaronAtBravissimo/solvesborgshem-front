@@ -1,23 +1,25 @@
 <template>
-    <AppLink
-        :url="link"
-        class="smallCard w-full"
-    >
-        <div class="inner">
-            <div class="imageHolder">
-                <AppImage
-                    v-if="image"
-                    :image="image"
-                    :alt="imagealt"
-                    class="image"
-                />
+    <article class="flex w-full">
+        <AppLink
+            :url="link"
+            class="smallCard w-full"
+        >
+            <div class="inner">
+                <div class="imageHolder">
+                    <AppImage
+                        v-if="image"
+                        :image="image"
+                        :alt="imagealt"
+                        class="image"
+                    />
+                </div>
+                <div class="infoHolder">
+                    <h3 class="heading">{{ heading }}</h3>
+                    <p class="text">{{ content }}</p>
+                </div>
             </div>
-            <div class="infoHolder">
-                <h3 class="heading">{{ heading }}</h3>
-                <p class="text">{{ content }}</p>
-            </div>
-        </div>
-    </Applink>
+        </Applink>
+    </article>
 </template>
 
 <script>
@@ -56,7 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 .smallCard {
-    display: flex;
     transition: 0.25s;
     background-color: #fff;
     padding: 30px 50px;

@@ -85,8 +85,6 @@ export default {
     },
     methods: {
         searchHandler(keyword) {
-            if (!keyword || keyword.length < 0) return;
-
             this.$router.replace(`/sok/?sokord=${keyword}`);
         },
         async search() {

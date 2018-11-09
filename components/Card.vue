@@ -1,44 +1,46 @@
 <template>
-    <a
-        :href="card.link"
-        class="card"
-        target="_blank"
-    >
-        <div class="top">
-            <div class="imageHolder">
-                <img
-                    :src="image"
-                    class="image ab100 objectFitCover"
-                >
-            </div>
-            <div class="content">
-                <div class="date">
+    <article class="flex w-full">
+        <a
+            :href="card.link"
+            class="card w-full"
+            target="_blank"
+        >
+            <div class="top">
+                <div class="imageHolder">
                     <img
-                        class="dateIcon"
-                        src="../assets/images/card/icon-calendar.svg"
+                        :src="image"
+                        class="image ab100 objectFitCover"
                     >
-                    <span class="dateLabel">{{ card.date_formatted }}</span>
                 </div>
-                <p
-                    v-if="text"
-                    class="text"
-                >
-                    {{ text }}
-                </p>
+                <div class="content">
+                    <div class="date">
+                        <img
+                            class="dateIcon"
+                            src="../assets/images/card/icon-calendar.svg"
+                        >
+                        <span class="dateLabel">{{ card.date_formatted }}</span>
+                    </div>
+                    <p
+                        v-if="text"
+                        class="text"
+                    >
+                        {{ text }}
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="bottom">
-            <div
-                :class="card.type"
-                class="mediaType flex items-center justify-center"
-            >
-                <img
-                    :src="getSocialIcon"
-                    class="mediaTypeIcon"
+            <div class="bottom">
+                <div
+                    :class="card.type"
+                    class="mediaType flex items-center justify-center"
                 >
+                    <img
+                        :src="getSocialIcon"
+                        class="mediaTypeIcon"
+                    >
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </article>
 </template>
 
 <script>
@@ -88,7 +90,6 @@ export default {
 <style lang="scss" scoped>
 .card {
     font-family: $secondaryFont;
-    width: 100%;
     background-color: #ffffff;
     padding: 20px;
     box-shadow: $primaryShadow;
