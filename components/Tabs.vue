@@ -3,21 +3,18 @@
         role="tablist"
         class="tabs flex flex-wrap justify-center"
     >
-        <div
+        <AppButton
             v-for="(tab, index) in tabs"
             :key="index"
+            :id="`tab-${index}`"
+            :class="{'notActive': active !== index}"
+            :label="tab.name"
+            :aria-selected="active === index ? 'true' : 'false'"
+            :aria-controls="active === index ? `tabGroup-${index}-${moduleNumber}` : false"
             class="tab"
-        >
-            <AppButton
-                :id="`tab-${index}`"
-                :class="{'notActive': active !== index}"
-                :label="tab.name"
-                :aria-selected="active === index ? 'true' : 'false'"
-                :aria-controls="active === index ? `tabGroup-${index}-${moduleNumber}` : false"
-                role="tab"
-                @clicked="changeTab(index)"
-            />
-        </div>
+            role="tab"
+            @clicked="changeTab(index)"
+        />
     </div>
 </template>
 
