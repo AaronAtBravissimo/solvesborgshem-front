@@ -30,7 +30,7 @@
                 :id="`${name}__item__${index}`"
                 :key="index"
                 :class="{'isFocused': focusedItem === index, 'isSelected': selected === index}"
-                :aria-selected="selected === index ? 'true' : 'false'"
+                :aria-selected="selected === index ? true : false"
                 :role="isMenu ? 'menuitem' : 'option'"
                 class="dropdownItem"
                 @click="changeActive(index)"
