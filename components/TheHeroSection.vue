@@ -26,6 +26,7 @@
                     <Select
                         :items="linkSelect"
                         :show-first-item="false"
+                        :is-menu="true"
                         name="heroSelect"
                         @changed="linkSelectChanged"
                     />

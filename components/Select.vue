@@ -7,9 +7,10 @@
         <button
             :aria-expanded="isOpen.toString()"
             :aria-labelledby="`${name}_button`"
+            :aria-controls="`${name}_list`"
             class="dropdownToggle"
             type="button"
-            aria-haspopup="listbox"
+            aria-haspopup="true"
             @click="toggle"
         >
             {{ activeItem.label }}
@@ -19,7 +20,7 @@
             :id="`${name}_list`"
             :aria-labelledby="name"
             :aria-activedescendant="`${name}__item__0`"
-            role="listbox"
+            :role="isMenu ? 'menu' : 'listbox'"
             class="dropdown"
         >
             <li
@@ -29,8 +30,8 @@
                 :key="index"
                 :class="{'isFocused': focusedItem === index, 'isSelected': selected === index}"
                 :aria-selected="selected === index ? 'true' : 'false'"
+                :role="isMenu ? 'menuitem' : 'option'"
                 class="dropdownItem"
-                role="option"
                 @click="changeActive(index)"
             >
                 {{ item.label }}
@@ -57,6 +58,10 @@ export default {
         showFirstItem: {
             type: Boolean,
             default: true,
+        },
+        isMenu: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {
