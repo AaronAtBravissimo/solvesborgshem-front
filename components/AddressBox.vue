@@ -43,6 +43,7 @@
 <script>
 import apartmentsIcon from '../assets/images/icon-apartments-white.svg';
 import markerIcon from '../assets/images/icon-marker.svg';
+import { checkMapFocus } from '../utils/helpers';
 
 export default {
     props: {
@@ -83,32 +84,13 @@ export default {
         },
     },
     mounted() {
-        document.addEventListener('focus', this.checkFocus, true);
+        document.addEventListener('focus', this.checkMapFocus, true);
     },
     destroyed() {
-        document.removeEventListener('focus', this.checkFocus, true);
+        document.removeEventListener('focus', this.checkMapFocus, true);
     },
     methods: {
-        isDescendant(parent, child) {
-            let node = child.parentNode;
-            while (node != null) {
-                if (node === parent) {
-                    return true;
-                }
-                node = node.parentNode;
-            }
-            return false;
-        },
-        checkFocus(event) {
-            if (
-                this.isDescendant(this.$refs.gmap.$el, event.target)
-                && event.target.nodeName === 'DIV'
-            ) {
-                this.mapIsFocused = true;
-            } else {
-                this.mapIsFocused = false;
-            }
-        },
+        checkMapFocus,
     },
 };
 </script>
@@ -177,16 +159,7 @@ export default {
         padding-top: 10px;
     }
 }
-.mapHolder {
-    transition: 0.125s;
-    &.isFocused {
-        outline: 2px solid $primaryTextColor;
-        outline-offset: 5px;
-    }
-    >>> a:focus img {
-        outline: 2px solid $primaryTextColor;
-    }
-}
+
 .vue-map-container {
     width: 100%;
 }

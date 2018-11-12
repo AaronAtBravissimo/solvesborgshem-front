@@ -63,3 +63,25 @@ export function getMeta(yoast, removeTitle = false) {
 
     return meta;
 }
+
+function isDescendant(parent, child) {
+    let node = child.parentNode;
+    while (node != null) {
+        if (node === parent) {
+            return true;
+        }
+        node = node.parentNode;
+    }
+    return false;
+}
+
+export function checkMapFocus(event) {
+    if (
+        isDescendant(this.$refs.gmap.$el, event.target)
+        && event.target.nodeName === 'DIV'
+    ) {
+        this.mapIsFocused = true;
+    } else {
+        this.mapIsFocused = false;
+    }
+}

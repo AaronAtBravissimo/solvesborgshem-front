@@ -3,32 +3,38 @@
         id="buildingsArchiveMap"
         class="buildingsArchiveMap"
     >
-        <no-ssr>
-            <gmap-map
-                ref="gmap"
-                :zoom="10"
-                :center="positon"
-                :options="{
-                    streetViewControl: false,
-                    mapTypeControl: false,
-                    fullscreenControl: false,
-                }"
-                map-type-id="roadmap"
-            >
-                <gmap-marker
-                    v-for="(area, index) in areas"
-                    :key="area.id"
-                    :icon="icon"
-                    :position="getPosition(area.address)"
-                    :draggable="false"
-                    @click="changeFilter(area.term_id, index + 1)"
-                />
-            </gmap-map>
-        </no-ssr>
+        <div
+            :class="{'isFocused': mapIsFocused}"
+            class="mapHolder"
+        >
+            <no-ssr>
+                <gmap-map
+                    ref="gmap"
+                    :zoom="10"
+                    :center="positon"
+                    :options="{
+                        streetViewControl: false,
+                        mapTypeControl: false,
+                        fullscreenControl: false,
+                    }"
+                    map-type-id="roadmap"
+                >
+                    <gmap-marker
+                        v-for="(area, index) in areas"
+                        :key="area.id"
+                        :icon="icon"
+                        :position="getPosition(area.address)"
+                        :draggable="false"
+                        @click="changeFilter(area.term_id, index + 1)"
+                    />
+                </gmap-map>
+            </no-ssr>
+        </div>
     </div>
 </template>
 
 <script>
+import { checkMapFocus } from '../utils/helpers';
 import markerIcon from '../assets/images/icon-marker.svg';
 
 export default {
@@ -39,6 +45,7 @@ export default {
         },
     },
     data: () => ({
+        mapIsFocused: false,
         icon: {
             url: markerIcon,
             size: {
@@ -66,6 +73,8 @@ export default {
     mounted() {
         if (!process.client) return;
 
+        document.addEventListener('focus', this.checkMapFocus, true);
+
         this.$nextTick(() => {
             this.$refs.gmap.$mapPromise.then((map) => {
                 const bounds = new window.google.maps.LatLngBounds();
@@ -78,6 +87,9 @@ export default {
             });
         });
     },
+    destroyed() {
+        document.removeEventListener('focus', this.checkMapFocus, true);
+    },
     methods: {
         getPosition(cords) {
             return {
@@ -88,6 +100,7 @@ export default {
         changeFilter(areaId, index) {
             this.$emit('changed', areaId, index);
         },
+        checkMapFocus,
     },
 };
 </script>

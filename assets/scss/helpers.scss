@@ -99,3 +99,19 @@
         margin-bottom: 0;
     }
 }
+
+.mapHolder {
+    transition: 0.125s;
+    &.isFocused {
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 5px;
+    }
+    a:focus img {
+        outline: 2px solid $primaryTextColor;
+    }
+}
+
+.using-mouse .mapHolder.isFocused,
+.using-mouse .mapHolder a:focus img {
+    outline: 0;
+}
