@@ -94,7 +94,7 @@ export default {
     destroyed() {
         document.body.classList.remove('overflow-hidden');
         document.removeEventListener('focus', this.trapFocus, true);
-        document.addEventListener('keydown', this.keyListener);
+        document.removeEventListener('keydown', this.keyListener);
     },
     methods: {
         keyListener(event) {
