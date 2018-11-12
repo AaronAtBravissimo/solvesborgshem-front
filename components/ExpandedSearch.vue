@@ -20,6 +20,7 @@
                         <img
                             :src="searchIcon"
                             class="icon"
+                            alt=""
                         >
                         <input
                             ref="searchField"
