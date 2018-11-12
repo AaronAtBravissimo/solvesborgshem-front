@@ -6,7 +6,7 @@
         <AppButton
             v-for="(tab, index) in tabs"
             :key="index"
-            :id="`tab-${index}`"
+            :id="`tab-${index}-${moduleNumber}`"
             :class="{'notActive': active !== index}"
             :label="tab.name"
             :aria-selected="active === index ? 'true' : 'false'"
