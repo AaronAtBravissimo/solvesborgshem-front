@@ -5,7 +5,7 @@
     >
         <div
             v-if="active"
-            role="alert"
+            aria-live="assertive"
             class="cookieNotice"
             tabindex="2"
         >

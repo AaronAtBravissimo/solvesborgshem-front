@@ -2,24 +2,25 @@
     <div
         :class="{'isOpen': open}"
         class="accordion"
+        role="presentation"
     >
-        <div
-            class="header"
-            @click="toggle()"
-        >
-            <h3 class="heading">{{ heading }}</h3>
-            <button
-                :id="`accordionButton-${accordionNumber}`"
-                :aria-controls="`accordionBody-${accordionNumber}`"
-                :aria-expanded="open.toString()"
-                type="button"
-                class="button"
-            >
-                <img
-                    :src="arrow"
-                    class="buttonIcon"
+        <div role="heading">
+            <h3 class="mb-0">
+                <button
+                    :id="`accordionButton-${accordionNumber}`"
+                    :aria-controls="`accordionBody-${accordionNumber}`"
+                    :aria-expanded="open.toString()"
+                    type="button"
+                    class="inner flex w-full"
+                    @click="toggle()"
                 >
-            </button>
+                    <span class="h3 heading">{{ heading }}</span>
+                    <img
+                        :src="arrow"
+                        class="buttonIcon"
+                    >
+                </button>
+            </h3>
         </div>
         <transition
             @enter="slideDown"
@@ -29,6 +30,7 @@
                 v-show="open"
                 :id="`accordionBody-${accordionNumber}`"
                 :aria-labelledby="`accordionButton-${accordionNumber}`"
+                role="region"
                 class="body"
             >
                 <div class="content">
@@ -101,20 +103,20 @@ $buttonSize: 24px;
 $buttonSizeSmallTablet: 20px;
 $buttonSizeMobile: 16px;
 
-.header {
+.accordion .inner {
     cursor: pointer;
-    position: relative;
-    padding-right: #{$buttonSize * 2};
     border-bottom: 1px solid #e8e8e8;
     padding-bottom: 15px;
+    position: relative;
+    padding-right: #{$buttonSize * 2};
     transition: 0.35s;
     @media ($smallTablet) {
-        padding-bottom: 12px;
         padding-right: #{$buttonSizeSmallTablet * 2};
+        padding-bottom: 12px;
     }
     @media ($mobile) {
-        padding-bottom: 10px;
         padding-right: #{$buttonSizeMobile * 2};
+        padding-bottom: 10px;
     }
     &:hover .heading {
         color: $primaryColor;
@@ -127,8 +129,9 @@ $buttonSizeMobile: 16px;
     letter-spacing: 0;
     font-size: 20px;
     margin-bottom: 0;
-    transition: 0.35s;
+    text-align: left;
     line-height: 1.65;
+    transition: 0.35s;
     @media ($laptop) {
         font-size: 18px;
     }
@@ -139,21 +142,16 @@ $buttonSizeMobile: 16px;
         font-size: 14px;
     }
 }
-.button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 28px;
-    height: 28px;
-    right: 0;
-    top: 0;
-}
 .buttonIcon {
+    position: absolute;
+    right: 0;
+    top: 7px;
     width: $buttonSize;
     height: $buttonSize;
-    position: relative;
     transition: 0.35s;
+    @media ($laptop) {
+        top: 4px;
+    }
     @media ($smallTablet) {
         width: $buttonSizeSmallTablet;
         height: $buttonSizeSmallTablet;
@@ -186,7 +184,7 @@ $buttonSizeMobile: 16px;
 }
 
 .accordion.isOpen {
-    .header {
+    .inner {
         border-color: $primaryColor;
     }
     .heading {

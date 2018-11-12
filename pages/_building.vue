@@ -24,6 +24,7 @@
                         >
                         <AppButton
                             v-if="building.imageGallery.length > 1"
+                            ref="triggerGallery"
                             :icon="expandIcon"
                             :label="`Se alla ${building.imageGallery.length} bilder`"
                             class="triggerGallery"
@@ -66,8 +67,9 @@
                     </div>
                 </div>
             </div>
-            <div class="buttonHolder">
+            <div class="buttonHolder w-full text-center">
                 <AppButton
+                    class="allBuildingsButton"
                     label="Se alla bostäder"
                     url="/bostader/"
                 />
@@ -186,6 +188,10 @@ export default {
 
             const gallery = new PhotoSwipe(el, PhotoSwipeUIDefault, items, this.lightboxOptions);
             gallery.init();
+
+            gallery.listen('close', () => {
+                this.$refs.triggerGallery.$el.focus();
+            });
         },
     },
 };
@@ -196,20 +202,20 @@ $columnsGutter: 25px;
 
 .information {
     background-color: #ffffff;
-     box-shadow: $primaryShadow;
-     padding: 40px 50px;
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     @media ($largeDesktop) {
-         padding: 40px 30px;
-     }
-     @media ($smallerTablet) {
-         padding: 30px 15px;
-     }
+    box-shadow: $primaryShadow;
+    padding: 40px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @media ($largeDesktop) {
+        padding: 40px 30px;
+    }
+    @media ($smallerTablet) {
+        padding: 30px 15px;
+    }
 }
 .headingHolder {
-    @media($smallTablet) {
+    @media ($smallTablet) {
         margin-bottom: 30px;
     }
 }
@@ -236,7 +242,7 @@ $columnsGutter: 25px;
         max-width: 100%;
     }
     &::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 50%;
         top: 0;
@@ -296,6 +302,13 @@ $columnsGutter: 25px;
     border-radius: 0;
     min-width: 0;
     padding: 10px 20px;
+    &:hover {
+        background-color: $primaryColor;
+    }
+    &:focus {
+        outline-color: $primaryTextColor;
+        background-color: $primaryColor;
+    }
     /deep/ .label {
         font-family: $secondaryFont;
         font-size: 15px;
@@ -317,7 +330,6 @@ $columnsGutter: 25px;
     @media ($mobile) {
         padding: 8px 14px;
     }
-
 }
 .row {
     margin-bottom: 50px;
@@ -346,5 +358,10 @@ $columnsGutter: 25px;
         padding-bottom: 0;
         border-bottom: 0;
     }
+}
+.allBuildingsButton:focus {
+    outline: 2px solid #404040;
+    outline-offset: 3px;
+    transition: .125s;
 }
 </style>

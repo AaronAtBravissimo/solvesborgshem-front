@@ -12,24 +12,30 @@
             </div>
         </div>
         <div class="right flex">
-            <no-ssr>
-                <gmap-map
-                    :zoom="16"
-                    :center="positon"
-                    :options="{
-                        streetViewControl: false,
-                        mapTypeControl: false,
-                        fullscreenControl: false,
-                    }"
-                    map-type-id="roadmap"
-                >
-                    <gmap-marker
-                        :icon="icon"
-                        :position="positon"
-                        :draggable="false"
-                    />
-                </gmap-map>
-            </no-ssr>
+            <div
+                :class="{'isFocused': mapIsFocused}"
+                class="mapHolder flex w-full h-full"
+            >
+                <no-ssr>
+                    <gmap-map
+                        ref="gmap"
+                        :zoom="16"
+                        :center="positon"
+                        :options="{
+                            streetViewControl: false,
+                            mapTypeControl: false,
+                            fullscreenControl: false,
+                        }"
+                        map-type-id="roadmap"
+                    >
+                        <gmap-marker
+                            :icon="icon"
+                            :position="positon"
+                            :draggable="false"
+                        />
+                    </gmap-map>
+                </no-ssr>
+            </div>
         </div>
     </div>
 </template>
@@ -51,6 +57,7 @@ export default {
     },
     data: () => ({
         apartmentsIcon,
+        mapIsFocused: false,
         icon: {
             url: markerIcon,
             size: {
@@ -73,6 +80,34 @@ export default {
                 lat: Number(this.cords.lat),
                 lng: Number(this.cords.lng),
             };
+        },
+    },
+    mounted() {
+        document.addEventListener('focus', this.checkFocus, true);
+    },
+    destroyed() {
+        document.removeEventListener('focus', this.checkFocus, true);
+    },
+    methods: {
+        isDescendant(parent, child) {
+            let node = child.parentNode;
+            while (node != null) {
+                if (node === parent) {
+                    return true;
+                }
+                node = node.parentNode;
+            }
+            return false;
+        },
+        checkFocus(event) {
+            if (
+                this.isDescendant(this.$refs.gmap.$el, event.target)
+                && event.target.nodeName === 'DIV'
+            ) {
+                this.mapIsFocused = true;
+            } else {
+                this.mapIsFocused = false;
+            }
         },
     },
 };
@@ -140,6 +175,16 @@ export default {
         width: 100%;
         padding-left: 0;
         padding-top: 10px;
+    }
+}
+.mapHolder {
+    transition: 0.125s;
+    &.isFocused {
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 5px;
+    }
+    >>> a:focus img {
+        outline: 2px solid $primaryTextColor;
     }
 }
 .vue-map-container {
