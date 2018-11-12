@@ -36,7 +36,7 @@ $gutter: 20px;
         content: '';
         position: absolute;
         left: 0;
-        top: calc(100% - $gutter);
+        top: calc(100% - #{$gutter});
         margin-top: 2px;
         width: 100%;
         height: 1px;
