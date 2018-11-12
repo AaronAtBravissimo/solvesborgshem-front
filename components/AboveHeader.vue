@@ -12,6 +12,7 @@
                     :counter="number"
                     label="Se lägenheter"
                     class="iconAndLabel"
+                    url="/soka-bostad/lediga-lagenheter/"
                 />
             </div>
             <div class="right">
