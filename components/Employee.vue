@@ -26,7 +26,7 @@
                 <b>
                     Tel:
                     <a
-                        :href="`tel:${employee.phone}`"
+                        :href="`tel:${employee.phone.replace(/\s+/g, '')}`"
                         class="link"
                     >
                         {{ employee.phone }}

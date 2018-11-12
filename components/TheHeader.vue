@@ -14,7 +14,7 @@
                 />
                 <SearchButton
                     name="searchButtonResponsive"
-                    dark-style="true"
+                    dark-style
                 />
                 <MenuButton/>
             </div>
