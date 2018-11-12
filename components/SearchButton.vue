@@ -1,6 +1,6 @@
 <template>
     <AppButton
-        id="searchButton"
+        :id="name"
         :icon="darkStyle ? searchIconDark : searchIcon"
         :aria-expanded="searchOpen.toString()"
         aria-controls="expandedSearch"
@@ -24,6 +24,10 @@ export default {
         darkStyle: {
             type: Boolean,
             default: false,
+        },
+        name: {
+            type: String,
+            default: 'searchButton',
         },
     },
     data: () => ({

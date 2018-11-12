@@ -12,7 +12,10 @@
                     label="Mina sidor"
                     class="loginButton"
                 />
-                <SearchButton dark-style/>
+                <SearchButton
+                    name="searchButtonResponsive"
+                    dark-style="true"
+                />
                 <MenuButton/>
             </div>
         </div>
