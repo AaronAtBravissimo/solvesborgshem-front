@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="w-full">
         <AppLink
             :url="link.url"
             :target="link.target"
