@@ -20,12 +20,12 @@
                         >
                             <div class="overflow-hidden mb-8">
                                 <div class="header">
-                                    <h3
+                                    <h2
                                         :id="dialogId"
                                         class="heading"
                                     >
                                         {{ heading }}
-                                    </h3>
+                                    </h2>
                                     <button
                                         ref="close"
                                         type="button"
@@ -197,9 +197,16 @@ export default {
         letter-spacing: 1.8px;
     }
 }
+.content /deep/ h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: $secondaryFont;
+}
 .content /deep/ p {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 .close {
     width: 18px;
