@@ -146,6 +146,9 @@ export default {
         },
         changeActive(index) {
             this.selected = index;
+            if (!this.showFirstItem) {
+                this.selected = index + 1;
+            }
             this.$emit('changed', this.activeItem.value);
             this.isOpen = false;
         },
