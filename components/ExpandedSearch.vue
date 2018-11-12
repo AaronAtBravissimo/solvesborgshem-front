@@ -7,7 +7,7 @@
             v-show="searchOpen"
             id="expandedSearch"
             :aria-hidden="!searchOpen ? 'true' : 'false'"
-            aria-labelledby="searchButton"
+            aria-labelledby="searchButton searchButtonResponsive"
             class="expandedSearch relative"
         >
             <div class="container">
@@ -20,6 +20,7 @@
                         <img
                             :src="searchIcon"
                             class="icon"
+                            alt=""
                         >
                         <input
                             ref="searchField"

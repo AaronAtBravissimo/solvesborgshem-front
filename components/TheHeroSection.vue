@@ -118,6 +118,9 @@ export default {
     @media ($tablet) {
         padding-bottom: 50px;
     }
+    @media ($mobile) {
+        padding-bottom: 70px;
+    }
 }
 .right {
     padding-right: 75px;

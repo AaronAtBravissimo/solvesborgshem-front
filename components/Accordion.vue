@@ -18,6 +18,7 @@
                     <img
                         :src="arrow"
                         class="buttonIcon"
+                        alt=""
                     >
                 </button>
             </h3>

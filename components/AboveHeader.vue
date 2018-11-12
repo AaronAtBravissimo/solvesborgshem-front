@@ -12,6 +12,7 @@
                     :counter="number"
                     label="Se lägenheter"
                     class="iconAndLabel"
+                    url="/soka-bostad/lediga-lagenheter/"
                 />
             </div>
             <div class="right">
@@ -20,7 +21,6 @@
                     label="Felanmälan"
                     class="iconAndLabel"
                     url="/kundtjanst/"
-                    image-alt="Ikon med verktyg"
                 />
                 <AppButton
                     :icon="customizeIcon"
@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 .aboveHeader {
-    background-color: #232323;
+    background-color: $primaryBackgroundColor;
     min-height: 69px;
     display: flex;
     margin-left: -#{$frameSize};

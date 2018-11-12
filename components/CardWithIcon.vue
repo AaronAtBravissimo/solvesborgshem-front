@@ -4,6 +4,7 @@
             <img
                 :src="getIcon(card.icon)"
                 :class="`${card.icon}`"
+                alt=""
                 class="icon"
             >
             <div

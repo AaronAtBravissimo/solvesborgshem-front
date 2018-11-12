@@ -302,7 +302,7 @@ $columnsGutter: 25px;
     position: absolute;
     right: 0;
     bottom: 0;
-    background-color: #232323;
+    background-color: $primaryBackgroundColor;
     border-radius: 0;
     min-width: 0;
     padding: 10px 20px;

@@ -151,7 +151,7 @@ export default {
         pointer-events: none;
     }
     &:hover {
-        background-color: #232323;
+        background-color: $primaryBackgroundColor;
     }
     .inner {
         width: 100%;

@@ -1,7 +1,10 @@
 <template>
     <section class="twoColumn">
         <div class="container">
-            <div class="columns flex flex-wrap">
+            <div
+                :class="columns.length < 2 ? 'centerColumn' : ''"
+                class="columns flex flex-wrap"
+            >
                 <div
                     v-for="(column, index) in columns"
                     :key="index"
@@ -59,5 +62,8 @@ $gutterTablet: 25px;
         padding: 0;
         margin-bottom: 30px;
     }
+}
+.centerColumn .column {
+    width: 100%;
 }
 </style>

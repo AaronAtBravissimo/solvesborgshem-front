@@ -1,5 +1,6 @@
 <template>
     <aside
+        v-click-outside="closeMenu"
         id="expandedMenu"
         :class="{'isOpen': open}"
         :aria-hidden="!open ? 'true' : 'false'"
@@ -72,6 +73,21 @@ export default {
             return this.$store.getters.expandedMenuOpen;
         },
     },
+    mounted() {
+        document.addEventListener('keydown', this.keyListener);
+    },
+    methods: {
+        keyListener(event) {
+            if (this.open && event.keyCode === 27) { // escape
+                this.$store.commit('closeMenu');
+            }
+        },
+        closeMenu(event) {
+            if (this.open && event.srcElement.className !== 'hamburger') {
+                this.$store.commit('closeMenu');
+            }
+        },
+    },
 };
 </script>
 
@@ -85,7 +101,7 @@ export default {
     padding: 60px 30px;
     z-index: 40;
     overflow: auto;
-    background-color: #232323;
+    background-color: $primaryBackgroundColor;
     opacity: 0;
     transition-delay: 0.35s;
     display: none;

@@ -8,6 +8,7 @@
             <img
                 :src="infoIcon"
                 class="icon flex-no-shrink"
+                alt=""
             >
             <div class="text flex flex-wrap items-center">
                 <p>{{ notice.content }}</p>

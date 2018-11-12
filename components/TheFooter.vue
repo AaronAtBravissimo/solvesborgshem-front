@@ -126,7 +126,7 @@ $columnsGutterTablet: 30px;
     margin-left: -25px;
 }
 .inner {
-    background-color: #232323;
+    background-color: $primaryBackgroundColor;
     padding: 0 100px 95px;
     margin-top: -132px;
     @media ($largeDesktop) {

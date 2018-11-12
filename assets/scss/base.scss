@@ -33,7 +33,7 @@ button {
     color: inherit;
     transition: 0.25s;
     &:focus {
-        outline: 2px solid $primaryTextColor;
+        outline: 2px solid $primaryBackgroundColor;
         outline-offset: 5px;
         transition: 0.125s;
     }

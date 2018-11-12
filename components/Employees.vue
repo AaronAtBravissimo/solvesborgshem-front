@@ -17,7 +17,7 @@
         />
         <transition-group
             :id="showAll ? `tabGroup-${currentFilter}-${moduleNumber}` : false"
-            :aria-labelledby="showAll ? `tab-${currentFilter}` : false"
+            :aria-labelledby="showAll ? `tab-${currentFilter}-${moduleNumber}` : false"
             :role="showAll ? 'tabpanel' : false"
             class="columns flex flex-wrap"
             name="fade-in"
