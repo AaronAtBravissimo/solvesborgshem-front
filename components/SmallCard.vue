@@ -9,7 +9,7 @@
                     <AppImage
                         v-if="image"
                         :image="image"
-                        :alt="imagealt"
+                        :alt="imagealt ? imagealt : ''"
                         class="image"
                     />
                 </div>
