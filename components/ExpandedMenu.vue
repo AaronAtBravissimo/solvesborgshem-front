@@ -73,7 +73,15 @@ export default {
             return this.$store.getters.expandedMenuOpen;
         },
     },
+    mounted() {
+        document.addEventListener('keydown', this.keyListener);
+    },
     methods: {
+        keyListener(event) {
+            if (this.open && event.keyCode === 27) { // escape
+                this.$store.commit('closeMenu');
+            }
+        },
         closeMenu(event) {
             if (this.open && event.srcElement.className !== 'hamburger') {
                 this.$store.commit('closeMenu');
