@@ -5,6 +5,7 @@
         class="select"
     >
         <button
+            :id="`${name}_button`"
             :aria-expanded="isOpen.toString()"
             :aria-labelledby="`${name}_button`"
             :aria-controls="`${name}_list`"
