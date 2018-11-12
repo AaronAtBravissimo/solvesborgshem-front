@@ -105,6 +105,11 @@ export default {
         padding: 12px 15px;
         font-size: 14px;
     }
+    &:focus {
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 5px;
+        transition: .125s;
+    }
 }
 .searchButton {
     @media ($tablet) {
