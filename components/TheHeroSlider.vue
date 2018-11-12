@@ -341,7 +341,9 @@ $gutterMobile: 15px;
         bottom: -40px;
     }
     @media ($mobile) {
-        display: none;
+        left: 0;
+        width: 100%;
+        bottom: -85px;
     }
     .isLoaded & {
         opacity: 1;
