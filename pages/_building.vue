@@ -269,6 +269,10 @@ $columnsGutter: 25px;
         margin-top: 35px;
         padding-top: 35px;
     }
+    @media ($smallerTablet) {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
 }
 .imageGallery {
     height: 520px;
