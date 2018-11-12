@@ -85,7 +85,7 @@ export default {
     padding: 60px 30px;
     z-index: 40;
     overflow: auto;
-    background-color: #232323;
+    background-color: $primaryBackgroundColor;
     opacity: 0;
     transition-delay: 0.35s;
     display: none;

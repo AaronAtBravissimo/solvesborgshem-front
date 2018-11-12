@@ -88,5 +88,8 @@ export default {
 }
 .button.notActive {
     background-color: #ddd;
+    &:hover {
+        background-color: $primaryBackgroundColor;
+    }
 }
 </style>
