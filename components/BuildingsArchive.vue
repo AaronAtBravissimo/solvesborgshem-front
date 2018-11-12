@@ -19,7 +19,6 @@
                 <div class="mapFilter">
                     <AppButton
                         :aria-expanded="showMap.toString()"
-                        aria-controls="buildingsArchiveMap"
                         aria-label="Öppnar sektion med karta"
                         label="Kartfiltrering"
                         class="mapFilterButton"
