@@ -1,5 +1,5 @@
 <template>
-    <section class="modules">
+    <div class="modules">
         <template
             v-for="(module, index) in modules"
         >
@@ -48,7 +48,7 @@
                 :toggle-ids="module.toggles"
             />
         </template>
-    </section>
+    </div>
 </template>
 
 <script>
