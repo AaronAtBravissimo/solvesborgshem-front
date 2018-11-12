@@ -1,5 +1,6 @@
 <template>
     <aside
+        v-click-outside="closeMenu"
         id="expandedMenu"
         :class="{'isOpen': open}"
         :aria-hidden="!open ? 'true' : 'false'"
@@ -70,6 +71,13 @@ export default {
         },
         open() {
             return this.$store.getters.expandedMenuOpen;
+        },
+    },
+    methods: {
+        closeMenu(event) {
+            if (this.open && event.srcElement.className !== 'hamburger') {
+                this.$store.commit('closeMenu');
+            }
         },
     },
 };
