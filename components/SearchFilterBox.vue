@@ -106,9 +106,10 @@ export default {
         font-size: 14px;
     }
     &:focus {
-        outline: 2px solid $primaryTextColor;
-        outline-offset: 5px;
+        outline: 2px solid $primaryTextColor !important;
+        outline-offset: 5px !important;
         transition: .125s;
+        border: solid 1px #cfcfcf !important;
     }
 }
 .searchButton {
