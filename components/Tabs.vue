@@ -69,16 +69,12 @@ export default {
     }
     @media ($smallTablet) {
         margin: 0 6px 12px;
+        min-width: 0;
     }
     @media ($mobile) {
         margin: 0 4px 8px;
     }
-    /deep/ .button {
-        @media ($smallTablet) {
-            min-width: 0;
-        }
-    }
-    /deep/ .button:focus {
+    &:focus {
         outline: 2px solid $primaryTextColor;
         outline-offset: 3px;
     }
