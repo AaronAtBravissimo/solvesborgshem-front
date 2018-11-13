@@ -143,6 +143,7 @@ module.exports = {
     ** Build configuration
     */
     build: {
+        transpile: [/^vue2-google-maps($|\/)/],
         extractCSS: true,
         optimization: {
             splitChunks: {
@@ -205,17 +206,6 @@ module.exports = {
                         ],
                     }),
                 );
-            }
-            if (isClient && !isDev) {
-                config.module.rules.push ({
-                    test: /node_modules[\\\/]vue2-google-maps[\\\/](.+)\.js$/,
-                    loader: "babel-loader",
-                    options: {
-                      babelrc: false,
-                      cacheDirectory: false,
-                      presets: ["vue-app"],
-                    }
-              })
             }
         },
     },
