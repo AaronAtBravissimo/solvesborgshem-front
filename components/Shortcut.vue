@@ -3,7 +3,7 @@
         <AppLink
             :url="link.url"
             :target="link.target"
-            class="shortcut flex"
+            class="shortcut h-full flex"
         >
             <div class="inner">
                 <div class="imageHolder">
@@ -92,15 +92,20 @@ export default {
     .button {
         transition: 0.25s;
     }
+    .button .inner {
+        justify-content: center;
+    }
 }
 .inner {
     display: flex;
     height: 100%;
     @media ($smallDesktop) {
         flex-wrap: wrap;
+        justify-content: center;
     }
     @media ($tablet) {
         flex-wrap: nowrap;
+        justify-content: flex-start;
     }
     @media ($smallTablet) {
         flex-wrap: wrap;
@@ -170,10 +175,14 @@ export default {
     @media ($smallDesktop) {
         width: 100%;
         padding-left: 0;
+        align-items: center;
+        text-align: center;
     }
     @media ($tablet) {
         width: auto;
         padding-left: 30px;
+        align-items: flex-start;
+        text-align: left;
     }
     @media ($smallTablet) {
         width: 100%;
