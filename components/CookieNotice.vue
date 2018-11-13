@@ -7,7 +7,6 @@
             v-if="active"
             aria-live="assertive"
             class="cookieNotice"
-            tabindex="2"
         >
             <p class="inner">
                 Vi använder cookies för att ge dig den bästa upplevelsen av vår webbplats.
@@ -15,7 +14,6 @@
                 <button
                     id="CookeNotice__ReadMore"
                     class="readMore"
-                    tabindex="2"
                     @click="termsOpen = true"
                 >
                     Läs mer
@@ -24,7 +22,6 @@
             <button
                 class="close"
                 aria-label="Stäng notisen som visar information om cookies"
-                tabindex="2"
                 @click="close()"
             >
             </button>

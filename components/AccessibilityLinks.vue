@@ -50,7 +50,7 @@ $gutter: 20px;
     opacity: 1;
     z-index: 1;
     padding: $gutter 0;
-    outline: 0;
+    outline: 0 !important;
     &::after {
         opacity: 1;
     }

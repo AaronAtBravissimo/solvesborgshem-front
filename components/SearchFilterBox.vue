@@ -117,7 +117,7 @@ export default {
         min-width: 0;
     }
     &:focus {
-        outline-color: $primaryTextColor;
+        outline-color: $primaryTextColor !important;
     }
 }
 .filterHolder {
@@ -135,6 +135,6 @@ export default {
     flex-shrink: 0;
 }
 .mapFilterButton:focus {
-    outline-color: #404040;
+    outline-color: #404040 !important;
 }
 </style>
