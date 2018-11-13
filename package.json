@@ -17,8 +17,6 @@
         "@nuxtjs/google-tag-manager": "^2.1.0",
         "@nuxtjs/sitemap": "^0.1.1",
         "axios": "^0.18.0",
-        "babel-polyfill": "^6.26.0",
-        "babel-preset-vue-app": "^2.0.0",
         "fuse.js": "^3.3.0",
         "nuxt": "^2.2.0",
         "nuxt-sass-resources-loader": "^2.0.5",

@@ -67,9 +67,9 @@ module.exports = {
     ** Plugins to load before mounting the App
     */
     plugins: [
+        { src: '~/plugins/polyfills', ssr: false },
         '~/plugins/axios-middleware.js',
         { src: '~/plugins/vue2-google-maps', ssr: false},
-        { src: '~/plugins/polyfills', ssr: false },
         { src: '~/plugins/v-click-outside', ssr: false },
         '~/plugins/app-link',
         '~/plugins/portal-vue',
@@ -143,8 +143,6 @@ module.exports = {
     ** Build configuration
     */
     build: {
-        vendors: ['vue2-google-maps'],
-        transpile: [/^vue2-google-maps($|\/)/],
         extractCSS: true,
         optimization: {
             splitChunks: {
