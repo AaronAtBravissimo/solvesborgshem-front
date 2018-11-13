@@ -35,7 +35,7 @@ button {
     &:focus {
         outline: 2px solid $primaryBackgroundColor !important;
         outline-offset: 5px !important;
-        transition: 0.125s;
+        transition: 0s !important
     }
 }
 

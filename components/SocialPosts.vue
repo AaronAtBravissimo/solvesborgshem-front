@@ -196,7 +196,6 @@ $gutterMediumTablet: 10px;
     &:focus {
         outline: 2px solid $primaryTextColor !important;
         outline-offset: 3px !important;
-        transition: 0.125s;
     }
     /deep/ {
         .inner {

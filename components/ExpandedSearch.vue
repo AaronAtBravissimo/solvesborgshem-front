@@ -198,7 +198,6 @@ $iconSizeMobile: 16px;
     &:focus {
         outline: 2px solid #fff !important;
         outline-offset: 8px !important;
-        transition: .125s;
     }
 }
 .closeButton {

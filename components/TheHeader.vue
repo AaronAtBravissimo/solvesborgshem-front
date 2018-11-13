@@ -85,7 +85,6 @@ export default {
     &:focus {
         outline: 2px solid $primaryBackgroundColor !important;
         outline-offset: 3px !important;
-        transition: 0.125s;
     }
     @media ($laptop) {
         display: none;

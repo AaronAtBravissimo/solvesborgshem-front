@@ -143,7 +143,6 @@ export default {
     &:focus {
         outline: 2px solid #fff !important;
         outline-offset: 5px !important;
-        transition: 0.125s;
     }
     &.isDisabled {
         cursor: default;

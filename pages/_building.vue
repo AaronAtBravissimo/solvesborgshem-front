@@ -366,6 +366,5 @@ $columnsGutter: 25px;
 .allBuildingsButton:focus {
     outline: 2px solid #404040 !important;
     outline-offset: 3px !important;
-    transition: .125s;
 }
 </style>

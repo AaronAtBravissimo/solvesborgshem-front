@@ -108,7 +108,6 @@ export default {
     &:focus {
         outline: 2px solid $primaryTextColor !important;
         outline-offset: 5px !important;
-        transition: .125s;
         border: solid 1px #cfcfcf !important;
     }
 }
