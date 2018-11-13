@@ -83,7 +83,7 @@ export default {
             }
         },
         closeMenu(event) {
-            if (this.open && event.srcElement.className !== 'hamburger') {
+            if (this.open && !(event.target.classList.contains('hamburger') || event.target.classList.contains('line'))) {
                 this.$store.commit('closeMenu');
             }
         },
