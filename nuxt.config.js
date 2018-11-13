@@ -218,6 +218,7 @@ module.exports = {
                 }
               })
             }
+            transpile: [/^vue2-google-maps($|\/)/]
         },
     },
 };
