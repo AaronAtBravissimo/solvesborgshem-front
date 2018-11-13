@@ -143,7 +143,7 @@ module.exports = {
     ** Build configuration
     */
     build: {
-        vendors: ['babel-polyfill'],
+        vendor: ['babel-polyfill'],
         extractCSS: true,
         optimization: {
             splitChunks: {
