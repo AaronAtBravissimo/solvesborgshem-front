@@ -2,7 +2,7 @@
     <aside
         v-click-outside="closeMenu"
         id="expandedMenu"
-        :class="{'isOpen': open}"
+        :class="open ? 'isOpen' : 'resetMenu'"
         :aria-hidden="!open ? 'true' : 'false'"
         aria-labelledby="menuButton"
         class="expandedMenu"
@@ -25,28 +25,36 @@
                     </AppLink>
                 </li>
             </ul>
+            <ul class="list-reset">
+                <li @click="$store.commit('closeMenu')">
+                    <AppButton
+                        :icon="userIcon"
+                        :class="`appearDelay-${menu.items.length + 1}`"
+                        url="/mina-sidor/"
+                        label="Mina sidor"
+                        class="loginButton animation"
+                    />
+                </li>
+                <li @click="$store.commit('closeMenu')">
+                    <AppButton
+                        :icon="errorReportIcon"
+                        :class="`appearDelay-${menu.items.length + 2}`"
+                        label="Felanmälan"
+                        class="iconAndLabel animation"
+                        url="/kundtjanst/"
+                    />
+                </li>
+                <li @click="$store.commit('closeMenu')">
+                    <AppButton
+                        :icon="customizeIcon"
+                        :class="`appearDelay-${menu.items.length + 3}`"
+                        label="Tillgänglighet"
+                        class="iconAndLabel customizeIcon animation"
+                        url="/tillganglighet/"
+                    />
+                </li>
+            </ul>
         </nav>
-        <AppButton
-            :icon="userIcon"
-            :class="`appearDelay-${menu.items.length + 1}`"
-            url="/mina-sidor/"
-            label="Mina sidor"
-            class="loginButton animation"
-        />
-        <AppButton
-            :icon="errorReportIcon"
-            :class="`appearDelay-${menu.items.length + 2}`"
-            label="Felanmälan"
-            class="iconAndLabel animation"
-            url="/kundtjanst/"
-        />
-        <AppButton
-            :icon="customizeIcon"
-            :class="`appearDelay-${menu.items.length + 3}`"
-            label="Tillgänglighet"
-            class="iconAndLabel customizeIcon animation"
-            url="/tillganglighet/"
-        />
     </aside>
 </template>
 
@@ -128,6 +136,10 @@ export default {
     .isOpen & {
         opacity: 1;
         transform: translateY(0px);
+    }
+    .resetMenu & {
+        transition-duration: 0s;
+        transition-delay: 0s;
     }
 }
 
