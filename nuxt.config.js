@@ -206,6 +206,17 @@ module.exports = {
                     }),
                 );
             }
+            if (isClient && !isDev) {
+                config.module.rules.push ({
+                    test: /node_modules[\\\/]vue2-google-maps[\\\/](.+)\.js$/,
+                    loader: "babel-loader",
+                    options: {
+                      babelrc: false,
+                      cacheDirectory: false,
+                      presets: ["vue-app"],
+                    }
+              })
+            }
             if (!isClient) {
                 // This instructs Webpack to include `vue2-google-maps`'s Vue files
                 // for server-side rendering
