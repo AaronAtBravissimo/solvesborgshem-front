@@ -132,9 +132,22 @@ $gutterMediumTablet: 10px;
 }
 
 .socialPosts {
-    padding: 68px 0 0;
+    padding-top: 70px;
     text-align: center;
     margin-bottom: -50px;
+    @media ($smallDesktop) {
+        margin-bottom: -50px;
+    }
+    @media ($tablet) {
+        margin-bottom: -30px;
+    }
+    @media ($smallTablet) {
+        margin-bottom: -10px;
+    }
+    @media ($mobile) {
+        padding-top: 50px;
+        margin-bottom: 20px;
+    }
 }
 .top {
     margin-bottom: 35px;
