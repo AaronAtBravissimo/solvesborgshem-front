@@ -1,5 +1,8 @@
 <template>
-    <div class="toggles box">
+    <div
+        :class="showAll ? 'hasTabs' : ''"
+        class="toggles box"
+    >
         <div
             v-if="heading"
             class="container"
@@ -176,10 +179,14 @@ $gutterTablet: 25px;
 
 .headingHolder {
     margin-top: -9px;
+    @media ($smallTablet) {
+        margin-bottom: 30px;
+    }
 }
 .columns {
     margin-left: -$gutter;
     margin-right: -$gutter;
+    margin-top: 30px;
     @media($tablet) {
         margin-left: -$gutterTablet;
         margin-right: -$gutterTablet;

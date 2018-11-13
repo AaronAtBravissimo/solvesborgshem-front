@@ -100,6 +100,13 @@
     }
 }
 
+.hasTabs .headingHolder {
+    margin-bottom: 40px;
+    @media ($smallTablet) {
+        margin-bottom: 30px;
+    }
+}
+
 .mapHolder {
     transition: 0.125s;
     &.isFocused {

@@ -143,7 +143,8 @@ export default {
         letter-spacing: 3px;
     }
     @media ($mobile) {
-        letter-spacing: 2px;
+        font-size: 17px;
+        letter-spacing: 1.5px;
     }
 }
 .title {
@@ -160,7 +161,7 @@ export default {
         font-size: 17px;
     }
     @media ($mobile) {
-        font-size: 16px;
+        font-size: 15px;
     }
 }
 .description {

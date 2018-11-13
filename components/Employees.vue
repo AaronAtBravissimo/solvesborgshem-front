@@ -1,5 +1,8 @@
 <template>
-    <section class="employees box">
+    <section
+        :class="showAll ? 'hasTabs' : ''"
+        class="employees box"
+    >
         <div
             v-if="heading"
             class="container"
