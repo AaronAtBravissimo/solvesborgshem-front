@@ -17,7 +17,7 @@
 
 <script>
 import page from '../static/json/-_-.json';
-import TheHeroSection from '../components/TheHeroSection.vue';
+import TheHeroSection from '../components/heroSection/TheHeroSection.vue';
 import Shortcuts from '../components/Shortcuts.vue';
 import StayWithUs from '../components/StayWithUs.vue';
 import SocialPosts from '../components/SocialPosts.vue';

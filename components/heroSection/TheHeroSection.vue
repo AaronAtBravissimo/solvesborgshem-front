@@ -3,33 +3,35 @@
         :class="{'isLoaded': loaded}"
         class="heroSection"
     >
-        <div class="inner">
+        <div class="inner flex items-center">
             <div class="left">
-                <TheHeroSlider
-                    :slides="heroSection.slider.ordinaryImages"
-                    :image-elements="heroSection.slider.transparentImages"
-                />
+                <TheHeroSlider :slides="heroSection.slider.ordinaryImages"/>
             </div>
-            <div class="right">
-                <div class="textHolder">
-                    <h1 class="heading">
-                        <span class="firstRow block">{{ heroSection.heading.firstRow }}</span>
-                        <span class="secondRow block">{{ heroSection.heading.secondRow }}</span>
-                    </h1>
-                    <p
-                        class="preamble"
-                        v-html="heroSection.preamble"
-                    >
-                    </p>
-                </div>
-                <div class="linkSelect">
-                    <Select
-                        :items="linkSelect"
-                        :show-first-item="false"
-                        :is-menu="true"
-                        name="heroSelect"
-                        @changed="linkSelectChanged"
-                    />
+            <div class="middle">
+                <ImageElement :image-elements="heroSection.slider.transparentImages"/>
+            </div>
+            <div class="right flex justify-center">
+                <div class="rightInner">
+                    <div class="textHolder">
+                        <h1 class="heading">
+                            <span class="firstRow block">{{ heroSection.heading.firstRow }}</span>
+                            <span class="secondRow block">{{ heroSection.heading.secondRow }}</span>
+                        </h1>
+                        <p
+                            class="preamble"
+                            v-html="heroSection.preamble"
+                        >
+                        </p>
+                    </div>
+                    <div class="linkSelect">
+                        <Select
+                            :items="linkSelect"
+                            :show-first-item="false"
+                            :is-menu="true"
+                            name="heroSelect"
+                            @changed="linkSelectChanged"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -37,15 +39,17 @@
 </template>
 
 <script>
-import Select from './Select.vue';
+import Select from '../Select.vue';
 import TheHeroSlider from './TheHeroSlider.vue';
-import { baseUrl } from '../utils/config';
-import { makeUrlRelative } from '../utils/helpers';
+import ImageElement from './ImageElement.vue';
+import { baseUrl } from '../../utils/config';
+import { makeUrlRelative } from '../../utils/helpers';
 
 export default {
     components: {
         Select,
         TheHeroSlider,
+        ImageElement,
     },
     props: {
         heroSection: {
@@ -98,7 +102,7 @@ export default {
     position: relative;
     margin-top: 46px;
     overflow: hidden;
-    padding-bottom: 20px;
+    padding-bottom: 160px;
     @media ($tablet) {
         margin-top: 0;
         overflow: visible;
@@ -108,12 +112,13 @@ export default {
 .inner {
     display: flex;
     justify-content: space-between;
+    position: relative;
     @media ($tablet) {
         flex-wrap: wrap;
     }
 }
 .left {
-    flex-grow: 1;
+    width: 50%;
     overflow: hidden;
     @media ($tablet) {
         padding-bottom: 50px;
@@ -122,8 +127,17 @@ export default {
         padding-bottom: 70px;
     }
 }
+.middle {
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    width: 710px;
+    margin-left: -355px;
+}
 .right {
-    padding-right: 75px;
+    width: 50%;
+    margin-top: -80px;
+    padding-left: 177.5px;
     @media ($largeDesktop) {
         padding-right: 0;
     }
@@ -133,7 +147,6 @@ export default {
 }
 .textHolder {
     width: 550px;
-    margin-top: 118px;
     margin-bottom: 47px;
     @media ($largeDesktop) {
         width: 500px;

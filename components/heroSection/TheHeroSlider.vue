@@ -20,16 +20,6 @@
                 </div>
             </transition-group>
             <div class="imageOverlay"></div>
-            <div class="slideImageHolder">
-                <no-ssr>
-                    <img
-                        v-show="imageElement"
-                        :src="imageElement.sizes.large"
-                        :alt="imageElement.alt"
-                        class="slideImage"
-                    >
-                </no-ssr>
-            </div>
             <div class="buttons flex justify-center">
                 <button
                     aria-label="Bläddra vänster i bildspelet"
@@ -38,7 +28,7 @@
                 >
                     <img
                         class="buttonIcon prev"
-                        src="../assets/images/icon-arrow-right.svg"
+                        src="../../assets/images/icon-arrow-right.svg"
                         alt=""
                     >
                 </button>
@@ -50,13 +40,13 @@
                     <img
                         v-if="interval"
                         class="buttonIcon pause"
-                        src="../assets/images/icon-pause.svg"
+                        src="../../assets/images/icon-pause.svg"
                         alt=""
                     >
                     <img
                         v-if="!interval"
                         class="buttonIcon play"
-                        src="../assets/images/icon-play.svg"
+                        src="../../assets/images/icon-play.svg"
                         alt=""
                     >
                 </button>
@@ -67,7 +57,7 @@
                 >
                     <img
                         class="buttonIcon next"
-                        src="../assets/images/icon-arrow-right.svg"
+                        src="../../assets/images/icon-arrow-right.svg"
                         alt=""
                     >
                 </button>
@@ -80,10 +70,6 @@
 export default {
     props: {
         slides: {
-            type: Array,
-            required: true,
-        },
-        imageElements: {
             type: Array,
             required: true,
         },
@@ -180,25 +166,9 @@ $gutterMobile: 15px;
 }
 
 .heroSlider {
-    height: 700px;
-    @media ($largeDesktop) {
-        height: 650px;
-    }
-    @media ($laptop) {
-        width: calc(100% + 30px);
-        height: 550px;
-    }
-    @media ($largeTablet) {
-        width: calc(100% + 50px);
-        height: 500px;
-    }
-    @media ($tablet) {
-        width: 100%;
-        height: auto;
-    }
+    height: auto;
 }
 .slides {
-    padding-right: 200px;
     @media ($smallDesktop) {
         padding-right: 100px;
     }
