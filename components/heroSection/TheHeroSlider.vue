@@ -157,7 +157,13 @@ export default {
     height: auto;
     width: calc(100% - #{$gutterHeroSlider});
     @media ($laptop) {
-        width: calc(100% - #{$gutterHeroSliderLaptop});
+        width: calc(100% + #{$gutterHeroSliderLaptop});
+    }
+    @media ($tablet) {
+        width: calc(100% - 175px);
+    }
+    @media ($mediumTablet) {
+        width: calc(100% - 120px);
     }
     @media ($mobile) {
         width: calc(100% - #{$gutterHeroSliderMobile});
@@ -189,7 +195,7 @@ export default {
         height: 375px;
     }
     @media ($mobile) {
-        height: 250px;
+        height: 230px;
         margin: $gutterHeroSliderMobile;
     }
 }
@@ -253,7 +259,7 @@ export default {
     @media ($mobile) {
         left: 0;
         width: 100%;
-        bottom: -85px;
+        bottom: -180px;
     }
     .isLoaded & {
         opacity: 1;

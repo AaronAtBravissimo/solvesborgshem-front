@@ -10,8 +10,8 @@
             <div class="middle">
                 <ImageElement :image-elements="heroSection.slider.transparentImages"/>
             </div>
-            <div class="right flex justify-center">
-                <div class="rightInner">
+            <div class="right flex flex-no-shrink justify-center">
+                <div class="rightInner w-full">
                     <div class="textHolder">
                         <h1 class="heading">
                             <span class="firstRow block">{{ heroSection.heading.firstRow }}</span>
@@ -103,6 +103,15 @@ export default {
     margin-top: 46px;
     overflow: hidden;
     padding-bottom: 160px;
+    @media (max-width: 1900px) {
+        padding-bottom: 100px;
+    }
+    @media ($largeDesktop) {
+        padding-bottom: 140px;
+    }
+    @media ($largeTablet) {
+        padding-bottom: 160px;
+    }
     @media ($tablet) {
         margin-top: 0;
         overflow: visible;
@@ -120,10 +129,11 @@ export default {
 .left {
     width: 50%;
     @media ($tablet) {
+        width: 100%;
         padding-bottom: 50px;
     }
     @media ($mobile) {
-        padding-bottom: 70px;
+        padding-bottom: 170px;
     }
 }
 .middle {
@@ -132,35 +142,78 @@ export default {
     top: 80px;
     width: 710px;
     margin-left: -355px;
+    @media (max-width: 1900px) {
+        width: 600px;
+        margin-left: -300px;
+    }
+    @media ($largeDesktop) {
+        top: 120px;
+    }
+    @media ($smallDesktop) {
+        width: 550px;
+        margin-left: -275px;
+    }
+    @media ($laptop) {
+        width: 500px;
+        margin-left: -300px;
+    }
+    @media ($largeTablet) {
+        width: 475px;
+        margin-left: -350px;
+    }
+    @media ($tablet) {
+        width: 425px;
+        left: auto;
+        right: -50px;
+        margin-left: 0;
+        top: 80px;
+    }
+    @media ($smallTablet) {
+        width: 350px;
+    }
+    @media ($mobile) {
+        width: 275px;
+        right: 50%;
+        margin-right: -137.5px;
+        top: 120px;
+    }
 }
 .right {
     width: 50%;
     margin-top: -#{$gutterHeroSlider * 2};
     padding-left: 177.5px;
-    @media ($largeDesktop) {
-        padding-right: 0;
+    @media (max-width: 1900px) {
+        padding-left: 200px;
+    }
+    @media ($smallDesktop) {
+        padding-left: 0;
+        justify-content: flex-end;
+    }
+    @media ($laptop) {
+        margin-top: -#{$gutterHeroSliderLaptop * 2};
     }
     @media ($tablet) {
         width: 100%;
+        margin-top: 0;
+        justify-content: center;
     }
 }
 .textHolder {
     width: 550px;
+    max-width: 100%;
     margin-bottom: 47px;
     @media ($largeDesktop) {
         width: 500px;
     }
     @media ($smallDesktop) {
-        width: 490px;
+        width: 460px;
     }
     @media ($laptop) {
         width: 460px;
-        margin-top: 55px;
         margin-bottom: 35px;
     }
     @media ($largeTablet) {
         width: 380px;
-        margin-top: 40px;
     }
     @media ($tablet) {
         width: 500px;
@@ -173,6 +226,9 @@ export default {
     margin-bottom: 27px;
     padding-left: 30px;
     padding-right: 20px;
+    @media ($smallDesktop) {
+        font-size: 36px;
+    }
     @media ($largeTablet) {
         font-size: 40px;
     }
@@ -219,7 +275,7 @@ export default {
     @media ($largeDesktop) {
         font-size: 18px;
     }
-    @media ($laptop) {
+    @media ($smallDesktop) {
         font-size: 17px;
     }
     @media ($tablet) {
