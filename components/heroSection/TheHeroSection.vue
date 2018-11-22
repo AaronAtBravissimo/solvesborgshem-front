@@ -11,7 +11,7 @@
                 <ImageElement :image-elements="heroSection.slider.transparentImages"/>
             </div>
             <div class="right flex flex-no-shrink justify-center">
-                <div class="rightInner w-full">
+                <div class="rightInner">
                     <div class="textHolder">
                         <h1 class="heading">
                             <span class="firstRow block">{{ heroSection.heading.firstRow }}</span>
@@ -196,6 +196,11 @@ export default {
         width: 100%;
         margin-top: 0;
         justify-content: center;
+    }
+}
+.rightInner {
+    @media ($tablet) {
+        width: 100%;
     }
 }
 .textHolder {

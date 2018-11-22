@@ -231,18 +231,11 @@ export default {
     .isLoaded & {
         transform: translateX(-100%);
     }
-    @media ($smallDesktop) {
-        width: calc(100% - 100px);
-    }
     @media ($laptop) {
         top: -$gutterHeroSliderLaptop;
     }
-    @media ($mediumTablet) {
-        width: calc(100% - 20px);
-    }
     @media ($mobile) {
         top: -15px;
-        width: calc(100% - 15px);
     }
 }
 .buttons {
