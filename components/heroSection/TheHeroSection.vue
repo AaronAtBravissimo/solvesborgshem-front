@@ -248,7 +248,8 @@ export default {
     }
     @media ($mobile) {
         font-size: 28px;
-        width: 300px;
+        width: 280px;
+        margin-bottom: 15px;
     }
 }
 .firstRow {
@@ -290,7 +291,8 @@ export default {
         font-size: 17px;
     }
     @media ($mobile) {
-        font-size: 16px;
+        font-size: 15px;
+        padding: 0 15px;
     }
 }
 .linkSelect {

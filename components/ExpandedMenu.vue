@@ -117,7 +117,7 @@ export default {
         display: block;
     }
     @media ($mobile) {
-        padding: 40px 15px;
+        padding: 30px;
         width: 260px;
     }
     &.isOpen {
@@ -154,8 +154,8 @@ export default {
     letter-spacing: 1px;
     border-bottom: 1px solid transparentize(#ffffff, 0.75);
     @media ($mobile) {
-        font-size: 16px;
-        padding: 18px 0;
+        font-size: 15px;
+        padding: 15px 0;
     }
 }
 .loginButton {
