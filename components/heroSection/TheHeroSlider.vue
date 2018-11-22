@@ -84,18 +84,9 @@ export default {
         };
     },
     mounted() {
-        this.start();
-    },
-    created() {
-        this.setImageElement();
+        // this.start();
     },
     methods: {
-        setImageElement() {
-            if (this.imageElements && this.imageElements.length > 1) {
-                const rand = Math.floor(Math.random() * this.imageElements.length);
-                this.imageElement = this.imageElements[rand];
-            }
-        },
         prevSlide() {
             if (this.currentIndex !== 0) {
                 this.currentIndex--;
@@ -150,9 +141,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$gutter: 40px;
-$gutterLaptop: 20px;
-$gutterMobile: 15px;
 
 .fade-enter-active, .fade-leave-active {
   transition: all 1s ease;
@@ -167,59 +155,12 @@ $gutterMobile: 15px;
 
 .heroSlider {
     height: auto;
-}
-.slides {
-    @media ($smallDesktop) {
-        padding-right: 100px;
-    }
-    @media ($mediumTablet) {
-        padding-right: $gutterLaptop;
-    }
-    @media ($mobile) {
-        padding-right: $gutterMobile;
-    }
-}
-.slideImageHolder {
-    position: absolute;
-    right: 0;
-    top: 13px;
-    opacity: 0;
-    transform: translateY(-50px);
-    transition: 0.75s 2.1s ease;
-    .isLoaded & {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    @media ($largeDesktop) {
-        top: 0;
-        width: 650px;
-    }
-    @media ($smallDesktop) {
-        top: 30px;
-        width: 600px;
-    }
+    width: calc(100% - #{$gutterHeroSlider});
     @media ($laptop) {
-        right: 30px;
-        top: 50px;
-        width: 520px;
-    }
-    @media ($largeTablet) {
-        width: 450px;
-    }
-    @media ($tablet) {
-        right: 0;
-        width: 425px;
-    }
-    @media ($smallTablet) {
-        right: -30px;
-        top: 75px;
-        width: 350px;
+        width: calc(100% - #{$gutterHeroSliderLaptop});
     }
     @media ($mobile) {
-        right: 50%;
-        margin-right: -140px;
-        top: 30px;
-        width: 280px;
+        width: calc(100% - #{$gutterHeroSliderMobile});
     }
 }
 .backgroundHolder {
@@ -228,7 +169,7 @@ $gutterMobile: 15px;
     position: relative;
     background-color: transparentize(#ffffff, 1);
     box-shadow: 0 0 50px 0 rgba(13, 42, 56, 0);
-    margin: $gutter;
+    margin: $gutterHeroSlider;
     transition: 0.75s 0.6s ease;
     .isLoaded & {
         background-color: transparentize(#ffffff, 0);
@@ -239,7 +180,7 @@ $gutterMobile: 15px;
     }
     @media ($laptop) {
         height: 450px;
-        margin: $gutterLaptop;
+        margin: $gutterHeroSliderLaptop;
     }
     @media ($largeTablet) {
         height: 400px;
@@ -249,7 +190,7 @@ $gutterMobile: 15px;
     }
     @media ($mobile) {
         height: 250px;
-        margin: $gutterMobile;
+        margin: $gutterHeroSliderMobile;
     }
 }
 .background,
@@ -261,15 +202,15 @@ $gutterMobile: 15px;
 }
 .imageOverlay,
 .background {
-    left: -$gutter;
-    top: -$gutter;
+    left: -$gutterHeroSlider;
+    top: -$gutterHeroSlider;
     @media ($laptop) {
-        left: -$gutterLaptop;
-        top: -$gutterLaptop;
+        left: -$gutterHeroSliderLaptop;
+        top: -$gutterHeroSliderLaptop;
     }
     @media ($mobile) {
-        left: -$gutterMobile;
-        top: -$gutterMobile;
+        left: -$gutterHeroSliderMobile;
+        top: -$gutterHeroSliderMobile;
     }
 }
 .backgroundImage, {
@@ -277,9 +218,8 @@ $gutterMobile: 15px;
     top: 0;
 }
 .imageOverlay {
-    width: calc(100% - 200px);
     left: 0;
-    top: -$gutter;
+    top: -$gutterHeroSlider;
     background-color: #f4f8fa;
     transition: 0.75s 0s cubic-bezier(0.77, 0.02, 0.58, 1);
     .isLoaded & {
@@ -289,7 +229,7 @@ $gutterMobile: 15px;
         width: calc(100% - 100px);
     }
     @media ($laptop) {
-        top: -$gutterLaptop;
+        top: -$gutterHeroSliderLaptop;
     }
     @media ($mediumTablet) {
         width: calc(100% - 20px);
@@ -301,13 +241,13 @@ $gutterMobile: 15px;
 }
 .buttons {
     position: absolute;
-    left: $gutter;
+    left: $gutterHeroSlider;
     bottom: 0px;
     height: 40px;
     opacity: 0;
     transition: 0.5s 0.9s ease;
     @media ($laptop) {
-        left: $gutterLaptop;
+        left: $gutterHeroSliderLaptop;
         bottom: -40px;
     }
     @media ($mobile) {

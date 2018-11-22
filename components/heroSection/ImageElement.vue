@@ -39,4 +39,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.imageElement {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: 0.75s 1.05s ease;
+    .isLoaded & {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 </style>
