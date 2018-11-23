@@ -100,7 +100,6 @@ export default {
 <style lang="scss" scoped>
 .heroSection {
     position: relative;
-    margin-top: 46px;
     overflow: hidden;
     padding-bottom: 160px;
     @media (max-width: 1900px) {
@@ -113,7 +112,6 @@ export default {
         padding-bottom: 160px;
     }
     @media ($tablet) {
-        margin-top: 0;
         overflow: visible;
         padding-bottom: 50px;
     }
