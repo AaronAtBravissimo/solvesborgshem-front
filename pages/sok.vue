@@ -19,7 +19,7 @@
                             :image="result.image.url"
                             :imagealt="result.image.alt"
                             :heading="result.heading"
-                            :content="result.preamble"
+                            :content="excerpt(result.preamble, 150)"
                             :link="result.link"
                         />
                     </div>
@@ -43,6 +43,7 @@ import AppButton from '../components/AppButton.vue';
 import SearchFilterBox from '../components/SearchFilterBox.vue';
 import Spinner from '../components/Spinner.vue';
 import { apiUrl } from '../utils/config';
+import { excerpt } from '../utils/helpers';
 
 export default {
     components: {
@@ -60,6 +61,7 @@ export default {
     data: () => ({
         results: [],
         loading: true,
+        excerpt,
     }),
     computed: {
         topSection() {

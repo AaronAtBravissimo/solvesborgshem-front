@@ -15,7 +15,11 @@
                 </div>
                 <div class="infoHolder">
                     <h3 class="heading">{{ heading }}</h3>
-                    <p class="text">{{ content }}</p>
+                    <p
+                        class="text"
+                        v-html="content"
+                    >
+                    </p>
                 </div>
             </div>
         </Applink>
