@@ -41,14 +41,14 @@ export default {
 <style lang="scss" scoped>
 .topSection {
     padding-bottom: 80px;
-    @media ($tablet) {
-        padding-bottom: 70px;
-    }
-    @media ($smallTablet) {
+    @media ($laptop) {
         padding-bottom: 60px;
     }
+    @media ($smallTablet) {
+        padding-bottom: 40px;
+    }
     @media ($mobile) {
-        padding-bottom: 50px;
+        padding-bottom: 30px;
     }
 }
 .container {

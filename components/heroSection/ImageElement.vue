@@ -3,7 +3,7 @@
         <no-ssr>
             <img
                 v-show="imageElement"
-                :src="imageElement.sizes.large"
+                :src="imageElement.url"
                 :alt="imageElement.alt"
                 class="image"
             >

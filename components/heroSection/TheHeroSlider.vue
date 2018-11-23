@@ -13,7 +13,7 @@
                     class="background"
                 >
                     <img
-                        :src="slide.sizes.large"
+                        :src="slide.url"
                         :alt="slide.alt"
                         class="backgroundImage objectFitCover"
                     >
