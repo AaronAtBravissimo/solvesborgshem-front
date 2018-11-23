@@ -120,7 +120,6 @@ export default {
     overflow: hidden;
     position: relative;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
-    // Buggfix i Safari som annars strular vid hover då den tappar overflow-hidden.
     @media ($largeDesktop) {
         width: 200px;
         height: 200px;

@@ -132,8 +132,11 @@ export default {
         width: 100%;
         padding-bottom: 50px;
     }
+    @media ($smallTablet) {
+        padding-bottom: 80px;
+    }
     @media ($mobile) {
-        padding-bottom: 170px;
+        padding-bottom: 60px;
     }
 }
 .middle {
@@ -170,12 +173,12 @@ export default {
     }
     @media ($smallTablet) {
         width: 350px;
+        top: 140px;
     }
     @media ($mobile) {
-        width: 275px;
-        right: 50%;
-        margin-right: -137.5px;
-        top: 120px;
+        width: 250px;
+        top: 20px;
+        right: -30px;
     }
 }
 .right {

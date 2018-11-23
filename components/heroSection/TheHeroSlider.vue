@@ -166,7 +166,7 @@ export default {
         width: calc(100% - 120px);
     }
     @media ($mobile) {
-        width: calc(100% - #{$gutterHeroSliderMobile});
+        width: calc(100% - 100px);
     }
 }
 .backgroundHolder {
@@ -195,7 +195,7 @@ export default {
         height: 375px;
     }
     @media ($mobile) {
-        height: 230px;
+        height: 200px;
         margin: $gutterHeroSliderMobile;
     }
 }
@@ -250,9 +250,7 @@ export default {
         bottom: -40px;
     }
     @media ($mobile) {
-        left: 0;
-        width: 100%;
-        bottom: -180px;
+        left: 10px;
     }
     .isLoaded & {
         opacity: 1;
