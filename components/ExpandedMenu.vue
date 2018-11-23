@@ -113,6 +113,7 @@ export default {
     opacity: 0;
     transition-delay: 0.35s;
     display: none;
+    -webkit-overflow-scrolling: touch;
     @media ($laptop) {
         display: block;
     }
