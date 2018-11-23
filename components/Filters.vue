@@ -50,12 +50,20 @@ $checkWidthMediumTablet: 6px;
 $checkWidthSmallerTablet: 5px;
 
 .filters {
+    margin: 0 -25px;
+    @media ($mediumTablet) {
+        margin: 0 -15px;
+    }
+    @media ($smallerTablet) {
+        margin: 0 -12px;
+    }
     @media ($mobile) {
+        margin: 0 -8px;
         justify-content: space-between;
     }
-    @media (max-width: 370px) {
+    @media ($smallerMobile) {
+        margin: 0 0 -15px;
         flex-wrap: wrap;
-        margin-bottom: -15px;
     }
 }
 
@@ -71,7 +79,7 @@ $checkWidthSmallerTablet: 5px;
     @media ($mobile) {
         margin: 0 8px;
     }
-    @media (max-width: 370px) {
+    @media ($smallerMobile) {
         width: 100%;
         margin: 0 0 15px;
     }
