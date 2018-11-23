@@ -1,10 +1,10 @@
 <template>
     <div class="employee flex items-center">
-        <img
-            :src="image"
+        <AppImage
+            :image="employee.image.sizes.medium"
             :alt="employee.image.alt"
             class="image objectFitCover"
-        >
+        />
         <div class="infoHolder">
             <h3 class="heading">{{ employee.name }}</h3>
             <p
@@ -52,9 +52,13 @@
 </template>
 
 <script>
+import AppImage from './AppImage.vue';
 import placeholderImage from '../assets/images/placeholder.png';
 
 export default {
+    components: {
+        AppImage,
+    },
     props: {
         employee: {
             type: Object,

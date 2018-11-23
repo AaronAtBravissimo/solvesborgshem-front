@@ -17,11 +17,11 @@
                         v-if="building.imageGallery"
                         class="imageGallery relative"
                     >
-                        <img
-                            :src="building.imageGallery[0].sizes.large"
+                        <AppImage
+                            :image="building.imageGallery[0].sizes.large"
                             :alt="building.imageGallery[0].alt"
-                            class="objectFitCover w-full h-full"
-                        >
+                            class="w-full h-full"
+                        />
                         <AppButton
                             v-if="building.imageGallery.length > 1"
                             ref="triggerGallery"
@@ -86,13 +86,14 @@ import TopSection from '../components/TopSection.vue';
 import BuildingWidget from '../components/BuildingWidget.vue';
 import AppButton from '../components/AppButton.vue';
 import AddressBox from '../components/AddressBox.vue';
-import { getMeta, updatePage } from '../utils/helpers';
-import expandIcon from '../assets/images/icon-expand.svg';
 import Photoswipe from '../components/Photoswipe.vue';
+import AppImage from '../components/AppImage.vue';
 import apartmentIcon from '../assets/images/icon-building-apartment.svg';
 import areaIcon from '../assets/images/icon-building-area.svg';
 import featuresIcon from '../assets/images/icon-building-features.svg';
 import propertyIcon from '../assets/images/icon-building-property.svg';
+import expandIcon from '../assets/images/icon-expand.svg';
+import { getMeta, updatePage } from '../utils/helpers';
 
 const PhotoSwipe = require('photoswipe/dist/photoswipe.js');
 const PhotoSwipeUIDefault = require('photoswipe/dist/photoswipe-ui-default.js');
@@ -104,6 +105,7 @@ export default {
         AppButton,
         AddressBox,
         Photoswipe,
+        AppImage,
     },
     head() {
         return getMeta(this.building.yoast);

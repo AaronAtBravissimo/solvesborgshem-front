@@ -12,11 +12,11 @@
                     :key="index"
                     class="background"
                 >
-                    <img
-                        :src="slide.url"
+                    <AppImage
+                        :image="slide.url"
                         :alt="slide.alt"
                         class="backgroundImage objectFitCover"
-                    >
+                    />
                 </div>
             </transition-group>
             <div class="imageOverlay"></div>
@@ -67,7 +67,12 @@
 </template>
 
 <script>
+import AppImage from '../AppImage.vue';
+
 export default {
+    components: {
+        AppImage,
+    },
     props: {
         slides: {
             type: Array,
@@ -222,6 +227,7 @@ export default {
 .backgroundImage, {
     left: 0;
     top: 0;
+    overflow: hidden;
 }
 .imageOverlay {
     left: 0;

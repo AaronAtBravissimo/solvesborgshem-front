@@ -8,8 +8,8 @@
             ref="image"
             :src="imageSrc"
             :alt="alt"
-            :class="{ 'loaded': isLoaded }"
-            class="imageSrc ab100 objectFitCover"
+            :class="{ 'loaded': isLoaded, 'ab100': !disableAb100 }"
+            class="imageSrc objectFitCover"
         >
     </picture>
 </template>
@@ -28,6 +28,10 @@ export default {
         lazy: {
             type: Boolean,
             default: true,
+        },
+        disableAb100: {
+            type: Boolean,
+            default: false,
         },
     },
     data: () => ({

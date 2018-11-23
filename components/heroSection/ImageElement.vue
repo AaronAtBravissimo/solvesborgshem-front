@@ -1,18 +1,23 @@
 <template>
     <div class="imageElement">
         <no-ssr>
-            <img
+            <AppImage
                 v-show="imageElement"
-                :src="imageElement.url"
+                :image="imageElement.url"
                 :alt="imageElement.alt"
-                class="image"
-            >
+                :disable-ab100="true"
+            />
         </no-ssr>
     </div>
 </template>
 
 <script>
+import AppImage from '../AppImage.vue';
+
 export default {
+    components: {
+        AppImage,
+    },
     props: {
         imageElements: {
             type: Array,
