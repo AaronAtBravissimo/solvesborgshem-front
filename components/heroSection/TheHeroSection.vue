@@ -101,12 +101,14 @@ export default {
 .heroSection {
     position: relative;
     overflow: hidden;
+    margin-top: 20px;
     padding-bottom: 160px;
     @media (max-width: 1900px) {
         padding-bottom: 100px;
     }
     @media ($largeDesktop) {
         padding-bottom: 140px;
+        margin-top: 0;
     }
     @media ($largeTablet) {
         padding-bottom: 160px;

@@ -47,11 +47,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 22px;
+    margin-right: 15px;
     line-height: 0;
     @media ($mobile) {
         width: 44px;
         height: 44px;
+        margin-right: 10px;
     }
     &:last-child {
         margin-right: 0;
