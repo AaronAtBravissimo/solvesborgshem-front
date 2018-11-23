@@ -190,6 +190,9 @@ $gutterMediumTablet: 10px;
         padding: 0;
         margin-bottom: 25px;
     }
+    @media ($mobile) {
+        margin-bottom: 15px;
+    }
 }
 .button {
     margin-top: $gutter;

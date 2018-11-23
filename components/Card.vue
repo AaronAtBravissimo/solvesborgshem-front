@@ -103,9 +103,21 @@ export default {
 }
 .top {
     margin-bottom: 38px;
+    @media ($mediumTablet) {
+        margin-bottom: 30px;
+    }
+    @media ($mobile) {
+        margin-bottom: 20px;
+    }
 }
 .bottom {
     margin-bottom: 20px;
+    @media ($mediumTablet) {
+        margin-bottom: 10px;
+    }
+    @media ($mobile) {
+        margin-bottom: 0;
+    }
 }
 .imageHolder {
     position: relative;
