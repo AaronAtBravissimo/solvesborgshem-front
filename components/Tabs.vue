@@ -51,28 +51,29 @@ export default {
 
 <style lang="scss" scoped>
 .tabs {
-    margin-bottom: 40px;
+    margin: 0 -10px 40px;
     @media ($tablet) {
-        margin-bottom: 35px;
+        margin: 0 -8px 35px;
     }
     @media ($smallTablet) {
-        margin-bottom: 25px;
+        margin: 0 -6px 25px;
     }
     @media ($mobile) {
-        margin-bottom: 15px;
+        margin: 0 -3px 12px;
     }
 }
 .tab {
     margin: 0 10px 20px;
+    min-width: 0;
     @media ($tablet) {
         margin: 0 8px 16px;
     }
     @media ($smallTablet) {
         margin: 0 6px 12px;
-        min-width: 0;
     }
     @media ($mobile) {
-        margin: 0 4px 8px;
+        margin: 0 3px 6px;
+        padding: 5px 12px;
     }
     &:focus {
         outline: 2px solid $primaryTextColor !important;
@@ -83,6 +84,12 @@ export default {
     background-color: #ddd;
     &:hover {
         background-color: $primaryBackgroundColor;
+    }
+}
+.tabs /deep/ .label {
+    @media ($mobile) {
+        letter-spacing: 0.8px;
+        font-size: 9px;
     }
 }
 </style>
