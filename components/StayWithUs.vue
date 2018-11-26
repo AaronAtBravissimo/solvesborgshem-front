@@ -65,6 +65,8 @@ $gutterSmallTablet: 25px;
     }
     @media ($mobile) {
         padding: 50px 0;
+        margin-left: -15px;
+        margin-right: -15px;
     }
 }
 .top {
@@ -106,7 +108,7 @@ $gutterSmallTablet: 25px;
     @media ($smallerTablet) {
         margin-left: auto;
         margin-right: auto;
-        width: 360px;
+        width: 380px;
         max-width: 100%;
     }
     @media ($mobile) {

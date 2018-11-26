@@ -87,24 +87,24 @@ export default {
     @media ($smallerTablet) {
         width: 160px;
         height: 160px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
     @media ($mobile) {
-        width: 140px;
-        height: 140px;
+        width: 130px;
+        height: 130px;
     }
 }
 .icon {
     &.phone {
         width: 82px;
         height: 82px;
-        @media ($smallTablet) {
-            width: 60px;
-            height: 60px;
+        @media ($mediumTablet) {
+            width: (82px * 0.7);
+            height: (82px * 0.7);
         }
         @media ($mobile) {
-            width: 50px;
-            height: 50px;
+            width: (82px * 0.55);
+            height: (82px * 0.55);
         }
     }
     &.email {
@@ -115,8 +115,8 @@ export default {
             height: 60px;
         }
         @media ($mobile) {
-            width: 50px;
-            height: 50px;
+            width: (80px * 0.55);
+            height: (80px * 0.55);
         }
     }
     &.house {
@@ -127,8 +127,8 @@ export default {
             height: 62px;
         }
         @media ($mobile) {
-            width: 50px;
-            height: 54px;
+            width: (50px * 0.55);
+            height: (54px * 0.55);
         }
     }
     &.clock {
@@ -139,8 +139,8 @@ export default {
             height: 60px;
         }
         @media ($mobile) {
-            width: 50px;
-            height: 50px;
+            width: (80px * 0.55);
+            height: (80px * 0.55);
         }
     }
     &.person {
@@ -149,6 +149,10 @@ export default {
         @media ($smallTablet) {
             width: 27px;
             height: 58px;
+        }
+        @media ($mobile) {
+            width: (37px * 0.55);
+            height: (78px * 0.55);
         }
     }
     &.thumbUp {
@@ -159,8 +163,8 @@ export default {
             height: 56px;
         }
         @media ($mobile) {
-            width: 46px;
-            height: 46px;
+            width: (66px * 0.55);
+            height: (66px * 0.55);
         }
     }
     &.house {
@@ -171,8 +175,8 @@ export default {
             height: 62px;
         }
         @media ($mobile) {
-            width: 50px;
-            height: 54px;
+            width: (76px * 0.55);
+            height: (82px * 0.55);
         }
     }
     &.checklist {
@@ -183,13 +187,16 @@ export default {
             height: 64px;
         }
         @media ($mobile) {
-            width: 38px;
-            height: 54px;
+            width: (55px * 0.55);
+            height: (79px * 0.55);
         }
     }
 }
 .heading {
     margin-bottom: 16px;
+    @media ($smallerTablet) {
+        margin-bottom: 10px;
+    }
 }
 .textHolder {
     font-size: 16px;
