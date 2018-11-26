@@ -14,7 +14,7 @@
             aria-haspopup="true"
             @click="toggle"
         >
-            {{ activeItem.label }}
+            <span class="activeItem">{{ activeItem.label }}</span>
         </button>
         <ul
             ref="listboxNode"

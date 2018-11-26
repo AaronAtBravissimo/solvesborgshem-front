@@ -232,6 +232,25 @@ $columnGutter: 15px;
     .smallCard .inner {
         align-items: center;
     }
+    .dropdownToggle {
+        box-shadow: none;
+        font-weight: normal;
+        max-width: 100%;
+        border-radius: 6px;
+        padding: 12px 20px;
+        border: solid 1px #cfcfcf;
+        background-color: #fafafa;
+        font-size: 16px;
+        font-family: $secondaryFont;
+        line-height: normal;
+        color: $primaryTextColor;
+        .activeItem {
+            opacity: 0.5;
+        }
+    }
+    .isOpen .dropdownToggle .activeItem {
+        opacity: 1;
+    }
 }
 .mapFilter {
     @media ($mediumTablet) {
