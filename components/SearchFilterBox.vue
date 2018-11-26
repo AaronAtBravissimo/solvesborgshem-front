@@ -106,9 +106,9 @@ export default {
         font-size: 14px;
     }
     &:focus {
-        outline: 2px solid $primaryTextColor !important;
-        outline-offset: 5px !important;
-        border: solid 1px #cfcfcf !important;
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 5px;
+        border: solid 1px #cfcfcf;
     }
 }
 .searchButton {
@@ -116,7 +116,7 @@ export default {
         min-width: 0;
     }
     &:focus {
-        outline-color: $primaryTextColor !important;
+        outline-color: $primaryTextColor;
     }
 }
 .filterHolder {
@@ -134,6 +134,6 @@ export default {
     flex-shrink: 0;
 }
 .mapFilterButton:focus {
-    outline-color: #404040 !important;
+    outline-color: #404040;
 }
 </style>

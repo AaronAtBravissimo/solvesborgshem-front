@@ -141,8 +141,8 @@ export default {
         padding: 8px 14px;
     }
     &:focus {
-        outline: 2px solid #fff !important;
-        outline-offset: 5px !important;
+        outline: 2px solid #fff;
+        outline-offset: 5px;
     }
     &.isDisabled {
         cursor: default;

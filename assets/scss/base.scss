@@ -33,9 +33,9 @@ button {
     color: inherit;
     transition: 0.25s;
     &:focus {
-        outline: 2px solid $primaryBackgroundColor !important;
-        outline-offset: 5px !important;
-        transition: 0s !important
+        outline: 2px solid $primaryBackgroundColor;
+        outline-offset: 5px;
+        transition: 0s
     }
 }
 

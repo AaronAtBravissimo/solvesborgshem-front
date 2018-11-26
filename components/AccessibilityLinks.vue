@@ -50,8 +50,8 @@ $gutter: 20px;
     opacity: 1;
     z-index: 1;
     padding: $gutter 0;
-    outline: 0 !important;
-    transition: 0.25s !important;
+    outline: 0 ;
+    transition: 0.25s;
     &::after {
         opacity: 1;
     }

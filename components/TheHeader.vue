@@ -83,8 +83,8 @@ export default {
 }
 .loginButton {
     &:focus {
-        outline: 2px solid $primaryBackgroundColor !important;
-        outline-offset: 3px !important;
+        outline: 2px solid $primaryBackgroundColor;
+        outline-offset: 3px;
     }
     @media ($laptop) {
         display: none;

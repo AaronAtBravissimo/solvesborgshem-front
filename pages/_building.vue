@@ -312,7 +312,7 @@ $columnsGutter: 25px;
         background-color: $primaryColor;
     }
     &:focus {
-        outline-color: $primaryTextColor !important;
+        outline-color: $primaryTextColor;
         background-color: $primaryColor;
     }
     /deep/ .label {
@@ -366,7 +366,7 @@ $columnsGutter: 25px;
     }
 }
 .allBuildingsButton:focus {
-    outline: 2px solid #404040 !important;
-    outline-offset: 3px !important;
+    outline: 2px solid #404040;
+    outline-offset: 3px;
 }
 </style>

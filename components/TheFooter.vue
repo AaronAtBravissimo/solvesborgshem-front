@@ -113,7 +113,7 @@ $columnsGutterTablet: 30px;
         }
     }
     /deep/ a:focus {
-        outline: 2px solid #fff !important;
+        outline: 2px solid #fff;
     }
 }
 .graphicHolder {
