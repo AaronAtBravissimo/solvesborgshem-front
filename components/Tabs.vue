@@ -76,8 +76,8 @@ export default {
         padding: 5px 12px;
     }
     &:focus {
-        outline: 2px solid $primaryTextColor !important;
-        outline-offset: 3px !important;
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 3px;
     }
 }
 .button.notActive {

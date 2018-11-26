@@ -197,8 +197,8 @@ $gutterMediumTablet: 10px;
 .button {
     margin-top: $gutter;
     &:focus {
-        outline: 2px solid $primaryTextColor !important;
-        outline-offset: 3px !important;
+        outline: 2px solid $primaryTextColor;
+        outline-offset: 3px;
     }
     /deep/ {
         .inner {
