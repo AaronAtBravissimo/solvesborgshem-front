@@ -157,6 +157,9 @@ $iconSizeMobile: 16px;
     .done & {
         opacity: 1;
     }
+    &.inputIsFocused {
+        border-bottom-color: rgba(255, 255, 255, 1);
+    }
 }
 .icon {
     position: absolute;
@@ -194,10 +197,6 @@ $iconSizeMobile: 16px;
     &::placeholder {
         color: #ffffff;
         opacity: 0.65;
-    }
-    &:focus {
-        outline: 2px solid #fff;
-        outline-offset: 8px;
     }
 }
 .closeButton {
