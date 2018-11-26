@@ -1,9 +1,8 @@
 <template>
     <section class="topSection">
         <AppImage
-            v-if="topSection.image"
-            :image="topSection.image.url"
-            :alt="topSection.image.alt"
+            :image="topImage.url"
+            :alt="topImage.alt"
             class="image objectFitCover"
         />
         <div class="textHolder text-center">
@@ -33,6 +32,15 @@ export default {
         topSection: {
             type: Object,
             required: true,
+        },
+    },
+    computed: {
+        topImage() {
+            if (!this.topSection.image) {
+                return this.$store.getters.options.searchTopImage;
+            }
+
+            return this.topSection.image;
         },
     },
 };
