@@ -209,7 +209,9 @@ export default {
     }
 }
 .button {
-    min-width: 200px;
+    @media (min-width: 1030px) {
+        min-width: 200px;
+    }
 }
 
 </style>
