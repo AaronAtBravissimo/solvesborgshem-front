@@ -143,28 +143,19 @@ $iconSizeMobile: 16px;
     }
 }
 .form {
-    padding: 18px 0;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
     opacity: 0;
     transition: 0.25s;
-    @media ($smallTablet) {
-        padding: 14px 0;
-    }
     @media ($mobile) {
         margin: 10px 0 5px;
-        padding: 10px 0;
     }
     .done & {
         opacity: 1;
-    }
-    &.inputIsFocused {
-        border-bottom-color: rgba(255, 255, 255, 1);
     }
 }
 .icon {
     position: absolute;
     left: 0;
-    top: 50%;
+    top: calc(50% - 1px);
     width: $iconSize;
     height: $iconSize;
     margin-top: -#{$iconSize / 2};
@@ -185,14 +176,22 @@ $iconSizeMobile: 16px;
     font-family: $secondaryFont;
     line-height: normal;
     color: #ffffff;
+    padding: 19px 0;
     padding-left: #{$iconSize + 15px};
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    transition: 0.25s;
     @media ($smallTablet) {
         font-size: 16px;
+        padding: 15px 0;
         padding-left: #{$iconSizeSmallTablet + 15px};
     }
     @media ($mobile) {
         font-size: 15px;
+        padding: 11px 0;
         padding-left: #{$iconSizeMobile + 15px};
+    }
+    &:focus {
+        border-bottom-color: rgba(255, 255, 255, 1);
     }
     &::placeholder {
         color: #ffffff;
