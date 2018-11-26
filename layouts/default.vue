@@ -116,15 +116,15 @@ export default {
 }
 .wrapper__inner {
     background-color: #f4f8fa;
-    padding: 0 $frameSize 120px;
+    padding: 0 $frameSize 100px;
     @media ($smallDesktop) {
-        padding: 0 $frameSizeSmallDesktop 90px;
+        padding: 0 $frameSizeSmallDesktop 80px;
     }
     @media ($tablet) {
-        padding: 0 $frameSizeSmallDesktop 70px;
+        padding: 0 $frameSizeSmallDesktop 60px;
     }
     @media ($smallTablet) {
-        padding: 0 $frameSizeSmallDesktop 50px;
+        padding: 0 $frameSizeSmallDesktop 40px;
     }
     @media ($mobile) {
         padding: 0 15px 30px;

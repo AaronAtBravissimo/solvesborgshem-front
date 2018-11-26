@@ -4,9 +4,14 @@ $gutterLargeTablet: 10px;
 .smallCardColumns {
     margin-left: -$gutter;
     margin-right: -$gutter;
+    margin-bottom: -($gutter * 2);
     @media ($largeTablet) {
         margin-left: -$gutterLargeTablet;
         margin-right: -$gutterLargeTablet;
+        margin-bottom: -($gutterLargeTablet * 2);
+    }
+    @media ($mobile) {
+        margin-bottom: -15px;
     }
 }
 .smallCardColumn {
