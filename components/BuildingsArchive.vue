@@ -229,6 +229,9 @@ $columnGutter: 15px;
             width: 100%;
         }
     }
+    .smallCard .inner {
+        align-items: center;
+    }
 }
 .mapFilter {
     @media ($mediumTablet) {

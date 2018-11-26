@@ -170,7 +170,8 @@ $buttonSizeMobile: 16px;
     @media ($mobile) {
         padding-top: 15px;
     }
-    /deep/ p {
+    /deep/ p,
+    /deep/ ul {
         font-size: 16px;
         @media ($laptop) {
             font-size: 15px;
