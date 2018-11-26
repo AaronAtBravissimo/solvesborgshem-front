@@ -3,6 +3,8 @@ import objectFitImages from 'object-fit-images';
 
 objectFitImages();
 
+require('intersection-observer');
+
 if (!Array.prototype.find) {
     Object.defineProperty(Array.prototype, 'find', {
         value: function(predicate) {
