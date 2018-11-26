@@ -21,6 +21,10 @@ export default {
             type: String,
             default: '',
         },
+        imageWebp: {
+            type: String,
+            default: '',
+        },
         alt: {
             type: String,
             default: '',
@@ -33,6 +37,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        useWebp: {
+            type: Boolean,
+            default: true,
+        },
     },
     data: () => ({
         loaded: false,
@@ -40,6 +48,13 @@ export default {
     computed: {
         isLoaded() {
             return !this.lazy || this.loaded;
+        },
+        webpImage() {
+            if (this.lazy && !this.loaded) return null;
+
+            if (!this.useWebp) return this.image;
+
+            return this.imageWebp ? this.imageWebp : `${this.image}.webp`;
         },
         imageSrc() {
             if (this.lazy && !this.loaded) return null;

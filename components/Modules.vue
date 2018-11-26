@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.modules > section:last-child {
+.modules > *:last-child {
     margin-bottom: 0;
 }
 </style>

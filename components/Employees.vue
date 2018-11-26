@@ -164,13 +164,17 @@ $marginBottom: 50px;
     padding: 35px 0;
     margin-bottom: -#{$marginBottom};
     position: relative;
+    @media ($tablet) {
+        padding-bottom: 0;
+    }
     @media ($mediumTablet) {
-        padding: 35px 30px;
+        padding: 35px 30px 0;
     }
     @media ($smallTablet) {
-        padding: 30px 0;
+        padding: 25px 0 0;
     }
     @media ($mobile) {
+        padding: 15px 0 0;
         margin-bottom: -30px;
     }
     &::after {

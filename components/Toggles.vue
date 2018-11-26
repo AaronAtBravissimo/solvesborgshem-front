@@ -190,6 +190,10 @@ $gutterTablet: 25px;
     @media($tablet) {
         margin-left: -$gutterTablet;
         margin-right: -$gutterTablet;
+        margin-bottom: -30px;
+    }
+    @media ($mobile) {
+        margin-bottom: -20px;
     }
 }
 .column {

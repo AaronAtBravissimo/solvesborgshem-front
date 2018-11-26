@@ -1,7 +1,7 @@
 <template>
     <div class="employee flex items-center">
         <AppImage
-            :image="employee.image.sizes.medium"
+            :image="image"
             :alt="employee.image.alt"
             class="image objectFitCover"
         />
@@ -71,7 +71,7 @@ export default {
                 return placeholderImage;
             }
 
-            return this.employee.image.url;
+            return this.employee.image.sizes.medium;
         },
         description() {
             if (!this.employee.description) {
