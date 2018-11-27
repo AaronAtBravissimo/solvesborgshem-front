@@ -20,8 +20,8 @@
                     <div class="imageOverlay ab100"></div>
                 </div>
                 <div class="infoHolder">
-                    <h3 class="heading">{{ heading }}</h3>
-                    <p class="text">{{ content }}</p>
+                    <h3 class="heading w-full">{{ heading }}</h3>
+                    <p class="text w-full">{{ content }}</p>
                     <div class="button">
                         <span class="flex">
                             <span class="inner">
@@ -177,6 +177,7 @@ export default {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    width: 100%;
     @media ($largeDesktop) {
         padding-left: 50px;
     }
