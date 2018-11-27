@@ -57,6 +57,10 @@ export default {
         height: 40px;
         top: -2px;
     }
+    @media ($tablet) {
+        width: 300px;
+        height: 35px;
+    }
     @media ($smallTablet) {
         width: 250px;
         height: 29px;
@@ -77,7 +81,7 @@ export default {
     @media #{$laptopLessHeight} {
         padding: 35px 0;
     }
-    @media ($smallTablet) {
+    @media ($tablet) {
         padding: 35px 0;
     }
     @media ($mobile) {
