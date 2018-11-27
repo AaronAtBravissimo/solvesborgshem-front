@@ -1,34 +1,36 @@
 <template>
     <header class="aboveHeader">
-        <div class="inner w-full">
-            <div class="left flex items-center">
-                <AppButton
-                    :icon="apartmentsIcon"
-                    label="Lediga lägenheter just nu"
-                    class="iconAndLabel thinLabel apartmentsIcon noMarginRight"
-                    tabindex="-1"
-                />
-                <AppButton
-                    :counter="number"
-                    label="Se lägenheter"
-                    class="iconAndLabel"
-                    url="/soka-bostad/lediga-lagenheter/"
-                />
-            </div>
-            <div class="right">
-                <AppButton
-                    :icon="errorReportIcon"
-                    label="Felanmälan"
-                    class="iconAndLabel"
-                    url="/kundtjanst/"
-                />
-                <AppButton
-                    :icon="customizeIcon"
-                    label="Tillgänglighet"
-                    class="iconAndLabel customizeIcon"
-                    url="/tillganglighet/"
-                />
-                <SearchButton/>
+        <div class="outer w-full flex">
+            <div class="inner w-full">
+                <div class="left flex items-center">
+                    <AppButton
+                        :icon="apartmentsIcon"
+                        label="Lediga lägenheter just nu"
+                        class="iconAndLabel thinLabel apartmentsIcon noMarginRight"
+                        tabindex="-1"
+                    />
+                    <AppButton
+                        :counter="number"
+                        label="Se lägenheter"
+                        class="iconAndLabel"
+                        url="/soka-bostad/lediga-lagenheter/"
+                    />
+                </div>
+                <div class="right">
+                    <AppButton
+                        :icon="errorReportIcon"
+                        label="Felanmälan"
+                        class="iconAndLabel"
+                        url="/kundtjanst/"
+                    />
+                    <AppButton
+                        :icon="customizeIcon"
+                        label="Tillgänglighet"
+                        class="iconAndLabel customizeIcon"
+                        url="/tillganglighet/"
+                    />
+                    <SearchButton/>
+                </div>
             </div>
         </div>
     </header>
@@ -60,7 +62,6 @@ export default {
 <style lang="scss" scoped>
 .aboveHeader {
     background-color: $primaryBackgroundColor;
-    min-height: 69px;
     display: flex;
     margin-left: -#{$frameSize};
     width: calc(100% + #{$frameSize * 2});
@@ -68,14 +69,18 @@ export default {
         margin-left: -#{$frameSizeSmallDesktop};
         width: calc(100% + #{$frameSizeSmallDesktop * 2});
     }
+    @media ($smallerTablet) {
+        display: none;
+    }
+}
+.outer {
+    background-color: $primaryBackgroundColor;
+    min-height: 69px;
     @media #{$laptopLessHeight} {
         min-height: 60px;
     }
     @media ($tablet) {
         min-height: 55px;
-    }
-    @media ($smallerTablet) {
-        display: none;
     }
 }
 .inner {
