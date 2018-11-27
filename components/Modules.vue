@@ -47,6 +47,13 @@
                 :show-all="module.showAll"
                 :toggle-ids="module.toggles"
             />
+            <Files
+                v-if="module.acf_fc_layout === 'files'"
+                :module-number="index"
+                :key="index"
+                :heading="module.heading"
+                :files="module.files"
+            />
         </template>
     </div>
 </template>
@@ -60,6 +67,7 @@ import CardsWithIcons from './CardsWithIcons.vue';
 import MyPages from './MyPages.vue';
 import SearchPlace from './SearchPlace.vue';
 import Toggles from './Toggles.vue';
+import Files from './Files.vue';
 
 export default {
     components: {
@@ -71,6 +79,7 @@ export default {
         MyPages,
         SearchPlace,
         Toggles,
+        Files,
     },
     props: {
         modules: {
