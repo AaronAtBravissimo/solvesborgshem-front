@@ -60,7 +60,10 @@ $gutterTablet: 25px;
     @media ($smallTablet) {
         width: 100%;
         padding: 0;
-        margin-bottom: 30px;
+        margin-bottom: 23px;
+    }
+    @media ($mobile) {
+        margin-bottom: 20px;
     }
 }
 .centerColumn .column {
