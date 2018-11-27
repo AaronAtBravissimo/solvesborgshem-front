@@ -196,6 +196,9 @@ export default {
     @media ($largeTablet) {
         height: 400px;
     }
+    @media #{$laptopLessHeight} {
+        height: 380px;
+    }
     @media ($mediumTablet) {
         height: 375px;
     }

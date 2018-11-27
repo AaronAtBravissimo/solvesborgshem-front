@@ -113,6 +113,9 @@ export default {
     @media ($largeTablet) {
         padding-bottom: 160px;
     }
+    @media #{$laptopLessHeight} {
+        padding-bottom: 100px;
+    }
     @media ($tablet) {
         overflow: visible;
         padding-bottom: 50px;
@@ -129,6 +132,7 @@ export default {
 .left {
     width: 50%;
     @media ($tablet) {
+        overflow: hidden;
         width: 100%;
         padding-bottom: 50px;
     }
@@ -163,6 +167,11 @@ export default {
     @media ($largeTablet) {
         width: 475px;
         margin-left: -350px;
+    }
+    @media #{$laptopLessHeight} {
+        width: 425px;
+        margin-left: -250px;
+        top: 75px;
     }
     @media ($tablet) {
         width: 425px;

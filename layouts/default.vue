@@ -107,6 +107,9 @@ export default {
     @media ($smallDesktop) {
         padding: $frameSizeSmallDesktop;
     }
+    @media #{$laptopLessHeight} {
+        padding: $frameSizeTablet;
+    }
     @media ($tablet) {
         padding: $frameSizeTablet;
     }

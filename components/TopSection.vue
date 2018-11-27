@@ -77,6 +77,10 @@ export default {
         height: 380px;
         margin-bottom: 45px;
     }
+    @media #{$laptopLessHeight} {
+        height: 350px;
+        margin-bottom: 40px;
+    }
     @media ($tablet) {
         height: 350px;
         margin-bottom: 40px;
@@ -96,6 +100,9 @@ export default {
     margin-top: 42px;
     @media ($largeTablet) {
         margin-top: 35px;
+    }
+    @media #{$laptopLessHeight} {
+        margin-top: 30px;
     }
     @media ($tablet) {
         margin-top: 30px;

@@ -74,6 +74,9 @@ export default {
     padding: 40px 0 46px;
     display: flex;
     align-items: center;
+    @media #{$laptopLessHeight} {
+        padding: 35px 0;
+    }
     @media ($smallTablet) {
         padding: 35px 0;
     }

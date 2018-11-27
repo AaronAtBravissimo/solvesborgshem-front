@@ -25,6 +25,10 @@ h1,
         font-size: 44px;
         letter-spacing: 8px;
     }
+    @media #{$laptopLessHeight} {
+        font-size: 38px;
+        letter-spacing: 7px;
+    }
     @media ($tablet) {
         font-size: 38px;
         letter-spacing: 7px;
@@ -44,6 +48,10 @@ h2,
     font-size: 36px;
     line-height: 1.46;
     letter-spacing: 7.2px;
+    @media #{$laptopLessHeight} {
+        font-size: 32px;
+        letter-spacing: 5px;
+    }
     @media ($tablet) {
         font-size: 32px;
         letter-spacing: 5px;
@@ -64,6 +72,10 @@ h3,
     line-height: 1.35;
     letter-spacing: 4.4px;
     margin-bottom: 28px;
+    @media #{$laptopLessHeight} {
+        font-size: 21px;
+        margin-bottom: 25px;
+    }
     @media ($tablet) {
         font-size: 21px;
         margin-bottom: 25px;
@@ -107,6 +119,9 @@ p {
 .preamble {
     font-size: 20px;
     line-height: 1.55;
+    @media #{$laptopLessHeight} {
+        font-size: 18px;
+    }
     @media ($tablet) {
         font-size: 18px;
     }
@@ -155,6 +170,9 @@ p {
     }
     p {
         margin-bottom: 27px;
+        @media #{$laptopLessHeight} {
+            margin-bottom: 25px;
+        }
         @media ($tablet) {
             margin-bottom: 25px;
         }

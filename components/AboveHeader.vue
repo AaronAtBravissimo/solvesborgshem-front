@@ -68,6 +68,9 @@ export default {
         margin-left: -#{$frameSizeSmallDesktop};
         width: calc(100% + #{$frameSizeSmallDesktop * 2});
     }
+    @media #{$laptopLessHeight} {
+        min-height: 60px;
+    }
     @media ($tablet) {
         min-height: 55px;
     }

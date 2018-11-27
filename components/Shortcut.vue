@@ -77,6 +77,9 @@ export default {
     @media ($largeTablet) {
         padding: 30px;
     }
+    @media #{$laptopLessHeight} {
+        padding: 30px;
+    }
     @media ($mobile) {
         padding: 0;
     }
@@ -126,6 +129,10 @@ export default {
     }
     @media ($smallDesktop) {
         margin-bottom: 30px;
+    }
+    @media #{$laptopLessHeight} {
+        width: 180px;
+        height: 180px;
     }
     @media ($tablet) {
         margin-bottom: 0;
