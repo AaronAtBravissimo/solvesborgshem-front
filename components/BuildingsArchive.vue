@@ -234,7 +234,7 @@ $columnGutter: 15px;
     }
     .dropdownToggle {
         box-shadow: none;
-        font-weight: normal;
+        font-weight: 300;
         max-width: 100%;
         border-radius: 6px;
         padding: 12px 20px;
@@ -244,13 +244,39 @@ $columnGutter: 15px;
         font-family: $secondaryFont;
         line-height: normal;
         color: $primaryTextColor;
+        @media ($tablet) {
+            font-size: 15px;
+            padding: 12px 18px;
+        }
+        @media ($mobile) {
+            font-size: 14px;
+            padding: 12px 15px;
+        }
         .activeItem {
             opacity: 0.5;
         }
+        &::after {
+            right: 20px;
+            @media ($tablet) {
+                right: 18px;
+            }
+            @media ($mobile) {
+                right: 15px;
+            }
+        }
     }
-    .isOpen .dropdownToggle .activeItem {
+    .dropdown {
+        border-width: 1px;
+    }
+    .isOpen .dropdownToggle,
+    .dropdownToggle:focus {
+        border-color: $primaryColor;
+    }
+    .isOpen .dropdownToggle .activeItem,
+    .dropdownToggle:focus .activeItem {
         opacity: 1;
     }
+
 }
 .mapFilter {
     @media ($mediumTablet) {
