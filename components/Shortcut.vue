@@ -78,7 +78,7 @@ export default {
         padding: 30px;
     }
     @media ($mobile) {
-        padding: 0 0 30px;
+        padding: 0;
     }
     &:hover {
         background-color: #f4f8fa;

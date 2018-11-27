@@ -51,6 +51,12 @@ export default {
     @media ($mobile) {
         padding: 30px 0;
     }
+    /deep/ .headingHolder {
+        @media ($mobile) {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+    }
 }
 .columns {
     display: flex;
@@ -58,10 +64,11 @@ export default {
     padding: 35px 40px;
     position: relative;
     @media ($tablet) {
-        padding: 30px;
+        padding: 0 30px;
     }
     @media ($mobile) {
-        padding: 30px 15px 0;
+        padding: 0 15px;
+        margin-bottom: -30px;
     }
     &::after {
         content: '';
@@ -81,6 +88,9 @@ export default {
     width: 50%;
     @media ($tablet) {
         width: 100%;
+    }
+    @media ($mobile) {
+        margin-bottom: 30px;
     }
     &:nth-child(even) .shortcut {
         padding-left: 68px;
