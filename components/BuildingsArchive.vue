@@ -254,6 +254,7 @@ $columnGutter: 15px;
         }
         .activeItem {
             opacity: 0.5;
+            z-index: -1;
         }
         &::after {
             right: 20px;
