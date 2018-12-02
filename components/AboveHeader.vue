@@ -21,7 +21,7 @@
                         :icon="errorReportIcon"
                         label="Felanmälan"
                         class="iconAndLabel"
-                        url="/kundtjanst/"
+                        url="/kundtjanst/felanmalan/"
                     />
                     <AppButton
                         :icon="customizeIcon"
