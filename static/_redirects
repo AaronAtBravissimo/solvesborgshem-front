@@ -10,3 +10,18 @@
 # http://solvesborgshem.netlify.com/* http://www.solvesborgshem.se/:splat 301!
 
 # 301 Redirects
+# /old/ /new/ 301
+
+/mina-sidor/lediga-lagenheter/ /soka-bostad/lediga-lagenheter/ 301
+/mina-sidor/mina-sidor/ /mina-sidor/ 301
+/kontakt/kundtjanst/ /kundtjanst/ 301
+/kontakt/vanliga-fragor/ /kundtjanst/vanliga-fragor/ 301
+/omraden/vara-omraden/ /bostader/ 301
+/omraden/vara-omraden/district/* /bostader/ 301
+/hyresgast/i-din-lagenhet/felanmalan-och-storningar/ /kundtjanst/felanmalan/ 301
+/soka-bostad/soka-bostad/ /soka-bostad/ 301
+/mina-sidor-som-app/ /kundtjanst/felanmalan/ 301
+/kontakt/vi-som-jobbar-har/ /om-oss/ 301
+/om-oss/organisation/styrelse/ /om-oss/ 301
+/mina-sidor/hyresgast-felanmalan/ /kundtjanst/felanmalan/ 301
+/hyresgast/i-din-lagenhet/tv-bredband-och-telefoni/ /hyresgast/tv-bredband-och-telefoni/ 301
