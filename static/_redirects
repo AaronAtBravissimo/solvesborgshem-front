@@ -7,6 +7,6 @@
 /wp-admin https://cms.solvesborgshem.se/wp-admin
 
 # Redirect default Netlify subdomain to primary domain
-http://solvesborgshem.netlify.com/* http://www.solvesborgshem.se/:splat 301!
+# http://solvesborgshem.netlify.com/* http://www.solvesborgshem.se/:splat 301!
 
 # 301 Redirects
