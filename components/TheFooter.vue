@@ -57,6 +57,10 @@
                                 :link="footerData.instagram"
                                 icon="instagram"
                             />
+                            <SocialIcon
+                                :link="footerData.linkedin"
+                                icon="linkedin"
+                            />
                         </div>
                     </div>
                 </div>

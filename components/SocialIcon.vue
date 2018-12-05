@@ -17,6 +17,12 @@
             src="../assets/images/icon-instagram.svg"
             alt="Ikon för Instagram"
         >
+        <img
+            v-if="icon === 'linkedin'"
+            class="socialIcon__image linkedin"
+            src="../assets/images/icon-linkedin.svg"
+            alt="Ikon för LinkedIn"
+        >
     </a>
 </template>
 
@@ -61,6 +67,10 @@ export default {
         margin-top: -2px;
         width: 16px;
         height: 16px;
+    }
+    .linkedin {
+        width: 20px;
+        height: 20px;
     }
     &:hover {
         .secondaryCircle {
