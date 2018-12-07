@@ -14,10 +14,9 @@
             <input
                 :value="keyword"
                 :aria-label="ariaLabelForSearch"
+                :placeholder="placeholder"
                 type="search"
                 class="searchInput"
-                placeholder="Ange önskat sökord..."
-
             >
             <AppButton
                 :icon="searchIcon"
@@ -51,6 +50,10 @@ export default {
         ariaLabelForSearch: {
             type: String,
             default: null,
+        },
+        placeholder: {
+            type: String,
+            default: 'Ange önskat sökord...',
         },
     },
     data: () => ({

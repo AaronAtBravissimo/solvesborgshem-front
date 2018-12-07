@@ -122,3 +122,18 @@
 .using-mouse .mapHolder a:focus img {
     outline: 0;
 }
+
+.noResultsText {
+    text-align: center;
+    font-style: italic;
+    margin-top: 80px;
+    @media ($tablet) {
+        margin-top: 60px;
+    }
+    @media ($smallTablet) {
+        margin-top: 40px;
+    }
+    @media ($mobile) {
+        margin-top: 30px;
+    }
+}

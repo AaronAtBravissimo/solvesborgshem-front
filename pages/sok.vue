@@ -103,9 +103,4 @@ export default {
 .spinner {
     margin-top: 80px;
 }
-.noResultsText {
-    text-align: center;
-    font-style: italic;
-    margin-top: 80px;
-}
 </style>

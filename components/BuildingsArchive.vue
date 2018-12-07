@@ -4,6 +4,7 @@
             :keyword="currentSearch"
             aria-label-for-search="Sök efter bostäder på webbplatsen"
             search-label="Sök efter bostad:"
+            placeholder="Ange önskad adress..."
             @search="searchChanged"
         >
             <template slot="filter">
@@ -33,7 +34,10 @@
             @changed="filterChanged"
         />
         <div class="buildings">
-            <div class="smallCardColumns flex flex-wrap">
+            <div
+                v-if="searchResults"
+                class="smallCardColumns flex flex-wrap"
+            >
                 <div
                     v-for="building in buildingsOut"
                     :key="building.id"
@@ -48,6 +52,12 @@
                     />
                 </div>
             </div>
+            <p
+                v-else
+                class="noResultsText"
+            >
+                Inga bostäder kunde hittas.
+            </p>
         </div>
     </div>
 </template>
@@ -74,6 +84,7 @@ export default {
         currentFilter: null,
         showMap: false,
         buildings,
+        searchResults: null,
     }),
     computed: {
         areas() {
@@ -142,6 +153,7 @@ export default {
             this.currentSearch = keyword;
             this.currentFilter = null;
             this.$refs.filter.selected = null;
+            this.searchResults = this.buildingsOut.length;
         },
         filterChanged(value, index = null) {
             this.currentFilter = value;
