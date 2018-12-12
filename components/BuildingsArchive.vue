@@ -34,10 +34,7 @@
             @changed="filterChanged"
         />
         <div class="buildings">
-            <div
-                v-if="searchResults"
-                class="smallCardColumns flex flex-wrap"
-            >
+            <div class="smallCardColumns flex flex-wrap">
                 <div
                     v-for="building in buildingsOut"
                     :key="building.id"
@@ -53,7 +50,7 @@
                 </div>
             </div>
             <p
-                v-else
+                v-if="searchResults < 1 && currentSearch !== null"
                 class="noResultsText"
             >
                 Inga bostäder kunde hittas.
