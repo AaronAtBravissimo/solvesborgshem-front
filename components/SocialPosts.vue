@@ -55,6 +55,7 @@ export default {
                 { label: 'Visa alla', value: 0 },
                 { label: 'Facebook', value: 'facebook' },
                 { label: 'Instagram', value: 'instagram' },
+                { label: 'LinkedIn', value: 'linkedin' },
             ],
         };
     },
