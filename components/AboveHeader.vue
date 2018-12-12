@@ -5,11 +5,12 @@
                 <div class="left flex items-center">
                     <AppButton
                         :icon="apartmentsIcon"
-                        label="Lediga lägenheter just nu"
+                        label="Lediga lägenheter"
                         class="iconAndLabel thinLabel apartmentsIcon noMarginRight"
-                        tabindex="-1"
+                        url="/soka-bostad/lediga-lagenheter/"
                     />
                     <AppButton
+                        v-if="number > 0"
                         :counter="number"
                         label="Se lägenheter"
                         class="iconAndLabel"
@@ -53,7 +54,7 @@ export default {
             apartmentsIcon,
             errorReportIcon,
             customizeIcon,
-            number: 2,
+            number: 0,
         };
     },
 };
