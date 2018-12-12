@@ -120,6 +120,9 @@ export default {
         overflow: visible;
         padding-bottom: 50px;
     }
+    @media ($mobile) {
+        z-index: 1;
+    }
 }
 .inner {
     display: flex;
