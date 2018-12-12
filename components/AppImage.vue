@@ -1,6 +1,7 @@
 <template>
     <picture>
         <source
+            v-if="useWebp"
             :srcset="`${imageSrc}.webp`"
             type="image/webp"
         >

@@ -49,6 +49,7 @@ import instagram from '../assets/images/icon-instagram.svg';
 import linkedin from '../assets/images/card/linkedin.svg';
 import twitter from '../assets/images/card/twitter.svg';
 import youtube from '../assets/images/card/youtube.svg';
+import imageMissing from '../assets/images/image-missing.jpg';
 
 export default {
     props: {
@@ -63,7 +64,7 @@ export default {
                 return this.card.image;
             }
 
-            return 'https://via.placeholder.com/353x353';
+            return imageMissing;
         },
         getSocialIcon() {
             const icons = {

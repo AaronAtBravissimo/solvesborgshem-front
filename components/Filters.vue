@@ -58,12 +58,11 @@ $checkWidthSmallerTablet: 5px;
         margin: 0 -12px;
     }
     @media ($mobile) {
-        margin: 0 -8px;
-        justify-content: space-between;
+        margin: 0 -8px -16px;
+        flex-wrap: wrap;
     }
     @media ($smallerMobile) {
         margin: 0 0 -15px;
-        flex-wrap: wrap;
     }
 }
 
@@ -77,7 +76,9 @@ $checkWidthSmallerTablet: 5px;
         margin: 0 12px;
     }
     @media ($mobile) {
-        margin: 0 8px;
+        width: 50%;
+        padding: 0 8px;
+        margin: 0 0 16px;
     }
     @media ($smallerMobile) {
         width: 100%;

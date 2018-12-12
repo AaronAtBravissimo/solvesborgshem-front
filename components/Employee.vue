@@ -3,6 +3,7 @@
         <AppImage
             :image="image"
             :alt="employee.image.alt"
+            :use-webp="employee.image ? true : false"
             class="image objectFitCover"
         />
         <div class="infoHolder">
@@ -53,7 +54,7 @@
 
 <script>
 import AppImage from './AppImage.vue';
-import placeholderImage from '../assets/images/placeholder.png';
+import imageMissing from '../assets/images/image-missing.jpg';
 
 export default {
     components: {
@@ -68,7 +69,7 @@ export default {
     computed: {
         image() {
             if (!this.employee.image) {
-                return placeholderImage;
+                return imageMissing;
             }
 
             return this.employee.image.sizes.medium;
