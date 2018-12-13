@@ -1,4 +1,4 @@
-const baseUrl = 'https://solvesborgshem.netlify.com';
+const baseUrl = 'http://www.solvesborgshem.se';
 const apiUrl = 'https://cms.solvesborgshem.se/wp-json';
 
 exports.baseUrl = baseUrl;
