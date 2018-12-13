@@ -56,11 +56,13 @@ export default {
 
 <style lang="scss" scoped>
 .login {
-    height: 380px;
     overflow: hidden;
 }
 .login iframe {
-    height: 700px;
     margin-top: -285px;
+}
+.login iframe,
+.register iframe {
+    min-height: 7500px;
 }
 </style>
