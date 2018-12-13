@@ -47,7 +47,7 @@ module.exports = {
             {
                 hid: 'description',
                 name: 'description',
-                content: '',
+                content: 'Sölvesborgshem är Sölvesborgs största fastighetsbolag. Vi hyr ut knappt 1 400 lägenheter i och omkring Sölvesborg i västra Blekinge.',
             },
         ],
         link: [
