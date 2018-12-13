@@ -50,7 +50,11 @@ module.exports = {
                 content: '',
             },
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.jpg' }],
+        link: [
+            { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
+            { rel: 'dns-prefetch', href: '//cms.solvesborgshem.se' },
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.jpg' },
+        ],
     },
 
     /*
