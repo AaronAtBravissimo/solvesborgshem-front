@@ -41,7 +41,7 @@
                         :class="`appearDelay-${menu.items.length + 2}`"
                         label="Felanmälan"
                         class="iconAndLabel animation"
-                        url="/kundtjanst/"
+                        url="/kundtjanst/felanmalan/"
                     />
                 </li>
                 <li @click="$store.commit('closeMenu')">
