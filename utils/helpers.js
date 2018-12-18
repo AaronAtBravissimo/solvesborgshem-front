@@ -47,13 +47,16 @@ export function getMeta(yoast, removeTitle = false) {
                 name: 'twitter:description',
                 content: yoast.desc,
             },
-            {
-                hid: 'og:image',
-                name: 'og:image',
-                content: yoast.image,
-            },
         ],
     };
+
+    if (yoast.image && yoast.image.length > 0) {
+        meta.meta.push({
+            hid: 'og:image',
+            name: 'og:image',
+            content: yoast.image,
+        });
+    }
 
     if (removeTitle) {
         meta.titleTemplate = '';

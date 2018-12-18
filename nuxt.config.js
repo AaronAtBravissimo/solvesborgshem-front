@@ -49,6 +49,11 @@ module.exports = {
                 name: 'description',
                 content: 'Sölvesborgshem är Sölvesborgs största fastighetsbolag. Vi hyr ut knappt 1 400 lägenheter i och omkring Sölvesborg i västra Blekinge.',
             },
+            {
+                hid: 'og:image',
+                name: 'og:image',
+                content: 'https://www.solvesborgshem.se/default-og.jpg',
+            },
         ],
         link: [
             { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
