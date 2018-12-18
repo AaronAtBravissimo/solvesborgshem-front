@@ -20,51 +20,46 @@ export function excerpt(string, maxLength = 200) {
     return string;
 }
 
-export function getMeta(yoast, removeTitle = false) {
+export function getMeta(yoast) {
     if (!yoast) {
         return false;
     }
 
-    const meta = {
-        meta: [
-            {
-                hid: 'og:title',
-                name: 'og:title',
-                content: yoast.title,
-            },
-            {
-                hid: 'description',
-                name: 'description',
-                content: yoast.desc,
-            },
-            {
-                hid: 'og:description',
-                name: 'og:description',
-                content: yoast.desc,
-            },
-            {
-                hid: 'twitter:description',
-                name: 'twitter:description',
-                content: yoast.desc,
-            },
-        ],
-    };
+    const meta = [
+        {
+            hid: 'og:title',
+            name: 'og:title',
+            content: yoast.title,
+        },
+        {
+            hid: 'description',
+            name: 'description',
+            content: yoast.desc,
+        },
+        {
+            hid: 'og:description',
+            name: 'og:description',
+            content: yoast.desc,
+        },
+        {
+            hid: 'twitter:description',
+            name: 'twitter:description',
+            content: yoast.desc,
+        },
+    ];
 
     if (yoast.image && yoast.image.length > 0) {
-        meta.meta.push({
+        meta.push({
             hid: 'og:image',
             name: 'og:image',
             content: yoast.image,
         });
     }
 
-    if (removeTitle) {
-        meta.titleTemplate = '';
-    } else {
-        meta.title = yoast.title;
-    }
-
-    return meta;
+    return {
+        title: yoast.title,
+        meta,
+    };
 }
 
 function isDescendant(parent, child) {
