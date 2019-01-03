@@ -113,5 +113,11 @@ export default {
     @media ($mobile) {
         margin-top: 20px;
     }
+    & /deep/ a {
+        color: $primaryColor;
+        &:hover {
+            color: $primaryTextColor;
+        }
+    }
 }
 </style>
