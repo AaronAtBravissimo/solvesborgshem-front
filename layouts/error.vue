@@ -11,6 +11,11 @@ export default {
     components: {
         TopSection,
     },
+    head() {
+        return {
+            title: 'Sidan kunde inte hittas - Sölvesborghem',
+        };
+    },
     computed: {
         topSection() {
             return {
