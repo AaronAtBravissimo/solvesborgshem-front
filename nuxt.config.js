@@ -97,12 +97,6 @@ module.exports = {
                 id: 'UA-101268558-38',
             },
         ],
-        [
-            '@nuxtjs/google-tag-manager',
-            {
-                id: 'GTM-xxx',
-            },
-        ],
         '@/modules/generate',
     ],
 

@@ -91,7 +91,7 @@ export default {
             }
         },
         closeMenu(event) {
-            if (this.open && !(event.target.classList.contains('hamburger') || event.target.classList.contains('line'))) {
+            if (this.open && event.target.className !== 'menuButton' && event.target.className !== 'hamburger' && event.target.className !== 'line') {
                 this.$store.commit('closeMenu');
             }
         },
