@@ -17,6 +17,18 @@
 
 <script>
 export default {
+    mounted() {
+        if (!process.client) return;
+
+        /* eslint-disable */
+        jQuery(document).ready(() => { 
+            jQuery("#momentum").momentumFrame({ 
+                 version: 4.2, 
+                design: '[designkatalog]', //fråga momentum om denna variabel 
+                hmsDomain: 'marknad' //ex vid marknad.foretag.se ska denna vara marknad })
+            });
+        });
+    },
 };
 </script>
 

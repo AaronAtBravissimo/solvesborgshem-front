@@ -10,7 +10,7 @@
                         url="/soka-bostad/lediga-lagenheter/"
                     />
                     <AppButton
-                        v-if="number === 0"
+                        v-if="number > 0"
                         :counter="number"
                         label="Se lägenheter"
                         class="iconAndLabel availableApartments"
