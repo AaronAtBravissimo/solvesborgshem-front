@@ -61,6 +61,12 @@ export default {
         },
     },
     mounted() {
+        if (!process.client) return;
+
+        if (this.$route.query.vy && this.$route.query.vy === 'registera') {
+            this.currentTab = 1;
+        }
+
         /* eslint-disable */
         jQuery(document).ready(() => { 
             this.initIframe();

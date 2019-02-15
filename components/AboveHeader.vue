@@ -10,11 +10,17 @@
                         url="/soka-bostad/lediga-lagenheter/"
                     />
                     <AppButton
-                        v-if="number > 0"
+                        v-if="number === 0"
                         :counter="number"
                         label="Se lägenheter"
-                        class="iconAndLabel"
+                        class="iconAndLabel availableApartments"
                         url="/soka-bostad/lediga-lagenheter/"
+                    />
+                    <AppButton
+                        :icon="penIcon"
+                        label="Registrera dig"
+                        class="registerButton iconAndLabel thinLabel penIcon noMarginRight"
+                        url="/mina-sidor/?vy=registera"
                     />
                 </div>
                 <div class="right">
@@ -43,6 +49,7 @@ import SearchButton from './SearchButton.vue';
 import apartmentsIcon from '../assets/images/icon-apartments.svg';
 import errorReportIcon from '../assets/images/icon-error-report.svg';
 import customizeIcon from '../assets/images/icon-customize.svg';
+import penIcon from '../assets/images/icon-pen.svg';
 
 export default {
     components: {
@@ -54,6 +61,7 @@ export default {
             apartmentsIcon,
             errorReportIcon,
             customizeIcon,
+            penIcon,
             number: 0,
         };
     },
@@ -99,6 +107,14 @@ export default {
 .right {
     margin-right: -12px;
     @media ($tablet) {
+        display: none;
+    }
+}
+.availableApartments {
+    margin-right: 10px;
+}
+.registerButton {
+    @media ($largeTablet) {
         display: none;
     }
 }
