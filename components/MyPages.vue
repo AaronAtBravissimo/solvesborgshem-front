@@ -8,15 +8,12 @@
         <div class="frames">
             <div class="container">
                 <div
-                    v-for="(tab, index) in tabs"
-                    v-show="index === currentTab"
-                    :key="index"
-                    :class="tab.class"
+                    :class="activeTab.class"
                 >
                     <div class="momentum-container">
                         <iframe
                             id="momentum"
-                            :src="tab.src"
+                            :src="activeTab.src"
                             width="100%"
                             scrolling="no"
                             frameBorder="0"
@@ -51,15 +48,32 @@ export default {
             },
         ],
     }),
+    computed: {
+        activeTab() {
+            return this.tabs[this.currentTab];
+        },
+    },
+    watch: {
+        currentTab() {
+            this.$nextTick(() => {
+                this.initIframe();
+            });
+        },
+    },
     mounted() {
         /* eslint-disable */
-        jQuery(document).ready(function () { 
+        jQuery(document).ready(() => { 
+            this.initIframe();
+        });
+    },
+    methods: {
+        initIframe() {
             jQuery("#momentum").momentumFrame({ 
                 version: 4.2, 
                 design: '[designkatalog]', //fråga momentum om denna variabel 
                 hmsDomain: 'marknad' //ex vid marknad.foretag.se ska denna vara marknad })
             });
-        });
+        }
     }
 };
 </script>
