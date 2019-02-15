@@ -1,24 +1,24 @@
-import generateJsonFiles from './modules/generate';
+import generateJsonFiles from "./modules/generate";
 
-const PurgecssPlugin = require('purgecss-webpack-plugin');
-const glob = require('glob-all');
-const path = require('path');
-const axios = require('axios');
+const PurgecssPlugin = require("purgecss-webpack-plugin");
+const glob = require("glob-all");
+const path = require("path");
+const axios = require("axios");
 
-const siteConfig = require('./utils/config');
+const siteConfig = require("./utils/config");
 
 const { baseUrl, apiUrl } = siteConfig;
 
 function getRoutes() {
     const pages = axios
         .get(`${apiUrl}/api/page`)
-        .then(res => res.data.map(item => item.post_link.replace(baseUrl, '')));
+        .then(res => res.data.map(item => item.post_link.replace(baseUrl, "")));
 
     const buildings = axios
         .get(`${apiUrl}/api/building`)
-        .then(res => res.data.map(item => item.post_link.replace(baseUrl, '')));
+        .then(res => res.data.map(item => item.post_link.replace(baseUrl, "")));
 
-    return Promise.all([pages, buildings]).then(values => values.join().split(','));
+    return Promise.all([pages, buildings]).then(values => values.join().split(","));
 }
 
 class TailwindExtractor {
@@ -28,44 +28,49 @@ class TailwindExtractor {
 }
 
 module.exports = {
-    mode: 'universal',
+    mode: "universal",
 
     /*
-    ** Headers of the page
-    */
+     ** Headers of the page
+     */
     head: {
         htmlAttrs: {
-            lang: 'sv',
+            lang: "sv"
         },
-        title: 'Sölvesborgshem',
+        title: "Sölvesborgshem",
         meta: [
-            { charset: 'utf-8' },
+            { charset: "utf-8" },
             {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
+                name: "viewport",
+                content: "width=device-width, initial-scale=1"
             },
             {
-                hid: 'description',
-                name: 'description',
-                content: 'Sölvesborgshem är Sölvesborgs största fastighetsbolag. Vi hyr ut knappt 1 400 lägenheter i och omkring Sölvesborg i västra Blekinge.',
+                hid: "description",
+                name: "description",
+                content:
+                    "Sölvesborgshem är Sölvesborgs största fastighetsbolag. Vi hyr ut knappt 1 400 lägenheter i och omkring Sölvesborg i västra Blekinge."
             },
             {
-                hid: 'og:image',
-                name: 'og:image',
-                content: 'https://www.solvesborgshem.se/default-og.jpg',
-            },
+                hid: "og:image",
+                name: "og:image",
+                content: "https://www.solvesborgshem.se/default-og.jpg"
+            }
         ],
         link: [
-            { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
-            { rel: 'dns-prefetch', href: '//cms.solvesborgshem.se' },
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.jpg' },
+            { rel: "dns-prefetch", href: "//fonts.googleapis.com" },
+            { rel: "dns-prefetch", href: "//cms.solvesborgshem.se" },
+            { rel: "icon", type: "image/x-icon", href: "/favicon.jpg" }
         ],
+        script: [
+            { src: "https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" },
+            { src: "https://marknad.solvesborgshem.se/scripts/momentum/jquery.momentum-iframe-0.1.js" }
+        ]
     },
 
     /*
-    ** Customize the progress-bar color
-    */
-    loading: { color: '#3aa2d2' },
+     ** Customize the progress-bar color
+     */
+    loading: { color: "#3aa2d2" },
 
     /*
     ** Global CSS
@@ -73,29 +78,29 @@ module.exports = {
     css: ['@/assets/scss/main.scss'],
 
     /*
-    ** Plugins to load before mounting the App
-    */
+     ** Plugins to load before mounting the App
+     */
     plugins: [
-        { src: '~/plugins/polyfills', ssr: false },
-        '~/plugins/axios-middleware.js',
-        { src: '~/plugins/vue2-google-maps', ssr: false},
-        { src: '~/plugins/v-click-outside', ssr: false },
-        '~/plugins/app-link',
-        '~/plugins/portal-vue',
+        { src: "~/plugins/polyfills", ssr: false },
+        "~/plugins/axios-middleware.js",
+        { src: "~/plugins/vue2-google-maps", ssr: false },
+        { src: "~/plugins/v-click-outside", ssr: false },
+        "~/plugins/app-link",
+        "~/plugins/portal-vue"
     ],
 
     /*
-    ** Nuxt.js modules
-    */
+     ** Nuxt.js modules
+     */
     modules: [
         // Doc: https://github.com/nuxt-community/axios-module#usage
-        '@nuxtjs/sitemap',
-        ['nuxt-sass-resources-loader', '@/assets/scss/global.scss'],
+        "@nuxtjs/sitemap",
+        ["nuxt-sass-resources-loader", "@/assets/scss/global.scss"],
         [
-            '@nuxtjs/google-analytics',
+            "@nuxtjs/google-analytics",
             {
-                id: 'UA-101268558-38',
-            },
+                id: "UA-101268558-38"
+            }
         ],
         '@/modules/generate',
     ],
@@ -105,55 +110,55 @@ module.exports = {
         hostname: baseUrl,
         routes() {
             return getRoutes();
-        },
+        }
     },
 
     generate: {
         fallback: true,
-        apiCacheDir: 'static/json/',
+        apiCacheDir: "static/json/",
         interval: 0,
         routes() {
             return getRoutes();
-        },
+        }
     },
 
     router: {
         extendRoutes(routes, resolve) {
             routes.push({
-                name: 'page',
-                path: '*',
-                component: resolve(__dirname, 'pages/_slug.vue'),
+                name: "page",
+                path: "*",
+                component: resolve(__dirname, "pages/_slug.vue")
             });
             routes.push({
-                name: 'buildingSingle',
-                path: '/bostader/:slug',
-                component: resolve(__dirname, 'pages/_building.vue'),
+                name: "buildingSingle",
+                path: "/bostader/:slug",
+                component: resolve(__dirname, "pages/_building.vue")
             });
             routes.push({
-                name: 'searchEmpty',
-                path: '/sok',
-                component: resolve(__dirname, 'pages/sok.vue'),
+                name: "searchEmpty",
+                path: "/sok",
+                component: resolve(__dirname, "pages/sok.vue")
             });
             routes.push({
-                name: 'search',
-                path: '/sok/:keyword',
-                component: resolve(__dirname, 'pages/sok.vue'),
+                name: "search",
+                path: "/sok/:keyword",
+                component: resolve(__dirname, "pages/sok.vue")
             });
-        },
+        }
     },
 
     /*
-    ** Build configuration
-    */
+     ** Build configuration
+     */
     build: {
         extractCSS: true,
         optimization: {
             splitChunks: {
                 cacheGroups: {
                     styles: {
-                        name: 'styles',
+                        name: "styles",
                         test: /\.(css|vue)$/,
-                        chunks: 'all',
+                        chunks: "all",
                         enforce: true
                     }
                 }
@@ -161,15 +166,15 @@ module.exports = {
         },
         extend(config, { isDev, isClient }) {
             if (isDev) {
-                generateJsonFiles('static/json/');
+                generateJsonFiles("static/json/");
             }
             // Run ESLint on save
             if (isDev && isClient) {
                 config.module.rules.push({
-                    enforce: 'pre',
+                    enforce: "pre",
                     test: /\.(js|vue)$/,
-                    loader: 'eslint-loader',
-                    exclude: /(node_modules)/,
+                    loader: "eslint-loader",
+                    exclude: /(node_modules)/
                 });
             }
             if (!isDev) {
@@ -178,37 +183,37 @@ module.exports = {
                 config.plugins.push(
                     new PurgecssPlugin({
                         paths: glob.sync([
-                            path.join(__dirname, './pages/**/*.vue'),
-                            path.join(__dirname, './layouts/**/*.vue'),
-                            path.join(__dirname, './components/**/*.vue'),
+                            path.join(__dirname, "./pages/**/*.vue"),
+                            path.join(__dirname, "./layouts/**/*.vue"),
+                            path.join(__dirname, "./components/**/*.vue")
                         ]),
                         extractors: [
                             {
                                 extractor: TailwindExtractor,
-                                extensions: ['vue'],
-                            },
+                                extensions: ["vue"]
+                            }
                         ],
                         whitelistPatterns: [/^pswp/, /^appearDelay/],
                         whitelist: [
-                            'html',
-                            'body',
-                            'nuxt-progress',
-                            'vue-map',
-                            'page-enter-active',
-                            'page-leave-active',
-                            'page-enter',
-                            'page-leave-to',
-                            'fade-in-enter-active',
-                            'fade-in-leave-active',
-                            'fade-in-enter',
-                            'nuxt-link-active',
-                            'nuxt-link-exact-active',
-                            'overflow-hidden',
-                            'vue-map',
-                        ],
-                    }),
+                            "html",
+                            "body",
+                            "nuxt-progress",
+                            "vue-map",
+                            "page-enter-active",
+                            "page-leave-active",
+                            "page-enter",
+                            "page-leave-to",
+                            "fade-in-enter-active",
+                            "fade-in-leave-active",
+                            "fade-in-enter",
+                            "nuxt-link-active",
+                            "nuxt-link-exact-active",
+                            "overflow-hidden",
+                            "vue-map"
+                        ]
+                    })
                 );
             }
-        },
-    },
+        }
+    }
 };
