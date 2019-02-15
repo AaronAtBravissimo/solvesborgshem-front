@@ -31,9 +31,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss" scoped>
-.searchPlace iframe {
-    min-height: 7501px;
-}
-</style>
