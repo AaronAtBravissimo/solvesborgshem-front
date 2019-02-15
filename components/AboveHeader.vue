@@ -20,7 +20,7 @@
                         :icon="penIcon"
                         label="Registrera dig"
                         class="registerButton iconAndLabel thinLabel penIcon noMarginRight"
-                        url="/mina-sidor/?vy=registera"
+                        url="/mina-sidor/?vy=registrera"
                     />
                 </div>
                 <div class="right">

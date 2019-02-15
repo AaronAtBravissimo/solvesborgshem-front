@@ -63,7 +63,7 @@ export default {
     mounted() {
         if (!process.client) return;
 
-        if (this.$route.query.vy && this.$route.query.vy === 'registera') {
+        if (this.$route.query.vy && this.$route.query.vy === 'registrera') {
             this.currentTab = 1;
         }
 
