@@ -114,6 +114,7 @@ export default {
     margin-right: 10px;
 }
 .registerButton {
+    margin-left: 20px;
     @media ($largeTablet) {
         display: none;
     }
