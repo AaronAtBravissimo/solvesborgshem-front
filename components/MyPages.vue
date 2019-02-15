@@ -68,8 +68,4 @@ export default {
 .login {
     overflow: hidden;
 }
-.login iframe,
-.register iframe {
-    min-height: 7500px;
-}
 </style>
