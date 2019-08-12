@@ -45,6 +45,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div
+                                v-if="footerData.customerSatisfaction"
+                                class="column"
+                            >
+                                <div class="widget">
+                                    <p class="widgetHeading">Kundnöjdhet</p>
+                                    <div class="widgetBody">
+                                        <p>För oss är nöjda kunder viktigt.</p>
+                                        <p class="largerText">
+                                            {{ footerData.customerSatisfaction }}% nöjda kunder
+                                        </p>
+                                        <p class="descriptionText">Snitt av  våra kundomdöme</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="bottomRight">
@@ -100,6 +115,22 @@ $columnsGutterTablet: 30px;
         }
         @media ($mobile) {
             font-size: 14px;
+        }
+    }
+    /deep/ .largerText {
+        font-size: 28px;
+        margin: -10px 0 10px;
+        @media ($laptop) {
+            font-size: 26px;
+        }
+        @media ($largeTablet) {
+            font-size: 24px;
+        }
+        @media ($tablet) {
+            font-size: 22px;
+        }
+        @media ($mobile) {
+            font-size: 20px;
         }
     }
     .openingHoursText {
