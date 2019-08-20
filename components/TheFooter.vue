@@ -52,11 +52,13 @@
                                 <div class="widget">
                                     <p class="widgetHeading">Kundnöjdhet</p>
                                     <div class="widgetBody">
-                                        <p>För oss är nöjda kunder viktigt.</p>
-                                        <p class="largerText">
-                                            {{ footerData.customerSatisfaction }}% nöjda kunder
+                                        <p class="mb-0">
+                                            För oss är nöjda kunder viktigt.
                                         </p>
-                                        <p class="descriptionText">Snitt av  våra kundomdöme</p>
+                                        <p class="largerText mb-0">
+                                            {{ footerData.customerSatisfaction }}% av våra kunder
+                                        </p>
+                                        <p class="descriptionText">ger högsta kundomdöme</p>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +121,6 @@ $columnsGutterTablet: 30px;
     }
     /deep/ .largerText {
         font-size: 28px;
-        margin: -10px 0 10px;
         @media ($laptop) {
             font-size: 26px;
         }
