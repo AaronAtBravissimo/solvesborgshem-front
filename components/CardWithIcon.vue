@@ -97,7 +97,8 @@ export default {
     }
 }
 .icon {
-    &.phone {
+    &.phone,
+    &.interest {
         width: 82px;
         height: 82px;
         @media ($mediumTablet) {
