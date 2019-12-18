@@ -64,8 +64,6 @@ export default {
     width: 800px;
     max-width: 100%;
     margin: 20px auto 0;
-    position: relative;
-    z-index: 1;
     @media ($mediumTablet) {
         width: 320px;
     }
