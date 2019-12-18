@@ -6,6 +6,7 @@
         <div class="inner flex items-center">
             <div class="left">
                 <TheHeroSlider :slides="heroSection.slider.ordinaryImages"/>
+                <InformationItems />
             </div>
             <div class="middle">
                 <ImageElement :image-elements="heroSection.slider.transparentImages"/>
@@ -42,6 +43,7 @@
 import Select from '../Select.vue';
 import TheHeroSlider from './TheHeroSlider.vue';
 import ImageElement from './ImageElement.vue';
+import InformationItems from './InformationItems.vue';
 import { baseUrl } from '../../utils/config';
 import { makeUrlRelative } from '../../utils/helpers';
 
@@ -50,6 +52,7 @@ export default {
         Select,
         TheHeroSlider,
         ImageElement,
+        InformationItems,
     },
     props: {
         heroSection: {
