@@ -45,23 +45,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                v-if="footerData.customerSatisfaction"
-                                class="column"
-                            >
-                                <div class="widget">
-                                    <p class="widgetHeading">Kundnöjdhet</p>
-                                    <div class="widgetBody">
-                                        <p class="mb-0">
-                                            För oss är nöjda kunder viktigt.
-                                        </p>
-                                        <p class="largerText mb-0">
-                                            {{ footerData.customerSatisfaction }}% av våra kunder
-                                        </p>
-                                        <p class="descriptionText">ger högsta kundomdöme</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="bottomRight">
