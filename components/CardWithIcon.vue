@@ -32,6 +32,7 @@ import clock from '../assets/images/icon-clock.svg';
 import person from '../assets/images/icon-person.svg';
 import thumbUp from '../assets/images/icon-thumbs-up.svg';
 import checklist from '../assets/images/icon-checklist.svg';
+import interest from '../assets/images/icon-interest.svg';
 
 export default {
     props: {
@@ -54,6 +55,7 @@ export default {
                 person,
                 thumbUp,
                 checklist,
+                interest,
             };
             return icons[icon];
         },
