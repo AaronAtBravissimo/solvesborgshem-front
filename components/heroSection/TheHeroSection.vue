@@ -6,7 +6,6 @@
         <div class="inner flex items-center">
             <div class="left">
                 <TheHeroSlider :slides="heroSection.slider.ordinaryImages"/>
-                <InformationItems />
             </div>
             <div class="middle">
                 <ImageElement :image-elements="heroSection.slider.transparentImages"/>
@@ -35,6 +34,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="bottom">
+            <InformationItems :items="heroSection.informationItems" />
         </div>
     </section>
 </template>
@@ -105,13 +107,39 @@ export default {
     position: relative;
     overflow: hidden;
     margin-top: 20px;
-    padding-bottom: 160px;
+    padding-bottom: 110px;
+    @media ($largeDesktop) {
+        padding-bottom: 90px;
+        margin-top: 0;
+    }
+    @media ($largeTablet) {
+        padding-bottom: 80px;
+    }
+    @media #{$laptopLessHeight} {
+        padding-bottom: 100px;
+    }
+    @media ($tablet) {
+        overflow: visible;
+        padding-bottom: 70px;
+    }
+    @media ($mobile) {
+        z-index: 1;
+        padding-bottom: 50px;
+    }
+}
+.inner {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 170px;
     @media (max-width: 1900px) {
         padding-bottom: 100px;
     }
     @media ($largeDesktop) {
         padding-bottom: 140px;
-        margin-top: 0;
+    }
+    @media ($laptop) {
+        padding-bottom: 130px;
     }
     @media ($largeTablet) {
         padding-bottom: 160px;
@@ -120,19 +148,8 @@ export default {
         padding-bottom: 100px;
     }
     @media ($tablet) {
-        overflow: visible;
-        padding-bottom: 50px;
-    }
-    @media ($mobile) {
-        z-index: 1;
-    }
-}
-.inner {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    @media ($tablet) {
         flex-wrap: wrap;
+        padding-bottom: 40px;
     }
 }
 .left {
