@@ -84,12 +84,12 @@ export default {
         width: 100%;
         flex-wrap: wrap;
         margin-bottom: 30px;
-        @media ($mobile) {
-            margin-bottom: 20px;
-        }
-        &:last-child {
-            margin-bottom: 0;
-        }
+    }
+    @media ($mobile) {
+        margin-bottom: 20px;
+    }
+    &:last-child {
+        margin-bottom: 0;
     }
 }
 
