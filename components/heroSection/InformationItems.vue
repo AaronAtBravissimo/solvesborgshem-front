@@ -1,5 +1,5 @@
 <template>
-    <div class="informationItems flex flex-wrap">
+    <div class="informationItems flex justify-center flex-wrap">
         <div
             v-for="(item, index) in items"
             :key="index"
@@ -39,6 +39,7 @@
 import AppLink from '../AppLink.vue';
 import thumbUp from '../../assets/images/icon-thumbs-up.svg';
 import digitalLock from '../../assets/images/icon-digital-lock.svg';
+import noSmoke from '../../assets/images/icon-no-smoke.svg';
 
 export default {
     components: {
@@ -54,6 +55,7 @@ export default {
         icons: {
             thumbUp,
             digitalLock,
+            noSmoke,
         },
     }),
 };
@@ -61,7 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 .informationItems {
-    width: 800px;
+    width: 1200px;
     max-width: 100%;
     margin: 20px auto 0;
     @media ($mediumTablet) {
@@ -73,14 +75,16 @@ export default {
 }
 
 .item {
-    width: 50%;
+    width: 33.33%;
     padding: 0 30px;
-    @media ($tablet) {
+    @media ($largeTablet) {
         padding: 0 15px;
+    }
+    @media ($tablet) {
+        display: block;
     }
     @media ($mediumTablet) {
         width: 100%;
-        flex-wrap: wrap;
         margin-bottom: 30px;
     }
     @media ($mobile) {
@@ -94,11 +98,13 @@ export default {
 .iconHolder {
     width: 84px;
     height: 84px;
-    @media ($tablet) {
+    @media ($largeTablet) {
         width: calc(84px * 0.9);
         height: calc(84px * 0.9);
     }
-    @media ($mediumTablet) {
+    @media ($tablet) {
+        width: calc(84px * 0.8);
+        height: calc(84px * 0.8);
         margin: 0 auto 20px;
     }
     @media ($mobile) {
@@ -110,9 +116,17 @@ export default {
 .iconHolder.thumbUp {
     width: 70px;
     height: 70px;
-    @media ($tablet) {
+    @media ($largeTablet) {
         width: calc(70px * 0.88);
         height: calc(70px * 0.88);
+    }
+    @media ($tablet) {
+        width: calc(84px * 0.8);
+        height: calc(84px * 0.8);
+    }
+    @media ($mediumTablet) {
+        width: calc(70px * 0.8);
+        height: calc(70px * 0.8);
     }
     @media ($mobile) {
         width: calc(70px * 0.72);
@@ -122,7 +136,8 @@ export default {
 
 .textHolder {
     padding-left: 25px;
-    @media ($mediumTablet) {
+    @media ($tablet) {
+        flex-grow: 0;
         width: 100%;
         padding-left: 0;
         text-align: center;
@@ -131,14 +146,14 @@ export default {
 
 .heading {
     margin-bottom: 2px;
-    @media ($tablet) {
+    @media ($largeTablet) {
         margin-bottom: 4px;
     }
 }
 
 .text {
     font-size: 16px;
-    @media ($tablet) {
+    @media ($largeTablet) {
         font-size: 15px;
     }
     @media ($mobile) {

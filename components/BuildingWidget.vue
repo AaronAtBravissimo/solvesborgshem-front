@@ -13,18 +13,20 @@
                     v-if="table"
                     class="tableHolder content w-full"
                 >
-                    <div
-                        v-for="(row, index) in table"
-                        :key="index"
-                        class="row flex"
-                    >
-                        <div class="column">
-                            <p class="tableText">{{ labels[index] }}:</p>
+                    <template v-for="(row, index) in table">
+                        <div
+                            v-if="row && row.length > 0 && labels[index]"
+                            :key="index"
+                            class="row flex"
+                        >
+                            <div class="column">
+                                <p class="tableText">{{ labels[index] }}:</p>
+                            </div>
+                            <div class="column flex-grow">
+                                <p class="tableText">{{ row }}</p>
+                            </div>
                         </div>
-                        <div class="column flex-grow">
-                            <p class="tableText">{{ row }}</p>
-                        </div>
-                    </div>
+                    </template>
                 </div>
                 <div
                     v-if="body"
@@ -75,6 +77,7 @@ export default {
             storageRoom: 'Förråd',
             laundryCottage: 'Tvättstuga',
             garageCarport: 'Garage/carport',
+            vegetation: 'Växtlighet',
             other: 'Övrigt',
         },
     }),
