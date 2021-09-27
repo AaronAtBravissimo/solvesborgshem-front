@@ -2,10 +2,6 @@
     <section class="socialPosts">
         <div class="top">
             <h2 class="heading">Följ oss</h2>
-            <Filters
-                :filters="filters"
-                @filterChanged="filterChanged"
-            />
         </div>
 
         <transition-group
@@ -37,25 +33,18 @@
 import axios from 'axios';
 import AppButton from './AppButton.vue';
 import Card from './Card.vue';
-import Filters from './Filters.vue';
 
 export default {
     components: {
         AppButton,
         Card,
-        Filters,
     },
     data() {
         return {
             loading: false,
             posts: [],
-            currentFilter: 0,
+            currentFilter: 'facebook',
             allLoaded: false,
-            filters: [
-                { label: 'Visa alla', value: 0 },
-                { label: 'Facebook', value: 'facebook' },
-                { label: 'Instagram', value: 'instagram' },
-            ],
         };
     },
     computed: {
@@ -79,12 +68,6 @@ export default {
         this.loadPosts();
     },
     methods: {
-        filterChanged(value) {
-            this.posts = [];
-            this.allLoaded = false;
-            this.currentFilter = value;
-            this.loadPosts();
-        },
         async loadPosts() {
             if (this.loading || this.allLoaded) return;
 
