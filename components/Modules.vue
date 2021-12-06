@@ -54,6 +54,11 @@
                 :heading="module.heading"
                 :files="module.files"
             />
+            <PremisesModule
+                v-if="module.acf_fc_layout === 'premises'"
+                :key="index"
+                :premises="module.premises"
+            />
         </template>
     </div>
 </template>
@@ -68,6 +73,7 @@ import MyPages from './MyPages.vue';
 import SearchPlace from './SearchPlace.vue';
 import Toggles from './Toggles.vue';
 import Files from './Files.vue';
+import PremisesModule from './PremisesModule.vue';
 
 export default {
     components: {
@@ -80,6 +86,7 @@ export default {
         SearchPlace,
         Toggles,
         Files,
+        PremisesModule,
     },
     props: {
         modules: {

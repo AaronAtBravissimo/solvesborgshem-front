@@ -32,7 +32,15 @@
                     v-if="body"
                     class="content"
                 >
-                    <p v-html="body"></p>
+                    <p
+                        v-if="!bodyInsideDiv"
+                        v-html="body"
+                    ></p>
+
+                    <div
+                        v-if="bodyInsideDiv"
+                        v-html="body"
+                    ></div>
                 </div>
             </div>
         </div>
@@ -57,6 +65,10 @@ export default {
         icon: {
             type: String,
             default: null,
+        },
+        bodyInsideDiv: {
+            type: Boolean,
+            default: false,
         },
     },
     data: () => ({
