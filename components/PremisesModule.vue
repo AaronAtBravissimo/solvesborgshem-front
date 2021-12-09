@@ -25,6 +25,12 @@
                                 @clicked="openLightbox(premise.images)"
                             />
                         </div>
+
+                        <AddressBox
+                            v-if="premise.googleMap"
+                            :cords="premise.googleMap"
+                            :address="premise.address"
+                        />
                     </div>
 
                     <div class="rightColumn">
@@ -46,6 +52,7 @@
 </template>
 
 <script>
+import AddressBox from './AddressBox.vue';
 import BuildingWidget from './BuildingWidget.vue';
 import AppButton from './AppButton.vue';
 import Photoswipe from './Photoswipe.vue';
@@ -58,6 +65,7 @@ const PhotoSwipeUIDefault = require('photoswipe/dist/photoswipe-ui-default.js');
 
 export default {
     components: {
+        AddressBox,
         BuildingWidget,
         AppButton,
         Photoswipe,
