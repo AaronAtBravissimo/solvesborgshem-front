@@ -99,7 +99,7 @@ module.exports = {
         [
             '@nuxtjs/google-analytics',
             {
-                id: 'UA-101268558-38',
+                id: 'UA-216588596-1',
             },
         ],
         '@/modules/generate',
