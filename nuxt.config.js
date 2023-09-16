@@ -87,6 +87,7 @@ module.exports = {
         { src: '~/plugins/v-click-outside', ssr: false },
         '~/plugins/app-link',
         '~/plugins/portal-vue',
+        { src: '~/plugins/cookie-consent-nuxt', ssr:false },
     ],
 
     /*
@@ -100,6 +101,7 @@ module.exports = {
             '@nuxtjs/google-analytics',
             {
                 id: 'UA-101268558-38',
+                disabled: true
             },
         ],
         '@/modules/generate',
