@@ -24,16 +24,12 @@
             <TheFooter/>
         </div>
         <ExpandedMenu/>
-        <no-ssr>
-            <CookieNotice/>
-        </no-ssr>
         <portal-target name="endOfPage"/>
     </div>
 </template>
 
 <script>
 import AboveHeader from '../components/AboveHeader.vue';
-import CookieNotice from '../components/CookieNotice.vue';
 import ExpandedMenu from '../components/ExpandedMenu.vue';
 import ExpandedSearch from '../components/ExpandedSearch.vue';
 import TheHeader from '../components/TheHeader.vue';
@@ -45,7 +41,6 @@ import AccessibilityLinks from '../components/AccessibilityLinks.vue';
 export default {
     components: {
         AboveHeader,
-        CookieNotice,
         ExpandedMenu,
         ExpandedSearch,
         TheHeader,
