@@ -7,7 +7,7 @@
                         :icon="apartmentsIcon"
                         label="Lediga lägenheter"
                         class="iconAndLabel thinLabel apartmentsIcon noMarginRight"
-                        url="/lediga-lagenheter//"
+                        url="/lediga-lagenheter/"
                     />
                     <AppButton
                         v-if="number > 0"
