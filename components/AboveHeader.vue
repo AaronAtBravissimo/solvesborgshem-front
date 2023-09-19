@@ -14,13 +14,13 @@
                         :counter="number"
                         label="Se lägenheter"
                         class="iconAndLabel availableApartments"
-                        url="/soka-bostad/lediga-lagenheter/"
+                        url="https://minasidor.solvesborgshem.se/"
                     />
                     <AppButton
                         :icon="penIcon"
                         label="Registrera dig"
                         class="registerButton iconAndLabel thinLabel penIcon noMarginRight"
-                        url="/mina-sidor/?vy=registrera"
+                        url="https://minasidor.solvesborgshem.se/"
                     />
                 </div>
                 <div class="right">
