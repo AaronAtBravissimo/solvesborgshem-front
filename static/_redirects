@@ -12,7 +12,8 @@ https://solvesborgshem.netlify.com/* https://www.solvesborgshem.se/:splat 301!
 # 301 Redirects
 # /old/ /new/ 301
 
-
+/lediga-lagenheter/* https://minasidor.solvesborgshem.se/ 301
+/mina-sidor/* https://minasidor.solvesborgshem.se/ 301
 /kontakt/kundtjanst/ /kundtjanst/ 301
 /kontakt/vanliga-fragor/ /kundtjanst/vanliga-fragor/ 301
 /omraden/vara-omraden/ /bostader/ 301
