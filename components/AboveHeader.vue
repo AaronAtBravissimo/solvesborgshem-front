@@ -7,20 +7,20 @@
                         :icon="apartmentsIcon"
                         label="Lediga lägenheter"
                         class="iconAndLabel thinLabel apartmentsIcon noMarginRight"
-                        url="https://minasidor.solvesborgshem.se/"
+                        url="/soka-bostad/lediga-lagenheter/"
                     />
                     <AppButton
                         v-if="number > 0"
                         :counter="number"
                         label="Se lägenheter"
                         class="iconAndLabel availableApartments"
-                        url="https://minasidor.solvesborgshem.se/"
+                        url="/soka-bostad/lediga-lagenheter/"
                     />
                     <AppButton
                         :icon="penIcon"
                         label="Registrera dig"
                         class="registerButton iconAndLabel thinLabel penIcon noMarginRight"
-                        url="https://minasidor.solvesborgshem.se/"
+                        url="/mina-sidor/?vy=registrera"
                     />
                 </div>
                 <div class="right">
