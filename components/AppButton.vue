@@ -87,7 +87,7 @@ export default {
     },
     computed: {
         isRelative() {
-            return this.url.substring(4) !== 'http';
+            return this.url.substring(0, 4) !== 'http';
         },
     },
     methods: {
