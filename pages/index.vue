@@ -11,7 +11,6 @@
             :shortcuts="page.shortcuts"
         />
         <StayWithUs/>
-        <SocialPosts/>
     </div>
 </template>
 
@@ -20,7 +19,6 @@ import page from '../static/json/-_-.json';
 import TheHeroSection from '../components/heroSection/TheHeroSection.vue';
 import Shortcuts from '../components/Shortcuts.vue';
 import StayWithUs from '../components/StayWithUs.vue';
-import SocialPosts from '../components/SocialPosts.vue';
 import { getMeta, updatePage } from '../utils/helpers';
 
 export default {
@@ -28,7 +26,6 @@ export default {
         TheHeroSection,
         Shortcuts,
         StayWithUs,
-        SocialPosts,
     },
     head() {
         return getMeta(this.page.yoast);
