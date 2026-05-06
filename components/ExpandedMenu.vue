@@ -30,9 +30,10 @@
                     <AppButton
                         :icon="userIcon"
                         :class="`appearDelay-${menu.items.length + 1}`"
-                        url="/mina-sidor/"
+                        url="https://minasidor.solvesborgshem.se/signin"
                         label="Mina sidor"
                         class="loginButton animation"
+                        target="_blank"
                     />
                 </li>
                 <li @click="$store.commit('closeMenu')">

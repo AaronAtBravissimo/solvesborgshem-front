@@ -8,9 +8,10 @@
                 <TheNavigation/>
                 <AppButton
                     :icon="userIcon"
-                    url="/mina-sidor/"
+                    url="https://minasidor.solvesborgshem.se/signin"
                     label="Mina sidor"
                     class="loginButton"
+                    target="_blank"
                 />
                 <SearchButton
                     name="searchButtonResponsive"
