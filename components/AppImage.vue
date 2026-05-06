@@ -1,10 +1,10 @@
 <template>
     <picture>
-        <source
+<!--         <source
             v-if="useWebp"
             :srcset="`${imageSrc}.webp`"
             type="image/webp"
-        >
+        > -->
         <img
             ref="image"
             :src="imageSrc"
