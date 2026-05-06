@@ -11,6 +11,7 @@
             :alt="alt"
             :class="{ 'loaded': isLoaded, 'ab100': !disableAb100 }"
             class="imageSrc objectFitCover"
+            fetchpriority="high"
         >
     </picture>
 </template>
