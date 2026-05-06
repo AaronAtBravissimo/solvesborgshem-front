@@ -126,11 +126,9 @@ module.exports = {
 
     router: {
         extendRoutes(routes, resolve) {
-            routes.push({
-                name: 'page',
-                path: '*',
-                component: resolve(__dirname, 'pages/_slug.vue'),
-            });
+            const autoBuilding = routes.findIndex(r => r.name === 'building');
+            if (autoBuilding !== -1) routes.splice(autoBuilding, 1);
+
             routes.push({
                 name: 'buildingSingle',
                 path: '/bostader/:slug',
@@ -145,6 +143,11 @@ module.exports = {
                 name: 'search',
                 path: '/sok/:keyword',
                 component: resolve(__dirname, 'pages/sok.vue'),
+            });
+            routes.push({
+                name: 'page',
+                path: '*',
+                component: resolve(__dirname, 'pages/_slug.vue'),
             });
         },
     },
