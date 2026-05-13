@@ -2,7 +2,7 @@
     <div class="artiklarPage">
         <div class="topBanner">
             <div class="container">
-                <h1 class="pageTitle">Nyheter &amp; Aktuellt</h1>
+                <h1 class="pageTitle">Nyheter</h1>
             </div>
         </div>
         <div class="wideContainer">

@@ -5,7 +5,7 @@
     >
         <div class="container">
             <h2 class="sectionHeading">
-                {{ heading || 'Nyheter & Aktuellt' }}
+                {{ heading || 'Nyheter' }}
             </h2>
             <div class="featuredGrid">
                 <div class="featuredMain">
