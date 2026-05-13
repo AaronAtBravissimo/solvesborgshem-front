@@ -1,7 +1,7 @@
 <template>
     <div class="artiklarPage">
         <div class="topBanner">
-            <div class="container">
+            <div class="wideContainer">
                 <h1 class="pageTitle">Nyheter</h1>
             </div>
         </div>
