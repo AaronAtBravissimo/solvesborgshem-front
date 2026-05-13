@@ -6,6 +6,7 @@
         <TheHeroSection
             :hero-section="page.heroSection"
         />
+        <NewsArchive />
         <Shortcuts
             v-if="page.shortcuts"
             :shortcuts="page.shortcuts"
@@ -19,6 +20,7 @@ import page from '../static/json/-_-.json';
 import TheHeroSection from '../components/heroSection/TheHeroSection.vue';
 import Shortcuts from '../components/Shortcuts.vue';
 import StayWithUs from '../components/StayWithUs.vue';
+import NewsArchive from '../components/NewsArchive.vue';
 import { getMeta, updatePage } from '../utils/helpers';
 
 export default {
@@ -26,6 +28,7 @@ export default {
         TheHeroSection,
         Shortcuts,
         StayWithUs,
+        NewsArchive,
     },
     head() {
         return getMeta(this.page.yoast);

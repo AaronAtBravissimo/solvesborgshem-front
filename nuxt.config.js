@@ -18,7 +18,11 @@ function getRoutes() {
         .get(`${apiUrl}/api/building`)
         .then(res => res.data.map(item => item.post_link.replace(baseUrl, '')));
 
-    return Promise.all([pages, buildings]).then(values => values.join().split(','));
+    const articles = axios
+        .get(`${apiUrl}/api/article`)
+        .then(res => res.data.map(item => item.post_link.replace(baseUrl, '')));
+
+    return Promise.all([pages, buildings, articles]).then(values => values.join().split(','));
 }
 
 class TailwindExtractor {
@@ -129,6 +133,9 @@ module.exports = {
             const autoBuilding = routes.findIndex(r => r.name === 'building');
             if (autoBuilding !== -1) routes.splice(autoBuilding, 1);
 
+            const autoArticle = routes.findIndex(r => r.name === 'article');
+            if (autoArticle !== -1) routes.splice(autoArticle, 1);
+
             routes.push({
                 name: 'buildingSingle',
                 path: '/bostader/:slug',
@@ -143,6 +150,11 @@ module.exports = {
                 name: 'search',
                 path: '/sok/:keyword',
                 component: resolve(__dirname, 'pages/sok.vue'),
+            });
+            routes.push({
+                name: 'articleSingle',
+                path: '/artiklar/:slug',
+                component: resolve(__dirname, 'pages/_article.vue'),
             });
             routes.push({
                 name: 'page',

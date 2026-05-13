@@ -56,6 +56,25 @@ async function generateToggles(dir) {
     });
 }
 
+async function generateArticles(dir) {
+    const res = await axios.get(`${apiUrl}/api/article`);
+
+    const path = `${dir}/articles.json`;
+    fs.writeFile(path, JSON.stringify(res.data), (err) => {
+        if (err) throw err;
+    });
+
+    res.data.forEach((page) => {
+        let name = page.post_link.replace(baseUrl, '');
+        name = name.replace(/\//g, '-_-');
+        name = name.replace(/\\/g, '-_-');
+        const path = `${dir}/${name}.json`;
+        fs.writeFile(path, JSON.stringify(page), (err) => {
+            if (err) throw err;
+        });
+    });
+}
+
 async function generateMenu(dir) {
     const res = await axios.get(`${apiUrl}/menus/v1/menus/primary`);
 
@@ -80,6 +99,7 @@ export default async function generateJsonFiles(dir) {
         generateBuildings(dir),
         generateEmployees(dir),
         generateToggles(dir),
+        generateArticles(dir),
         generateMenu(dir),
         generateOptions(dir),
     ]);
