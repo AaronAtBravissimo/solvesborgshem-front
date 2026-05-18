@@ -185,7 +185,8 @@ export default {
     color: rgba(255,255,255,0.85);
 }
 .newsCardTitle {
-    font-family: $secondaryFont;
+    font-family: $primaryFont;
+    text-transform: none;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.25;
