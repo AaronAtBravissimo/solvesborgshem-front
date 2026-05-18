@@ -79,7 +79,7 @@ export default {
 }
 
 .sectionHeading {
-    font-family: $secondaryFont;
+    font-family: $primaryFont;
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 28px;
